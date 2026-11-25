@@ -153,6 +153,59 @@ details.drill[open] > summary::before{rotate:0deg}
 
 旧浏览器（或不支持 `interpolate-size` 的）退化为瞬开，内容不受影响。不要为此引入 JS 高度计算。
 
+## 文法条目与跳回高亮
+
+文法层的每条是两行：第一行「句型名 + 原句片段」，第二行说明。片段用朱红 `<em>` 圈出被讲的词，带一圈极淡的马克笔底；不要给整行加底色块。
+
+```css
+.d-row > h4 .row-jump{
+  display:block;margin-top:7px;font-size:9px;letter-spacing:.1em;
+  color:var(--ink-3);text-decoration:none;border-bottom:1px dotted transparent;
+}
+.d-row > h4 .row-jump:hover{color:var(--shu);border-bottom-color:var(--shu-soft)}
+
+.items{display:grid;gap:13px}
+.items li{
+  padding-left:14px;position:relative;display:grid;gap:3px;
+  font-size:13.5px;line-height:1.78;color:var(--ink-2);
+}
+.items li::before{top:.64em}          /* 覆盖基础样式的朱线小横杠位置 */
+.items .g-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:.15em .65em}
+.items .g-h b{margin-right:0;font-size:14px}
+.items .g-src{
+  font-family:var(--serif-jp);font-size:13px;line-height:1.55;
+  color:#6b6358;text-decoration:none;padding-bottom:1.5px;
+  border-bottom:1px dotted rgba(178,58,43,.22);
+}
+.items .g-src em{
+  font-style:normal;font-weight:500;color:var(--shu);
+  background:linear-gradient(180deg,transparent 58%,rgba(178,58,43,.13) 58%);
+}
+.items .g-src:hover{color:var(--ink);border-bottom-color:var(--shu)}
+.items .g-t{display:block}
+@media (max-width:560px){.items .g-h{gap:.1em .5em}}
+```
+
+`#6b6358` 是下限：再浅（`--ink-3`）在 1440 下几乎读不出来。窄屏时 `.g-h` 自动折成两行，不要改小字号硬塞。
+
+跳回信纸时的定位与示位：
+
+```css
+.para{scroll-margin-top:92px}       /* 避开吸顶栏 */
+.para:target .jp{animation:paraflash 2.2s ease-out both}
+.para:target .num{color:var(--shu)}
+@keyframes paraflash{
+  0%{box-shadow:inset 3px 0 0 rgba(178,58,43,.9);background:rgba(178,58,43,.045)}
+  45%{box-shadow:inset 3px 0 0 rgba(178,58,43,.4);background:rgba(178,58,43,.03)}
+  100%{box-shadow:inset 3px 0 0 rgba(178,58,43,0);background:rgba(178,58,43,0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .para:target .jp{animation:none;background:rgba(178,58,43,.06)}
+}
+```
+
+静态整块粉色背景看着像文字被选中，闪一下再收才像定位提示。
+
 ## 进场动画：必须由 JS 门控
 
 ```html

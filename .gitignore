@@ -2,3 +2,4 @@
 .workbuddy/*
 !.workbuddy/skills/
 .shot/
+__pycache__/

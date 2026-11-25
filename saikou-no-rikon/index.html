@@ -930,59 +930,6 @@ table.vocab tbody tr:hover{background:rgba(178,58,43,.03)}
   color:var(--ink-3);
 }
 
-/* ============ 语法 ============ */
-.grammar{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
-  gap:1px;
-}
-.g-card{
-  background:var(--paper);
-  padding:22px 22px 24px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  box-shadow:0 0 0 1px var(--line-soft);
-}
-.sec:nth-of-type(even) .g-card{background:#faf7f0}
-.g-card h3{
-  margin:0;
-  font-family:var(--serif-jp);
-  font-size:16px;
-  font-weight:600;
-  letter-spacing:.05em;
-  color:var(--ink);
-}
-.g-card .mean{
-  font-family:var(--serif-cn);
-  font-size:13px;
-  color:var(--ink-2);
-  line-height:1.75;
-  margin:0;
-}
-.g-card .ex{
-  margin:0;
-  padding-top:10px;
-  border-top:1px dashed var(--line);
-  font-family:var(--serif-jp);
-  font-size:12.5px;
-  line-height:1.8;
-  color:var(--ink-3);
-  letter-spacing:.02em;
-}
-.g-card .ex em{
-  font-style:normal;
-  color:var(--shu);
-  background:rgba(178,58,43,.06);
-  padding:0 2px;
-}
-.g-tag{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.08em;
-  color:#a99e90;
-}
-
 /* ============ 页脚 ============ */
 footer{
   border-top:1px solid var(--line);
@@ -1117,6 +1064,82 @@ details.drill:not([open])::details-content{block-size:0}
   .play{display:none}
   table.vocab th,table.vocab td{padding-inline:12px}
   table.vocab th:nth-child(3),table.vocab td:nth-child(3){display:none}
+}
+
+/* 文法条目：原句片段与跳回 */
+.d-row > h4 .row-jump{
+  display:block;
+  margin-top:7px;
+  font-size:9px;
+  letter-spacing:.1em;
+  color:var(--ink-3);
+  text-decoration:none;
+  border-bottom:1px dotted transparent;
+  transition:color .18s ease,border-color .18s ease;
+}
+.d-row > h4 .row-jump:hover,
+.d-row > h4 .row-jump:focus-visible{
+  color:var(--shu);
+  border-bottom-color:var(--shu-soft);
+}
+.items{display:grid;gap:13px}
+.items li{
+  padding-left:14px;
+  position:relative;
+  display:grid;
+  gap:3px;
+  font-size:13.5px;
+  line-height:1.78;
+  color:var(--ink-2);
+}
+.items li::before{top:.64em}
+.items .g-h{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.15em .65em;
+}
+.items .g-h b{
+  margin-right:0;
+  font-size:14px;
+}
+.items .g-src{
+  font-family:var(--serif-jp);
+  font-size:13px;
+  line-height:1.55;
+  letter-spacing:.02em;
+  color:#6b6358;
+  text-decoration:none;
+  padding-bottom:1.5px;
+  border-bottom:1px dotted rgba(178,58,43,.22);
+  transition:color .18s ease,border-color .18s ease;
+}
+.items .g-src em{
+  font-style:normal;
+  font-weight:500;
+  color:var(--shu);
+  background:linear-gradient(180deg,transparent 58%,rgba(178,58,43,.13) 58%);
+}
+.items .g-src:hover,
+.items .g-src:focus-visible{
+  color:var(--ink);
+  border-bottom-color:var(--shu);
+}
+.items .g-t{display:block}
+
+.para{scroll-margin-top:92px}
+.para:target .jp{animation:paraflash 2.2s ease-out both}
+.para:target .num{color:var(--shu);border-color:var(--shu)}
+@keyframes paraflash{
+  0%{box-shadow:inset 3px 0 0 rgba(178,58,43,.9);background:rgba(178,58,43,.045)}
+  45%{box-shadow:inset 3px 0 0 rgba(178,58,43,.4);background:rgba(178,58,43,.03)}
+  100%{box-shadow:inset 3px 0 0 rgba(178,58,43,0);background:rgba(178,58,43,0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .para:target .jp{animation:none;background:rgba(178,58,43,.06)}
+}
+@media (max-width:560px){
+  .items .g-h{gap:.1em .5em}
 }
 
 /* ============ 打印 ============ */
@@ -1375,16 +1398,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p1" title="第 1 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～ながら（逆接）</b>動詞ます形＋ながら。「～のに」の書き言葉版で、「も」を足すと少し重くなる。ここは「暦の上では春なのに」。</li>
-                    <li><b>いかがお過ごしですか</b>「いかが」は「どう」の丁寧形。「お＋和語動詞＋です」で相手の様子を尋ねる、手紙の定型。</li>
-                    <li><b>～など</b>例をぼかす副助詞。「風邪など」＝風邪なんか。「霜焼けなど」と続けて、心配の粒度を細かくしていく。</li>
-                    <li><b>～のついでに</b>「ついで」＝順番のついで、ついでの用事。ここは「寒く長い夜（を過ごす）ついでに」＝そのついでにちょっと。</li>
-                    <li><b>目を通す</b>慣用句で「ざっと見る」。「読む」より軽い。相手に負担をかけまいとする言い方。</li>
-                    <li><b>～ていただければ幸いです</b>動詞て形＋いただければ（＝してもらえれば の謙譲）＋幸いです。「承蒙您……，不胜荣幸」。</li>
-                    <li><b>～ております</b>「～ています」の丁寧な形。ここは謙譲ではなく、改まった場面の丁寧体。</li>
+                    <li><span class="g-h"><b>～ながら（逆接）</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">暦の上に春は立ち<em>ながら</em>厳しい寒さが続いております</a></span><span class="g-t">動詞ます形＋ながら。「～のに」の書き言葉版で、「も」を足すと少し重くなる。ここは「暦の上では春なのに」。</span></li>
+
+                    <li><span class="g-h"><b>いかがお過ごしですか</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>いかがお過ごしですか</em></a></span><span class="g-t">「いかが」は「どう」の丁寧形。「お＋和語動詞＋です」で相手の様子を尋ねる、手紙の定型。</span></li>
+
+                    <li><span class="g-h"><b>～など</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">風邪<em>など</em>ひいていませんか</a></span><span class="g-t">例をぼかす副助詞。「風邪など」＝風邪なんか。「霜焼けなど」と続けて、心配の粒度を細かくしていく。</span></li>
+
+                    <li><span class="g-h"><b>～のついでに</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">寒く長い夜の<em>ついでに</em></a></span><span class="g-t">「ついで」＝順番のついで、ついでの用事。ここは「寒く長い夜（を過ごす）ついでに」＝そのついでにちょっと。</span></li>
+
+                    <li><span class="g-h"><b>目を通す</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>目を通し</em>ていただければ幸いです</a></span><span class="g-t">慣用句で「ざっと見る」。「読む」より軽い。相手に負担をかけまいとする言い方。</span></li>
+
+                    <li><span class="g-h"><b>～ていただければ幸いです</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">目を通し<em>ていただければ幸いです</em></a></span><span class="g-t">動詞て形＋いただければ（＝してもらえれば の謙譲）＋幸いです。「承蒙您……，不胜荣幸」。</span></li>
+
+                    <li><span class="g-h"><b>～ております</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">続い<em>ております</em>が</a></span><span class="g-t">「～ています」の丁寧な形。ここは謙譲ではなく、改まった場面の丁寧体。</span></li>
                 </ul>
               </div>
             </div>
@@ -1429,16 +1458,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p2" title="第 2 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～に関して</b>名詞＋に関して。「～について」の硬い形で、告知・報告に合う。</li>
-                    <li><b>～て3年目を迎える</b>「暮らして3年目」＝住下来（到现在）第三年。「～て」は状態の接続で、順番ではない。</li>
-                    <li><b>なぜか</b>理由が分からないまま、そうなっている様子。「不知为何」。</li>
-                    <li><b>～ながら（同時）</b>「ニュースを見ながら話す」＝边看边聊。二つの動作を同じ主語が同時に行う。</li>
-                    <li><b>～のでしょうか</b>「～のだろうか」の丁寧形。断定を避けた推量の疑問で、独り言に近い。</li>
-                    <li><b>～ことがある</b>「～する場合がある」＝有这种情况。ここでは「株価が猫に影響することがあるのか」と疑っている。</li>
-                    <li><b>わが家</b>自分の家を「わが（我が）」で受ける。少し改まった、あるいは愛着のある言い方。</li>
+                    <li><span class="g-h"><b>～に関して</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">2匹の猫<em>に関して</em>お知らせします</a></span><span class="g-t">名詞＋に関して。「～について」の硬い形で、告知・報告に合う。</span></li>
+
+                    <li><span class="g-h"><b>～て3年目を迎える</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">わが家に暮らし<em>て3年目を迎える</em></a></span><span class="g-t">「暮らして3年目」＝住下来（到现在）第三年。「～て」は状態の接続で、順番ではない。</span></li>
+
+                    <li><span class="g-h"><b>なぜか</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">彼らは<em>なぜか</em>最近テレビをよく見ます</a></span><span class="g-t">理由が分からないまま、そうなっている様子。「不知为何」。</span></li>
+
+                    <li><span class="g-h"><b>～ながら（同時）</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">株価のニュースを見<em>ながら</em>話をしています</a></span><span class="g-t">「ニュースを見ながら話す」＝边看边聊。二つの動作を同じ主語が同時に行う。</span></li>
+
+                    <li><span class="g-h"><b>～のでしょうか</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">作用する<em>ことがあるのでしょうか</em></a></span><span class="g-t">「～のだろうか」の丁寧形。断定を避けた推量の疑問で、独り言に近い。</span></li>
+
+                    <li><span class="g-h"><b>～ことがある</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">作用する<em>ことがある</em>のでしょうか</a></span><span class="g-t">「～する場合がある」＝有这种情况。ここでは「株価が猫に影響することがあるのか」と疑っている。</span></li>
+
+                    <li><span class="g-h"><b>わが家</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ"><em>わが家</em>に暮らして3年目</a></span><span class="g-t">自分の家を「わが（我が）」で受ける。少し改まった、あるいは愛着のある言い方。</span></li>
                 </ul>
               </div>
             </div>
@@ -1483,15 +1518,20 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p3" title="第 3 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～では</b>場所を主題として立てる。「店では誰それが…」という報告の型。</li>
-                    <li><b>～もあって</b>名詞＋もあって。「～という事情もあって」＝也有这层原因。原因は一つではない、という婉曲。</li>
-                    <li><b>～ており</b>「～ていて」の書面形。前後を一続きにつなぐ中顿で、報告文らしくなる。</li>
-                    <li><b>～ことしばしばです</b>「～することもしばしばだ」の硬い形＝屡见不鲜。頻度を名詞にして、わざと冷たく言う。</li>
-                    <li><b>悲鳴を上げる</b>慣用句で「悲鳴を発する」。「悲鳴を上げて帰る」＝尖叫着回去。</li>
-                    <li><b>～こと（名詞化）</b>「女性客が…帰ること」をひとまとまりの名詞にして、述語「しばしばです」につなぐ。</li>
+                    <li><span class="g-h"><b>～では</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">金魚カフェ<em>では</em>姉の体調もあって</a></span><span class="g-t">場所を主題として立てる。「店では誰それが…」という報告の型。</span></li>
+
+                    <li><span class="g-h"><b>～もあって</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">姉の体調<em>もあって</em></a></span><span class="g-t">名詞＋もあって。「～という事情もあって」＝也有这层原因。原因は一つではない、という婉曲。</span></li>
+
+                    <li><span class="g-h"><b>～ており</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">常軌を逸し<em>ており</em></a></span><span class="g-t">「～ていて」の書面形。前後を一続きにつなぐ中顿で、報告文らしくなる。</span></li>
+
+                    <li><span class="g-h"><b>～ことしばしばです</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">帰る<em>ことしばしばです</em></a></span><span class="g-t">「～することもしばしばだ」の硬い形＝屡见不鲜。頻度を名詞にして、わざと冷たく言う。</span></li>
+
+                    <li><span class="g-h"><b>悲鳴を上げる</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ"><em>悲鳴を上げて</em>帰ることしばしばです</a></span><span class="g-t">慣用句で「悲鳴を発する」。「悲鳴を上げて帰る」＝尖叫着回去。</span></li>
+
+                    <li><span class="g-h"><b>～こと（名詞化）</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">女性客が悲鳴を上げて帰る<em>こと</em>しばしばです</a></span><span class="g-t">「女性客が…帰ること」をひとまとまりの名詞にして、述語「しばしばです」につなぐ。</span></li>
                 </ul>
               </div>
             </div>
@@ -1537,16 +1577,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p4" title="第 4 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～に紹介されて</b>受身。「（私が）上原さんに紹介されて」——主語は私だが省略されている。</li>
-                    <li><b>ついに</b>「终于」。待っていたことが実現した、という感慨。</li>
-                    <li><b>まるで～のような</b>比喩。「まるで」と「よう」が呼応する。口语では「よう」を省くことも。</li>
-                    <li><b>～だったのです</b>「のだ」の過去形。説明・納得の语气：「原来是这样」。</li>
-                    <li><b>おっしゃっていました</b>尊敬語「おっしゃる」（＝言う）＋ていた。他人の言葉を伝えるときも動詞を上げる。</li>
-                    <li><b>～かどうか</b>「友達になれるかどうか」＝能不能成为朋友。疑問文を名詞節に包む。</li>
-                    <li><b>ちょっと＋否定</b>「ちょっと分かりません」＝不太清楚。直接否定を避ける婉曲表現。</li>
+                    <li><span class="g-h"><b>～に紹介されて</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">上原さん<em>に紹介されて</em>先日</a></span><span class="g-t">受身。「（私が）上原さんに紹介されて」——主語は私だが省略されている。</span></li>
+
+                    <li><span class="g-h"><b>ついに</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">先日<em>ついに</em>河合さんと対面しました</a></span><span class="g-t">「终于」。待っていたことが実現した、という感慨。</span></li>
+
+                    <li><span class="g-h"><b>まるで～のような</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ"><em>まるで</em>ギリシャ彫刻の<em>ような</em>二枚目</a></span><span class="g-t">比喩。「まるで」と「よう」が呼応する。口语では「よう」を省くことも。</span></li>
+
+                    <li><span class="g-h"><b>～だったのです</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">二枚目<em>だったのです</em></a></span><span class="g-t">「のだ」の過去形。説明・納得の语气：「原来是这样」。</span></li>
+
+                    <li><span class="g-h"><b>おっしゃっていました</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">「やあ、初めまして」と<em>おっしゃっていました</em></a></span><span class="g-t">尊敬語「おっしゃる」（＝言う）＋ていた。他人の言葉を伝えるときも動詞を上げる。</span></li>
+
+                    <li><span class="g-h"><b>～かどうか</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">友達になれる<em>かどうか</em>は</a></span><span class="g-t">「友達になれるかどうか」＝能不能成为朋友。疑問文を名詞節に包む。</span></li>
+
+                    <li><span class="g-h"><b>ちょっと＋否定</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ"><em>ちょっと</em>分かりません</a></span><span class="g-t">「ちょっと分かりません」＝不太清楚。直接否定を避ける婉曲表現。</span></li>
                 </ul>
               </div>
             </div>
@@ -1592,15 +1638,20 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p5" title="第 5 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～を歩く／～を行き交う</b>移動の「を」。通過する場所を目的語のように取る。</li>
-                    <li><b>～ながら（同時）</b>「待ちわびる」と「取り交わす」を一人の動作として重ねる。</li>
-                    <li><b>すでに</b>「已经」。予定より早い、という含み。</li>
-                    <li><b>～のですね</b>「～のだ」＋「ね」。質問ではなく、感慨と確認。</li>
-                    <li><b>時季 / 時期</b>「時季」は季節性のある旬（花の時季）；「時期」は時間的な区切り。ここは「時季」しか使えない。</li>
-                    <li><b>待ちわびる</b>待ちきれないほど待つ。「わびる」は「侘びる」ではなく、動詞の補助で「～しきる」。</li>
+                    <li><span class="g-h"><b>～を歩く／～を行き交う</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">目黒川<em>を行き交う</em>人々</a></span><span class="g-t">移動の「を」。通過する場所を目的語のように取る。</span></li>
+
+                    <li><span class="g-h"><b>～ながら（同時）</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">開花の時季を待ちわび<em>ながら</em></a></span><span class="g-t">「待ちわびる」と「取り交わす」を一人の動作として重ねる。</span></li>
+
+                    <li><span class="g-h"><b>すでに</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ"><em>すでに</em>花見の約束を取り交わしています</a></span><span class="g-t">「已经」。予定より早い、という含み。</span></li>
+
+                    <li><span class="g-h"><b>～のですね</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">季節が訪れる<em>のですね</em></a></span><span class="g-t">「～のだ」＋「ね」。質問ではなく、感慨と確認。</span></li>
+
+                    <li><span class="g-h"><b>時季 / 時期</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">開花の<em>時季</em>を待ちわびながら</a></span><span class="g-t">「時季」は季節性のある旬（花の時季）；「時期」は時間的な区切り。ここは「時季」しか使えない。</span></li>
+
+                    <li><span class="g-h"><b>待ちわびる</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">開花の時季を<em>待ちわび</em>ながら</a></span><span class="g-t">待ちきれないほど待つ。「わびる」は「侘びる」ではなく、動詞の補助で「～しきる」。</span></li>
                 </ul>
               </div>
             </div>
@@ -1649,16 +1700,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p6" title="第 6 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～の夢を見る</b>固定搭配：夢を見る＝做梦。「君の夢を見る」＝梦到你，不是「做了你的梦」。</li>
-                    <li><b>～てくる</b>方向の「てくる」。「抱えてくる」＝抱着（朝こちらへ）来。</li>
-                    <li><b>体を持ち上げられて</b>受身＋て。「被气球轻轻托起」，主语是「僕と君」。</li>
-                    <li><b>見下ろすと…見えました</b>「と」表契机：一往下看，就看见了。叙述里的镜头切换。</li>
-                    <li><b>～しかない</b>「飛んでいくしかない」＝只能飞走。唯一的选项，正是「非力」的语法化。</li>
-                    <li><b>形容動詞語幹＋さ</b>非力（ひりき）→ 非力さ。把状态变成可以度量的名词。</li>
-                    <li><b>少し＋感情</b>「少し悲しかった」——不写「悲しい」，写「有一点」。日语克制的标准做法。</li>
+                    <li><span class="g-h"><b>～の夢を見る</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">君<em>の夢を見ました</em></a></span><span class="g-t">固定搭配：夢を見る＝做梦。「君の夢を見る」＝梦到你，不是「做了你的梦」。</span></li>
+
+                    <li><span class="g-h"><b>～てくる</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">風船を抱え<em>てくる</em>夢でした</a></span><span class="g-t">方向の「てくる」。「抱えてくる」＝抱着（朝こちらへ）来。</span></li>
+
+                    <li><span class="g-h"><b>体を持ち上げられて</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">風船に軽く<em>体を持ち上げられて</em>空を飛びました</a></span><span class="g-t">受身＋て。「被气球轻轻托起」，主语是「僕と君」。</span></li>
+
+                    <li><span class="g-h"><b>見下ろすと…見えました</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ"><em>見下ろすと</em>マチルダとはっさくが見上げてるのが<em>見えました</em></a></span><span class="g-t">「と」表契机：一往下看，就看见了。叙述里的镜头切换。</span></li>
+
+                    <li><span class="g-h"><b>～しかない</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">飛んでいく<em>しかない</em></a></span><span class="g-t">「飛んでいくしかない」＝只能飞走。唯一的选项，正是「非力」的语法化。</span></li>
+
+                    <li><span class="g-h"><b>形容動詞語幹＋さ</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">非力<em>さ</em>が少し悲しかったです</a></span><span class="g-t">非力（ひりき）→ 非力さ。把状态变成可以度量的名词。</span></li>
+
+                    <li><span class="g-h"><b>少し＋感情</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">非力さが<em>少し</em>悲しかったです</a></span><span class="g-t">「少し悲しかった」——不写「悲しい」，写「有一点」。日语克制的标准做法。</span></li>
                 </ul>
               </div>
             </div>
@@ -1705,16 +1762,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p7" title="第 7 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～を歩く</b>移動の「を」。道・橋・角などを通過する。</li>
-                    <li><b>不思議と＋否定</b>「不思議と一人になった気がしません」＝说来奇怪，并不觉得是一个人了。</li>
-                    <li><b>～気がする／気がしない</b>感觉的判断。「気がしない」是否定形，不是「没有心情」。</li>
-                    <li><b>～と共に</b>「記憶と共に暮らす」＝和记忆一起生活。抽象名词也能用。</li>
-                    <li><b>～ていた（過去の継続）</b>「歌っていた歌」＝那时候一直在唱的歌。定语的时态比中文精确。</li>
-                    <li><b>体言止め</b>「そんな光景。」——名词收句，不给谓语。留白，也留住了画面。</li>
-                    <li><b>そんな＋N</b>「そんな始まり、そんな光景」と二度繰り返す。指示語だけで内容を引き受ける技法。</li>
+                    <li><span class="g-h"><b>～を歩く</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">川沿いの道を今日も<em>歩きます</em></a></span><span class="g-t">移動の「を」。道・橋・角などを通過する。</span></li>
+
+                    <li><span class="g-h"><b>不思議と＋否定</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ"><em>不思議と</em>一人になった気がしません</a></span><span class="g-t">「不思議と一人になった気がしません」＝说来奇怪，并不觉得是一个人了。</span></li>
+
+                    <li><span class="g-h"><b>～気がする／気がしない</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">一人になった<em>気がしません</em></a></span><span class="g-t">感觉的判断。「気がしない」是否定形，不是「没有心情」。</span></li>
+
+                    <li><span class="g-h"><b>～と共に</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">君の記憶<em>と共に</em>暮らしています</a></span><span class="g-t">「記憶と共に暮らす」＝和记忆一起生活。抽象名词也能用。</span></li>
+
+                    <li><span class="g-h"><b>～ていた（過去の継続）</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">お風呂場で歌っ<em>ていた</em>歌</a></span><span class="g-t">「歌っていた歌」＝那时候一直在唱的歌。定语的时态比中文精确。</span></li>
+
+                    <li><span class="g-h"><b>体言止め</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">そんなふうに始まる歌、<em>そんな光景。</em></a></span><span class="g-t">「そんな光景。」——名词收句，不给谓语。留白，也留住了画面。</span></li>
+
+                    <li><span class="g-h"><b>そんな＋N</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ"><em>そんな</em>光景。</a></span><span class="g-t">「そんな始まり、そんな光景」と二度繰り返す。指示語だけで内容を引き受ける技法。</span></li>
                 </ul>
               </div>
             </div>
@@ -1758,16 +1821,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p8" title="第 8 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～たときのこと</b>把整件事装进「こと」里，作为回忆的容器。后面可以自由展开细节。</li>
-                    <li><b>～に気がつく</b>「注意到」。気がつく 是自动词性的惯用，不用「を」。</li>
-                    <li><b>そもそも</b>「本来、最初から」。話を根元に戻す副詞。</li>
-                    <li><b>～のかさえ</b>「さえ」表极端例示：连……都忘了。比「も」更用力。</li>
-                    <li><b>～たら（契機）</b>「半分に割ったら」＝一掰开，发现……。不是假定，是「做了之后发现」。</li>
-                    <li><b>て形の連続</b>「食べて、笑って、手をつないで」——短句并列，不加接续词。节奏本身就是幸福感。</li>
-                    <li><b>声にならない</b>没成声的、说不成话的。中文「含糊不清」只译了结果。</li>
+                    <li><span class="g-h"><b>～たときのこと</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">DVDを借りに出掛け<em>たときのこと</em></a></span><span class="g-t">把整件事装进「こと」里，作为回忆的容器。后面可以自由展开细节。</span></li>
+
+                    <li><span class="g-h"><b>～に気がつく</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">月がずいぶんと大きなこと<em>に気がついた</em></a></span><span class="g-t">「注意到」。気がつく 是自动词性的惯用，不用「を」。</span></li>
+
+                    <li><span class="g-h"><b>そもそも</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ"><em>そもそも</em>なぜ出掛けたのか</a></span><span class="g-t">「本来、最初から」。話を根元に戻す副詞。</span></li>
+
+                    <li><span class="g-h"><b>～のかさえ</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">出掛けた<em>のかさえ</em>忘れて</a></span><span class="g-t">「さえ」表极端例示：连……都忘了。比「も」更用力。</span></li>
+
+                    <li><span class="g-h"><b>～たら（契機）</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">半分に割っ<em>たら</em>大きさがまるで違って</a></span><span class="g-t">「半分に割ったら」＝一掰开，发现……。不是假定，是「做了之后发现」。</span></li>
+
+                    <li><span class="g-h"><b>て形の連続</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">じゃんけんし<em>て</em>食べ<em>て</em>、笑っ<em>て</em>、手をつない<em>で</em>、</a></span><span class="g-t">「食べて、笑って、手をつないで」——短句并列，不加接续词。节奏本身就是幸福感。</span></li>
+
+                    <li><span class="g-h"><b>声にならない</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ"><em>声にならない</em>返事をしました</a></span><span class="g-t">没成声的、说不成话的。中文「含糊不清」只译了结果。</span></li>
                 </ul>
               </div>
             </div>
@@ -1815,16 +1884,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p9" title="第 9 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～たことがある（要注意）</b>ここは「知った＋こと＋がある」＝有「知道了的事」。不是「曾经……过」的句型。看结构，不要看词组。</li>
-                    <li><b>～こと（名詞化の列挙）</b>整段的骨架：把一个个动作变成「こと」，像清单一样排下去。名词化让琐事获得重量。</li>
-                    <li><b>いつの間にか / いつしか</b>都是「不知不觉」。前者口语，后者书面且更旧，带一点叹息。</li>
-                    <li><b>間違えてはいて</b>「間違えて」＋「履いて」。履く＝穿（鞋、袜、裤）。穿错的是女式袜子。</li>
-                    <li><b>～たら（仮定）</b>「怖い夢を見たら寄り添う」＝如果做了噩梦，就挨过去。习惯性的假定。</li>
-                    <li><b>～まま</b>「くっついたまま」＝就那样贴着，保持原状。时间在这里停住了。</li>
-                    <li><b>～を受け取る</b>「爱情を受け取る」——把爱当成可以收下的东西，是光生的说法。</li>
+                    <li><span class="g-h"><b>～たことがある（要注意）</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">君と結婚して<em>知ったことがあります</em></a></span><span class="g-t">ここは「知った＋こと＋がある」＝有「知道了的事」。不是「曾经……过」的句型。看结构，不要看词组。</span></li>
+
+                    <li><span class="g-h"><b>～こと（名詞化の列挙）</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">日常に変わる<em>こと</em>、日常が喜びに変わる<em>こと</em></a></span><span class="g-t">整段的骨架：把一个个动作变成「こと」，像清单一样排下去。名词化让琐事获得重量。</span></li>
+
+                    <li><span class="g-h"><b>いつの間にか / いつしか</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ"><em>いつの間にか</em>消えてる冷蔵庫のプリン</a></span><span class="g-t">都是「不知不觉」。前者口语，后者书面且更旧，带一点叹息。</span></li>
+
+                    <li><span class="g-h"><b>間違えてはいて</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ"><em>間違えてはいて</em>出掛けた女物の靴下</a></span><span class="g-t">「間違えて」＋「履いて」。履く＝穿（鞋、袜、裤）。穿错的是女式袜子。</span></li>
+
+                    <li><span class="g-h"><b>～たら（仮定）</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">怖い夢を見<em>たら</em>寄り添うこと</a></span><span class="g-t">「怖い夢を見たら寄り添う」＝如果做了噩梦，就挨过去。习惯性的假定。</span></li>
+
+                    <li><span class="g-h"><b>～まま</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">カーテンの隙間にくっつい<em>たまま</em></a></span><span class="g-t">「くっついたまま」＝就那样贴着，保持原状。时间在这里停住了。</span></li>
+
+                    <li><span class="g-h"><b>～を受け取る</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">君の愛情<em>を受け取って</em>います</a></span><span class="g-t">「爱情を受け取る」——把爱当成可以收下的东西，是光生的说法。</span></li>
                 </ul>
               </div>
             </div>
@@ -1882,15 +1957,20 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p10" title="第 10 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>一人ずつ／二人で</b>矛盾する二つの副詞句をそのまま並べる。「各自一个人」と「两个人一起」が同時に成立する状態。</li>
-                    <li><b>～の中に住んでいる／～の中に迷い込んだ</b>对称构造。僕の中に君が住み、君の中に僕が迷い込んだ。</li>
-                    <li><b>～ながら（逆接）</b>「愚かさを思いながら、それでも思います」＝明知愚蠢，却还是这样想。</li>
-                    <li><b>それでも</b>前の内容を認めた上で、それでも、と押し切る副詞。</li>
-                    <li><b>～んです</b>「～のです」の口語形。説明・弁解・自白の语气。句尾一软，人就露出来了。</li>
-                    <li><b>同文反復</b>07 と同じ文で始め、同じ文で終える。挟まれた内容だけが変わっている。</li>
+                    <li><span class="g-h"><b>一人ずつ／二人で</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>一人ずつ二人で</em>生きていたこと</a></span><span class="g-t">矛盾する二つの副詞句をそのまま並べる。「各自一个人」と「两个人一起」が同時に成立する状態。</span></li>
+
+                    <li><span class="g-h"><b>～の中に住んでいる／～の中に迷い込んだ</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">僕の中に<em>住んでいる</em>君、君の中に<em>迷い込んだ</em>僕</a></span><span class="g-t">对称构造。僕の中に君が住み、君の中に僕が迷い込んだ。</span></li>
+
+                    <li><span class="g-h"><b>～ながら（逆接）</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">愚かさを思い<em>ながら</em>それでも思います</a></span><span class="g-t">「愚かさを思いながら、それでも思います」＝明知愚蠢，却还是这样想。</span></li>
+
+                    <li><span class="g-h"><b>それでも</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">思いながら<em>それでも</em>思います</a></span><span class="g-t">前の内容を認めた上で、それでも、と押し切る副詞。</span></li>
+
+                    <li><span class="g-h"><b>～んです</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">同じことを話す<em>んです</em></a></span><span class="g-t">「～のです」の口語形。説明・弁解・自白の语气。句尾一软，人就露出来了。</span></li>
+
+                    <li><span class="g-h"><b>同文反復</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>川沿いの道を今日も歩きます。</em></a></span><span class="g-t">07 と同じ文で始め、同じ文で終える。挟まれた内容だけが変わっている。</span></li>
                 </ul>
               </div>
             </div>
@@ -1934,14 +2014,18 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p11" title="第 11 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～よね</b>確認＋同意要求の終助詞。「楽しいよね？」は質問ではなく、答えを先に代弁している。</li>
-                    <li><b>～ませんか（勧誘）</b>「～ましょう」より委婉で、決定権を相手に残す。</li>
-                    <li><b>～てくれませんか（依頼）</b>請对方为自己做某事。「結婚してくれませんか」——主语是你，受益者是我。</li>
-                    <li><b>三文の階段</b>確認（よね）→ 邀约（～ませんか）→ 请求（～てくれませんか）。语气一级一级降下去，句子一级一级短下去。</li>
-                    <li><b>敬体の維持</b>ここまで「です・ます」で来た文体を、最後まで崩さない。丁寧さが距離になり、同時に誠実さにもなる。</li>
+                    <li><span class="g-h"><b>～よね</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">楽しい<em>よね</em>？</a></span><span class="g-t">確認＋同意要求の終助詞。「楽しいよね？」は質問ではなく、答えを先に代弁している。</span></li>
+
+                    <li><span class="g-h"><b>～ませんか（勧誘）</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">一緒に年を取り<em>ませんか</em>？</a></span><span class="g-t">「～ましょう」より委婉で、決定権を相手に残す。</span></li>
+
+                    <li><span class="g-h"><b>～てくれませんか（依頼）</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">結婚し<em>てくれませんか</em>？</a></span><span class="g-t">請对方为自己做某事。「結婚してくれませんか」——主语是你，受益者是我。</span></li>
+
+                    <li><span class="g-h"><b>三文の階段</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">一緒に年を取りませんか？　<em>結婚してくれませんか？</em></a></span><span class="g-t">確認（よね）→ 邀约（～ませんか）→ 请求（～てくれませんか）。语气一级一级降下去，句子一级一级短下去。</span></li>
+
+                    <li><span class="g-h"><b>敬体の維持</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">結婚してくれ<em>ませんか</em>？</a></span><span class="g-t">ここまで「です・ます」で来た文体を、最後まで崩さない。丁寧さが距離になり、同時に誠実さにもなる。</span></li>
                 </ul>
               </div>
             </div>
@@ -1983,13 +2067,16 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p12" title="第 12 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>省略主語</b>「（僕は）……待っています」。日本語の手紙の結びは主語を落とし、独り言のように終わる。</li>
-                    <li><b>～と共に</b>「2匹の猫と共に」。07 の「君の記憶と共に」と同型——一个是记忆，一个是猫。</li>
-                    <li><b>～を待っています</b>現在進行。手紙を書いた時点でも、まだ待っている。</li>
-                    <li><b>首尾呼応</b>冒頭「暦の上に春は立ちながら」⇄ 末尾「春の訪れを待っています」。一封信被春天框住了。</li>
+                    <li><span class="g-h"><b>省略主語</b><a class="g-src" href="#p12" lang="ja" title="第 12 段の原文へ"><em>目黒川沿いの古いマンションで</em>2匹の猫と共に</a></span><span class="g-t">「（僕は）……待っています」。日本語の手紙の結びは主語を落とし、独り言のように終わる。</span></li>
+
+                    <li><span class="g-h"><b>～と共に</b><a class="g-src" href="#p12" lang="ja" title="第 12 段の原文へ">2匹の猫<em>と共に</em>春の訪れを</a></span><span class="g-t">「2匹の猫と共に」。07 の「君の記憶と共に」と同型——一个是记忆，一个是猫。</span></li>
+
+                    <li><span class="g-h"><b>～を待っています</b><a class="g-src" href="#p12" lang="ja" title="第 12 段の原文へ">春の訪れを<em>待っています</em></a></span><span class="g-t">現在進行。手紙を書いた時点でも、まだ待っている。</span></li>
+
+                    <li><span class="g-h"><b>首尾呼応</b><a class="g-src" href="#p12" lang="ja" title="第 12 段の原文へ"><em>春の訪れ</em>を待っています。</a></span><span class="g-t">冒頭「暦の上に春は立ちながら」⇄ 末尾「春の訪れを待っています」。一封信被春天框住了。</span></li>
                 </ul>
               </div>
             </div>
@@ -2109,116 +2196,6 @@ details.drill:not([open])::details-content{block-size:0}
   </section>
 
   <!-- ================= 语法 ================= -->
-  <section class="sec" id="grammar">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="sec-num">04</p>
-        <div>
-          <h2>文法メモ <span aria-hidden="true">·</span> 16 个句型</h2>
-          <p class="sub">每一条都从这封信里长出来，例句就是原文。</p>
-        </div>
-      </div>
-
-      <div class="grammar reveal">
-        <div class="g-card">
-          <span class="g-tag">N4 · 接续：動詞ます形</span>
-          <h3>～ながら（逆接）</h3>
-          <p class="mean">虽然……却……。前后两项相反或矛盾，「も」可加可不加。</p>
-          <p class="ex"><em>暦の上に春は立ちながら</em>、厳しい寒さが続いております</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 接续：動詞ます形</span>
-          <h3>～ながら（同時）</h3>
-          <p class="mean">一边……一边……。两个动作由同一主体同时进行。</p>
-          <p class="ex">株価のニュースを<em>見ながら</em>話をしています</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 敬語</span>
-          <h3>～ていただければ幸いです</h3>
-          <p class="mean">承蒙您……的话，我将非常荣幸。书信里最稳的请求表达。</p>
-          <p class="ex">目を<em>通していただければ幸いです</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 名詞＋</span>
-          <h3>～に関して</h3>
-          <p class="mean">关于……。「について」的书面版，用于正式告知。</p>
-          <p class="ex">2匹の猫<em>に関して</em>お知らせします</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 名詞＋</span>
-          <h3>～もあって</h3>
-          <p class="mean">也有……这层原因在。暗示原因不止一个，语气委婉。</p>
-          <p class="ex">姉の体調<em>もあって</em>、最近は継男さんが描いています</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 書面語</span>
-          <h3>～ており</h3>
-          <p class="mean">「～ていて」的书面形，用于句中顿接，比「て」正式。</p>
-          <p class="ex">常軌を<em>逸しており</em>、女性客が悲鳴を上げて帰ることしばしばです</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N2 · 慣用</span>
-          <h3>～ことしばしばです</h3>
-          <p class="mean">屡见不鲜、动不动就发生。把频率名词化，语气反而更冷。</p>
-          <p class="ex">女性客が悲鳴を上げて帰る<em>ことしばしばです</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 比喩</span>
-          <h3>まるで～のような</h3>
-          <p class="mean">简直像……一样。「まるで」与「よう」呼应，口语常省「よう」。</p>
-          <p class="ex"><em>まるでギリシャ彫刻のような</em>二枚目だったのです</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 名詞節</span>
-          <h3>～かどうか</h3>
-          <p class="mean">是否……。把疑问句装进名词从句，作主语或宾语。</p>
-          <p class="ex">友達になれる<em>かどうか</em>はちょっと分かりません</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 副助詞</span>
-          <h3>～さえ</h3>
-          <p class="mean">连……都。举出极端例子，暗示其他更不必说。</p>
-          <p class="ex">なぜ出掛けたのか<em>さえ</em>忘れて</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 限定</span>
-          <h3>～しかない</h3>
-          <p class="mean">只能……、只好……。唯一选项，没有余地。</p>
-          <p class="ex">僕は風に流されて飛んでいく<em>しかない</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 名詞＋</span>
-          <h3>～と共に</h3>
-          <p class="mean">和……一起；随着……。既可指同伴，也可指同时变化。</p>
-          <p class="ex">毎日を君の記憶<em>と共に</em>暮らしています</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">文体 · 修辞</span>
-          <h3>体言止め</h3>
-          <p class="mean">用名词结句，不接谓语。留下余韵，也留下画面。</p>
-          <p class="ex">そんな始まり、<em>そんな光景。</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 名詞化</span>
-          <h3>～こと（列挙）</h3>
-          <p class="mean">把动作变成名词，形成清单式排比。琐事因此获得重量。</p>
-          <p class="ex">階段を先に下りる<em>こと</em>、階段を後から上がる<em>こと</em>……</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 名詞＋</span>
-          <h3>～まま</h3>
-          <p class="mean">就那样、保持原状。时间在某个状态上停住了。</p>
-          <p class="ex">カーテンの隙間にくっついた<em>まま</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 口語</span>
-          <h3>～んです</h3>
-          <p class="mean">「～のです」的口语形。说明、辩解、自白，句尾一软人就露出来了。</p>
-          <p class="ex">また同じことを話す<em>んです</em></p>
-        </div>
-      </div>
-    </div>
-  </section>
 
 </main>
 
@@ -2232,8 +2209,8 @@ details.drill:not([open])::details-content{block-size:0}
         原文与中文译文仅供学习研究使用，版权归原作者及富士电视台所有。</p>
       </div>
       <div>
-        <p>页面：逐段精读 · 55 词 · 16 句型<br>
-        分区：<a href="#close-reading">精読</a> ／ <a href="#vocab">単語</a> ／ <a href="#grammar">文法</a><br>
+        <p>页面：逐段精读 · 55 词<br>
+        分区：<a href="#close-reading">精読</a> ／ <a href="#vocab">単語</a><br>
         もう一通の手紙：<a href="../saikou-no-rikon-2/index.html">光生さんへ</a><br>
         <a href="../index.html">← 作品一覧へ</a></p>
         <p style="margin-top:14px"><a class="to-top" href="#top">↑ ページ上部へ</a></p>

@@ -930,60 +930,8 @@ table.vocab tbody tr:hover{background:rgba(178,58,43,.03)}
   color:var(--ink-3);
 }
 
-/* ============ 语法 ============ */
-.grammar{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
-  gap:1px;
-}
-.g-card{
-  background:var(--paper);
-  padding:22px 22px 24px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  box-shadow:0 0 0 1px var(--line-soft);
-}
-.sec:nth-of-type(even) .g-card{background:#faf7f0}
-.g-card h3{
-  margin:0;
-  font-family:var(--serif-jp);
-  font-size:16px;
-  font-weight:600;
-  letter-spacing:.05em;
-  color:var(--ink);
-}
-.g-card .mean{
-  font-family:var(--serif-cn);
-  font-size:13px;
-  color:var(--ink-2);
-  line-height:1.75;
-  margin:0;
-}
-.g-card .ex{
-  margin:0;
-  padding-top:10px;
-  border-top:1px dashed var(--line);
-  font-family:var(--serif-jp);
-  font-size:12.5px;
-  line-height:1.8;
-  color:var(--ink-3);
-  letter-spacing:.02em;
-}
-.g-card .ex em{
-  font-style:normal;
-  color:var(--shu);
-  background:rgba(178,58,43,.06);
-  padding:0 2px;
-}
-.g-tag{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.08em;
-  color:#a99e90;
-}
-
 /* ============ 页脚 ============ */
+
 footer{
   border-top:1px solid var(--line);
   padding:clamp(36px,5vw,60px) 0 64px;
@@ -1122,7 +1070,84 @@ details.drill:not([open])::details-content{block-size:0}
 /* 本页：三字印章与长引文 */
 .seal{letter-spacing:.16em;height:4.9em}
 .nw{white-space:nowrap}
+
 .pull blockquote p{text-wrap:balance}
+/* 文法条目：原句片段与跳回 */
+.d-row > h4 .row-jump{
+  display:block;
+  margin-top:7px;
+  font-size:9px;
+  letter-spacing:.1em;
+  color:var(--ink-3);
+  text-decoration:none;
+  border-bottom:1px dotted transparent;
+  transition:color .18s ease,border-color .18s ease;
+}
+.d-row > h4 .row-jump:hover,
+.d-row > h4 .row-jump:focus-visible{
+  color:var(--shu);
+  border-bottom-color:var(--shu-soft);
+}
+.items{display:grid;gap:13px}
+.items li{
+  padding-left:14px;
+  position:relative;
+  display:grid;
+  gap:3px;
+  font-size:13.5px;
+  line-height:1.78;
+  color:var(--ink-2);
+}
+.items li::before{top:.64em}
+.items .g-h{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.15em .65em;
+}
+.items .g-h b{
+  margin-right:0;
+  font-size:14px;
+}
+.items .g-src{
+  font-family:var(--serif-jp);
+  font-size:13px;
+  line-height:1.55;
+  letter-spacing:.02em;
+  color:#6b6358;
+  text-decoration:none;
+  padding-bottom:1.5px;
+  border-bottom:1px dotted rgba(178,58,43,.22);
+  transition:color .18s ease,border-color .18s ease;
+}
+.items .g-src em{
+  font-style:normal;
+  font-weight:500;
+  color:var(--shu);
+  background:linear-gradient(180deg,transparent 58%,rgba(178,58,43,.13) 58%);
+}
+.items .g-src:hover,
+.items .g-src:focus-visible{
+  color:var(--ink);
+  border-bottom-color:var(--shu);
+}
+.items .g-t{display:block}
+
+.para{scroll-margin-top:92px}
+.para:target .jp{animation:paraflash 2.2s ease-out both}
+.para:target .num{color:var(--shu);border-color:var(--shu)}
+@keyframes paraflash{
+  0%{box-shadow:inset 3px 0 0 rgba(178,58,43,.9);background:rgba(178,58,43,.045)}
+  45%{box-shadow:inset 3px 0 0 rgba(178,58,43,.4);background:rgba(178,58,43,.03)}
+  100%{box-shadow:inset 3px 0 0 rgba(178,58,43,0);background:rgba(178,58,43,0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .para:target .jp{animation:none;background:rgba(178,58,43,.06)}
+}
+
+@media (max-width:560px){
+  .items .g-h{gap:.1em .5em}
+}
 
 @media (max-width:560px){
   .filters{width:100%;gap:3px}
@@ -1357,7 +1382,7 @@ details.drill:not([open])::details-content{block-size:0}
         <p class="sec-num">02</p>
         <div>
           <h2>精読 <span aria-hidden="true">·</span> 逐段拆解</h2>
-          <p class="sub">十一个段落，每段五层：骨架 → 语法 → 词汇 → 这一段的作用 → 翻译取舍。先看骨架，再回头看原文。</p>
+          <p class="sub">十一个段落，每段五层。语法那层只挑会绊住人的地方：文末的半句话、隔着一整句的呼应、指错的「それ」。</p>
         </div>
       </div>
 
@@ -1385,16 +1410,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p1" title="第 1 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～だって</b>名詞＋だって。「も」的口语版，但这里拎的是刚写下的那三个字——「就连『光生さん』这几个字」。</li>
-                    <li><b>～て（きっかけ）</b>「書いてて、びっくりしました」＝書いていて。动作进行中带出反应，两个动作几乎同时。</li>
-                    <li><b>～のは（名詞化）</b>動詞普通形＋のは。把动作变成话题，谓语一直压到句尾。</li>
-                    <li><b>～ぐらい（程度）</b>「記憶にないぐらい久しぶり」＝久到想不起来。程度副句，不是比较。</li>
-                    <li><b>～気がする</b>感觉、好像。比「思う」轻，留了余地。</li>
-                    <li><b>何か（副詞）</b>「何か緊張します」＝なんとなく。不是「某样东西」。</li>
-                    <li><b>～ます体</b>通篇敬体。她不是在说话，是在写信。</li>
+                    <li><span class="g-h"><b>～だって（取り立て）</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">光生さん<em>だって</em>、今自分でそう書いてて</a></span><span class="g-t">不是「也」。它把刚写下的「光生さん」三个字单独拎起来：「就连这几个字」。译成「连光生你也」，句子就通到别处去了。</span></li>
+
+                    <li><span class="g-h"><b>～のは（名詞化）</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">名前で呼ぶ<em>のは</em>、ちょっと記憶にないぐらい</a></span><span class="g-t">動詞普通形＋のは。常见的是「…のは…からだ」这种判断句；这里后面接「気がして」，所以是感觉，不是定义。</span></li>
+
+                    <li><span class="g-h"><b>～ぐらい（程度）</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">記憶にない<em>ぐらい</em>久しぶりな気がして</a></span><span class="g-t">小句＋ぐらい，表示程度，不是约数。和「ほど」近义，但「ぐらい」更口语。</span></li>
+
+                    <li><span class="g-h"><b>～気がして（連用中止）</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">久しぶりな<em>気がして</em>、何か緊張します</a></span><span class="g-t">判断先让一步，不把话说死，后面才接「緊張します」。</span></li>
+
+                    <li><span class="g-h"><b>～て（きっかけ）</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">そう書い<em>てて</em>、びっくりしました</a></span><span class="g-t">「書いてて、びっくりしました」＝書いていて。动作进行中带出反应，两件事几乎同时。</span></li>
+
+                    <li><span class="g-h"><b>何か（副詞）</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>何か</em>緊張します</a></span><span class="g-t">「何か緊張します」＝なんとなく。不是「某样东西」。</span></li>
+
+                    <li><span class="g-h"><b>～ます体</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">びっくりし<em>ました</em>。</a></span><span class="g-t">通篇敬体。她不是在说话，是在写信。</span></li>
                 </ul>
               </div>
             </div>
@@ -1413,7 +1444,7 @@ details.drill:not([open])::details-content{block-size:0}
                 <p class="role">全信第一句先卡在称呼上。她写下的不是「あなた」而是「光生さん」，写完先被自己吓到——两个人现在的距离，一句话就交代完了。</p>
               </div>
             </div>
-            <p class="note"><b>訳注</b>　「光生さんだって」不是「光生你也」。だって 把刚写下的称呼拎起来：「就连『光生さん』这几个字」。译成「光是写下你的名字」，比「连你也」准。</p>
+            <p class="note"><b>訳注</b>　中文没有能把一个词单独拎起来的助词，只能改句法：「光是写下你的名字」。写「连你也」，主语就跑偏了——读者会以为光生在信里也写了什么。</p>
           </div>
         </details>
 
@@ -1438,16 +1469,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p2" title="第 2 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>とりあえず</b>先、暂且。管的是「报告」这件事，语气像把话头按住。</li>
-                    <li><b>～てませんか（口語）</b>「開いていませんか」的省略。她不是在求证事实，是在想象他的表情。</li>
-                    <li><b>～ので</b>客观理由，比「から」软。用在请求前面，不逼人。</li>
-                    <li><b>それを（指示詞）</b>回指前句的「口」。日语可以这样接，中文必须还原成具体的词。</li>
-                    <li><b>ひとまず</b>与「とりあえず」同类，更强调「先这样，别的以后再说」。</li>
-                    <li><b>～てください</b>请求。用在这种场合近乎命令，她却写得很轻。</li>
-                    <li><b>体言止め</b>「とりあえずご報告です。」不写「します」，像电报。</li>
+                    <li><span class="g-h"><b>それを（指示詞）</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">ひとまず、<em>それ</em>を閉めてください</a></span><span class="g-t">回指上一句的「口」。日语可以隔一句接住，中文照搬会指错——读者会以为「它」是这封信。</span></li>
+
+                    <li><span class="g-h"><b>体言止め</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">とりあえずご報告<em>です。</em></a></span><span class="g-t">「とりあえずご報告です。」不写「します」，像电报：先把事说完，再解释。</span></li>
+
+                    <li><span class="g-h"><b>～てませんか（口語）</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">口開い<em>てませんか</em></a></span><span class="g-t">「開いていませんか」的省略。不是求证事实，是在想象他的表情。</span></li>
+
+                    <li><span class="g-h"><b>～ので</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">今説明し<em>ますので</em></a></span><span class="g-t">客观理由，比「から」软；用在请求前，不逼人。</span></li>
+
+                    <li><span class="g-h"><b>ひとまず</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ"><em>ひとまず</em>、それを閉めてください</a></span><span class="g-t">把要求降级成「先」：先闭上，别的以后再说。</span></li>
+
+                    <li><span class="g-h"><b>～てください</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">閉め<em>てください</em></a></span><span class="g-t">请求。用在这种场合近乎命令，她却写得很轻。</span></li>
+
+                    <li><span class="g-h"><b>とりあえず</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ"><em>とりあえず</em>ご報告です</a></span><span class="g-t">管的是「报告」这件事，不是「闭口」——两个「暂且」分工不同。</span></li>
                 </ul>
               </div>
             </div>
@@ -1467,7 +1504,7 @@ details.drill:not([open])::details-content{block-size:0}
                 <p class="role">第二段把信变成一份行动报告。四个短句、两个问句，节奏忽然快起来——她在想象他站在空房间里张着嘴的样子，边想边写。</p>
               </div>
             </div>
-            <p class="note"><b>訳注</b>　「ひとまず、それを閉めてください」的「それ」是「口」，不是信。中文若照搬「把它合上」，读者会以为是信纸。</p>
+            <p class="note"><b>訳注</b>　这一句的难处不在词，在中文没有能隔一句接住的「它」。要么重复一次「嘴」，要么像这里直接写「把嘴闭上」——重复反而更像她说话的语气。</p>
           </div>
         </details>
 
@@ -1492,17 +1529,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p3" title="第 3 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>あのね</b>呼びかけ。把书面语拉回两个人说话的距离。</li>
-                    <li><b>やっぱり</b>想过很久之后得出的结论，不是一时冲动。</li>
-                    <li><b>このまま</b>保持现状，不动。</li>
-                    <li><b>～て結構経つ</b>「離婚して結構経つ」＝离婚已经过了相当一段时间。「て」是状态，不是先后顺序。</li>
-                    <li><b>何かと</b>各种各样地、动不动就。后面接麻烦事最常用。</li>
-                    <li><b>～し（理由）</b>只列一条，暗示还有别的，语气因此不尖锐。</li>
-                    <li><b>～のですが（前置き）</b>话说到这里停一下，为下一句让路。</li>
-                    <li><b>～と（恒常条件）</b>「見てると」＝每次看到就……。口语里「ている」常缩成「てる」。</li>
+                    <li><span class="g-h"><b>～て結構経つ</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">離婚し<em>て結構経つ</em>し</a></span><span class="g-t">「結構」在这里是「相当」，不是「結構です」的「不用了」。同一个词两个意思，只能靠上下文分；「て」表状态，不表先后。</span></li>
+
+                    <li><span class="g-h"><b>何かと</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ"><em>何かと</em>支障があると思うのです</a></span><span class="g-t">各种各样地、动不动就，后面多接麻烦事。不是「有什么」。</span></li>
+
+                    <li><span class="g-h"><b>～し（理由）</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">結構経つ<em>し</em>、何かと支障がある</a></span><span class="g-t">只列一条，暗示还有别的，语气因此不尖锐。</span></li>
+
+                    <li><span class="g-h"><b>～のですが（前置き）</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">うまく説明できない<em>のですが</em></a></span><span class="g-t">话停在半句，等对方接，或自己接下一句。</span></li>
+
+                    <li><span class="g-h"><b>～と（恒常条件）</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">あなたのことを見てる<em>と</em></a></span><span class="g-t">「見てると」＝每次看到就……。口语里「ている」常缩成「てる」。</span></li>
+
+                    <li><span class="g-h"><b>このまま</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ"><em>このまま</em>、一緒に住んでいるのは</a></span><span class="g-t">保持现状，不动。</span></li>
+
+                    <li><span class="g-h"><b>やっぱり</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ"><em>やっぱり</em>このまま、一緒に住んでいる</a></span><span class="g-t">想过很久之后得出的结论，不是一时冲动。</span></li>
                 </ul>
               </div>
             </div>
@@ -1549,16 +1591,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p4" title="第 4 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～なりに</b>名詞＋なりに。「私なりに」＝以我的方式。带一点「做得不周全」的谦逊。</li>
-                    <li><b>～とか</b>列举，语气随便。这里只举一项，后面用「あるいは」接另一项。</li>
-                    <li><b>あるいは</b>或者。书面，比「それとも」稳。</li>
-                    <li><b>～を検討する</b>研究、斟酌。比「考える」正式，用在「努力」上反而显得笨拙。</li>
-                    <li><b>～てみた</b>尝试做。失败的结果因此不那么像失败，更像试过。</li>
-                    <li><b>～のですが</b>逆接的前置，把不好的结果先垫一下。</li>
-                    <li><b>どちらも～ない</b>两者都不。把两条路一起否掉，没有第三条。</li>
+                    <li><span class="g-h"><b>～なりに</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">私<em>なりに</em>そのざわざわを打ち消す</a></span><span class="g-t">「以……自己的方式」，暗含「做得不周全、但尽力了」。译成「我自己想办法」，会把这层自知不够的谦逊抹平。</span></li>
+
+                    <li><span class="g-h"><b>～てみた</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">元に戻す努力を検討し<em>てみた</em></a></span><span class="g-t">尝试做。失败因此不那么像失败，更像「试过」。</span></li>
+
+                    <li><span class="g-h"><b>どちらも～ない</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ"><em>どちらも</em>うまくいきませんでした</a></span><span class="g-t">两条路一起否掉，没有第三条。</span></li>
+
+                    <li><span class="g-h"><b>～とか</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">そのざわざわを打ち消す<em>とか</em></a></span><span class="g-t">列举，语气随便。这里只举一项，后面用「あるいは」接另一项。</span></li>
+
+                    <li><span class="g-h"><b>あるいは</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ"><em>あるいは</em>元に戻す努力</a></span><span class="g-t">或者。书面，比「それとも」稳。</span></li>
+
+                    <li><span class="g-h"><b>～を検討する</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">元に戻す努力<em>を検討し</em>てみた</a></span><span class="g-t">研究、斟酌。比「考える」正式，用在「努力」上反而显得笨拙。</span></li>
+
+                    <li><span class="g-h"><b>～のですが</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">検討してみた<em>のですが</em></a></span><span class="g-t">逆接前置，把不好的结果先垫一下。</span></li>
                 </ul>
               </div>
             </div>
@@ -1605,16 +1653,22 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p5" title="第 5 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～とか言う</b>引用，带一点自嘲：「说你奇怪什么的」。</li>
-                    <li><b>～が（逆接）</b>「我说过……不过」。前后主语其实是同一个人。</li>
-                    <li><b>どうやら</b>似乎。与句尾的「かもしれない」呼应，两头都留白。</li>
-                    <li><b>誰より</b>比谁都。比较的对象省略，反而更大。</li>
-                    <li><b>～のかもしれません</b>推测的礼貌形。她给自己留了退路。</li>
-                    <li><b>～のです</b>说明语气。不是下判断，是解释。</li>
-                    <li><b>～とは／～は（対比）</b>两个「は」把两类人钉在两端，中间没有过渡。</li>
+                    <li><span class="g-h"><b>どうやら～のかもしれません</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ"><em>どうやら</em>誰より変なのは、私な<em>のかもしれません</em></a></span><span class="g-t">副词先放一个不确定的信号，句尾必须回来收口。这里还多一个「の」，把整句变成解释，而不是猜测。</span></li>
+
+                    <li><span class="g-h"><b>～のかもしれません</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">誰より変なのは、私な<em>のかもしれません</em></a></span><span class="g-t">比「かもしれない」礼貌，也留了退路：她不下判断，只给一个可能。</span></li>
+
+                    <li><span class="g-h"><b>～とは／～は（対比）</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">好きな人<em>とは</em>生活上気が合わない、気が合う人<em>は</em>好きになれない</a></span><span class="g-t">两个「は」把两类人钉在两端，中间没有过渡。</span></li>
+
+                    <li><span class="g-h"><b>～とか言う</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">変だ<em>とか言いました</em>が</a></span><span class="g-t">引用，带一点自嘲：「说你奇怪什么的」。</span></li>
+
+                    <li><span class="g-h"><b>～が（逆接）</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">あなたのことを変だとか言いました<em>が</em></a></span><span class="g-t">「我说过……不过」。前后主语其实是同一个人。</span></li>
+
+                    <li><span class="g-h"><b>誰より</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ"><em>誰より</em>変なのは、私なのかもしれません</a></span><span class="g-t">比谁都。比较的对象省略，反而更大。</span></li>
+
+                    <li><span class="g-h"><b>～のです</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">調整がうまくできない<em>のです</em></a></span><span class="g-t">说明语气。不是下判断，是解释。</span></li>
                 </ul>
               </div>
             </div>
@@ -1633,7 +1687,7 @@ details.drill:not([open])::details-content{block-size:0}
                 <p class="role">全信第一次转向自己。「谁更奇怪」这个问题被她接了过去——不是你有问题，是我调不好。话说到这儿，指责就没了。</p>
               </div>
             </div>
-            <p class="note"><b>訳注</b>　两个「は」必须译出来。否则「喜欢的人合不来、合得来的人喜欢不上」会塌成一句普通感慨，对比就没了。</p>
+            <p class="note"><b>訳注</b>　中文的对比靠语序和「又」：喜欢的人……；合得来的人，「又」喜欢不上。少这个「又」，两句就变成并列的感慨，而不是互相否定。</p>
           </div>
         </details>
 
@@ -1652,23 +1706,28 @@ details.drill:not([open])::details-content{block-size:0}
               <span class="sep">／</span> とても厄介な病なのです。</p>
                 <ul class="s-list">
                     <li><b>それは</b><span>指前面「爱情和生活总是相撞」这件事。</span></li>
-                    <li><b>私が生きる上で抱える</b><span>定语从句，修饰「病」。从句里还套着「生きる上で」。</span></li>
+                    <li><b>私が生きる上で抱える</b><span>定语从句，修饰「病」。从句的主语用「私が」不是「私の」，里面还套着「生きる上で」。</span></li>
                     <li><b>とても厄介な病なのです</b><span>主句。名词句＋のです，是解释，不是比喻。</span></li>
                 </ul>
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p6" title="第 6 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～には（対象）</b>「言うことやすることには」——对你说的话、做的事。</li>
-                    <li><b>何一つ～ない</b>全面否定，「一样也……」。比「全然」更逐条。</li>
-                    <li><b>～けど。（言いさし）</b>用句号收尾的「けど」。话没说完，情绪留在半空。</li>
-                    <li><b>～んですね</b>自己确认，「原来是这么回事啊」。不是问对方。</li>
-                    <li><b>～て。（言いさし）</b>「ぶつかって。」同样断在半句，语法上没结束。</li>
-                    <li><b>何というか</b>找不到词时的填充语，等于「怎么说呢」。</li>
-                    <li><b>～上で</b>「生きる上で」＝在活着这件事上。</li>
-                    <li><b>～なのです</b>解释的断定。她把这称为「病」，是诊断书的口吻。</li>
+                    <li><span class="g-h"><b>～けど。（言いさし）</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">何一つ同意できない<em>けど。</em></a></span><span class="g-t">句号截断，后半句她不肯说。中文若补成「虽然……但是……」，等于替她把没说的半句说了。</span></li>
+
+                    <li><span class="g-h"><b>～て。（言いさし）</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">愛情と生活はいつもぶつかっ<em>て。</em></a></span><span class="g-t">て形本该接下一个动作，她断在这里；下一句正是「何というか」——找不到词的地方。语法没完成，是因为心里没完成。</span></li>
+
+                    <li><span class="g-h"><b>何一つ～ない</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ"><em>何一つ</em>同意できないけど</a></span><span class="g-t">后面必须是否定，「一条也没有」。和「全然」不同：全然否定程度，何一つ逐条清点。所以否定完每一条，她还能接「でも、好きなんですね」。</span></li>
+
+                    <li><span class="g-h"><b>～んですね</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">でも、好き<em>なんですね</em></a></span><span class="g-t">不是问对方，是自己把话咂摸一遍再确认。译成「原来是这样啊」比「你喜欢我吧」准。</span></li>
+
+                    <li><span class="g-h"><b>～上で（範囲）</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">私が生きる<em>上で</em>抱える</a></span><span class="g-t">「生きる上で」＝在活着这件事上。前接动词辞书形，限定讨论的范围——不是空间上的「上面」。</span></li>
+
+                    <li><span class="g-h"><b>～には（対象）</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">あなたの言うことやすること<em>には</em></a></span><span class="g-t">「言うことやすることには」——对你说的话、做的事。</span></li>
+
+                    <li><span class="g-h"><b>何というか</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ"><em>何というか</em>、それは</a></span><span class="g-t">找不到词时的填充语，等于「怎么说呢」。</span></li>
                 </ul>
               </div>
             </div>
@@ -1690,7 +1749,7 @@ details.drill:not([open])::details-content{block-size:0}
                 <p class="role">两处「けど」「ぶつかって」都断在半句——这正是她说不清的地方。全信最像独白的一段，也是唯一直接说出「好き」的地方。</p>
               </div>
             </div>
-            <p class="note"><b>訳注</b>　「好きなんですね」的「ね」不是问对方，是自己咂摸出来的确认。译「可我还是喜欢你啊」，把这个「啊」留住。</p>
+            <p class="note"><b>訳注</b>　译成「我喜欢你」，那句自我确认就变成了告白。加一个「啊」——「可我还是喜欢你啊」——才留得住她一个人咂摸的口气。</p>
           </div>
         </details>
 
@@ -1717,17 +1776,24 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p7" title="第 7 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～よね（確認）</b>假定对方也记得。「我们看过电影吧」。</li>
-                    <li><b>ほら</b>唤起记忆的手势词，写进信里，等于伸手拉他一下。</li>
-                    <li><b>～たら（発見）</b>「渡ったら…立っていました」——过了马路，就看见他站在那里。</li>
-                    <li><b>～そうに（様態）</b>「寒そうにして」＝一副冷的样子。样态接「する」是姿态，不是体感。</li>
-                    <li><b>～てました（口語）</b>「入れていました」的省略。叙述变快。</li>
-                    <li><b>～んだ（心内文）</b>把心理活动说成独白，读者直接听见她心里那句。</li>
-                    <li><b>～と（契機）</b>「そう思うと」＝这么一想。</li>
-                    <li><b>～たくなる</b>变得想……。情动，不是意志。</li>
+                    <li><span class="g-h"><b>そう（指示詞）</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ"><em>そう</em>思うと、何故か嬉しくなって</a></span><span class="g-t">不指某个词，指前面整句「この人は今私を待ってるんだ」。先把一句心里话打包，再接「思うと」。</span></li>
+
+                    <li><span class="g-h"><b>～んだ（心内文）</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">この人は今私を待ってる<em>んだ</em></a></span><span class="g-t">把心理活动说成独白，读者直接听见她心里那句。</span></li>
+
+                    <li><span class="g-h"><b>～と（契機）</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">そう思う<em>と</em>、何故か嬉しくなって</a></span><span class="g-t">「そう思うと」＝这么一想。</span></li>
+
+                    <li><span class="g-h"><b>～たら（発見）</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">横断歩道を渡っ<em>たら</em></a></span><span class="g-t">「渡ったら…立っていました」——过了马路，就看见他站在那里。</span></li>
+
+                    <li><span class="g-h"><b>～そうに（様態）</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">寒<em>そうに</em>して、ポケットに手を入れてました</a></span><span class="g-t">「寒そうにして」＝一副冷的样子。样态接「する」是姿态，不是体感。</span></li>
+
+                    <li><span class="g-h"><b>～よね（確認）</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">前に映画を見に行きました<em>よね</em></a></span><span class="g-t">假定对方也记得：「我们看过电影吧」。</span></li>
+
+                    <li><span class="g-h"><b>ほら</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ"><em>ほら</em>、私が10分遅刻したとき</a></span><span class="g-t">唤起记忆的手势词，写进信里，等于伸手拉他一下。</span></li>
+
+                    <li><span class="g-h"><b>～たくなる</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">いつまでも見ていた<em>くなりました</em></a></span><span class="g-t">变得想……。情动，不是意志。</span></li>
                 </ul>
               </div>
             </div>
@@ -1748,7 +1814,7 @@ details.drill:not([open])::details-content{block-size:0}
                 <p class="role">前六段都在讲「为什么走」，这一段忽然给出一段完整的记忆。论证在这里停下，换成画面——她要带走的不是理由，是这个画面。</p>
               </div>
             </div>
-            <p class="note"><b>訳注</b>　「寒そうにして」不是客观描写「他很冷」，是他把手插进口袋的那个姿态。中文要译出「一副……的样子」。</p>
+            <p class="note"><b>訳注</b>　「この人は今私を待ってるんだ」的「んだ」，中文没有对应语气。译文把它提前到破折号前：「这个人现在正在等我——」，让心里那句话先落地。</p>
           </div>
         </details>
 
@@ -1771,17 +1837,24 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p8" title="第 8 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～のが好きでした</b>名词化＋过去式。用过去式，说明现在不一样了。</li>
-                    <li><b>照れ屋</b>「～屋」表示有某种倾向的人。名词，不是形容词。</li>
-                    <li><b>～で（原因）</b>「照れ屋で」＝因为害羞。</li>
-                    <li><b>なかなか～ない</b>怎么也不。「なかなかこっち向かない」。</li>
-                    <li><b>たびたび</b>屡次。书面，比「よく」有节奏。</li>
-                    <li><b>～とき</b>的时候。后面三个场景并列，都挂在「とき」上。</li>
-                    <li><b>～て（連用中止）</b>两个动作接在一起，不加「そして」。</li>
-                    <li><b>自然と</b>不由自主地。不是「自然地」，是没有刻意。</li>
+                    <li><span class="g-h"><b>～のが好きでした</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">こっそり見る<em>のが好きでした</em></a></span><span class="g-t">名詞化＋过去式。用过去式，说明现在不一样了。</span></li>
+
+                    <li><span class="g-h"><b>なかなか～ない</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ"><em>なかなか</em>こっち向かないから</a></span><span class="g-t">肯定时是「相当」（なかなかいい），否定时才是「怎么也不」。同一个词，极性一换，意思就翻。</span></li>
+
+                    <li><span class="g-h"><b>照れ屋</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">あなたは<em>照れ屋</em>で</a></span><span class="g-t">「～屋」表示有某种倾向的人。名词，不是形容词。</span></li>
+
+                    <li><span class="g-h"><b>～で（原因）</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">照れ屋<em>で</em>なかなかこっち向かない</a></span><span class="g-t">「照れ屋で」＝因为害羞。</span></li>
+
+                    <li><span class="g-h"><b>たびたび</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">チャンスは<em>たびたび</em>あったのです</a></span><span class="g-t">屡次。书面，比「よく」有节奏。</span></li>
+
+                    <li><span class="g-h"><b>～とき</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">並んで歩く<em>とき</em>、こっそり見てました</a></span><span class="g-t">的时候。后面三个场景并列，都挂在「とき」上。</span></li>
+
+                    <li><span class="g-h"><b>～て（連用中止）</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">いつもあなたを盗み見<em>て</em>、気持ちは自然と弾みました</a></span><span class="g-t">两个动作接在一起，不加「そして」。</span></li>
+
+                    <li><span class="g-h"><b>自然と</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">気持ちは<em>自然と</em>弾みました</a></span><span class="g-t">不由自主地。不是「自然地」，是没有刻意。</span></li>
                 </ul>
               </div>
             </div>
@@ -1829,17 +1902,24 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p9" title="第 9 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～にお嫁に来る</b>嫁到……来。方向是「来」，因为说话人在那个家里。</li>
-                    <li><b>～て（連用中止）</b>「来て、…暮らして。」两个动作并列，句号前留白。</li>
-                    <li><b>だけど</b>转折。前面是事实，后面才是真话。</li>
-                    <li><b>～よりずっと</b>比较。「比你想象的还要……」。</li>
-                    <li><b>～し（言いさし）</b>只给一条理由，句子就断了。</li>
-                    <li><b>～っていうのとは</b>「というの」提示说法：「说是包容力，又有点不一样」。</li>
-                    <li><b>～ような／～ように</b>比喻。先用「ような」结句，再用「ように」收尾。</li>
-                    <li><b>もしかしたら～かもしれない</b>呼应。推测从头贯到尾。</li>
+                    <li><span class="g-h"><b>もしかしたら～のかもしれません</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ"><em>もしかしたら</em>私は、この家に住む3匹目の猫のようなものだった<em>のかもしれません</em></a></span><span class="g-t">两个留保隔了二十多个字，读到句尾才落地——中间那一长串比喻，全靠句尾这一个「かもしれない」兜住。</span></li>
+
+                    <li><span class="g-h"><b>ような／ように（述語なし）</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">日なたにいる<em>ような</em>、そんなまるで猫の<em>ように</em>。</a></span><span class="g-t">两个比喻都没落脚：ような 后面本该接名词，ように 后面本该接动词，她都没接。喻体要等下一句才补出来——句法和内容一起悬着。</span></li>
+
+                    <li><span class="g-h"><b>～にお嫁に来る</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">桜が見える家<em>にお嫁に来て</em></a></span><span class="g-t">嫁到……来。方向是「来」，因为说话人在那个家里。</span></li>
+
+                    <li><span class="g-h"><b>だけど</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ"><em>だけど</em>、あなたが思うよりずっと</a></span><span class="g-t">转折。前面是事实，后面才是真话。</span></li>
+
+                    <li><span class="g-h"><b>～よりずっと</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">あなたが思う<em>よりずっと</em>私はあなたに甘えていた</a></span><span class="g-t">比较。「比你想象的还要……」</span></li>
+
+                    <li><span class="g-h"><b>～っていうのとは</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">包容力<em>っていうのとは</em>、少し違うけど</a></span><span class="g-t">「というの」提示说法：「说是包容力，又有点不一样」。</span></li>
+
+                    <li><span class="g-h"><b>～し（言いさし）</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">私はあなたに甘えていた<em>し。</em></a></span><span class="g-t">只给一条理由，句子就断了。</span></li>
+
+                    <li><span class="g-h"><b>～て（連用中止）</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">お嫁に来<em>て</em>、桜が嫌いな人と一緒に暮らし<em>て</em>。</a></span><span class="g-t">「来て、…暮らして。」两个动作并列，句号前留白。</span></li>
                 </ul>
               </div>
             </div>
@@ -1886,17 +1966,24 @@ details.drill:not([open])::details-content{block-size:0}
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p10" title="第 10 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～てくれてありがとう</b>对方为自己做了某事，因此道谢。三个「ありがとう」都挂在这个句型上。</li>
-                    <li><b>～たり～たり</b>列举动作。四项并列，最后一项直接接「そんなことが」。</li>
-                    <li><b>見上げる／見下ろす</b>反义词对。一个向上，一个向下，中间隔着身高差。</li>
-                    <li><b>まじまじ</b>目不转睛地。比「じっと」多一层「看得太露骨」。</li>
-                    <li><b>そんなこと</b>指示代词总括前文，让清单有了落点。</li>
-                    <li><b>何より</b>比什么都。比较的对象全部省略。</li>
-                    <li><b>かけがえのない</b>无可替代。惯用，不能拆成「掛け替え」＋「ない」。</li>
-                    <li><b>～でした</b>过去式。这一段的幸福，已经被她放进了过去。</li>
+                    <li><span class="g-h"><b>そんなこと（指示詞）</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>そんなこと</em>が、何よりかけがえのない幸せでした</a></span><span class="g-t">四个「見る」列完之后一把收住。它指的不是某一次看，是刚才那一整串。</span></li>
+
+                    <li><span class="g-h"><b>～たり～たり</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">あなたを見上げ<em>たり</em>、見下ろし<em>たり</em></a></span><span class="g-t">列举动作。四项并列，最后一项直接接「そんなこと」。</span></li>
+
+                    <li><span class="g-h"><b>～てくれてありがとう</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">頭をなで<em>てくれてありがとう</em></a></span><span class="g-t">对方为自己做了某事，因此道谢。三个「ありがとう」都挂在这个句型上。</span></li>
+
+                    <li><span class="g-h"><b>見上げる／見下ろす</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>見上げたり</em>、<em>見下ろしたり</em></a></span><span class="g-t">反义词对。一个向上，一个向下，中间隔着身高差。</span></li>
+
+                    <li><span class="g-h"><b>まじまじ</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>まじまじ</em>見たり</a></span><span class="g-t">目不转睛地。比「じっと」多一层「看得太露骨」。</span></li>
+
+                    <li><span class="g-h"><b>何より</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>何より</em>かけがえのない幸せ</a></span><span class="g-t">比什么都。比较的对象全部省略。</span></li>
+
+                    <li><span class="g-h"><b>かけがえのない</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>かけがえのない</em>幸せでした</a></span><span class="g-t">无可替代。惯用，不能拆成「掛け替え」＋「ない」。</span></li>
+
+                    <li><span class="g-h"><b>～でした</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">かけがえのない幸せ<em>でした</em>。</a></span><span class="g-t">过去式。这一段的幸福，已经被她放进了过去。</span></li>
                 </ul>
               </div>
             </div>
@@ -1939,22 +2026,29 @@ details.drill:not([open])::details-content{block-size:0}
                 <ul class="s-list">
                     <li><b>でも、もし</b><span>转折＋假定，把话从过去推到未来。</span></li>
                     <li><b>二つの「～時は」</b><span>同一条件说两遍，第二遍才说出真正想做的事。</span></li>
-                    <li><b>また、どこかで</b><span>没有谓语。全信停在这里。</span></li>
+                    <li><b>また、どこかで</b><span>副词短语直接结句，后面没有谓语。</span></li>
                 </ul>
               </div>
             </div>
             <div class="d-row">
-              <h4>文法</h4>
+              <h4>文法<a class="row-jump" href="#p11" title="第 11 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><b>～のは（名詞化）</b>「お別れするのは」＝分开这件事。</li>
-                    <li><b>～だけど（逆接）</b>先承认是自己决定的，再补一句「不过」。</li>
-                    <li><b>～気もする</b>「也有那种感觉」。「も」表示不排除别的情绪。</li>
-                    <li><b>もし～時は</b>条件。用「時は」而不是「たら」，语气更轻，像提前想好。</li>
-                    <li><b>～たくなる</b>变得想……。两个条件都是「想」，不是「要」。</li>
-                    <li><b>～時は…時は（反復）</b>同一句型重复，第二个「は」有「还有另一种情况」的意思。</li>
-                    <li><b>体言止め</b>「また、どこかで。」没有动词。约定悬在半空。</li>
-                    <li><b>～で（場所）</b>どこかで＝在某个地方。地点不确定，正合「也许」。</li>
+                    <li><span class="g-h"><b>体言止め</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ"><em>また、どこかで。</em></a></span><span class="g-t">「また、どこかで。」没有谓语。约定悬在半空，信也停在这里——下面没有署名，没有日期。</span></li>
+
+                    <li><span class="g-h"><b>～時は…時は（反復）</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">こっそり見たくなった<em>時は</em>、あなたにちょっと話しかけたくなった<em>時は</em></a></span><span class="g-t">同一条件说两遍，第二遍才说出真正想做的事。</span></li>
+
+                    <li><span class="g-h"><b>～たくなる</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">またあなたをこっそり見たく<em>なった</em></a></span><span class="g-t">变得想……。两个条件都是「想」，不是「要」。</span></li>
+
+                    <li><span class="g-h"><b>もし～時は</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ"><em>もし</em>、またあなたをこっそり見たくなった時は</a></span><span class="g-t">条件。用「時は」而不是「たら」，语气更轻，像提前想好。</span></li>
+
+                    <li><span class="g-h"><b>～気もする</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">少し淋しい<em>気もします</em></a></span><span class="g-t">「也有那种感觉」。「も」表示不排除别的情绪。</span></li>
+
+                    <li><span class="g-h"><b>～のは（名詞化）</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">お別れする<em>のは</em>自分で決めたこと</a></span><span class="g-t">「お別れするのは」＝分开这件事。</span></li>
+
+                    <li><span class="g-h"><b>～だけど（逆接）</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">自分で決めたこと<em>だけど</em></a></span><span class="g-t">先承认是自己决定的，再补一句「不过」。</span></li>
+
+                    <li><span class="g-h"><b>～で（場所）</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">また、どこか<em>で</em>。</a></span><span class="g-t">どこかで＝在某个地方。地点不确定，正合「也许」。</span></li>
                 </ul>
               </div>
             </div>
@@ -2081,117 +2175,6 @@ details.drill:not([open])::details-content{block-size:0}
     </div>
   </section>
 
-  <!-- ================= 语法 ================= -->
-  <section class="sec" id="grammar">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="sec-num">04</p>
-        <div>
-          <h2>文法メモ <span aria-hidden="true">·</span> 16 个句型</h2>
-          <p class="sub">每一条都从这封信里长出来，例句就是原文。</p>
-        </div>
-      </div>
-
-      <div class="grammar reveal">
-        <div class="g-card">
-          <span class="g-tag">N3 · 名詞＋</span>
-          <h3>～だって</h3>
-          <p class="mean">连……也。口语的「も」，但能把前面那个词单独拎起来强调。</p>
-          <p class="ex"><em>光生さんだって</em>、今自分でそう書いてて、びっくりしました</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 動詞普通形＋の</span>
-          <h3>～のは（名詞化）</h3>
-          <p class="mean">把动作变成名词作主题。谓语一直压到句尾，读者要等。</p>
-          <p class="ex"><em>あなたのことを名前で呼ぶのは</em>、ちょっと記憶にないぐらい久しぶりな気がして</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 名詞＋</span>
-          <h3>～ぐらい（程度）</h3>
-          <p class="mean">到……的程度。这里不是比较，是「久到想不起来」。</p>
-          <p class="ex"><em>記憶にないぐらい</em>久しぶりな気がして</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 口語</span>
-          <h3>～てませんか</h3>
-          <p class="mean">「～ていませんか」的口语省略。用来想象对方的样子，不是在求证。</p>
-          <p class="ex">口、<em>開いてませんか</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 接続</span>
-          <h3>～ので</h3>
-          <p class="mean">因为……。客观理由，比「から」软，用在请求前不逼人。</p>
-          <p class="ex"><em>今説明しますので</em>、ひとまず、それを閉めてください</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 時間</span>
-          <h3>～て結構経つ</h3>
-          <p class="mean">做某事后已经过了相当一段时间。「て」表状态，不表先后顺序。</p>
-          <p class="ex">私たちは<em>離婚して結構経つ</em>し</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 前置き</span>
-          <h3>～のですが</h3>
-          <p class="mean">……可是。话停在半句，等对方接，或自己接下一句。</p>
-          <p class="ex">どんな支障かはうまく<em>説明できないのですが</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 条件</span>
-          <h3>～と（恒常）</h3>
-          <p class="mean">一……就……。每次发生，不是一次。</p>
-          <p class="ex">あなたのことを<em>見てると</em>、変にざわざわとするのです</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N2 · 名詞＋</span>
-          <h3>～なりに</h3>
-          <p class="mean">以……自己的方式。带一点「做得不周全」的谦逊。</p>
-          <p class="ex"><em>私なりに</em>そのざわざわを打ち消すとか</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 試行</span>
-          <h3>～てみる</h3>
-          <p class="mean">试着做。失败也因此不那么像失败，更像试过。</p>
-          <p class="ex">元に戻す努力を<em>検討してみたのですが</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N3 · 推量</span>
-          <h3>どうやら～かもしれない</h3>
-          <p class="mean">似乎……。副词与句尾呼应，两头都留白。</p>
-          <p class="ex"><em>どうやら</em>誰より変なのは私<em>なのかもしれません</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N2 · 名詞＋</span>
-          <h3>～上で</h3>
-          <p class="mean">在……方面、在……过程中。</p>
-          <p class="ex">それは私が<em>生きる上で</em>抱える、とても厄介な病なのです</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 様態</span>
-          <h3>～そうに</h3>
-          <p class="mean">看起来……地。接「する」就是「作出那副样子」。</p>
-          <p class="ex"><em>寒そうにして</em>、ポケットに手を入れてました</p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 変化</span>
-          <h3>～たくなる</h3>
-          <p class="mean">变得想……。情动，不是意志。</p>
-          <p class="ex">いつまでも<em>見ていたくなりました</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">N4 · 感謝</span>
-          <h3>～てくれてありがとう</h3>
-          <p class="mean">谢谢你为我……。动作的受益者是说话人。</p>
-          <p class="ex">膝の上で頭を<em>なでてくれてありがとう</em></p>
-        </div>
-        <div class="g-card">
-          <span class="g-tag">文体 · 言いさし</span>
-          <h3>体言止め</h3>
-          <p class="mean">不接谓语，用名词或副词短语结句。留下余白，也留下未说完的话。</p>
-          <p class="ex">また、<em>どこかで。</em></p>
-        </div>
-      </div>
-    </div>
-  </section>
 
 </main>
 
@@ -2206,8 +2189,8 @@ details.drill:not([open])::details-content{block-size:0}
         原文与中文译文仅供学习研究使用，版权归原作者及富士电视台所有。</p>
       </div>
       <div>
-        <p>页面：逐段精读 · 60 词 · 16 句型<br>
-        分区：<a href="#close-reading">精読</a> ／ <a href="#vocab">単語</a> ／ <a href="#grammar">文法</a><br>
+        <p>页面：逐段精读 · 60 词<br>
+        分区：<a href="#close-reading">精読</a> ／ <a href="#vocab">単語</a><br>
         もう一通の手紙：<a href="../saikou-no-rikon/index.html">星野結夏さまへ</a><br>
         <a href="../index.html">← 作品一覧へ</a></p>
         <p style="margin-top:14px"><a class="to-top" href="#top">↑ ページ上部へ</a></p>

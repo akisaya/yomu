@@ -15,9 +15,8 @@
     <main>
       <section class="hero">  竖排标题 + 引文 + 按钮
       <section id="letter">   原文 + 译文
-      <section id="close-reading">  精読
+      <section id="close-reading">  精読（文法并在这里，不单列）
       <section id="vocab">    単語帳
-      <section id="grammar">  文法メモ
     </main>
     <footer>                  出处 · 版权 · 返回列表
   </body>
@@ -61,9 +60,10 @@
 </div>
 ```
 
-- `id="pN"` 是锚点，词表与段号都指向它。
+- `id="pN"` 是锚点：词表、段号、文法条目的原句片段都指向它。段号反过来指向该段卡片 `#dN`。
 - 段号只做视觉引导与跳转，不进 tab 顺序。
 - 译文与原文一一对应；不要一段原文配两段译文。
+- 给 `.para` 设 `scroll-margin-top`，否则从卡片跳回来会被吸顶栏盖住。
 
 ## 精读卡
 
@@ -83,8 +83,9 @@
         </ul>
       </div>
     </div>
-    <div class="d-row"><h4>文法</h4><div><ul class="items">
-      <li><b>～ながら（逆接）</b>動詞ます形＋ながら。…</li>
+    <div class="d-row"><h4>文法<a class="row-jump" href="#p1">原文 ↑</a></h4><div><ul class="items">
+      <li><span class="g-h"><b>～ながら（逆接）</b><a class="g-src" href="#p1" lang="ja">暦の上に春は立ち<em>ながら</em>厳しい寒さが続いております</a></span>
+          <span class="g-t">動詞ます形＋ながら。「～のに」の書き言葉版で…</span></li>
     </ul></div></div>
     <div class="d-row"><h4>語彙</h4><div class="chips">
       <span class="chip"><b>暦</b><span>こよみ</span>日历；历法</span>
@@ -112,18 +113,17 @@
 - 搜索同时匹配 `.w`、`.r`、含义三列。
 - 读音列没有汉字时写 `—`，不要留空。
 
-## 语法卡
+## 文法条目（在精读卡内，不单列成节）
 
-```html
-<div class="g-card">
-  <span class="g-tag">N4 · 接续：動詞ます形</span>
-  <h3>～ながら（逆接）</h3>
-  <p class="mean">虽然……却……。前后两项相反或矛盾。</p>
-  <p class="ex"><em>暦の上に春は立ちながら</em>、厳しい寒さが続いております</p>
-</div>
-```
+每条是「句型名 + 原句片段 + 用法说明」三件套：
 
-例句**必须取自原文**，用 `<em>` 标出匹配片段；不要另造例句。
+- `<b>` 放句型名或信号名。按「读的时候被什么绊住」命名（文末の言いさし、呼応、指示詞、連体修飾、取り立て），不要写 `N4 · 接续：…` 这种考试标签。
+- `<a class="g-src" href="#pN" lang="ja">` 放**该段原文里的一小截**，用 `<em>` 圈出被讲的词。片段要短到一眼能看清，但必须逐字出自该段（去掉 `<em>` 与振假名后要是 `#pN` 的纯文本子串）。不要另造例句，不要把整段抄进来。
+- `<span class="g-t">` 只讲用法、语感、易错点。骨格讲过的结构、訳注要讲的中文取舍，都不要在这里再说一遍。
+- 卡片「文法」标签下的 `原文 ↑` 是整卡共用的回跳入口；每条原句片段各自也是一个回跳链接。
+- 跳回目标段落时用 `:target` 做一次短闪（左侧朱线 + 极淡底色，2s 内淡出），不要留静态色块。
+
+样式见 `references/typography.md` 的「文法条目与跳回高亮」。
 
 ## 内容配额
 
@@ -131,16 +131,16 @@
 |---|---|---|
 | 段落 | 10–14 | 按原文自然段，不强行切 |
 | 精读卡 | 与段落同数 | 一段一卡 |
-| 文法 | 12–16 | 跨段去重，同句型只讲一次 |
+| 文法条目/段 | 6–8 | 全部在卡内，不单列成节；少于 4 会显得单薄 |
+| 原句片段命中率 | 100% | 每条 `g-src` 去掉标签后必须是该段原文子串 |
 | 词汇 | 45–60 | 按出现顺序 |
 | 振假名 | 60–70 处 | N3 密度 |
-| 语法条目/段 | 6–8 | 少于 5 会显得单薄 |
 
-数字写完用脚本核对，别让首屏写 54 词、表里却有 55 行。
+数字写完用脚本核对，别让首屏写 54 词、表里却有 55 行。`check_page.py` 会逐条做原句子串校验，不必手写核对脚本。
 
 ```bash
 grep -c '<tr data-pos=' index.html
 grep -c '<details class="drill"' index.html
-grep -c 'class="g-card"' index.html
+grep -c 'class="g-src"' index.html
 grep -o '<ruby>' index.html | wc -l
 ```
