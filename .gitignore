@@ -1,3 +1,4 @@
 .DS_Store
-.workbuddy/
+.workbuddy/*
+!.workbuddy/skills/
 .shot/
