@@ -110,6 +110,9 @@ node $SKILL/scripts/shot.mjs "file://$PWD/$SLUG/index.html" .shot/m.png --width 
 .
 ├── README.md                          本文件
 ├── index.html                         首页：收录列表 + 读法
+├── favicon.svg                        标签页图标（朱地白文「読」，可缩放）
+├── favicon.ico                        16/32/48 兜底（Safari、抓取预览）
+├── apple-touch-icon.png               180 触摸图标（满幅，交给 iOS 切角）
 ├── <slug>/index.html                  单篇精读页（自包含，无构建）
 └── .agent/skills/japanese-drama-line-study/
     ├── SKILL.md                       六步工作流、文案公式、设计红线
@@ -134,6 +137,7 @@ node $SKILL/scripts/shot.mjs "file://$PWD/$SLUG/index.html" .shot/m.png --width 
 - **折叠卡用 `<details>` + `::details-content` + `interpolate-size`**，标题不放进 `<summary>`，动画才不会被默认样式打断。
 - **不要用 `word-break: auto-phrase`**。390px 下行长会缩到三分之二，看起来像断句失败。
 - **默认开着振假名和中文**。改默认值必须同时升 `localStorage` 的 key（现在是 `yomu.letter.ui.v2`），否则老访客看到的还是旧状态。
+- **标签页图标是「白文印」**：朱红铺地、纸色「読」反白，和正文里的朱线细框印章互补。16px 下小字必然糊，能认出来的是那块朱色方块，所以不做细线框版本（试过，16px 只剩一圈灰边）。字取 Hiragino Mincho ProN W6 转成轮廓，`favicon.svg` 不依赖字体环境。
 
 ## 验收
 
