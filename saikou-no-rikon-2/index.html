@@ -1,0 +1,2397 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-furigana="on" data-cn="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光生さんへ — 没有寄出的那封信 | 日语精读</title>
+<meta name="description" content="日剧《最高の離婚》（最完美的离婚）第 8 话，星野结夏离开目黑川边的公寓时写给滨崎光生的信。原文、新译、逐段精读与词汇语法拆解，用作日语学习素材。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* ============ 基础 ============ */
+:root{
+  --paper:#f7f4ec;
+  --paper-hi:#fdfbf6;
+  --ink:#211e1a;
+  --ink-2:#514a42;
+  --ink-3:#8d8377;
+  --line:#e2dacc;
+  --line-soft:#ece5d8;
+  --shu:#b23a2b;
+  --shu-soft:rgba(178,58,43,.14);
+  --ai:#31465a;
+  --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --serif-cn:"Noto Serif SC","Songti SC","STSong",serif;
+  --sans:"Inter","Helvetica Neue","Hiragino Sans","PingFang SC",system-ui,sans-serif;
+  --mono:"SFMono-Regular","JetBrains Mono",ui-monospace,monospace;
+  --maxw:1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+::selection{background:var(--shu-soft);color:var(--ink)}
+
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+:focus-visible{
+  outline:2px solid var(--shu);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+.wrap{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-inline:clamp(18px,4vw,48px);
+}
+
+/* ============ 顶栏 ============ */
+.bar{
+  position:sticky;
+  top:0;
+  z-index:60;
+  background:rgba(247,244,236,.84);
+  backdrop-filter:blur(14px) saturate(1.1);
+  -webkit-backdrop-filter:blur(14px) saturate(1.1);
+  border-bottom:1px solid var(--line-soft);
+}
+.bar-in{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-inline:clamp(18px,4vw,48px);
+  height:58px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.brand{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  min-width:0;
+}
+.brand .logo{
+  font-family:var(--serif-jp);
+  font-size:19px;
+  letter-spacing:.18em;
+  font-weight:500;
+}
+.brand .sub{
+  font-size:11px;
+  letter-spacing:.16em;
+  color:var(--ink-3);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.tools{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  height:32px;
+  padding:0 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:12px;
+  letter-spacing:.04em;
+  color:var(--ink-2);
+  background:rgba(255,255,255,.5);
+  transition:background .18s, border-color .18s, color .18s;
+}
+.toggle:hover{border-color:#cfc4b2;background:#fff}
+.toggle .dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--ink-3);
+  transition:background .18s, box-shadow .18s;
+}
+.toggle[aria-pressed="true"]{
+  border-color:rgba(178,58,43,.4);
+  color:var(--shu);
+  background:rgba(178,58,43,.06);
+}
+.toggle[aria-pressed="true"] .dot{
+  background:var(--shu);
+  box-shadow:0 0 0 3px rgba(178,58,43,.12);
+}
+.progress{
+  position:absolute;
+  left:0;bottom:-1px;
+  height:1.5px;
+  width:100%;
+  background:var(--shu);
+  transform:scaleX(0);
+  transform-origin:0 50%;
+  opacity:.85;
+}
+
+/* ============ Hero ============ */
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding-top:clamp(44px,7vw,92px);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:repeating-linear-gradient(90deg,var(--line-soft) 0 1px,transparent 1px 58px);
+  opacity:.6;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 62%,transparent 96%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 62%,transparent 96%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-inline:clamp(18px,4vw,48px);
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(28px,6vw,88px);
+  align-items:start;
+}
+
+.hero-title{
+  display:flex;
+  flex-direction:row-reverse;
+  align-items:flex-start;
+  gap:clamp(10px,1.4vw,20px);
+  padding-top:6px;
+}
+.hero-title h1{
+  margin:0;
+  writing-mode:vertical-rl;
+  text-orientation:upright;
+  inline-size:5.6em;
+  font-family:var(--serif-jp);
+  font-weight:500;
+  font-size:clamp(34px,4.6vw,58px);
+  line-height:1.05;
+  letter-spacing:.08em;
+  color:var(--ink);
+  white-space:normal;
+}
+.hero-title h1 .sm{
+  font-size:.64em;
+  letter-spacing:.16em;
+  color:var(--ink-2);
+}
+.seal{
+  writing-mode:vertical-rl;
+  text-orientation:upright;
+  margin-top:2.2em;
+  width:2.1em;
+  height:4.4em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1.5px solid rgba(178,58,43,.55);
+  color:var(--shu);
+  font-family:var(--serif-jp);
+  font-size:clamp(12px,1.2vw,14px);
+  letter-spacing:.3em;
+  padding:.5em 0;
+  border-radius:2px;
+  transform:rotate(-2deg);
+  opacity:.92;
+}
+
+.hero-info{
+  max-width:520px;
+  padding-top:clamp(0px,2vw,26px);
+}
+.kicker{
+  margin:0 0 14px;
+  font-size:11px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+}
+.drama{
+  margin:0 0 18px;
+  font-family:var(--serif-jp);
+  font-size:15px;
+  letter-spacing:.06em;
+  color:var(--ink-2);
+}
+.drama span{
+  display:inline-block;
+  margin-left:10px;
+  padding:2px 8px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.06em;
+  color:var(--ink-3);
+  vertical-align:1px;
+}
+.pull{
+  margin:4px 0 28px;
+  padding:2px 0 2px 16px;
+  border-left:2px solid rgba(178,58,43,.32);
+}
+.pull blockquote{margin:0}
+.pull blockquote p{
+  margin:0;
+  font-family:var(--serif-jp);
+  font-size:clamp(15px,1.5vw,17px);
+  line-height:2.1;
+  letter-spacing:.05em;
+  color:var(--ink);
+}
+.pull figcaption{
+  margin-top:5px;
+  font-family:var(--serif-cn);
+  font-size:12.5px;
+  line-height:1.9;
+  letter-spacing:.02em;
+  color:var(--ink-3);
+}
+.meta{
+  margin:0 0 30px;
+  display:grid;
+  grid-template-columns:repeat(3,auto);
+  gap:0 30px;
+  justify-content:start;
+  border-top:1px solid var(--line);
+  padding-top:16px;
+}
+.meta dt{
+  font-size:10px;
+  letter-spacing:.24em;
+  color:var(--ink-3);
+  margin-bottom:4px;
+}
+.meta dd{
+  margin:0;
+  font-family:var(--serif-jp);
+  font-size:14px;
+  letter-spacing:.06em;
+  color:var(--ink);
+}
+.hero-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:42px;
+  padding:0 20px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-size:13px;
+  letter-spacing:.08em;
+  color:var(--ink-2);
+  background:rgba(255,255,255,.55);
+  transition:transform .2s, background .2s, border-color .2s, color .2s;
+}
+.btn:hover{background:#fff;border-color:#cfc4b2;transform:translateY(-1px)}
+.btn.primary{
+  background:var(--ink);
+  border-color:var(--ink);
+  color:#f8f5ee;
+}
+.btn.primary:hover{background:#000;border-color:#000}
+.btn.ext{background:transparent}
+.btn.ext:hover{background:rgba(255,255,255,.9)}
+
+.river{
+  display:block;
+  width:100%;
+  height:96px;
+  margin-top:clamp(28px,4vw,52px);
+  color:var(--line);
+}
+
+/* ============ 正文：手纸 ============ */
+.letter-section{
+  padding:clamp(32px,5vw,64px) 0 clamp(48px,7vw,96px);
+}
+.letter-layout{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-inline:clamp(18px,4vw,48px);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 186px;
+  gap:clamp(24px,4vw,54px);
+  align-items:start;
+}
+
+.paper{
+  position:relative;
+  background:var(--paper-hi);
+  border:1px solid var(--line);
+  padding:clamp(30px,5vw,74px) clamp(22px,5.4vw,78px) clamp(34px,5vw,64px);
+  box-shadow:
+    0 1px 2px rgba(70,52,32,.04),
+    0 22px 60px -30px rgba(70,52,32,.24);
+}
+.paper::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.05;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.paper > *{position:relative;z-index:1}
+
+.addressee{
+  margin:0 0 clamp(26px,4vw,44px);
+  padding-bottom:22px;
+  border-bottom:1px solid var(--line-soft);
+  font-family:var(--serif-jp);
+  font-size:clamp(17px,2vw,21px);
+  letter-spacing:.12em;
+  color:var(--ink);
+}
+.addressee small{
+  display:block;
+  margin-top:8px;
+  font-family:var(--sans);
+  font-size:10.5px;
+  letter-spacing:.22em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+}
+
+.para{
+  position:relative;
+  padding-left:2.4rem;
+  margin-bottom:clamp(22px,3vw,34px);
+}
+.num{
+  position:absolute;
+  left:0;
+  top:.72em;
+  display:block;
+  width:1.7rem;
+  font-family:var(--mono);
+  font-size:11px;
+  line-height:1;
+  letter-spacing:.02em;
+  color:#b9afa1;
+  transition:color .2s;
+  font-variant-numeric:tabular-nums;
+}
+.num:hover{color:var(--shu)}
+.num::after{
+  content:"";
+  display:block;
+  width:10px;
+  height:1px;
+  margin-top:7px;
+  background:currentColor;
+  opacity:.6;
+}
+.para:hover .num{color:var(--shu)}
+
+.jp{
+  margin:0;
+  font-family:var(--serif-jp);
+  font-size:clamp(15.5px,1.5vw,18px);
+  line-height:2.34;
+  letter-spacing:.045em;
+  color:var(--ink);
+  text-indent:1em;
+  font-feature-settings:"palt" 0;
+  line-break:strict;
+}
+.jp.date-line{
+  text-indent:0;
+  text-align:right;
+  font-size:13px;
+  letter-spacing:.1em;
+  color:var(--ink-2);
+  margin-bottom:.9em;
+}
+
+ruby{ruby-position:over}
+rt{
+  font-size:.5em;
+  font-weight:400;
+  letter-spacing:.03em;
+  color:#9a8f81;
+  line-height:1;
+}
+html[data-furigana="off"] rt{display:none}
+
+.hl{
+  background-image:linear-gradient(transparent 58%,rgba(178,58,43,.18) 58%);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  padding-bottom:.05em;
+}
+
+.cn{
+  margin:.85em 0 0;
+  padding-left:1.05em;
+  border-left:2px solid rgba(178,58,43,.22);
+  font-family:var(--serif-cn);
+  font-size:14px;
+  line-height:2;
+  letter-spacing:.02em;
+  color:var(--ink-3);
+  text-align:justify;
+}
+html[data-cn="off"] .cn{display:none}
+
+.play{
+  position:absolute;
+  left:-3px;
+  top:2.55em;
+  width:24px;
+  height:24px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#c3b9ab;
+  opacity:0;
+  transition:opacity .2s, color .2s, background .2s;
+}
+.para:hover .play,
+.play:focus-visible{opacity:1}
+.play:hover{color:var(--shu);background:rgba(178,58,43,.07)}
+.play svg{width:13px;height:13px;fill:currentColor}
+.play.on{opacity:1;color:var(--shu)}
+
+.sig{
+  margin:clamp(30px,4vw,46px) 0 0;
+  text-align:right;
+  font-family:var(--serif-jp);
+  font-size:14px;
+  letter-spacing:.14em;
+  color:var(--ink-2);
+}
+.sig span{
+  display:block;
+  font-family:var(--sans);
+  font-size:10px;
+  letter-spacing:.24em;
+  color:var(--ink-3);
+  margin-top:6px;
+}
+
+/* 右侧段落导航 */
+.rail{
+  position:sticky;
+  top:88px;
+  padding-top:6px;
+}
+.rail h2{
+  margin:0 0 14px;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.3em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+}
+.rail ol{
+  margin:0;
+  padding:0;
+  list-style:none;
+  border-left:1px solid var(--line);
+}
+.rail li{margin:0}
+.rail a{
+  display:flex;
+  gap:9px;
+  align-items:baseline;
+  padding:6px 0 6px 12px;
+  margin-left:-1px;
+  border-left:1px solid transparent;
+  font-family:var(--serif-jp);
+  font-size:12.5px;
+  line-height:1.5;
+  color:var(--ink-3);
+  transition:color .18s, border-color .18s;
+}
+.rail a b{
+  font-family:var(--mono);
+  font-weight:400;
+  font-size:10px;
+  color:#bdb3a5;
+}
+.rail a:hover{color:var(--ink);border-left-color:var(--line)}
+.rail a.active{
+  color:var(--shu);
+  border-left-color:var(--shu);
+}
+.rail a.active b{color:var(--shu)}
+
+/* ============ 区块标题 ============ */
+.sec{
+  padding:clamp(52px,7vw,96px) 0;
+  border-top:1px solid var(--line);
+}
+.sec:nth-of-type(even){background:linear-gradient(180deg,rgba(253,251,246,.6),rgba(253,251,246,0))}
+.sec-head{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(14px,2vw,24px);
+  align-items:baseline;
+  margin-bottom:clamp(28px,4vw,46px);
+}
+.sec-num{
+  margin:0;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.1em;
+  color:var(--shu);
+  padding-top:.35em;
+}
+.sec-head h2{
+  margin:0;
+  font-family:var(--serif-jp);
+  font-size:clamp(22px,2.6vw,30px);
+  font-weight:500;
+  letter-spacing:.08em;
+  line-height:1.35;
+}
+.sec-head .sub{
+  margin:.5em 0 0;
+  font-family:var(--serif-cn);
+  font-size:13.5px;
+  letter-spacing:.03em;
+  color:var(--ink-3);
+}
+
+/* ============ 精读 ============ */
+.drills{
+  display:grid;
+  gap:0;
+  border-top:1px solid var(--line-soft);
+}
+details.drill{
+  border-bottom:1px solid var(--line-soft);
+}
+details.drill > summary{
+  list-style:none;
+  display:flex;
+  align-items:baseline;
+  gap:clamp(12px,2vw,22px);
+  padding:19px 8px 19px 2px;
+  cursor:pointer;
+  transition:background .2s;
+  border-radius:2px;
+}
+details.drill > summary::-webkit-details-marker{display:none}
+details.drill > summary:hover{background:rgba(255,255,255,.55)}
+details.drill > summary::before{
+  content:"";
+  order:9;
+  margin-left:auto;
+  inline-size:.62em;
+  block-size:.62em;
+  flex:none;
+  align-self:center;
+  background-color:var(--ink-3);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+  rotate:-90deg;
+}
+details.drill[open] > summary::before{rotate:0deg}
+@media (prefers-reduced-motion: no-preference){
+  details.drill > summary::before{transition:rotate .22s ease}
+}
+.d-num{
+  font-family:var(--mono);
+  font-size:11px;
+  color:#b9afa1;
+  flex:none;
+  padding-top:.2em;
+}
+.d-title{
+  font-family:var(--serif-jp);
+  font-size:15.5px;
+  letter-spacing:.06em;
+  color:var(--ink);
+  flex:none;
+  font-weight:500;
+}
+.d-preview{
+  font-family:var(--serif-jp);
+  font-size:13px;
+  color:var(--ink-3);
+  letter-spacing:.03em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-width:0;
+}
+details.drill[open] .d-preview{color:#b5aa9c}
+
+.d-body{
+  padding:4px 8px 30px 2px;
+  display:grid;
+  gap:22px;
+}
+@media (min-width:820px){
+  .d-body{padding-left:calc(.62em + 38px)}
+}
+.d-row{
+  display:grid;
+  grid-template-columns:68px minmax(0,1fr);
+  gap:14px;
+  align-items:start;
+}
+.d-row > h4{
+  margin:0;
+  padding-top:.28em;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.22em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+}
+.d-row > div{min-width:0}
+
+.items{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:12px;
+}
+.items li{
+  padding-left:14px;
+  position:relative;
+  font-size:14px;
+  line-height:1.85;
+  color:var(--ink-2);
+}
+.items li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.78em;
+  width:5px;
+  height:1px;
+  background:var(--shu);
+  opacity:.55;
+}
+.items b{
+  font-family:var(--serif-jp);
+  font-weight:600;
+  color:var(--ink);
+  letter-spacing:.03em;
+  margin-right:.55em;
+}
+.items .ex{
+  font-family:var(--serif-jp);
+  color:var(--ink-3);
+  font-size:13px;
+  letter-spacing:.02em;
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+.chip{
+  display:inline-flex;
+  align-items:baseline;
+  gap:6px;
+  padding:5px 10px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  background:rgba(255,255,255,.6);
+  font-size:12.5px;
+  line-height:1.5;
+}
+.chip b{
+  font-family:var(--serif-jp);
+  font-weight:600;
+  color:var(--ink);
+  letter-spacing:.03em;
+}
+.chip span{
+  font-size:10.5px;
+  color:var(--ink-3);
+  letter-spacing:.04em;
+  font-family:var(--mono);
+}
+
+.skel{display:grid;gap:10px}
+.s-jp{
+  margin:0;
+  padding:11px 13px;
+  background:rgba(255,255,255,.62);
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-family:var(--serif-jp);
+  font-size:13.5px;
+  line-height:1.95;
+  letter-spacing:.03em;
+  color:var(--ink);
+}
+.s-jp .sep{color:var(--shu);opacity:.4;margin:0 .42em;font-size:.9em}
+.s-list{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:7px;
+}
+.s-list li{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:10px;
+  align-items:baseline;
+  font-size:12.5px;
+  line-height:1.75;
+  color:var(--ink-3);
+}
+.s-list b{
+  font-family:var(--serif-jp);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink);
+  letter-spacing:.02em;
+  padding:1px 6px;
+  background:rgba(178,58,43,.05);
+  border-radius:2px;
+}
+.role{
+  margin:0;
+  font-family:var(--serif-cn);
+  font-size:13.5px;
+  line-height:1.95;
+  color:var(--ink-2);
+  letter-spacing:.01em;
+  text-align:justify;
+}
+.note{
+  padding:13px 16px;
+  background:rgba(178,58,43,.045);
+  border-left:2px solid rgba(178,58,43,.3);
+  font-family:var(--serif-cn);
+  font-size:13.5px;
+  line-height:1.9;
+  color:var(--ink-2);
+  letter-spacing:.015em;
+}
+.note b{color:var(--shu);font-weight:600}
+
+/* ============ 词汇表 ============ */
+.table-wrap{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.5);
+}
+.table-head{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+  padding:14px 18px;
+  border-bottom:1px solid var(--line);
+  background:rgba(253,251,246,.7);
+}
+.search{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex:1 1 220px;
+  min-width:0;
+}
+.search svg{width:14px;height:14px;stroke:var(--ink-3);fill:none;stroke-width:1.6;flex:none}
+.search input{
+  width:100%;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:none;
+  padding:5px 2px;
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink);
+  letter-spacing:.02em;
+}
+.search input::placeholder{color:#b6ab9d}
+.search input:focus{outline:none;border-bottom-color:var(--shu)}
+.count{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--ink-3);
+  letter-spacing:.04em;
+}
+.filters{display:flex;gap:5px;flex-wrap:wrap}
+.filters button{
+  padding:3px 9px;
+  border:1px solid transparent;
+  border-radius:999px;
+  font-size:11.5px;
+  color:var(--ink-3);
+  letter-spacing:.04em;
+  transition:color .18s, border-color .18s, background .18s;
+}
+.filters button:hover{color:var(--ink)}
+.filters button[aria-pressed="true"]{
+  color:var(--shu);
+  border-color:rgba(178,58,43,.3);
+  background:rgba(178,58,43,.05);
+}
+
+table.vocab{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13.5px;
+}
+table.vocab caption{
+  caption-side:top;
+  text-align:left;
+  padding:0 0 10px;
+  font-size:11px;
+  letter-spacing:.16em;
+  color:var(--ink-3);
+}
+table.vocab th{
+  text-align:left;
+  font-weight:500;
+  font-size:10px;
+  letter-spacing:.2em;
+  color:var(--ink-3);
+  padding:10px 18px;
+  border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+table.vocab td{
+  padding:9px 18px;
+  border-bottom:1px solid var(--line-soft);
+  vertical-align:baseline;
+  color:var(--ink-2);
+}
+table.vocab tr:last-child td{border-bottom:0}
+table.vocab tbody tr{transition:background .15s}
+table.vocab tbody tr:hover{background:rgba(178,58,43,.03)}
+.w{
+  font-family:var(--serif-jp);
+  font-size:14.5px;
+  color:var(--ink);
+  letter-spacing:.04em;
+  font-weight:500;
+}
+.r{
+  font-family:var(--serif-jp);
+  font-size:12.5px;
+  color:var(--ink-3);
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.p{
+  font-family:var(--mono);
+  font-size:10.5px;
+  color:#a99e90;
+  white-space:nowrap;
+}
+.p a{color:inherit;border-bottom:1px dotted #c8bcab}
+.p a:hover{color:var(--shu);border-color:var(--shu)}
+.empty{
+  padding:36px 18px;
+  text-align:center;
+  font-size:13px;
+  color:var(--ink-3);
+}
+
+/* ============ 语法 ============ */
+.grammar{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:1px;
+}
+.g-card{
+  background:var(--paper);
+  padding:22px 22px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  box-shadow:0 0 0 1px var(--line-soft);
+}
+.sec:nth-of-type(even) .g-card{background:#faf7f0}
+.g-card h3{
+  margin:0;
+  font-family:var(--serif-jp);
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:.05em;
+  color:var(--ink);
+}
+.g-card .mean{
+  font-family:var(--serif-cn);
+  font-size:13px;
+  color:var(--ink-2);
+  line-height:1.75;
+  margin:0;
+}
+.g-card .ex{
+  margin:0;
+  padding-top:10px;
+  border-top:1px dashed var(--line);
+  font-family:var(--serif-jp);
+  font-size:12.5px;
+  line-height:1.8;
+  color:var(--ink-3);
+  letter-spacing:.02em;
+}
+.g-card .ex em{
+  font-style:normal;
+  color:var(--shu);
+  background:rgba(178,58,43,.06);
+  padding:0 2px;
+}
+.g-tag{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.08em;
+  color:#a99e90;
+}
+
+/* ============ 页脚 ============ */
+footer{
+  border-top:1px solid var(--line);
+  padding:clamp(36px,5vw,60px) 0 64px;
+  background:rgba(253,251,246,.5);
+}
+.foot{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px 40px;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+.foot p{
+  margin:0;
+  font-size:12px;
+  line-height:1.9;
+  color:var(--ink-3);
+  letter-spacing:.03em;
+}
+.foot .jp-line{
+  font-family:var(--serif-jp);
+  font-size:13.5px;
+  color:var(--ink-2);
+  letter-spacing:.1em;
+  margin-bottom:6px;
+}
+.foot a{border-bottom:1px solid var(--line);color:var(--ink-2)}
+.foot a:hover{border-color:var(--shu);color:var(--shu)}
+.to-top{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  letter-spacing:.16em;
+  color:var(--ink-3);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:9px 14px;
+  background:rgba(255,255,255,.5);
+}
+.to-top:hover{color:var(--shu);border-color:rgba(178,58,43,.3)}
+
+/* ============ 折叠面板 ============ */
+[id]{scroll-margin-top:80px}
+html{interpolate-size:allow-keywords}
+details.drill::details-content{
+  overflow:clip;
+  contain:layout;
+}
+details.drill:not([open])::details-content{block-size:0}
+@media (prefers-reduced-motion: no-preference){
+  details.drill::details-content{
+    transition:block-size .3s ease, content-visibility .3s, display .3s;
+    transition-behavior:allow-discrete;
+  }
+}
+
+/* ============ 动效 ============ */
+.js .reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);
+}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+}
+.flash{animation:flash 1.6s ease-out}
+@keyframes flash{
+  0%{background:rgba(178,58,43,.09)}
+  100%{background:transparent}
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1000px){
+  .letter-layout{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:26px}
+  .hero-title{display:block}
+  .hero-title h1{
+    writing-mode:horizontal-tb;
+    inline-size:auto;
+    font-size:clamp(30px,9vw,46px);
+    line-height:1.25;
+    letter-spacing:.02em;
+  }
+  .seal{display:none}
+  .hero-title{align-items:flex-start}
+  .meta{gap:0 22px}
+  .bar-in{height:52px;gap:10px}
+  .brand .sub{display:none}
+  .toggle{padding:0 10px;font-size:11.5px}
+  .bar .tools{gap:4px}
+  .d-preview{display:none}
+  .d-row{grid-template-columns:1fr;gap:8px}
+  .s-list li{grid-template-columns:1fr;gap:2px}
+  .s-list b{justify-self:start}
+}
+@media (max-width:760px){
+  .jp{font-size:16.5px;line-height:2.08;letter-spacing:.03em}
+  .cn{font-size:13.5px;line-height:1.92}
+  .paper{padding:26px 20px 32px}
+}
+@media (max-width:560px){
+  table.vocab{display:block}
+  table.vocab thead{display:none}
+  table.vocab tbody{display:block}
+  table.vocab tr{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:"w n" "r n" "m n";
+    gap:2px 12px;
+    padding:12px 14px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  table.vocab tr:last-child{border-bottom:0}
+  table.vocab td{display:block;border:0;padding:0}
+  table.vocab td:nth-child(1){grid-area:w}
+  table.vocab td:nth-child(2){grid-area:r}
+  table.vocab td:nth-child(3){display:none}
+  table.vocab td:nth-child(4){grid-area:m;margin-top:3px;color:var(--ink-2)}
+  table.vocab td:nth-child(5){grid-area:n;align-self:start;padding-top:2px}
+  .w{font-size:15px}
+  .r{font-size:11px;white-space:normal;letter-spacing:.02em}
+}
+@media (max-width:520px){
+  .para{padding-left:1.7rem}
+  .num{width:1.3rem;font-size:10px}
+  .play{display:none}
+  table.vocab th,table.vocab td{padding-inline:12px}
+  table.vocab th:nth-child(3),table.vocab td:nth-child(3){display:none}
+}
+
+/* 本页：三字印章与长引文 */
+.seal{letter-spacing:.16em;height:4.9em}
+.nw{white-space:nowrap}
+.pull blockquote p{text-wrap:balance}
+
+@media (max-width:560px){
+  .filters{width:100%;gap:3px}
+  .filters button{padding:4px 7px;font-size:11px}
+}
+
+.sig.none{
+  font-family:var(--serif-cn);
+  font-size:12.5px;
+  letter-spacing:.08em;
+  color:var(--ink-3);
+}
+.sig.none span{letter-spacing:.2em}
+
+/* ============ 打印 ============ */
+@media print{
+  .bar,.rail,.play,.hero-actions,.filters,.search,.to-top{display:none}
+  body{background:#fff}
+  .paper{box-shadow:none;border:0;padding:0}
+  .sec{border-top:0;page-break-inside:avoid}
+  .cn{display:block !important}
+  details::details-content{content-visibility:visible !important}
+  details.drill{border-bottom:1px solid #ddd}
+  a{text-decoration:none;color:#000}
+}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}.cn{display:block !important}rt{display:inline !important}</style></noscript>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html">
+      <span class="logo">読む</span>
+      <span class="sub">最高の離婚 · 置手紙</span>
+    </a>
+    <div class="tools">
+      <button class="toggle" type="button" data-toggle="furigana" aria-pressed="true">
+        <span class="dot" aria-hidden="true"></span><span>ふりがな</span>
+      </button>
+      <button class="toggle" type="button" data-toggle="cn" aria-pressed="true">
+        <span class="dot" aria-hidden="true"></span><span>中文</span>
+      </button>
+    </div>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-title">
+        <h1 lang="ja">光生さんへ</h1>
+        <div class="seal" aria-hidden="true">置手紙</div>
+      </div>
+
+      <div class="hero-info">
+        <p class="kicker">The letter she never sent</p>
+        <p class="drama">ドラマ『最高の離婚』<span>2013.02.28 第8話</span></p>
+        <figure class="pull">
+          <blockquote lang="ja">
+            <p>好きな人とは<ruby>生活上<rt>せいかつじょう</rt></ruby><ruby>気が合<rt>きがあ</rt></ruby>わない、<br>気が合う人は好きになれない。</p>
+          </blockquote>
+          <figcaption lang="zh-CN">喜欢的人，生活上合不来；合得来的人，又喜欢不上。</figcaption>
+        </figure>
+        <dl class="meta">
+          <div><dt>差出人</dt><dd>星野 結夏</dd></div>
+          <div><dt>宛名</dt><dd>浜崎 光生</dd></div>
+          <div><dt>全文</dt><dd>11 段落</dd></div>
+        </dl>
+        <div class="hero-actions">
+          <a class="btn primary" href="#letter">手紙を読む</a>
+          <a class="btn" href="#close-reading">学習ノート</a>
+          <a class="btn ext" href="https://www.bilibili.com/video/BV11e4y127nS/" target="_blank" rel="noopener noreferrer">映像で見る</a>
+        </div>
+      </div>
+    </div>
+
+    <svg class="river" viewBox="0 0 1440 96" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0 50 C 220 30, 420 74, 660 52 S 1140 26, 1440 56" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <path d="M0 66 C 250 46, 440 90, 710 68 S 1200 42, 1440 72" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke" opacity=".6"/>
+      <path d="M1006 58 q 34 -30 68 0" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <path d="M1006 58 v 10 M1074 58 v 10" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g fill="var(--shu)" opacity=".38">
+        <ellipse cx="268" cy="30" rx="3" ry="2" transform="rotate(-24 268 30)"/>
+        <ellipse cx="452" cy="66" rx="2.6" ry="1.8" transform="rotate(18 452 66)"/>
+        <ellipse cx="742" cy="34" rx="3" ry="2" transform="rotate(-38 742 34)"/>
+        <ellipse cx="884" cy="70" rx="2.4" ry="1.7" transform="rotate(26 884 70)"/>
+        <ellipse cx="1216" cy="38" rx="2.8" ry="1.9" transform="rotate(-12 1216 38)"/>
+        <ellipse cx="1348" cy="58" rx="2.4" ry="1.7" transform="rotate(32 1348 58)"/>
+      </g>
+    </svg>
+  </section>
+
+  <!-- ================= 手纸 ================= -->
+  <section class="letter-section" id="letter">
+    <div class="letter-layout">
+      <article class="paper" aria-label="手紙の本文">
+
+        <p class="addressee">
+          光生さんへ
+          <small>結夏より / 出されなかった手紙</small>
+        </p>
+
+        <div class="para" id="p1">
+          <a class="num" href="#d1" title="この段落の精読へ">01</a>
+          <button class="play" type="button" data-i="1" aria-label="第一段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">光生さんだって、今自分でそう書いてて、びっくりしました。あなたのことを名前で呼ぶのは、ちょっと<ruby>記憶<rt>きおく</rt></ruby>にないぐらい<ruby>久しぶり<rt>ひさしぶり</rt></ruby>な気がして、何か<ruby>緊張<rt>きんちょう</rt></ruby>します。</p>
+          <p class="cn" lang="zh-CN">光是写下「光生」这两个字，我自己都吓了一跳。叫你的名字，久得我几乎想不起上一次是什么时候，总觉得有点紧张。</p>
+        </div>
+
+        <div class="para" id="p2">
+          <a class="num" href="#d2" title="この段落の精読へ">02</a>
+          <button class="play" type="button" data-i="2" aria-label="第二段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">とりあえずご<ruby>報告<rt>ほうこく</rt></ruby>です。私、家を出ました。部屋を見てびっくりしましたか？口開いてませんか？今<ruby>説明<rt>せつめい</rt></ruby>しますので、ひとまず、それを<ruby>閉めて<rt>しめて</rt></ruby>ください。</p>
+          <p class="cn" lang="zh-CN">先向你报告一件事。我搬出去了。看到房间，你吓了一跳吧？嘴是不是还张着？我这就说明原委，总之，先把嘴闭上。</p>
+        </div>
+
+        <div class="para" id="p3">
+          <a class="num" href="#d3" title="この段落の精読へ">03</a>
+          <button class="play" type="button" data-i="3" aria-label="第三段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">あのね、光生さん、やっぱりこのまま、一緒に住んでいるのは、変だと思いました。私たちは<ruby>離婚<rt>りこん</rt></ruby>して<ruby>結構<rt>けっこう</rt></ruby><ruby>経つ<rt>たつ</rt></ruby>し、何かと<ruby>支障<rt>ししょう</rt></ruby>があると思うのです。どんな支障かはうまく説明できないのですが。最近どうも、またあなたのことを見てると、変にざわざわとするのです。</p>
+          <p class="cn" lang="zh-CN">我说啊，光生，我们这样一直住在一起，到底还是不对劲。我们离婚也有一段日子了，总归会有各种不方便。究竟哪里不方便，我又说不清楚。最近不知怎么，一看到你，心里就莫名地躁动起来。</p>
+        </div>
+
+        <div class="para" id="p4">
+          <a class="num" href="#d4" title="この段落の精読へ">04</a>
+          <button class="play" type="button" data-i="4" aria-label="第四段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">私なりにそのざわざわを<ruby>打ち消す<rt>うちけす</rt></ruby>とか、あるいは<ruby>元に戻す<rt>もとにもどす</rt></ruby><ruby>努力<rt>どりょく</rt></ruby>を<ruby>検討<rt>けんとう</rt></ruby>してみたのですが、どちらもうまくいきませんでした。</p>
+          <p class="cn" lang="zh-CN">我按自己的方式想过办法，要么把那阵躁动压下去，要么设法回到原来的样子，可两样都没能做成。</p>
+        </div>
+
+        <div class="para" id="p5">
+          <a class="num" href="#d5" title="この段落の精読へ">05</a>
+          <button class="play" type="button" data-i="5" aria-label="第五段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">私、あなたのことを変だとか言いましたが、どうやら<ruby>誰<rt>だれ</rt></ruby>より変なのは、私なのかもしれません。いろんなことの<ruby>調整<rt>ちょうせい</rt></ruby>がうまくできないのです。好きな人とは<ruby>生活上<rt>せいかつじょう</rt></ruby><ruby>気が合<rt>きがあ</rt></ruby>わない、<ruby>気が合<rt>きがあ</rt></ruby>う人は好きになれない。</p>
+          <p class="cn" lang="zh-CN">我说过你奇怪，可看来最奇怪的人也许是我。很多事我都调整不好。喜欢的人，生活上合不来；合得来的人，又喜欢不上。</p>
+        </div>
+
+        <div class="para" id="p6">
+          <a class="num" href="#d6" title="この段落の精読へ">06</a>
+          <button class="play" type="button" data-i="6" aria-label="第六段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">私、あなたの言うことやすることには、<ruby>何一つ<rt>なにひとつ</rt></ruby><ruby>同意<rt>どうい</rt></ruby>できないけど。でも、好きなんですね。<ruby>愛情<rt>あいじょう</rt></ruby>と生活はいつもぶつかって。何というか、それは私が<ruby>生きる<rt>いきる</rt></ruby>上で<ruby>抱える<rt>かかえる</rt></ruby>、とても<ruby>厄介<rt>やっかい</rt></ruby>な<ruby>病<rt>やまい</rt></ruby>なのです。</p>
+          <p class="cn" lang="zh-CN">你说的话、你做的事，我没有一样赞同。可我还是喜欢你啊。爱情和生活总是相撞。怎么说呢，那是我活着就得背着的、很麻烦的一种病。</p>
+        </div>
+
+        <div class="para" id="p7">
+          <a class="num" href="#d7" title="この段落の精読へ">07</a>
+          <button class="play" type="button" data-i="7" aria-label="第七段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">前に映画を見に行きましたよね、ほら、私が10分<ruby>遅刻<rt>ちこく</rt></ruby>したとき。<ruby>横断歩道<rt>おうだんほどう</rt></ruby>を渡ったら、<ruby>待ち合わせ<rt>まちあわせ</rt></ruby>のところにあなたが立っていました。寒そうにして、ポケットに手を入れてました。この人は今私を待ってるんだ。そう思うと、<ruby>何故<rt>なぜ</rt></ruby>か嬉しくなって、いつまでも見ていたくなりました。それは映画を見るより、ずっとすてきな<ruby>光景<rt>こうけい</rt></ruby>だったのです。</p>
+          <p class="cn" lang="zh-CN">以前我们去看过电影吧，就是我迟到了十分钟那次。我过了人行横道，看见你站在约好的地方。一副很冷的样子，手插在口袋里。这个人现在正在等我——这么一想，不知为何就高兴起来，想一直看下去。那景象，比看电影要好看得多。</p>
+        </div>
+
+        <div class="para" id="p8">
+          <a class="num" href="#d8" title="この段落の精読へ">08</a>
+          <button class="play" type="button" data-i="8" aria-label="第八段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">あなたをこっそり見るのが好きでした。あなたは<ruby>照れ屋<rt>てれや</rt></ruby>でなかなかこっち向かないから、<ruby>盗み見る<rt>ぬすみみる</rt></ruby>チャンスはたびたびあったのです。<ruby>目黒川<rt>めぐろがわ</rt></ruby>を2人で<ruby>並んで<rt>ならんで</rt></ruby>歩くとき、こっそり見てました。DVD見てるとき、本読んでるとき、いつもあなたを盗み見て、気持ちは自然と<ruby>弾み<rt>はずみ</rt></ruby>ました。</p>
+          <p class="cn" lang="zh-CN">我喜欢偷偷看你。你怕羞，很少往我这边看，所以我偷看你的机会总是很多。两个人并排走在目黑川边的时候，我偷偷看过你。你看 DVD 的时候，看书的时候，我总在偷看你，心里自然而然地雀跃起来。</p>
+        </div>
+
+        <div class="para" id="p9">
+          <a class="num" href="#d9" title="この段落の精読へ">09</a>
+          <button class="play" type="button" data-i="9" aria-label="第九段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja"><ruby>桜<rt>さくら</rt></ruby>が見える家に<ruby>お嫁<rt>およめ</rt></ruby>に来て、桜が<ruby>嫌い<rt>きらい</rt></ruby>な人と一緒に<ruby>暮らして<rt>くらして</rt></ruby>。だけど、あなたが思うよりずっと私はあなたに<ruby>甘えて<rt>あまえて</rt></ruby>いたし。<ruby>包容力<rt>ほうようりょく</rt></ruby>っていうのとは、少し違うけど、あなたの<ruby>膝<rt>ひざ</rt></ruby>で、くつろぐ<ruby>心地よさ<rt>ここちよさ</rt></ruby>を感じていました。<ruby>一日中<rt>いちにちじゅう</rt></ruby><ruby>日なた<rt>ひなた</rt></ruby>にいるような、そんなまるで猫のように。もしかしたら私は、この家に住む<ruby>3匹<rt>さんびき</rt></ruby>目の猫のようなものだったのかもしれません。</p>
+          <p class="cn" lang="zh-CN">嫁进看得见樱花的房子，和讨厌樱花的人一起生活。可是我比你想象的，要更爱赖着你。说是「包容力」，也许有点不一样；可我在你膝上，尝到过松下来的舒服。像一整天都待在向阳处，像一只猫那样。说不定，我就是住在这个家里的第三只猫。</p>
+        </div>
+
+        <div class="para" id="p10">
+          <a class="num" href="#d10" title="この段落の精読へ">10</a>
+          <button class="play" type="button" data-i="10" aria-label="第十段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">おいしいご飯ありがとう。暖かいベッドありがとう。膝の上で頭をなでてくれてありがとう。あなたを<ruby>見上げ<rt>みあげ</rt></ruby>たり、<ruby>見下ろし<rt>みおろし</rt></ruby>たり、盗み見たり、まじまじ見たり、そんなことが、何よりかけがえのない幸せでした。</p>
+          <p class="cn" lang="zh-CN">谢谢你做的饭。谢谢温暖的床。谢谢你让我枕着你的膝，摸着我的头。仰头看你，低头看你，偷看你，直直地看你——这些，是比什么都无可替代的幸福。</p>
+        </div>
+
+        <div class="para" id="p11">
+          <a class="num" href="#d11" title="この段落の精読へ">11</a>
+          <button class="play" type="button" data-i="11" aria-label="第十一段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">光生さん、ありがとう。<ruby>お別れ<rt>おわかれ</rt></ruby>するのは自分で決めたことだけど、少し<ruby>淋しい<rt>さびしい</rt></ruby><ruby>気<rt>き</rt></ruby>もします。でも、もし、またあなたをこっそり見たくなった時は、あなたにちょっと<ruby>話しかけ<rt>はなしかけ</rt></ruby>たくなった時は、<span class="nw">また、どこかで。</span></p>
+          <p class="cn" lang="zh-CN">光生，谢谢你。分开是我自己决定的，可还是有一点寂寞。不过，如果我又想偷偷看你，又想跟你说上几句话——那就，在某个地方再见吧。</p>
+        </div>
+
+        <p class="sig none">— 署名も、日付もない。<span>NO SIGNATURE, NO DATE</span></p>
+      </article>
+
+      <nav class="rail" aria-label="段落索引">
+        <h2>段落</h2>
+        <ol>
+          <li><a href="#p1"><b>01</b>名前</a></li>
+          <li><a href="#p2"><b>02</b>ご報告</a></li>
+          <li><a href="#p3"><b>03</b>一緒に住む</a></li>
+          <li><a href="#p4"><b>04</b>打ち消す</a></li>
+          <li><a href="#p5"><b>05</b>誰より変</a></li>
+          <li><a href="#p6"><b>06</b>病</a></li>
+          <li><a href="#p7"><b>07</b>映画</a></li>
+          <li><a href="#p8"><b>08</b>盗み見</a></li>
+          <li><a href="#p9"><b>09</b>三匹目</a></li>
+          <li><a href="#p10"><b>10</b>ありがとう</a></li>
+          <li><a href="#p11"><b>11</b>どこかで</a></li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ================= 精读 ================= -->
+  <section class="sec" id="close-reading">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="sec-num">02</p>
+        <div>
+          <h2>精読 <span aria-hidden="true">·</span> 逐段拆解</h2>
+          <p class="sub">十一个段落，每段五层：骨架 → 语法 → 词汇 → 这一段的作用 → 翻译取舍。先看骨架，再回头看原文。</p>
+        </div>
+      </div>
+
+      <div class="drills reveal">
+        <details class="drill" id="d1" open>
+          <summary>
+            <span class="d-num">01</span>
+            <span class="d-title">名前を書く</span>
+            <span class="d-preview">光生さんだって、今自分でそう書いてて、びっくりしました</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">あなたのことを名前で呼ぶのは
+              <span class="sep">／</span> ちょっと記憶にないぐらい
+              <span class="sep">／</span> 久しぶりな気がして、
+              <span class="sep">／</span> 何か緊張します。</p>
+                <ul class="s-list">
+                    <li><b>あなたのことを名前で呼ぶのは</b><span>主题。「のは」把整个动作名词化，重点被推到后面。</span></li>
+                    <li><b>ちょっと記憶にないぐらい</b><span>程度的小句，修饰「久しぶり」。久到记忆里翻不出来。</span></li>
+                    <li><b>久しぶりな気がして</b><span>て形连用，把感觉交给下一句。</span></li>
+                    <li><b>何か緊張します</b><span>主句。主语是「私」，省略。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>～だって</b>名詞＋だって。「も」的口语版，但这里拎的是刚写下的那三个字——「就连『光生さん』这几个字」。</li>
+                    <li><b>～て（きっかけ）</b>「書いてて、びっくりしました」＝書いていて。动作进行中带出反应，两个动作几乎同时。</li>
+                    <li><b>～のは（名詞化）</b>動詞普通形＋のは。把动作变成话题，谓语一直压到句尾。</li>
+                    <li><b>～ぐらい（程度）</b>「記憶にないぐらい久しぶり」＝久到想不起来。程度副句，不是比较。</li>
+                    <li><b>～気がする</b>感觉、好像。比「思う」轻，留了余地。</li>
+                    <li><b>何か（副詞）</b>「何か緊張します」＝なんとなく。不是「某样东西」。</li>
+                    <li><b>～ます体</b>通篇敬体。她不是在说话，是在写信。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>記憶</b><span>きおく</span>记忆</span>
+                    <span class="chip"><b>久しぶり</b><span>ひさしぶり</span>隔了很久</span>
+                    <span class="chip"><b>緊張する</b><span>きんちょうする</span>紧张</span>
+                    <span class="chip"><b>名前で呼ぶ</b><span>なまえでよぶ</span>叫名字</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">全信第一句先卡在称呼上。她写下的不是「あなた」而是「光生さん」，写完先被自己吓到——两个人现在的距离，一句话就交代完了。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「光生さんだって」不是「光生你也」。だって 把刚写下的称呼拎起来：「就连『光生さん』这几个字」。译成「光是写下你的名字」，比「连你也」准。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d2">
+          <summary>
+            <span class="d-num">02</span>
+            <span class="d-title">ご報告</span>
+            <span class="d-preview">とりあえずご報告です。私、家を出ました</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">今説明しますので
+              <span class="sep">／</span> ひとまず
+              <span class="sep">／</span> それを閉めてください。</p>
+                <ul class="s-list">
+                    <li><b>今説明しますので</b><span>理由节。先给承诺，再提要求，顺序不能反。</span></li>
+                    <li><b>ひとまず</b><span>副词，把要求降级成「先」。</span></li>
+                    <li><b>それを閉めてください</b><span>主句。「それ」指上一句的「口」。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>とりあえず</b>先、暂且。管的是「报告」这件事，语气像把话头按住。</li>
+                    <li><b>～てませんか（口語）</b>「開いていませんか」的省略。她不是在求证事实，是在想象他的表情。</li>
+                    <li><b>～ので</b>客观理由，比「から」软。用在请求前面，不逼人。</li>
+                    <li><b>それを（指示詞）</b>回指前句的「口」。日语可以这样接，中文必须还原成具体的词。</li>
+                    <li><b>ひとまず</b>与「とりあえず」同类，更强调「先这样，别的以后再说」。</li>
+                    <li><b>～てください</b>请求。用在这种场合近乎命令，她却写得很轻。</li>
+                    <li><b>体言止め</b>「とりあえずご報告です。」不写「します」，像电报。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>報告</b><span>ほうこく</span>报告</span>
+                    <span class="chip"><b>家を出る</b><span>いえをでる</span>搬出去</span>
+                    <span class="chip"><b>説明</b><span>せつめい</span>说明</span>
+                    <span class="chip"><b>ひとまず</b><span>—</span>暂且</span>
+                    <span class="chip"><b>閉める</b><span>しめる</span>关上</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">第二段把信变成一份行动报告。四个短句、两个问句，节奏忽然快起来——她在想象他站在空房间里张着嘴的样子，边想边写。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「ひとまず、それを閉めてください」的「それ」是「口」，不是信。中文若照搬「把它合上」，读者会以为是信纸。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d3">
+          <summary>
+            <span class="d-num">03</span>
+            <span class="d-title">一緒に住む理由</span>
+            <span class="d-preview">やっぱりこのまま、一緒に住んでいるのは、変だと思いました</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">最近どうも
+              <span class="sep">／</span> またあなたのことを見てると
+              <span class="sep">／</span> 変にざわざわとするのです。</p>
+                <ul class="s-list">
+                    <li><b>最近どうも</b><span>时间＋语气，先把话说软。</span></li>
+                    <li><b>またあなたのことを見てると</b><span>条件句。「と」在这里是「一……就……」。</span></li>
+                    <li><b>変にざわざわとするのです</b><span>主句。拟态词＋する，把心理写成生理反应。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>あのね</b>呼びかけ。把书面语拉回两个人说话的距离。</li>
+                    <li><b>やっぱり</b>想过很久之后得出的结论，不是一时冲动。</li>
+                    <li><b>このまま</b>保持现状，不动。</li>
+                    <li><b>～て結構経つ</b>「離婚して結構経つ」＝离婚已经过了相当一段时间。「て」是状态，不是先后顺序。</li>
+                    <li><b>何かと</b>各种各样地、动不动就。后面接麻烦事最常用。</li>
+                    <li><b>～し（理由）</b>只列一条，暗示还有别的，语气因此不尖锐。</li>
+                    <li><b>～のですが（前置き）</b>话说到这里停一下，为下一句让路。</li>
+                    <li><b>～と（恒常条件）</b>「見てると」＝每次看到就……。口语里「ている」常缩成「てる」。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>結構</b><span>けっこう</span>相当、颇</span>
+                    <span class="chip"><b>経つ</b><span>たつ</span>（时间）流逝</span>
+                    <span class="chip"><b>何かと</b><span>なにかと</span>各种、动不动</span>
+                    <span class="chip"><b>支障</b><span>ししょう</span>妨碍、不便</span>
+                    <span class="chip"><b>ざわざわ</b><span>—</span>窸窣；心绪不宁</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">理由从这里开始。她不控诉，只报告一种反应：看见你，心里就响。整封信后面的论证，都是从这声「ざわざわ」长出来的。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「ざわざわ」不是「心烦意乱」那么重，是像有东西在心里窸窣作响。译成「躁动」，保留声音感。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d4">
+          <summary>
+            <span class="d-num">04</span>
+            <span class="d-title">打ち消せない</span>
+            <span class="d-preview">私なりにそのざわざわを打ち消すとか</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">私なりに
+              <span class="sep">／</span> そのざわざわを打ち消すとか、あるいは元に戻す努力を
+              <span class="sep">／</span> 検討してみたのですが、
+              <span class="sep">／</span> どちらもうまくいきませんでした。</p>
+                <ul class="s-list">
+                    <li><b>私なりに</b><span>状语，限定方式：按我自己的办法。</span></li>
+                    <li><b>そのざわざわを…努力を</b><span>长宾语，两条路：「消掉」和「复原」。</span></li>
+                    <li><b>検討してみたのですが</b><span>谓语＋转折前置，把坏结果垫一下。</span></li>
+                    <li><b>どちらもうまくいきませんでした</b><span>主句：两条都不行。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>～なりに</b>名詞＋なりに。「私なりに」＝以我的方式。带一点「做得不周全」的谦逊。</li>
+                    <li><b>～とか</b>列举，语气随便。这里只举一项，后面用「あるいは」接另一项。</li>
+                    <li><b>あるいは</b>或者。书面，比「それとも」稳。</li>
+                    <li><b>～を検討する</b>研究、斟酌。比「考える」正式，用在「努力」上反而显得笨拙。</li>
+                    <li><b>～てみた</b>尝试做。失败的结果因此不那么像失败，更像试过。</li>
+                    <li><b>～のですが</b>逆接的前置，把不好的结果先垫一下。</li>
+                    <li><b>どちらも～ない</b>两者都不。把两条路一起否掉，没有第三条。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>打ち消す</b><span>うちけす</span>打消、消除</span>
+                    <span class="chip"><b>あるいは</b><span>—</span>或者</span>
+                    <span class="chip"><b>元に戻す</b><span>もとにもどす</span>恢复原状</span>
+                    <span class="chip"><b>検討する</b><span>けんとうする</span>研究、斟酌</span>
+                    <span class="chip"><b>どちらも</b><span>—</span>两者都</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">上一段给症状，这一段给处方和失败。两个选项都失败，才有下一段的自我诊断——她不是没努力过。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「検討してみた」不是开会研究，是「自己试过想办法」。译成「想过办法」就够，不必抬成「反复斟酌」。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d5">
+          <summary>
+            <span class="d-num">05</span>
+            <span class="d-title">誰より変なのは</span>
+            <span class="d-preview">どうやら誰より変なのは、私なのかもしれません</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">好きな人とは
+              <span class="sep">／</span> 生活上気が合わない、
+              <span class="sep">／</span> 気が合う人は
+              <span class="sep">／</span> 好きになれない。</p>
+                <ul class="s-list">
+                    <li><b>好きな人とは</b><span>主题＋对比的「は」。把一类人先立在左边。</span></li>
+                    <li><b>生活上気が合わない</b><span>第一句谓语。否定收尾。</span></li>
+                    <li><b>気が合う人は</b><span>第二个对比主题，句式和上一句对齐。</span></li>
+                    <li><b>好きになれない</b><span>第二句谓语。可能形否定，不是「不喜欢」，是「喜欢不上」。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>～とか言う</b>引用，带一点自嘲：「说你奇怪什么的」。</li>
+                    <li><b>～が（逆接）</b>「我说过……不过」。前后主语其实是同一个人。</li>
+                    <li><b>どうやら</b>似乎。与句尾的「かもしれない」呼应，两头都留白。</li>
+                    <li><b>誰より</b>比谁都。比较的对象省略，反而更大。</li>
+                    <li><b>～のかもしれません</b>推测的礼貌形。她给自己留了退路。</li>
+                    <li><b>～のです</b>说明语气。不是下判断，是解释。</li>
+                    <li><b>～とは／～は（対比）</b>两个「は」把两类人钉在两端，中间没有过渡。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>どうやら</b><span>—</span>似乎</span>
+                    <span class="chip"><b>調整</b><span>ちょうせい</span>调整</span>
+                    <span class="chip"><b>生活上</b><span>せいかつじょう</span>生活上</span>
+                    <span class="chip"><b>気が合う</b><span>きがあう</span>合得来</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">全信第一次转向自己。「谁更奇怪」这个问题被她接了过去——不是你有问题，是我调不好。话说到这儿，指责就没了。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　两个「は」必须译出来。否则「喜欢的人合不来、合得来的人喜欢不上」会塌成一句普通感慨，对比就没了。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d6">
+          <summary>
+            <span class="d-num">06</span>
+            <span class="d-title">厄介な病</span>
+            <span class="d-preview">私、あなたの言うことやすることには、何一つ同意できないけど</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">それは
+              <span class="sep">／</span> 私が生きる上で抱える、
+              <span class="sep">／</span> とても厄介な病なのです。</p>
+                <ul class="s-list">
+                    <li><b>それは</b><span>指前面「爱情和生活总是相撞」这件事。</span></li>
+                    <li><b>私が生きる上で抱える</b><span>定语从句，修饰「病」。从句里还套着「生きる上で」。</span></li>
+                    <li><b>とても厄介な病なのです</b><span>主句。名词句＋のです，是解释，不是比喻。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>～には（対象）</b>「言うことやすることには」——对你说的话、做的事。</li>
+                    <li><b>何一つ～ない</b>全面否定，「一样也……」。比「全然」更逐条。</li>
+                    <li><b>～けど。（言いさし）</b>用句号收尾的「けど」。话没说完，情绪留在半空。</li>
+                    <li><b>～んですね</b>自己确认，「原来是这么回事啊」。不是问对方。</li>
+                    <li><b>～て。（言いさし）</b>「ぶつかって。」同样断在半句，语法上没结束。</li>
+                    <li><b>何というか</b>找不到词时的填充语，等于「怎么说呢」。</li>
+                    <li><b>～上で</b>「生きる上で」＝在活着这件事上。</li>
+                    <li><b>～なのです</b>解释的断定。她把这称为「病」，是诊断书的口吻。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>何一つ</b><span>なにひとつ</span>一样也（否定）</span>
+                    <span class="chip"><b>同意する</b><span>どういする</span>同意</span>
+                    <span class="chip"><b>愛情</b><span>あいじょう</span>爱情</span>
+                    <span class="chip"><b>ぶつかる</b><span>—</span>相撞、冲突</span>
+                    <span class="chip"><b>厄介</b><span>やっかい</span>麻烦、棘手</span>
+                    <span class="chip"><b>病</b><span>やまい</span>病</span>
+                    <span class="chip"><b>抱える</b><span>かかえる</span>抱、背负</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">两处「けど」「ぶつかって」都断在半句——这正是她说不清的地方。全信最像独白的一段，也是唯一直接说出「好き」的地方。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「好きなんですね」的「ね」不是问对方，是自己咂摸出来的确认。译「可我还是喜欢你啊」，把这个「啊」留住。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d7">
+          <summary>
+            <span class="d-num">07</span>
+            <span class="d-title">映画よりすてきな光景</span>
+            <span class="d-preview">横断歩道を渡ったら、待ち合わせのところにあなたが立っていました</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">この人は今私を待ってるんだ。
+              <span class="sep">／</span> そう思うと、
+              <span class="sep">／</span> 何故か嬉しくなって、
+              <span class="sep">／</span> いつまでも見ていたくなりました。</p>
+                <ul class="s-list">
+                    <li><b>この人は今私を待ってるんだ</b><span>心内文。她把心里那句话原样写下来，连「んだ」都没改。</span></li>
+                    <li><b>そう思うと</b><span>条件：一想到这个。</span></li>
+                    <li><b>何故か嬉しくなって</b><span>结果一，形容词连用，再接下一句。</span></li>
+                    <li><b>いつまでも見ていたくなりました</b><span>结果二，主句。想一直看下去。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>～よね（確認）</b>假定对方也记得。「我们看过电影吧」。</li>
+                    <li><b>ほら</b>唤起记忆的手势词，写进信里，等于伸手拉他一下。</li>
+                    <li><b>～たら（発見）</b>「渡ったら…立っていました」——过了马路，就看见他站在那里。</li>
+                    <li><b>～そうに（様態）</b>「寒そうにして」＝一副冷的样子。样态接「する」是姿态，不是体感。</li>
+                    <li><b>～てました（口語）</b>「入れていました」的省略。叙述变快。</li>
+                    <li><b>～んだ（心内文）</b>把心理活动说成独白，读者直接听见她心里那句。</li>
+                    <li><b>～と（契機）</b>「そう思うと」＝这么一想。</li>
+                    <li><b>～たくなる</b>变得想……。情动，不是意志。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>遅刻</b><span>ちこく</span>迟到</span>
+                    <span class="chip"><b>横断歩道</b><span>おうだんほどう</span>人行横道</span>
+                    <span class="chip"><b>待ち合わせ</b><span>まちあわせ</span>碰头、约好见面</span>
+                    <span class="chip"><b>寒そう</b><span>さむそう</span>看起来冷</span>
+                    <span class="chip"><b>何故か</b><span>なぜか</span>不知为何</span>
+                    <span class="chip"><b>光景</b><span>こうけい</span>景象</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">前六段都在讲「为什么走」，这一段忽然给出一段完整的记忆。论证在这里停下，换成画面——她要带走的不是理由，是这个画面。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「寒そうにして」不是客观描写「他很冷」，是他把手插进口袋的那个姿态。中文要译出「一副……的样子」。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d8">
+          <summary>
+            <span class="d-num">08</span>
+            <span class="d-title">盗み見</span>
+            <span class="d-preview">あなたをこっそり見るのが好きでした</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">いつもあなたを盗み見て、
+              <span class="sep">／</span> 気持ちは自然と弾みました。</p>
+                <ul class="s-list">
+                    <li><b>いつもあなたを盗み見て</b><span>连用中止，动作在前，原因也在里面。</span></li>
+                    <li><b>気持ちは自然と弾みました</b><span>主句。心情自己轻快起来，不是她让它轻快。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>～のが好きでした</b>名词化＋过去式。用过去式，说明现在不一样了。</li>
+                    <li><b>照れ屋</b>「～屋」表示有某种倾向的人。名词，不是形容词。</li>
+                    <li><b>～で（原因）</b>「照れ屋で」＝因为害羞。</li>
+                    <li><b>なかなか～ない</b>怎么也不。「なかなかこっち向かない」。</li>
+                    <li><b>たびたび</b>屡次。书面，比「よく」有节奏。</li>
+                    <li><b>～とき</b>的时候。后面三个场景并列，都挂在「とき」上。</li>
+                    <li><b>～て（連用中止）</b>两个动作接在一起，不加「そして」。</li>
+                    <li><b>自然と</b>不由自主地。不是「自然地」，是没有刻意。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>こっそり</b><span>—</span>悄悄地</span>
+                    <span class="chip"><b>照れ屋</b><span>てれや</span>害羞的人</span>
+                    <span class="chip"><b>盗み見る</b><span>ぬすみみる</span>偷看</span>
+                    <span class="chip"><b>たびたび</b><span>—</span>屡次</span>
+                    <span class="chip"><b>並んで歩く</b><span>ならんであるく</span>并肩走</span>
+                    <span class="chip"><b>弾む</b><span>はずむ</span>轻快起来</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">上一段是「我看你」，这一段把「看」变成习惯，并给出三个场景。节奏是三拍子，像在数日子。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「盗み見る」比「こっそり見る」多一层「不该看」的自觉。中文「偷看」正好，不必换成「偷偷打量」。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d9">
+          <summary>
+            <span class="d-num">09</span>
+            <span class="d-title">三匹目の猫</span>
+            <span class="d-preview">桜が見える家にお嫁に来て、桜が嫌いな人と一緒に暮らして</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">もしかしたら
+              <span class="sep">／</span> 私は
+              <span class="sep">／</span> この家に住む3匹目の猫のようなもの
+              <span class="sep">／</span> だったのかもしれません。</p>
+                <ul class="s-list">
+                    <li><b>もしかしたら</b><span>副词，等句尾的「かもしれない」。中间不能断。</span></li>
+                    <li><b>私は</b><span>主题。整段第一次把她自己放到主语上。</span></li>
+                    <li><b>この家に住む3匹目の猫のようなもの</b><span>名词谓语，比喻。「3匹目」是序数，前面两只猫是真的。</span></li>
+                    <li><b>だったのかもしれません</b><span>推测＋说明。过去式，说的是「也许曾经是」。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>～にお嫁に来る</b>嫁到……来。方向是「来」，因为说话人在那个家里。</li>
+                    <li><b>～て（連用中止）</b>「来て、…暮らして。」两个动作并列，句号前留白。</li>
+                    <li><b>だけど</b>转折。前面是事实，后面才是真话。</li>
+                    <li><b>～よりずっと</b>比较。「比你想象的还要……」。</li>
+                    <li><b>～し（言いさし）</b>只给一条理由，句子就断了。</li>
+                    <li><b>～っていうのとは</b>「というの」提示说法：「说是包容力，又有点不一样」。</li>
+                    <li><b>～ような／～ように</b>比喻。先用「ような」结句，再用「ように」收尾。</li>
+                    <li><b>もしかしたら～かもしれない</b>呼应。推测从头贯到尾。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>お嫁に来る</b><span>およめにくる</span>嫁过来</span>
+                    <span class="chip"><b>暮らす</b><span>くらす</span>生活、居住</span>
+                    <span class="chip"><b>甘える</b><span>あまえる</span>撒娇、依赖</span>
+                    <span class="chip"><b>包容力</b><span>ほうようりょく</span>包容力</span>
+                    <span class="chip"><b>くつろぐ</b><span>—</span>放松、舒展</span>
+                    <span class="chip"><b>日なた</b><span>ひなた</span>向阳处</span>
+                    <span class="chip"><b>もしかしたら</b><span>—</span>说不定</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">比喻在这里落地：她不是妻子，是这家的第三只猫。猫在光生的信里是看电视聊股价的荒诞角色，在她这里变成晒太阳的自己。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「甘えていた」不是「依赖」，是「撒娇、赖着你不放」。译成「依赖」，就把她主动的那一半抹掉了。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d10">
+          <summary>
+            <span class="d-num">10</span>
+            <span class="d-title">ありがとう</span>
+            <span class="d-preview">おいしいご飯ありがとう。暖かいベッドありがとう</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">あなたを見上げたり、見下ろしたり、盗み見たり、まじまじ見たり、
+              <span class="sep">／</span> そんなことが、
+              <span class="sep">／</span> 何よりかけがえのない幸せでした。</p>
+                <ul class="s-list">
+                    <li><b>四つの「たり」</b><span>视线动作的清单，方向各不相同：仰、俯、偷、直。</span></li>
+                    <li><b>そんなことが</b><span>总括。把上面四项一把收住。</span></li>
+                    <li><b>何よりかけがえのない幸せでした</b><span>主句。过去式，幸福已经过去了。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>～てくれてありがとう</b>对方为自己做了某事，因此道谢。三个「ありがとう」都挂在这个句型上。</li>
+                    <li><b>～たり～たり</b>列举动作。四项并列，最后一项直接接「そんなことが」。</li>
+                    <li><b>見上げる／見下ろす</b>反义词对。一个向上，一个向下，中间隔着身高差。</li>
+                    <li><b>まじまじ</b>目不转睛地。比「じっと」多一层「看得太露骨」。</li>
+                    <li><b>そんなこと</b>指示代词总括前文，让清单有了落点。</li>
+                    <li><b>何より</b>比什么都。比较的对象全部省略。</li>
+                    <li><b>かけがえのない</b>无可替代。惯用，不能拆成「掛け替え」＋「ない」。</li>
+                    <li><b>～でした</b>过去式。这一段的幸福，已经被她放进了过去。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>暖かい</b><span>あたたかい</span>温暖</span>
+                    <span class="chip"><b>膝</b><span>ひざ</span>膝盖</span>
+                    <span class="chip"><b>なでる</b><span>—</span>抚摸</span>
+                    <span class="chip"><b>見上げる</b><span>みあげる</span>仰望</span>
+                    <span class="chip"><b>見下ろす</b><span>みおろす</span>俯视</span>
+                    <span class="chip"><b>まじまじ</b><span>—</span>目不转睛</span>
+                    <span class="chip"><b>かけがえのない</b><span>—</span>无可替代</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">三个「ありがとう」是排比，第四个不来了，换成视线清单。感谢具体到饭、床、手，最后落在「看」——她能带走的只有看他的方式。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　四个「見る」方向不同：仰视、俯视、偷看、凝视。中文若都译成「看你」，这一段就只剩一句空话。</p>
+          </div>
+        </details>
+
+        <details class="drill" id="d11">
+          <summary>
+            <span class="d-num">11</span>
+            <span class="d-title">また、どこかで</span>
+            <span class="d-preview">お別れするのは自分で決めたことだけど、少し淋しい気もします</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">でも、もし、
+              <span class="sep">／</span> またあなたをこっそり見たくなった時は、
+              <span class="sep">／</span> あなたにちょっと話しかけたくなった時は、
+              <span class="sep">／</span> また、どこかで。</p>
+                <ul class="s-list">
+                    <li><b>でも、もし</b><span>转折＋假定，把话从过去推到未来。</span></li>
+                    <li><b>二つの「～時は」</b><span>同一条件说两遍，第二遍才说出真正想做的事。</span></li>
+                    <li><b>また、どこかで</b><span>没有谓语。全信停在这里。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法</h4>
+              <div>
+                <ul class="items">
+                    <li><b>～のは（名詞化）</b>「お別れするのは」＝分开这件事。</li>
+                    <li><b>～だけど（逆接）</b>先承认是自己决定的，再补一句「不过」。</li>
+                    <li><b>～気もする</b>「也有那种感觉」。「も」表示不排除别的情绪。</li>
+                    <li><b>もし～時は</b>条件。用「時は」而不是「たら」，语气更轻，像提前想好。</li>
+                    <li><b>～たくなる</b>变得想……。两个条件都是「想」，不是「要」。</li>
+                    <li><b>～時は…時は（反復）</b>同一句型重复，第二个「は」有「还有另一种情况」的意思。</li>
+                    <li><b>体言止め</b>「また、どこかで。」没有动词。约定悬在半空。</li>
+                    <li><b>～で（場所）</b>どこかで＝在某个地方。地点不确定，正合「也许」。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>お別れする</b><span>おわかれする</span>分别</span>
+                    <span class="chip"><b>淋しい</b><span>さびしい</span>寂寞</span>
+                    <span class="chip"><b>気がする</b><span>きがする</span>感觉、好像</span>
+                    <span class="chip"><b>話しかける</b><span>はなしかける</span>搭话</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">结尾没有署名、没有日期，句子停在「また、どこかで。」——一个没有谓语的约定。全信唯一把「再见」说出口的地方，也没说完。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「また、どこかで。」不是「后会有期」这样的成语，是「总会在哪儿再见到吧」的口气。译成四字，会把它抬得太高。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 单词 ================= -->
+  <section class="sec" id="vocab">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="sec-num">03</p>
+        <div>
+          <h2>単語帳 <span aria-hidden="true">·</span> 60 词</h2>
+          <p class="sub">按出现顺序排列。数字是段落号，点一下可以跳回去看上下文。</p>
+        </div>
+      </div>
+
+      <div class="table-wrap reveal">
+        <div class="table-head">
+          <search class="search">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="M10.4 10.4L14 14"/></svg>
+            <input type="search" id="vsearch" placeholder="搜词、读音或中文意思…" aria-label="単語を検索">
+            <span class="count" id="vcount">60</span>
+          </search>
+          <div class="filters" role="group" aria-label="品詞で絞り込む">
+            <button type="button" data-pos="all" aria-pressed="true">全部</button>
+            <button type="button" data-pos="名" aria-pressed="false">名詞</button>
+            <button type="button" data-pos="動" aria-pressed="false">動詞</button>
+            <button type="button" data-pos="形" aria-pressed="false">形容詞</button>
+            <button type="button" data-pos="形動" aria-pressed="false">形動</button>
+            <button type="button" data-pos="副" aria-pressed="false">副詞</button>
+            <button type="button" data-pos="慣" aria-pressed="false">慣用</button>
+          </div>
+        </div>
+
+        <table class="vocab" aria-label="単語帳">
+          <thead>
+            <tr><th scope="col">単語</th><th scope="col">読み</th><th scope="col">品詞</th><th scope="col">意味</th><th scope="col">段落</th></tr>
+          </thead>
+          <tbody id="vbody">
+            <tr data-pos="名"><td class="w">記憶</td><td class="r">きおく</td><td class="p">名</td><td>记忆</td><td class="p"><a href="#p1">01</a></td></tr>
+            <tr data-pos="形動"><td class="w">久しぶり</td><td class="r">ひさしぶり</td><td class="p">形動</td><td>隔了很久；好久不见</td><td class="p"><a href="#p1">01</a></td></tr>
+            <tr data-pos="動"><td class="w">緊張する</td><td class="r">きんちょうする</td><td class="p">動</td><td>紧张</td><td class="p"><a href="#p1">01</a></td></tr>
+            <tr data-pos="慣"><td class="w">名前で呼ぶ</td><td class="r">なまえでよぶ</td><td class="p">慣</td><td>叫名字</td><td class="p"><a href="#p1">01</a></td></tr>
+            <tr data-pos="名"><td class="w">報告</td><td class="r">ほうこく</td><td class="p">名</td><td>报告</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="慣"><td class="w">家を出る</td><td class="r">いえをでる</td><td class="p">慣</td><td>离开家、搬出去</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="名"><td class="w">説明</td><td class="r">せつめい</td><td class="p">名</td><td>说明</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="副"><td class="w">ひとまず</td><td class="r">—</td><td class="p">副</td><td>暂且、先</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="動"><td class="w">閉める</td><td class="r">しめる</td><td class="p">動</td><td>关上</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="副"><td class="w">結構</td><td class="r">けっこう</td><td class="p">副</td><td>相当、颇</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="動"><td class="w">経つ</td><td class="r">たつ</td><td class="p">動</td><td>（时间）流逝</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="副"><td class="w">何かと</td><td class="r">なにかと</td><td class="p">副</td><td>各种各样地、动不动</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="名"><td class="w">支障</td><td class="r">ししょう</td><td class="p">名</td><td>妨碍、不便</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="副"><td class="w">ざわざわ</td><td class="r">—</td><td class="p">副</td><td>窸窣作响；心绪不宁</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="動"><td class="w">打ち消す</td><td class="r">うちけす</td><td class="p">動</td><td>打消、消除</td><td class="p"><a href="#p4">04</a></td></tr>
+            <tr data-pos="副"><td class="w">あるいは</td><td class="r">—</td><td class="p">副</td><td>或者</td><td class="p"><a href="#p4">04</a></td></tr>
+            <tr data-pos="慣"><td class="w">元に戻す</td><td class="r">もとにもどす</td><td class="p">慣</td><td>恢复原状</td><td class="p"><a href="#p4">04</a></td></tr>
+            <tr data-pos="動"><td class="w">検討する</td><td class="r">けんとうする</td><td class="p">動</td><td>研究、斟酌</td><td class="p"><a href="#p4">04</a></td></tr>
+            <tr data-pos="副"><td class="w">どちらも</td><td class="r">—</td><td class="p">副</td><td>两者都</td><td class="p"><a href="#p4">04</a></td></tr>
+            <tr data-pos="副"><td class="w">どうやら</td><td class="r">—</td><td class="p">副</td><td>似乎</td><td class="p"><a href="#p5">05</a></td></tr>
+            <tr data-pos="名"><td class="w">調整</td><td class="r">ちょうせい</td><td class="p">名</td><td>调整</td><td class="p"><a href="#p5">05</a></td></tr>
+            <tr data-pos="名"><td class="w">生活上</td><td class="r">せいかつじょう</td><td class="p">名</td><td>生活上</td><td class="p"><a href="#p5">05</a></td></tr>
+            <tr data-pos="慣"><td class="w">気が合う</td><td class="r">きがあう</td><td class="p">慣</td><td>合得来</td><td class="p"><a href="#p5">05</a></td></tr>
+            <tr data-pos="副"><td class="w">何一つ</td><td class="r">なにひとつ</td><td class="p">副</td><td>（后接否定）一样也</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="動"><td class="w">同意する</td><td class="r">どういする</td><td class="p">動</td><td>同意</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="名"><td class="w">愛情</td><td class="r">あいじょう</td><td class="p">名</td><td>爱情</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="動"><td class="w">ぶつかる</td><td class="r">—</td><td class="p">動</td><td>相撞、冲突</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="形動"><td class="w">厄介</td><td class="r">やっかい</td><td class="p">形動</td><td>麻烦、棘手</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="名"><td class="w">病</td><td class="r">やまい</td><td class="p">名</td><td>病</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="動"><td class="w">抱える</td><td class="r">かかえる</td><td class="p">動</td><td>抱、背负</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="名"><td class="w">遅刻</td><td class="r">ちこく</td><td class="p">名</td><td>迟到</td><td class="p"><a href="#p7">07</a></td></tr>
+            <tr data-pos="名"><td class="w">横断歩道</td><td class="r">おうだんほどう</td><td class="p">名</td><td>人行横道</td><td class="p"><a href="#p7">07</a></td></tr>
+            <tr data-pos="名"><td class="w">待ち合わせ</td><td class="r">まちあわせ</td><td class="p">名</td><td>碰头、约好见面</td><td class="p"><a href="#p7">07</a></td></tr>
+            <tr data-pos="形動"><td class="w">寒そう</td><td class="r">さむそう</td><td class="p">形動</td><td>看起来冷</td><td class="p"><a href="#p7">07</a></td></tr>
+            <tr data-pos="副"><td class="w">何故か</td><td class="r">なぜか</td><td class="p">副</td><td>不知为何</td><td class="p"><a href="#p7">07</a></td></tr>
+            <tr data-pos="名"><td class="w">光景</td><td class="r">こうけい</td><td class="p">名</td><td>景象</td><td class="p"><a href="#p7">07</a></td></tr>
+            <tr data-pos="副"><td class="w">こっそり</td><td class="r">—</td><td class="p">副</td><td>悄悄地</td><td class="p"><a href="#p8">08</a></td></tr>
+            <tr data-pos="名"><td class="w">照れ屋</td><td class="r">てれや</td><td class="p">名</td><td>害羞的人</td><td class="p"><a href="#p8">08</a></td></tr>
+            <tr data-pos="動"><td class="w">盗み見る</td><td class="r">ぬすみみる</td><td class="p">動</td><td>偷看</td><td class="p"><a href="#p8">08</a></td></tr>
+            <tr data-pos="副"><td class="w">たびたび</td><td class="r">—</td><td class="p">副</td><td>屡次</td><td class="p"><a href="#p8">08</a></td></tr>
+            <tr data-pos="慣"><td class="w">並んで歩く</td><td class="r">ならんであるく</td><td class="p">慣</td><td>并肩走</td><td class="p"><a href="#p8">08</a></td></tr>
+            <tr data-pos="動"><td class="w">弾む</td><td class="r">はずむ</td><td class="p">動</td><td>轻快起来；弹起</td><td class="p"><a href="#p8">08</a></td></tr>
+            <tr data-pos="慣"><td class="w">お嫁に来る</td><td class="r">およめにくる</td><td class="p">慣</td><td>嫁过来</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="動"><td class="w">暮らす</td><td class="r">くらす</td><td class="p">動</td><td>生活、居住</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="動"><td class="w">甘える</td><td class="r">あまえる</td><td class="p">動</td><td>撒娇、依赖</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="名"><td class="w">包容力</td><td class="r">ほうようりょく</td><td class="p">名</td><td>包容力</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="動"><td class="w">くつろぐ</td><td class="r">—</td><td class="p">動</td><td>放松、舒展</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="名"><td class="w">日なた</td><td class="r">ひなた</td><td class="p">名</td><td>向阳处</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="副"><td class="w">もしかしたら</td><td class="r">—</td><td class="p">副</td><td>说不定</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="形"><td class="w">暖かい</td><td class="r">あたたかい</td><td class="p">形</td><td>温暖</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="名"><td class="w">膝</td><td class="r">ひざ</td><td class="p">名</td><td>膝盖</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="動"><td class="w">なでる</td><td class="r">—</td><td class="p">動</td><td>抚摸</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="動"><td class="w">見上げる</td><td class="r">みあげる</td><td class="p">動</td><td>仰望</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="動"><td class="w">見下ろす</td><td class="r">みおろす</td><td class="p">動</td><td>俯视</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="副"><td class="w">まじまじ</td><td class="r">—</td><td class="p">副</td><td>目不转睛</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="慣"><td class="w">かけがえのない</td><td class="r">—</td><td class="p">慣</td><td>无可替代</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="動"><td class="w">お別れする</td><td class="r">おわかれする</td><td class="p">動</td><td>分别</td><td class="p"><a href="#p11">11</a></td></tr>
+            <tr data-pos="形"><td class="w">淋しい</td><td class="r">さびしい</td><td class="p">形</td><td>寂寞</td><td class="p"><a href="#p11">11</a></td></tr>
+            <tr data-pos="慣"><td class="w">気がする</td><td class="r">きがする</td><td class="p">慣</td><td>感觉、好像</td><td class="p"><a href="#p11">11</a></td></tr>
+            <tr data-pos="動"><td class="w">話しかける</td><td class="r">はなしかける</td><td class="p">動</td><td>搭话</td><td class="p"><a href="#p11">11</a></td></tr>
+          </tbody>
+        </table>
+        <p class="empty" id="vempty" hidden>没有匹配的词。换个写法试试，比如「やまい」。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 语法 ================= -->
+  <section class="sec" id="grammar">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="sec-num">04</p>
+        <div>
+          <h2>文法メモ <span aria-hidden="true">·</span> 16 个句型</h2>
+          <p class="sub">每一条都从这封信里长出来，例句就是原文。</p>
+        </div>
+      </div>
+
+      <div class="grammar reveal">
+        <div class="g-card">
+          <span class="g-tag">N3 · 名詞＋</span>
+          <h3>～だって</h3>
+          <p class="mean">连……也。口语的「も」，但能把前面那个词单独拎起来强调。</p>
+          <p class="ex"><em>光生さんだって</em>、今自分でそう書いてて、びっくりしました</p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N4 · 動詞普通形＋の</span>
+          <h3>～のは（名詞化）</h3>
+          <p class="mean">把动作变成名词作主题。谓语一直压到句尾，读者要等。</p>
+          <p class="ex"><em>あなたのことを名前で呼ぶのは</em>、ちょっと記憶にないぐらい久しぶりな気がして</p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N4 · 名詞＋</span>
+          <h3>～ぐらい（程度）</h3>
+          <p class="mean">到……的程度。这里不是比较，是「久到想不起来」。</p>
+          <p class="ex"><em>記憶にないぐらい</em>久しぶりな気がして</p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N3 · 口語</span>
+          <h3>～てませんか</h3>
+          <p class="mean">「～ていませんか」的口语省略。用来想象对方的样子，不是在求证。</p>
+          <p class="ex">口、<em>開いてませんか</em></p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N4 · 接続</span>
+          <h3>～ので</h3>
+          <p class="mean">因为……。客观理由，比「から」软，用在请求前不逼人。</p>
+          <p class="ex"><em>今説明しますので</em>、ひとまず、それを閉めてください</p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N3 · 時間</span>
+          <h3>～て結構経つ</h3>
+          <p class="mean">做某事后已经过了相当一段时间。「て」表状态，不表先后顺序。</p>
+          <p class="ex">私たちは<em>離婚して結構経つ</em>し</p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N3 · 前置き</span>
+          <h3>～のですが</h3>
+          <p class="mean">……可是。话停在半句，等对方接，或自己接下一句。</p>
+          <p class="ex">どんな支障かはうまく<em>説明できないのですが</em></p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N3 · 条件</span>
+          <h3>～と（恒常）</h3>
+          <p class="mean">一……就……。每次发生，不是一次。</p>
+          <p class="ex">あなたのことを<em>見てると</em>、変にざわざわとするのです</p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N2 · 名詞＋</span>
+          <h3>～なりに</h3>
+          <p class="mean">以……自己的方式。带一点「做得不周全」的谦逊。</p>
+          <p class="ex"><em>私なりに</em>そのざわざわを打ち消すとか</p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N4 · 試行</span>
+          <h3>～てみる</h3>
+          <p class="mean">试着做。失败也因此不那么像失败，更像试过。</p>
+          <p class="ex">元に戻す努力を<em>検討してみたのですが</em></p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N3 · 推量</span>
+          <h3>どうやら～かもしれない</h3>
+          <p class="mean">似乎……。副词与句尾呼应，两头都留白。</p>
+          <p class="ex"><em>どうやら</em>誰より変なのは私<em>なのかもしれません</em></p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N2 · 名詞＋</span>
+          <h3>～上で</h3>
+          <p class="mean">在……方面、在……过程中。</p>
+          <p class="ex">それは私が<em>生きる上で</em>抱える、とても厄介な病なのです</p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N4 · 様態</span>
+          <h3>～そうに</h3>
+          <p class="mean">看起来……地。接「する」就是「作出那副样子」。</p>
+          <p class="ex"><em>寒そうにして</em>、ポケットに手を入れてました</p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N4 · 変化</span>
+          <h3>～たくなる</h3>
+          <p class="mean">变得想……。情动，不是意志。</p>
+          <p class="ex">いつまでも<em>見ていたくなりました</em></p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">N4 · 感謝</span>
+          <h3>～てくれてありがとう</h3>
+          <p class="mean">谢谢你为我……。动作的受益者是说话人。</p>
+          <p class="ex">膝の上で頭を<em>なでてくれてありがとう</em></p>
+        </div>
+        <div class="g-card">
+          <span class="g-tag">文体 · 言いさし</span>
+          <h3>体言止め</h3>
+          <p class="mean">不接谓语，用名词或副词短语结句。留下余白，也留下未说完的话。</p>
+          <p class="ex">また、<em>どこかで。</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <p class="jp-line">好きな人とは生活上気が合わない、気が合う人は好きになれない。</p>
+        <p>台词出自『最高の離婚』（2013，フジテレビ）第 8 話，2013 年 2 月 28 日播出，脚本：坂元裕二。<br>
+        結夏搬出目黑川边那间公寓时留下的信，没有寄出，也没有署名。<br>
+        片段影像：<a href="https://www.bilibili.com/video/BV11e4y127nS/" target="_blank" rel="noopener noreferrer">Bilibili「结夏给光生的信」双语字幕 ↗</a><br>
+        原文与中文译文仅供学习研究使用，版权归原作者及富士电视台所有。</p>
+      </div>
+      <div>
+        <p>页面：逐段精读 · 60 词 · 16 句型<br>
+        分区：<a href="#close-reading">精読</a> ／ <a href="#vocab">単語</a> ／ <a href="#grammar">文法</a><br>
+        もう一通の手紙：<a href="../saikou-no-rikon/index.html">星野結夏さまへ</a><br>
+        <a href="../index.html">← 作品一覧へ</a></p>
+        <p style="margin-top:14px"><a class="to-top" href="#top">↑ ページ上部へ</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  const $  = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+  /* ---------- 1. 开关：振假名 / 中文 ---------- */
+  const STORE = 'yomu.letter.ui.v2';
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch (e) { saved = {}; }
+
+  const toggles = $$('[data-toggle]');
+  const apply = (name, on) => {
+    root.dataset[name] = on ? 'on' : 'off';
+    toggles.forEach(btn => {
+      if (btn.dataset.toggle === name) btn.setAttribute('aria-pressed', String(on));
+    });
+    saved[name] = on;
+    try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch (e) {}
+  };
+  toggles.forEach(btn => {
+    const name = btn.dataset.toggle;
+    apply(name, saved[name] !== false);
+    btn.addEventListener('click', () => {
+      apply(name, root.dataset[name] !== 'on');
+    });
+  });
+
+  /* ---------- 2. 阅读进度 ---------- */
+  const bar = $('#progress');
+  let raf = 0;
+  const paintProgress = () => {
+    raf = 0;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const p = h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
+    bar.style.transform = `scaleX(${p})`;
+  };
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(paintProgress); }, { passive: true });
+  addEventListener('resize', paintProgress, { passive: true });
+  paintProgress();
+
+  /* ---------- 3. 进场动画 ---------- */
+  const reveal = $$('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    reveal.forEach(el => io.observe(el));
+  } else {
+    reveal.forEach(el => el.classList.add('in'));
+  }
+
+  /* ---------- 4. 右侧段落索引 ---------- */
+  const railLinks = $$('.rail a');
+  const paras = $$('.para');
+  const byId = new Map(railLinks.map(a => [a.getAttribute('href').slice(1), a]));
+  if ('IntersectionObserver' in window && railLinks.length) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        railLinks.forEach(a => a.classList.remove('active'));
+        const link = byId.get(en.target.id);
+        if (link) link.classList.add('active');
+      });
+    }, { rootMargin: '-20% 0px -62% 0px', threshold: 0 });
+    paras.forEach(p => spy.observe(p));
+  }
+
+  /* ---------- 5. 跳转高亮 ---------- */
+  const flash = (el) => {
+    if (!el) return;
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 1700);
+  };
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (target) setTimeout(() => flash(target), 320);
+  });
+  if (location.hash.length > 1) {
+    const t = document.getElementById(location.hash.slice(1));
+    if (t) setTimeout(() => flash(t), 300);
+  }
+
+  /* ---------- 6. 朗读 ---------- */
+  const synth = window.speechSynthesis;
+  let jaVoice = null;
+  const pickVoice = () => {
+    if (!synth) return;
+    const vs = synth.getVoices();
+    jaVoice = vs.find(v => /^ja[-_]JP/i.test(v.lang)) || vs.find(v => /^ja/i.test(v.lang)) || null;
+  };
+  if (synth) { pickVoice(); synth.addEventListener('voiceschanged', pickVoice); }
+
+  if (!synth) $$('.play').forEach(b => b.remove());
+
+  let current = null;
+  const clearBtn = () => {
+    if (current) current.classList.remove('on');
+    current = null;
+  };
+  const readAloud = (para) => {
+    const text = Array.from(para.querySelectorAll('.jp')).map(p => {
+      const c = p.cloneNode(true);
+      c.querySelectorAll('rt').forEach(rt => rt.remove());
+      return c.textContent.replace(/\s+/g, ' ').trim();
+    }).join('。');
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ja-JP';
+    u.rate = 0.92;
+    u.pitch = 1;
+    if (jaVoice) u.voice = jaVoice;
+    return u;
+  };
+
+  $$('.play').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!synth) return;
+      const para = btn.closest('.para');
+      if (!para) return;
+      if (current === btn) { synth.cancel(); clearBtn(); return; }
+      synth.cancel();
+      clearBtn();
+      const u = readAloud(para);
+      const stop = () => { if (current === btn) clearBtn(); };
+      u.onend = stop;
+      u.onerror = stop;
+      current = btn;
+      btn.classList.add('on');
+      synth.speak(u);
+    });
+  });
+  addEventListener('pagehide', () => { if (synth) synth.cancel(); });
+
+  /* ---------- 7. 词汇筛选 ---------- */
+  const input = $('#vsearch');
+  const rows = $$('#vbody tr');
+  const countEl = $('#vcount');
+  const emptyEl = $('#vempty');
+  let posFilter = 'all';
+  const norm = (s) => (s || '').toLowerCase().replace(/\s+/g, '');
+
+  const filterRows = () => {
+    const q = norm(input ? input.value : '');
+    let shown = 0;
+    rows.forEach(tr => {
+      const text = norm(tr.textContent);
+      const pos = tr.dataset.pos || '';
+      const okQ = !q || text.includes(q);
+      const okP = posFilter === 'all' || pos.startsWith(posFilter);
+      const ok = okQ && okP;
+      tr.hidden = !ok;
+      if (ok) shown++;
+    });
+    if (countEl) countEl.textContent = String(shown);
+    if (emptyEl) emptyEl.hidden = shown !== 0;
+  };
+  if (input) input.addEventListener('input', filterRows);
+  $$('.filters button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      posFilter = btn.dataset.pos;
+      $$('.filters button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      filterRows();
+    });
+  });
+  filterRows();
+
+})();
+
+</script>
+
+</body>
+</html>
+
