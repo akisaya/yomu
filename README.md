@@ -9,7 +9,7 @@
 [![在线浏览](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E6%B5%8F%E8%A7%88-akisaya.github.io%2Fyomu-B23A2B?style=flat-square)](https://akisaya.github.io/yomu/)
 ![离线可用](https://img.shields.io/badge/%E7%A6%BB%E7%BA%BF%E5%8F%AF%E7%94%A8-%E5%8D%95%E6%96%87%E4%BB%B6%20HTML-828893?style=flat-square)
 
-<sub>[在线浏览](https://akisaya.github.io/yomu/) · [收录](https://akisaya.github.io/yomu/#works) · [加一篇](#加一篇) · [内容口径](./.agent/skills/japanese-drama-line-study/references/editorial-rules.md) · [常见问题](#常见问题)</sub>
+<sub>[在线浏览](https://akisaya.github.io/yomu/) · [收录](https://akisaya.github.io/yomu/#works) · [加一篇](#加一篇) · [原文归档](./saikou-no-rikon/source.md) · [内容口径](./.agent/skills/japanese-drama-line-study/references/editorial-rules.md) · [常见问题](#常见问题)</sub>
 
 </div>
 
@@ -47,7 +47,7 @@
 
 > 做一段《最高の離婚》的台词学习页
 
-技能会自己走完：取原文并交叉核对 → 分段 → 自译并校 → 五层拆解 → 搭页 → 排版 → 结构校验与截图 → 在首页 `.entries` 里加一行。默认全文逐字保留；需要收缩范围时，明确说「只要其中几段」。
+技能会自己走完：取原文并交叉核对、分段 → 建立或更新该篇目录的 `source.md` → 自译并校并写回源档 → 五层拆解 → 搭页 → 排版 → 结构校验与截图 → 在首页 `.entries` 里加一行。每篇文章的 `$SLUG/source.md` 与 `$SLUG/index.html` 放在各自文件夹中；已有页面原样保留。默认全文逐字保留；需要收缩范围时，明确说「只要其中几段」。
 
 ### 方式二：手动
 
@@ -55,6 +55,7 @@
 SKILL=.agent/skills/japanese-drama-line-study
 SLUG=kaze-tachinu                      # 目录名用罗马字，同时是首页链接
 
+# 先建立或更新 $SLUG/source.md：逐段原文、译文、出处
 cp -r saikou-no-rikon $SLUG            # 复制整页当骨架，逐块替换
 # 首屏 → 段落（#pN）→ 精读卡（#dN，文法层在卡内）→ 词表 → 页脚
 # 段数不必与样张一致，锚点 #pN / #dN 成对增删
@@ -64,7 +65,7 @@ node $SKILL/scripts/shot.mjs "file://$PWD/$SLUG/index.html" .shot/top.png --widt
 node $SKILL/scripts/shot.mjs "file://$PWD/$SLUG/index.html" .shot/m.png --width 390 --height 844 --selector "#p1"
 ```
 
-产物是 `$SLUG/index.html`，截图在 `.shot/`（已 gitignore，看完可删）。没有构建步骤：改完直接提交，推 `main` 即更新线上。
+产物是同一目录中的源档 `$SLUG/source.md` 与展示页 `$SLUG/index.html`，截图在 `.shot/`（已 gitignore，看完可删）。没有构建步骤：改完直接提交，推 `main` 即更新线上。
 
 ## 一页里写什么
 
@@ -137,11 +138,13 @@ node $SKILL/scripts/shot.mjs "file://$PWD/$SLUG/index.html" .shot/m.png --width 
 ├── favicon.svg                        标签页图标（朱地白文「読」，可缩放）
 ├── favicon.ico                        16/32/48 兜底（Safari、抓取预览）
 ├── apple-touch-icon.png               180 触摸图标（满幅，交给 iOS 切角）
-├── <slug>/index.html                  单篇精读页（自包含，无构建）
+├── <slug>/
+│   ├── source.md                      本篇逐段原文、中文译文与出处
+│   └── index.html                     单篇精读页（自包含、无构建）
 └── .agent/skills/japanese-drama-line-study/
     ├── SKILL.md                       六步工作流、文法不单列的规则、文案公式、设计红线
     ├── references/
-    │   ├── content-schema.md          页面骨架、各类块的 HTML 结构、内容配额、文法条目三件套
+    │   ├── content-schema.md          Markdown 源档、页面骨架、各类块的 HTML 结构、内容配额
     │   ├── editorial-rules.md         首屏文案与版式取舍（含被否版本）
     │   ├── typography.md              设计 token、竖排标题、ruby、折叠卡、文法原句与跳回高亮、动效
     │   └── verification.md            截图、结构校验、交互冒烟
@@ -165,6 +168,8 @@ node $SKILL/scripts/shot.mjs "file://$PWD/$SLUG/index.html" .shot/m.png --width 
 - **标签页图标是「白文印」**：朱红铺地、纸色「読」反白，和正文里的朱线细框印章互补。16px 下小字必然糊，能认出来的是那块朱色方块，所以不做细线框版本（试过，16px 只剩一圈灰边）。字取 Hiragino Mincho ProN W6 转成轮廓，`favicon.svg` 不依赖字体环境。
 
 ## 验收
+
+每篇文章的 `source.md` 与同目录 `index.html` 必须同段数、同段序、同原文。原文或译文有改动时，先改该篇 `source.md`，再同步同目录 HTML；不要把现有页面删除或改写成源档的替代品，也不要把同作品的多篇合进一份 Markdown。
 
 `check_page.py` 自动检查：标签闭合与嵌套、重复 id、指向不存在锚点的站内链接、小节 / 精读卡 / 词表行 / 文法原句 / 振假名数量、`<html lang>`、外链 `rel=noopener`、图片 `alt`；并逐条比对每条文法原句片段是否逐字出自所属段落、回跳是否指对 `#pN`、是否还残留独立 `#grammar` 节。手写片段时漏一个逗号或送假名，页面照样渲染，只有这条检查能抓到。有问题非零退出，可以直接接在流程后面。
 

@@ -1,7 +1,8 @@
 ---
 name: japanese-drama-line-study
-description: 制作日剧台词 / 信件 / 独白的单文件精读网页——日文原文、中文译文、振假名开关、逐段五层拆解（骨架、语法、词汇、作用、译注；语法并入精读，每条自带原句并可跳回正文）与可搜索词表，并可把新作品接入既有「読む」式作品首页。当用户要求「把这段日剧台词做成网页」「做成日语学习资料」「拆解这段日语」「再加一部剧」时使用。Build a single-file editorial HTML study page for Japanese drama lines, letters or monologues with verbatim text, translation, furigana, grammar and vocabulary breakdown.
-agent_created: true
+description: 制作日剧台词 / 信件 / 独白的单文件精读网页——日文原文、中文译文、振假名开关、逐段五层拆解（骨架、语法、词汇、作用、译注；语法并入精读，每条自带原句并可跳回正文）与可搜索词表，并把核对后的逐段原文、中文译文和出处先保存到同目录 Markdown 源档；可把新作品接入既有「読む」式作品首页。当用户要求「把这段日剧台词做成网页」「做成日语学习资料」「拆解这段日语」「再加一部剧」时使用。Build a single-file editorial HTML study page for Japanese drama lines, letters or monologues, backed by a per-page verbatim Markdown source archive with translation.
+metadata:
+  agent_created: true
 ---
 
 # 日剧台词精读页
@@ -21,10 +22,12 @@ agent_created: true
 ```
 <repo>/
 ├── index.html                 作品首页（≥2 部作品时才有）
-└── <slug>/index.html          单篇精读页，自包含、无构建、双击可开
+└── <slug>/
+    ├── source.md              本篇原文、译文与出处
+    └── index.html             单篇精读页，自包含、无构建、双击可开
 ```
 
-样张（同仓库，可直接打开对照）：`saikou-no-rikon/index.html`（单篇）、`index.html`（首页）。
+样张（同仓库，可直接打开对照）：`saikou-no-rikon/source.md` 与 `saikou-no-rikon/index.html`（单篇）、`saikou-no-rikon-2/source.md` 与 `saikou-no-rikon-2/index.html`（另一篇）、`index.html`（首页）。
 
 ## 工作流
 
@@ -34,6 +37,8 @@ agent_created: true
 - **原文逐字不动**：送假名、标点（「，」「。」）、段落切分、重复的句式都保留。改动只发生在译文与注释里。
 - 记录出处：剧名、年份、集数或 SP、脚本家、播出日期。能定位到视频就带上时间码（`?t=秒`），放在页脚或首屏外链。
 - 页脚写明「原文与译文仅供学习研究，版权归原作者及电视台所有」。
+- 交叉核对后，先把逐段原文写入该篇目录的 `<slug>/source.md`。每篇文章在各自的 `<slug>/` 中成对保存 `source.md` 与 `index.html`；即使同属一部作品，也不把多篇合进一个 Markdown。已有源档时原位更新，不覆盖无关内容。
+- Markdown 源档保存纯原文，不抄页面用的 `<ruby>` 朗读标注。HTML 是展示层，不能成为原文与译文的唯一载体。
 
 ### 2. 译，并且校
 
@@ -44,6 +49,8 @@ agent_created: true
 3. **补原文没有的词**：`一人ずつ二人で生きていたこと` 不要译成「各自拥有的两个人一起生活过的**回忆**」，加了「回忆」，还把「一人ずつ」与「二人で」的矛盾抹平了。
 
 译文风格：书面、克制、不加解释；信息量不超过原文。有取舍就写进「訳注」，不要塞进正文。
+
+译完后把每个中文段落写回该篇的 `source.md`，与原文按段连续排列、一一对应。之后修改原文、译文或分段时先改 Markdown，再同步同目录的 HTML，避免两处内容漂移。
 
 ### 3. 拆成五层
 
@@ -80,6 +87,8 @@ agent_created: true
 正文只有三节（手纸 / 精読 / 単語帳）。不要再单列「文法メモ」——那会让读者在两处之间来回翻。
 
 不设测验、不设评分、不设打卡。
+
+「手纸」必须与同目录 `source.md` 的逐段原文和译文一致。新建 Markdown 源档是增量交付：保留仓库中已有的 HTML、原始页面和用户改动，不要用 Markdown 替换它们；只有用户明确要求迁移时，才调整旧文档的格式或位置。
 
 单篇保持**一个 HTML 文件**（内联 CSS/JS，字体走 Google Fonts + 系统明朝体回退）。同一系列到 3 篇以上，再抽出 `assets/yomu.css` 共用，避免样式副本失控。
 
@@ -143,6 +152,7 @@ node scripts/shot.mjs "file://$PWD/index.html" .shot/m.png --width 390 --height 
 
 ## 参考
 
+- `saikou-no-rikon/source.md`、`saikou-no-rikon-2/source.md` — 每篇随页面独立存放的源文档样张（原文、译文、出处）
 - `references/editorial-rules.md` — 文案与版式的取舍记录（含被否版本，避免重复返工）
 - `references/typography.md` — 设计 token、竖排标题、ruby、折叠卡、动效、移动端
 - `references/content-schema.md` — 页面骨架与各类块的 HTML 结构、内容配额

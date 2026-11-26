@@ -407,7 +407,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-size:11px;
   line-height:1;
   letter-spacing:.02em;
-  color:#b9afa1;
+  color:#6b6358;
   transition:color .2s;
   font-variant-numeric:tabular-nums;
 }
@@ -448,7 +448,7 @@ rt{
   font-size:.5em;
   font-weight:400;
   letter-spacing:.03em;
-  color:#9a8f81;
+  color:#6b6358;
   line-height:1;
 }
 html[data-furigana="off"] rt{display:none}
@@ -468,7 +468,7 @@ html[data-furigana="off"] rt{display:none}
   font-size:14px;
   line-height:2;
   letter-spacing:.02em;
-  color:var(--ink-3);
+  color:#6b6358;
   text-align:justify;
 }
 html[data-cn="off"] .cn{display:none}
@@ -482,7 +482,7 @@ html[data-cn="off"] .cn{display:none}
   display:grid;
   place-items:center;
   border-radius:50%;
-  color:#c3b9ab;
+  color:#6b6358;
   opacity:0;
   transition:opacity .2s, color .2s, background .2s;
 }
@@ -547,7 +547,7 @@ html[data-cn="off"] .cn{display:none}
   font-family:var(--mono);
   font-weight:400;
   font-size:10px;
-  color:#bdb3a5;
+  color:#6b6358;
 }
 .rail a:hover{color:var(--ink);border-left-color:var(--line)}
 .rail a.active{
@@ -634,7 +634,7 @@ details.drill[open] > summary::before{rotate:0deg}
 .d-num{
   font-family:var(--mono);
   font-size:11px;
-  color:#b9afa1;
+  color:#6b6358;
   flex:none;
   padding-top:.2em;
 }
@@ -649,14 +649,14 @@ details.drill[open] > summary::before{rotate:0deg}
 .d-preview{
   font-family:var(--serif-jp);
   font-size:13px;
-  color:var(--ink-3);
+  color:#6b6358;
   letter-spacing:.03em;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
   min-width:0;
 }
-details.drill[open] .d-preview{color:#b5aa9c}
+details.drill[open] .d-preview{color:var(--ink-2)}
 
 .d-body{
   padding:4px 8px 30px 2px;
@@ -675,10 +675,10 @@ details.drill[open] .d-preview{color:#b5aa9c}
 .d-row > h4{
   margin:0;
   padding-top:.28em;
-  font-size:10px;
+  font-size:11px;
   font-weight:500;
-  letter-spacing:.22em;
-  color:var(--ink-3);
+  letter-spacing:.18em;
+  color:#6b6358;
   text-transform:uppercase;
 }
 .d-row > div{min-width:0}
@@ -734,7 +734,7 @@ details.drill[open] .d-preview{color:#b5aa9c}
   border:1px solid var(--line);
   border-radius:2px;
   background:rgba(255,255,255,.6);
-  font-size:12.5px;
+  font-size:13px;
   line-height:1.5;
 }
 .chip b{
@@ -744,8 +744,8 @@ details.drill[open] .d-preview{color:#b5aa9c}
   letter-spacing:.03em;
 }
 .chip span{
-  font-size:10.5px;
-  color:var(--ink-3);
+  font-size:11.5px;
+  color:#6b6358;
   letter-spacing:.04em;
   font-family:var(--mono);
 }
@@ -776,14 +776,14 @@ details.drill[open] .d-preview{color:#b5aa9c}
   grid-template-columns:auto minmax(0,1fr);
   gap:10px;
   align-items:baseline;
-  font-size:12.5px;
+  font-size:13.5px;
   line-height:1.75;
-  color:var(--ink-3);
+  color:#6b6358;
 }
 .s-list b{
   font-family:var(--serif-jp);
   font-weight:600;
-  font-size:12.5px;
+  font-size:13.5px;
   color:var(--ink);
   letter-spacing:.02em;
   padding:1px 6px;
@@ -1070,9 +1070,9 @@ details.drill:not([open])::details-content{block-size:0}
 .d-row > h4 .row-jump{
   display:block;
   margin-top:7px;
-  font-size:9px;
-  letter-spacing:.1em;
-  color:var(--ink-3);
+  font-size:11px;
+  letter-spacing:.08em;
+  color:#6b6358;
   text-decoration:none;
   border-bottom:1px dotted transparent;
   transition:color .18s ease,border-color .18s ease;
@@ -1088,8 +1088,8 @@ details.drill:not([open])::details-content{block-size:0}
   position:relative;
   display:grid;
   gap:3px;
-  font-size:13.5px;
-  line-height:1.78;
+  font-size:14.5px;
+  line-height:1.75;
   color:var(--ink-2);
 }
 .items li::before{top:.64em}
@@ -1101,12 +1101,12 @@ details.drill:not([open])::details-content{block-size:0}
 }
 .items .g-h b{
   margin-right:0;
-  font-size:14px;
+  font-size:15px;
 }
 .items .g-src{
   font-family:var(--serif-jp);
-  font-size:13px;
-  line-height:1.55;
+  font-size:14px;
+  line-height:1.6;
   letter-spacing:.02em;
   color:#6b6358;
   text-decoration:none;
@@ -1403,11 +1403,11 @@ details.drill:not([open])::details-content{block-size:0}
                 <ul class="items">
                     <li><span class="g-h"><b>～ながら（逆接）</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">暦の上に春は立ち<em>ながら</em>厳しい寒さが続いております</a></span><span class="g-t">動詞ます形＋ながら。「～のに」の書き言葉版で、「も」を足すと少し重くなる。ここは「暦の上では春なのに」。</span></li>
 
-                    <li><span class="g-h"><b>いかがお過ごしですか</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>いかがお過ごしですか</em></a></span><span class="g-t">「いかが」は「どう」の丁寧形。「お＋和語動詞＋です」で相手の様子を尋ねる、手紙の定型。</span></li>
+                    <li><span class="g-h"><b>いかがお過ごしですか</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>いかがお過ごしですか</em></a></span><span class="g-t">「いかが」は「どう」の丁寧な言い方。「お＋動詞ます形語幹＋ですか」で相手の様子を尋ねる、手紙の定型表現。</span></li>
 
                     <li><span class="g-h"><b>～など</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">風邪<em>など</em>ひいていませんか</a></span><span class="g-t">例をぼかす副助詞。「風邪など」＝風邪なんか。「霜焼けなど」と続けて、心配の粒度を細かくしていく。</span></li>
 
-                    <li><span class="g-h"><b>～のついでに</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">寒く長い夜の<em>ついでに</em></a></span><span class="g-t">「ついで」＝順番のついで、ついでの用事。ここは「寒く長い夜（を過ごす）ついでに」＝そのついでにちょっと。</span></li>
+                    <li><span class="g-h"><b>～のついでに</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">寒く長い夜の<em>ついでに</em></a></span><span class="g-t">名詞＋の／動詞た形＋ついでに，表示“顺便、借这个机会”。这里是借寒冷长夜的机会，不是“按顺序轮到”。</span></li>
 
                     <li><span class="g-h"><b>目を通す</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>目を通し</em>ていただければ幸いです</a></span><span class="g-t">慣用句で「ざっと見る」。「読む」より軽い。相手に負担をかけまいとする言い方。</span></li>
 
@@ -1463,7 +1463,7 @@ details.drill:not([open])::details-content{block-size:0}
                 <ul class="items">
                     <li><span class="g-h"><b>～に関して</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">2匹の猫<em>に関して</em>お知らせします</a></span><span class="g-t">名詞＋に関して。「～について」の硬い形で、告知・報告に合う。</span></li>
 
-                    <li><span class="g-h"><b>～て3年目を迎える</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">わが家に暮らし<em>て3年目を迎える</em></a></span><span class="g-t">「暮らして3年目」＝住下来（到现在）第三年。「～て」は状態の接続で、順番ではない。</span></li>
+                    <li><span class="g-h"><b>～て3年目を迎える</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">わが家に暮らし<em>て3年目を迎える</em></a></span><span class="g-t">「暮らして3年目」表示住下来后进入第三年；「て」连接动作／状态的开始与经过的时间，不是先后做两件事。</span></li>
 
                     <li><span class="g-h"><b>なぜか</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">彼らは<em>なぜか</em>最近テレビをよく見ます</a></span><span class="g-t">理由が分からないまま、そうなっている様子。「不知为何」。</span></li>
 
@@ -1527,7 +1527,7 @@ details.drill:not([open])::details-content{block-size:0}
 
                     <li><span class="g-h"><b>～ており</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">常軌を逸し<em>ており</em></a></span><span class="g-t">「～ていて」の書面形。前後を一続きにつなぐ中顿で、報告文らしくなる。</span></li>
 
-                    <li><span class="g-h"><b>～ことしばしばです</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">帰る<em>ことしばしばです</em></a></span><span class="g-t">「～することもしばしばだ」の硬い形＝屡见不鲜。頻度を名詞にして、わざと冷たく言う。</span></li>
+                    <li><span class="g-h"><b>～ことしばしばです</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">帰る<em>ことしばしばです</em></a></span><span class="g-t">「女性客が…帰ること」是一个名词性短语，「しばしば」修饰它，「です」再收成敬体。名词化来自「こと」，不是「しばしば」变成了名词。</span></li>
 
                     <li><span class="g-h"><b>悲鳴を上げる</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ"><em>悲鳴を上げて</em>帰ることしばしばです</a></span><span class="g-t">慣用句で「悲鳴を発する」。「悲鳴を上げて帰る」＝尖叫着回去。</span></li>
 
@@ -1649,9 +1649,9 @@ details.drill:not([open])::details-content{block-size:0}
 
                     <li><span class="g-h"><b>～のですね</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">季節が訪れる<em>のですね</em></a></span><span class="g-t">「～のだ」＋「ね」。質問ではなく、感慨と確認。</span></li>
 
-                    <li><span class="g-h"><b>時季 / 時期</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">開花の<em>時季</em>を待ちわびながら</a></span><span class="g-t">「時季」は季節性のある旬（花の時季）；「時期」は時間的な区切り。ここは「時季」しか使えない。</span></li>
+                    <li><span class="g-h"><b>時季 / 時期</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">開花の<em>時季</em>を待ちわびながら</a></span><span class="g-t">「時季」偏重季节性、适合某事的时节；「時期」指一般的时间段。「開花の時季」强调樱花时节，说「開花の時期」也可以，只是原句选了更带季节感的一个。</span></li>
 
-                    <li><span class="g-h"><b>待ちわびる</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">開花の時季を<em>待ちわび</em>ながら</a></span><span class="g-t">待ちきれないほど待つ。「わびる」は「侘びる」ではなく、動詞の補助で「～しきる」。</span></li>
+                    <li><span class="g-h"><b>待ちわびる</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">開花の時季を<em>待ちわび</em>ながら</a></span><span class="g-t">「待つ」に「わびる」が付いた複合動詞。「待ちきれないほど待つ」で、待ち遠しくてたまらない状態。単独の「侘びる」とは意味が違う。</span></li>
                 </ul>
               </div>
             </div>
@@ -2023,7 +2023,7 @@ details.drill:not([open])::details-content{block-size:0}
 
                     <li><span class="g-h"><b>～てくれませんか（依頼）</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">結婚し<em>てくれませんか</em>？</a></span><span class="g-t">請对方为自己做某事。「結婚してくれませんか」——主语是你，受益者是我。</span></li>
 
-                    <li><span class="g-h"><b>三文の階段</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">一緒に年を取りませんか？　<em>結婚してくれませんか？</em></a></span><span class="g-t">確認（よね）→ 邀约（～ませんか）→ 请求（～てくれませんか）。语气一级一级降下去，句子一级一级短下去。</span></li>
+                    <li><span class="g-h"><b>三文の階段</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">一緒に年を取りませんか？　<em>結婚してくれませんか？</em></a></span><span class="g-t">確認（よね）→ 勧誘（～ませんか）→ 請求（～てくれませんか）。三句都在征求对方，最后一句把“和我结婚”说成请求，而不是单方面宣布决定。</span></li>
 
                     <li><span class="g-h"><b>敬体の維持</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">結婚してくれ<em>ませんか</em>？</a></span><span class="g-t">ここまで「です・ます」で来た文体を、最後まで崩さない。丁寧さが距離になり、同時に誠実さにもなる。</span></li>
                 </ul>
@@ -2042,7 +2042,7 @@ details.drill:not([open])::details-content{block-size:0}
                 <p class="role">全信最短的段落。九段长长的清单之后，突然变短、变轻、变简单。前面所有的具体，都是为这三句铺路。</p>
               </div>
             </div>
-            <p class="note"><b>訳注</b>　没有用「結婚してください」，而是「結婚してくれませんか」。差一个「くれ」，就把命令变成了请求，把自信变成了试探。整封信的温柔都压在这一处语法上。</p>
+            <p class="note"><b>訳注</b>　这里没有用更直接的「結婚してください」，而是「結婚してくれませんか」：后者用否定疑问留出拒绝的余地，把求婚说成试探。两者都是请求；「ください」本身也是礼貌请求，不能只凭一个「くれ」就判成命令与请求的对立。</p>
           </div>
         </details>
 

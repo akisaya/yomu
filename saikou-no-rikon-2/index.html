@@ -407,7 +407,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-size:11px;
   line-height:1;
   letter-spacing:.02em;
-  color:#b9afa1;
+  color:#6b6358;
   transition:color .2s;
   font-variant-numeric:tabular-nums;
 }
@@ -448,7 +448,7 @@ rt{
   font-size:.5em;
   font-weight:400;
   letter-spacing:.03em;
-  color:#9a8f81;
+  color:#6b6358;
   line-height:1;
 }
 html[data-furigana="off"] rt{display:none}
@@ -468,7 +468,7 @@ html[data-furigana="off"] rt{display:none}
   font-size:14px;
   line-height:2;
   letter-spacing:.02em;
-  color:var(--ink-3);
+  color:#6b6358;
   text-align:justify;
 }
 html[data-cn="off"] .cn{display:none}
@@ -482,7 +482,7 @@ html[data-cn="off"] .cn{display:none}
   display:grid;
   place-items:center;
   border-radius:50%;
-  color:#c3b9ab;
+  color:#6b6358;
   opacity:0;
   transition:opacity .2s, color .2s, background .2s;
 }
@@ -547,7 +547,7 @@ html[data-cn="off"] .cn{display:none}
   font-family:var(--mono);
   font-weight:400;
   font-size:10px;
-  color:#bdb3a5;
+  color:#6b6358;
 }
 .rail a:hover{color:var(--ink);border-left-color:var(--line)}
 .rail a.active{
@@ -634,7 +634,7 @@ details.drill[open] > summary::before{rotate:0deg}
 .d-num{
   font-family:var(--mono);
   font-size:11px;
-  color:#b9afa1;
+  color:#6b6358;
   flex:none;
   padding-top:.2em;
 }
@@ -649,14 +649,14 @@ details.drill[open] > summary::before{rotate:0deg}
 .d-preview{
   font-family:var(--serif-jp);
   font-size:13px;
-  color:var(--ink-3);
+  color:#6b6358;
   letter-spacing:.03em;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
   min-width:0;
 }
-details.drill[open] .d-preview{color:#b5aa9c}
+details.drill[open] .d-preview{color:var(--ink-2)}
 
 .d-body{
   padding:4px 8px 30px 2px;
@@ -675,10 +675,10 @@ details.drill[open] .d-preview{color:#b5aa9c}
 .d-row > h4{
   margin:0;
   padding-top:.28em;
-  font-size:10px;
+  font-size:11px;
   font-weight:500;
-  letter-spacing:.22em;
-  color:var(--ink-3);
+  letter-spacing:.18em;
+  color:#6b6358;
   text-transform:uppercase;
 }
 .d-row > div{min-width:0}
@@ -734,7 +734,7 @@ details.drill[open] .d-preview{color:#b5aa9c}
   border:1px solid var(--line);
   border-radius:2px;
   background:rgba(255,255,255,.6);
-  font-size:12.5px;
+  font-size:13px;
   line-height:1.5;
 }
 .chip b{
@@ -744,8 +744,8 @@ details.drill[open] .d-preview{color:#b5aa9c}
   letter-spacing:.03em;
 }
 .chip span{
-  font-size:10.5px;
-  color:var(--ink-3);
+  font-size:11.5px;
+  color:#6b6358;
   letter-spacing:.04em;
   font-family:var(--mono);
 }
@@ -776,14 +776,14 @@ details.drill[open] .d-preview{color:#b5aa9c}
   grid-template-columns:auto minmax(0,1fr);
   gap:10px;
   align-items:baseline;
-  font-size:12.5px;
+  font-size:13.5px;
   line-height:1.75;
-  color:var(--ink-3);
+  color:#6b6358;
 }
 .s-list b{
   font-family:var(--serif-jp);
   font-weight:600;
-  font-size:12.5px;
+  font-size:13.5px;
   color:var(--ink);
   letter-spacing:.02em;
   padding:1px 6px;
@@ -1076,9 +1076,9 @@ details.drill:not([open])::details-content{block-size:0}
 .d-row > h4 .row-jump{
   display:block;
   margin-top:7px;
-  font-size:9px;
-  letter-spacing:.1em;
-  color:var(--ink-3);
+  font-size:11px;
+  letter-spacing:.08em;
+  color:#6b6358;
   text-decoration:none;
   border-bottom:1px dotted transparent;
   transition:color .18s ease,border-color .18s ease;
@@ -1094,8 +1094,8 @@ details.drill:not([open])::details-content{block-size:0}
   position:relative;
   display:grid;
   gap:3px;
-  font-size:13.5px;
-  line-height:1.78;
+  font-size:14.5px;
+  line-height:1.75;
   color:var(--ink-2);
 }
 .items li::before{top:.64em}
@@ -1107,12 +1107,12 @@ details.drill:not([open])::details-content{block-size:0}
 }
 .items .g-h b{
   margin-right:0;
-  font-size:14px;
+  font-size:15px;
 }
 .items .g-src{
   font-family:var(--serif-jp);
-  font-size:13px;
-  line-height:1.55;
+  font-size:14px;
+  line-height:1.6;
   letter-spacing:.02em;
   color:#6b6358;
   text-decoration:none;
@@ -1474,7 +1474,7 @@ details.drill:not([open])::details-content{block-size:0}
                 <ul class="items">
                     <li><span class="g-h"><b>それを（指示詞）</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">ひとまず、<em>それ</em>を閉めてください</a></span><span class="g-t">回指上一句的「口」。日语可以隔一句接住，中文照搬会指错——读者会以为「它」是这封信。</span></li>
 
-                    <li><span class="g-h"><b>体言止め</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">とりあえずご報告<em>です。</em></a></span><span class="g-t">「とりあえずご報告です。」不写「します」，像电报：先把事说完，再解释。</span></li>
+                    <li><span class="g-h"><b>名詞＋です（名詞述語）</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">とりあえずご報告<em>です。</em></a></span><span class="g-t">「ご報告」是名词，加「です」构成完整的名词谓语句。与「ご報告します」相比，这里直接把“这是一份报告”摆在前头；句末并没有省略「です」，所以不是体言止め。</span></li>
 
                     <li><span class="g-h"><b>～てませんか（口語）</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">口開い<em>てませんか</em></a></span><span class="g-t">「開いていませんか」的省略。不是求证事实，是在想象他的表情。</span></li>
 
@@ -1656,9 +1656,9 @@ details.drill:not([open])::details-content{block-size:0}
               <h4>文法<a class="row-jump" href="#p5" title="第 5 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><span class="g-h"><b>どうやら～のかもしれません</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ"><em>どうやら</em>誰より変なのは、私な<em>のかもしれません</em></a></span><span class="g-t">副词先放一个不确定的信号，句尾必须回来收口。这里还多一个「の」，把整句变成解释，而不是猜测。</span></li>
+                    <li><span class="g-h"><b>どうやら～のかもしれません</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ"><em>どうやら</em>誰より変なのは、私な<em>のかもしれません</em></a></span><span class="g-t">「どうやら」与「かもしれない」都表不确定，合用是前后呼应；「の」另加解释语气，并不是把整句从猜测变成不猜测。</span></li>
 
-                    <li><span class="g-h"><b>～のかもしれません</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">誰より変なのは、私な<em>のかもしれません</em></a></span><span class="g-t">比「かもしれない」礼貌，也留了退路：她不下判断，只给一个可能。</span></li>
+                    <li><span class="g-h"><b>～のかもしれません</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">誰より変なのは、私な<em>のかもしれません</em></a></span><span class="g-t">「かもしれない」表示“也许”，「の」把这个推测说成对前文的解释，「ます」再把整句收成敬体。这里是三种功能叠在一起，不只是“比かもしれない礼貌”。</span></li>
 
                     <li><span class="g-h"><b>～とは／～は（対比）</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">好きな人<em>とは</em>生活上気が合わない、気が合う人<em>は</em>好きになれない</a></span><span class="g-t">两个「は」把两类人钉在两端，中间没有过渡。</span></li>
 
@@ -1973,7 +1973,7 @@ details.drill:not([open])::details-content{block-size:0}
 
                     <li><span class="g-h"><b>～たり～たり</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">あなたを見上げ<em>たり</em>、見下ろし<em>たり</em></a></span><span class="g-t">列举动作。四项并列，最后一项直接接「そんなこと」。</span></li>
 
-                    <li><span class="g-h"><b>～てくれてありがとう</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">頭をなで<em>てくれてありがとう</em></a></span><span class="g-t">对方为自己做了某事，因此道谢。三个「ありがとう」都挂在这个句型上。</span></li>
+                    <li><span class="g-h"><b>～てくれてありがとう</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">頭をなで<em>てくれてありがとう</em></a></span><span class="g-t">「てくれる」表示对方为自己做某事，句尾再接「ありがとう」为此道谢。前两句「ご飯ありがとう」「ベッドありがとう」是名词直接接「ありがとう」；只有第三句用了「てくれる」，不要把三种说法都当成同一接续。</span></li>
 
                     <li><span class="g-h"><b>見上げる／見下ろす</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>見上げたり</em>、<em>見下ろしたり</em></a></span><span class="g-t">反义词对。一个向上，一个向下，中间隔着身高差。</span></li>
 
@@ -2034,13 +2034,13 @@ details.drill:not([open])::details-content{block-size:0}
               <h4>文法<a class="row-jump" href="#p11" title="第 11 段の原文へ">原文 ↑</a></h4>
               <div>
                 <ul class="items">
-                    <li><span class="g-h"><b>体言止め</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ"><em>また、どこかで。</em></a></span><span class="g-t">「また、どこかで。」没有谓语。约定悬在半空，信也停在这里——下面没有署名，没有日期。</span></li>
+                    <li><span class="g-h"><b>言いさし（述語省略）</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ"><em>また、どこかで。</em></a></span><span class="g-t">「また、どこかで。」没有把谓语说出来。约定悬在半空，信也停在这里——下面没有署名，没有日期。</span></li>
 
                     <li><span class="g-h"><b>～時は…時は（反復）</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">こっそり見たくなった<em>時は</em>、あなたにちょっと話しかけたくなった<em>時は</em></a></span><span class="g-t">同一条件说两遍，第二遍才说出真正想做的事。</span></li>
 
                     <li><span class="g-h"><b>～たくなる</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">またあなたをこっそり見たく<em>なった</em></a></span><span class="g-t">变得想……。两个条件都是「想」，不是「要」。</span></li>
 
-                    <li><span class="g-h"><b>もし～時は</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ"><em>もし</em>、またあなたをこっそり見たくなった時は</a></span><span class="g-t">条件。用「時は」而不是「たら」，语气更轻，像提前想好。</span></li>
+                    <li><span class="g-h"><b>もし～時は</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ"><em>もし</em>、またあなたをこっそり見たくなった時は</a></span><span class="g-t">「もし」提示假定，「～時は」把两种心情说成条件；两个条件句并列，才托出最后留白的「また、どこかで」。语气轻来自「もし」与留白，不是「時は」天然比「たら」轻。</span></li>
 
                     <li><span class="g-h"><b>～気もする</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">少し淋しい<em>気もします</em></a></span><span class="g-t">「也有那种感觉」。「も」表示不排除别的情绪。</span></li>
 
