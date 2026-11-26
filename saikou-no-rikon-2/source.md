@@ -7,6 +7,8 @@
 - 场景：星野結夏写给浜崎光生，封未寄出的信
 - 出处：『最高の離婚』（2013，フジテレビ）第 8 話，2013 年 2 月 28 日播出，脚本：坂元裕二
 - 影像：https://www.bilibili.com/video/BV11e4y127nS/
+- 音声：`../assets/audio/saikou-no-rikon-2-ep8-letter.m4a`（取自上述影像 00:06–04:33，AAC 96k / 44.1 kHz / stereo / faststart，長さ 4:28）
+- 段落音声：页面每段 ▶ 用该文件的 `data-start` / `data-end` 区间播放；区间由 Whisper large-v3-turbo 的词级时间戳与本篇原文逐字对齐得出，段间切点取朗读停顿的中点。第 1 段含开头「光生さんへ」的朗读；影像 04:33 之后是剪辑附带的其他画面与台词（「おやすみなさい」「ご視聴ありがとうございました」等），不属信件正文，未收入音频。
 - 剧照：`../assets/stills/saikou-no-rikon-2-open.webp`（第 8 話「光生さんへ」起笔镜头，用户截取自上述影像，已裁去字幕）
 - 精读页：[index.html](index.html)
 - 全文：11 段

@@ -1023,6 +1023,39 @@ details.drill:not([open])::details-content{block-size:0}
 }
 
 /* ============ 响应式 ============ */
+
+/* 原声：ドラマの実際の朗読（段落ごとに区切って再生） */
+.audible{display:flex;align-items:center;gap:12px;
+  margin:0 0 clamp(20px,3vw,30px);padding:11px 0;
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.au-label{flex:none;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  color:var(--ink-3);white-space:nowrap}
+.au-btn{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:50%;
+  border:1px solid rgba(107,99,88,.42);color:var(--ink-2);background:transparent;
+  cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.au-btn:hover{color:var(--shu);border-color:rgba(178,58,43,.4);background:rgba(178,58,43,.05)}
+.au-btn:focus-visible{outline:2px solid rgba(178,58,43,.35);outline-offset:2px}
+.au-btn svg{width:12px;height:12px;fill:currentColor}
+.au-btn .i-pause{display:none}
+.audible.playing .au-btn{color:var(--shu);border-color:rgba(178,58,43,.45)}
+.audible.playing .i-play{display:none}
+.audible.playing .i-pause{display:block}
+.au-track{position:relative;flex:1 1 auto;min-width:60px;height:20px;
+  display:flex;align-items:center;cursor:pointer;touch-action:none}
+.au-track::before{content:"";position:absolute;left:0;right:0;height:1px;background:var(--line)}
+.au-track:focus-visible{outline:none}
+.au-track:focus-visible::before{background:var(--shu-soft)}
+.au-played{position:absolute;left:0;height:1px;background:var(--shu);width:0}
+.au-knob{position:absolute;left:0;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;
+  background:var(--shu);opacity:0;transition:opacity .2s}
+.audible:hover .au-knob,.audible.playing .au-knob,.audible.has-progress .au-knob,.au-track:focus-visible .au-knob{opacity:1}
+.au-clock{flex:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.03em;
+  color:var(--ink-3);font-variant-numeric:tabular-nums}
+.au-clock b{font-weight:400;color:var(--ink-2)}
+.play .i-pause{display:none}
+.play.on .i-play{display:none}
+.play.on .i-pause{display:block}
+
 @media (max-width:1000px){
   .letter-layout{grid-template-columns:minmax(0,1fr)}
   .rail{display:none}
@@ -1077,9 +1110,11 @@ details.drill:not([open])::details-content{block-size:0}
   .r{font-size:11px;white-space:normal;letter-spacing:.02em}
 }
 @media (max-width:520px){
-  .para{padding-left:1.7rem}
+  .para{padding-left:1.9rem}
   .num{width:1.3rem;font-size:10px}
-  .play{display:none}
+  .play{display:grid;opacity:.72;left:-4px;top:2.6em;width:26px;height:26px}
+  .audible{gap:9px;flex-wrap:wrap}
+  .au-label,.au-clock{font-size:9px}
   table.vocab th,table.vocab td{padding-inline:12px}
   table.vocab th:nth-child(3),table.vocab td:nth-child(3){display:none}
 }
@@ -1251,6 +1286,21 @@ details.drill:not([open])::details-content{block-size:0}
           <small>光生より / 目黒川沿いにて</small>
         </p>
 
+        <div class="audible" id="audible">
+          <span class="au-label">原声 · 全編</span>
+          <button class="au-btn" type="button" aria-label="手紙全体を再生" aria-pressed="false">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
+          </button>
+          <div class="au-track" role="slider" tabindex="0" aria-label="再生位置"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" title="特別篇 06:06–12:56">
+            <span class="au-played"></span>
+            <span class="au-knob"></span>
+          </div>
+          <span class="au-clock"><b class="au-now">0:00</b> / <span class="au-total">6:50</span></span>
+          <audio id="clip" src="../assets/audio/saikou-no-rikon-sp-letter.m4a" preload="metadata"></audio>
+        </div>
+
         <figure class="scene">
           <img src="../assets/stills/saikou-no-rikon-envelope.webp" alt="「星野 結夏 さま」と書かれた封筒" width="960" height="640" loading="lazy" decoding="async">
           <figcaption>特別篇 · 宛名を書いた封筒</figcaption>
@@ -1258,8 +1308,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p1">
           <a class="num" href="#d1" title="この段落の精読へ">01</a>
-          <button class="play" type="button" data-i="1" aria-label="第一段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="1" data-start="0.0" data-end="27.65" aria-label="第1段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><ruby>暦<rt>こよみ</rt></ruby>の上に春は立ちながら厳しい寒さが続いておりますが、いかがお過ごしですか？風邪などひいていませんか？<ruby>霜焼け<rt>しもやけ</rt></ruby>などしていませんか？突然の手紙、ごめんなさい。まだまだ寒く長い夜のついでに<ruby>目を通して<rt>めをとおして</rt></ruby>いただければ幸いです。</p>
           <p class="cn" lang="zh-CN">历书上已经立了春，可严寒还在继续，你过得还好吗？有没有感冒？有没有生冻疮？突然寄信给你，抱歉。若你能在依然寒冷漫长的夜里，就着这点空当看上一眼，我便不胜欣慰。</p>
@@ -1267,8 +1318,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p2">
           <a class="num" href="#d2" title="この段落の精読へ">02</a>
-          <button class="play" type="button" data-i="2" aria-label="第二段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="2" data-start="27.65" data-end="46.66" aria-label="第2段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja">まずわが家に<ruby>暮らして<rt>くらして</rt></ruby>3年目を<ruby>迎える<rt>むかえる</rt></ruby>2匹の猫に関してお知らせします。彼らはなぜか最近テレビをよく見ます。<ruby>株価<rt>かぶか</rt></ruby>のニュースを見ながら話をしています。彼らの人生に株価が何か<ruby>作用<rt>さよう</rt></ruby>することがあるのでしょうか？</p>
           <p class="cn" lang="zh-CN">先说家里那两只猫吧，它们在我家已经住到第三年了。不知为何，它们最近常看电视，边看股价新闻边聊天。股价这种东西，对它们的人生究竟会起什么作用呢？</p>
@@ -1276,8 +1328,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p3">
           <a class="num" href="#d3" title="この段落の精読へ">03</a>
-          <button class="play" type="button" data-i="3" aria-label="第三段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="3" data-start="46.66" data-end="61.96" aria-label="第3段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja">金魚カフェでは<ruby>姉<rt>あね</rt></ruby>の<ruby>体調<rt>たいちょう</rt></ruby>もあって最近継男さんがラテアートを<ruby>描いて<rt>えがいて</rt></ruby>います。その絵の<ruby>作風<rt>さくふう</rt></ruby>が<ruby>常軌<rt>じょうき</rt></ruby>を<ruby>逸<rt>いっ</rt></ruby>しており、女性客が<ruby>悲鳴<rt>ひめい</rt></ruby>を上げて帰ることしばしばです。</p>
           <p class="cn" lang="zh-CN">金鱼咖啡馆那边，因为姐姐要调养身体，最近由继男姐夫画拉花。他的画风实在离谱，常有女客人尖叫着夺门而去。</p>
@@ -1285,8 +1338,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p4">
           <a class="num" href="#d4" title="この段落の精読へ">04</a>
-          <button class="play" type="button" data-i="4" aria-label="第四段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="4" data-start="61.96" data-end="87.97" aria-label="第4段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja">上原さんに<ruby>紹介<rt>しょうかい</rt></ruby>されて<ruby>先日<rt>せんじつ</rt></ruby>ついに河合さんと<ruby>対面<rt>たいめん</rt></ruby>しました。驚きです。河合さんはまるでギリシャ<ruby>彫刻<rt>ちょうこく</rt></ruby>のような<ruby>二枚目<rt>にまいめ</rt></ruby>だったのです。握手の手を<ruby>差し伸べ<rt>さしのべ</rt></ruby>、「やあ、初めまして」とおっしゃっていました。友達になれるかどうかはちょっと分かりません。</p>
           <p class="cn" lang="zh-CN">经上原先生介绍，前些日子终于和河合先生见了面。我很吃惊。河合先生长得就像希腊雕像，是个十足的美男子。他伸出手来同我握手，说了句“哟，初次见面”。能不能和他成为朋友，我还有点不确定。</p>
@@ -1294,8 +1348,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p5">
           <a class="num" href="#d5" title="この段落の精読へ">05</a>
-          <button class="play" type="button" data-i="5" aria-label="第五段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="5" data-start="87.97" data-end="104.58" aria-label="第5段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja">目黒川を<ruby>行き交う<rt>いきかう</rt></ruby>人々は桜の木を見上げて<ruby>開花<rt>かいか</rt></ruby>の<ruby>時季<rt>じき</rt></ruby>を<ruby>待ちわび<rt>まちわび</rt></ruby>ながら、すでに花見の<ruby>約束<rt>やくそく</rt></ruby>を<ruby>取り交わし<rt>とりかわし</rt></ruby>ています。また、あのにぎやかな<ruby>季節<rt>きせつ</rt></ruby>が<ruby>訪れる<rt>おとずれる</rt></ruby>のですね！</p>
           <p class="cn" lang="zh-CN">目黑川来来往往的人，抬头望着樱树，盼着花开时节，已经把赏花的约都约好了。那个热闹的季节，又要来了呢。</p>
@@ -1303,8 +1358,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p6">
           <a class="num" href="#d6" title="この段落の精読へ">06</a>
-          <button class="play" type="button" data-i="6" aria-label="第六段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="6" data-start="104.58" data-end="153.68" aria-label="第6段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja">昨日、君の夢を見ました。君がたくさんの<ruby>風船<rt>ふうせん</rt></ruby>を<ruby>抱えて<rt>かかえて</rt></ruby>くる夢でした。君は<ruby>無数<rt>むすう</rt></ruby>の風船を僕と自分の体に<ruby>結び付け<rt>むすびつけ</rt></ruby>ました。僕と君は風船に軽く体を持ち上げられて空を飛びました。目黒川を<ruby>見下ろす<rt>みおろす</rt></ruby>とマチルダとはっさくが見上げてるのが見えました。上原さんたちが<ruby>赤ん坊<rt>あかんぼう</rt></ruby>を抱いて手を振っていました。僕は風に流されて飛んでいくしかない、自分の<ruby>非力<rt>ひりき</rt></ruby>さが少し悲しかったです。</p>
           <p class="cn" lang="zh-CN">昨天，我梦见了你。梦见你抱着一大堆气球走来。你把无数只气球系在我和你身上。我和你被气球轻轻托起，飞上了天空。俯瞰目黑川时，看见玛蒂尔达和八朔正抬头望着我们。上原夫妇抱着婴儿朝我们挥手。而我只能被风带着飘走，为自己的无力，有一点难过。</p>
@@ -1312,8 +1368,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p7">
           <a class="num" href="#d7" title="この段落の精読へ">07</a>
-          <button class="play" type="button" data-i="7" aria-label="第七段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="7" data-start="153.68" data-end="181.87" aria-label="第7段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><ruby>川沿い<rt>かわぞい</rt></ruby>の道を今日も歩きます。不思議と一人になった気がしません。まだまだ僕は毎日を君の<ruby>記憶<rt>きおく</rt></ruby>と共に暮らしています。君がよくお風呂場で歌っていた歌、「静かに、静かに、手を取り、手を取り」、そんなふうに始まる歌、そんな<ruby>光景<rt>こうけい</rt></ruby>。</p>
           <p class="cn" lang="zh-CN">今天我依旧走在河边的路上。奇怪的是，并不觉得自己是一个人。我仍旧每天和关于你的记忆一起生活。你常在浴室里唱的那首歌——“静静地，静静地，牵起手，牵起手”——从这样一句开始的歌，这样的光景。</p>
@@ -1321,8 +1378,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p8">
           <a class="num" href="#d8" title="この段落の精読へ">08</a>
-          <button class="play" type="button" data-i="8" aria-label="第八段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="8" data-start="181.87" data-end="229.63" aria-label="第8段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><ruby>深夜<rt>しんや</rt></ruby>二人でDVDを借りに<ruby>出掛けた<rt>でかけた</rt></ruby>ときのこと、月がずいぶんと大きなことに気がついた僕と君は、そもそもなぜ出掛けたのかさえ忘れて、夜中の散歩をしました。<ruby>旧山手通り<rt>きゅうやまてどおり</rt></ruby>で<ruby>焼き芋<rt>やきいも</rt></ruby>を買って、半分に割ったら大きさがまるで違って、じゃんけんして食べて、笑って、手をつないで、僕が結婚を口にしたら、君は焼き芋いっぱい<ruby>頬張った<rt>ほおばった</rt></ruby>口で声にならない<ruby>返事<rt>へんじ</rt></ruby>をしました。そんな始まり、そんな光景。</p>
           <p class="cn" lang="zh-CN">想起深夜两个人出门租 DVD 的那次。发现月亮格外大的我和你，连原本为什么要出门都忘了，就在夜里散起步来。在旧山手大道买了烤红薯，掰成两半，大小差得离谱，于是猜拳决定谁吃哪半；吃着，笑着，牵着手。我说“我们结婚吧”，你满嘴塞着红薯，含含糊糊地应了一声。那样的开始，那样的光景。</p>
@@ -1330,8 +1388,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p9">
           <a class="num" href="#d9" title="この段落の精読へ">09</a>
-          <button class="play" type="button" data-i="9" aria-label="第九段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="9" data-start="229.63" data-end="320.3" aria-label="第9段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja">君と結婚して知ったことがあります。<ruby>洗面台<rt>せんめんだい</rt></ruby>に並んだ歯ブラシ、ベッドの中でぶつかる足、いつの間にか消えてる<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>のプリン、<ruby>階段<rt>かいだん</rt></ruby>を先に<ruby>下りる<rt>おりる</rt></ruby>こと、階段を後から<ruby>上がる<rt>あがる</rt></ruby>こと、<span class="hl">恋がいつしか<ruby>日常<rt>にちじょう</rt></ruby>に変わること、日常が<ruby>喜び<rt>よろこび</rt></ruby>に変わること</span>、間違えてはいて出掛けた<ruby>女物<rt>おんなもの</rt></ruby>の靴下、メールで頼まれる<ruby>番組録画<rt>ばんぐみろくが</rt></ruby>、背中をかくこと、怖い夢を見たら<ruby>寄り添う<rt>よりそう</rt></ruby>こと、もう一人の父親、もう一人の母親、もう一つの<ruby>古里<rt>ふるさと</rt></ruby>、古里から届くミカン箱の中のハクサイ、日常が<ruby>奏でる<rt>かなでる</rt></ruby>音楽、日常を伝え合うことの<ruby>物語<rt>ものがたり</rt></ruby>……ここにはまだそれが<ruby>転がって<rt>ころがって</rt></ruby>います。部屋の<ruby>隅<rt>すみ</rt></ruby>に、<ruby>電球<rt>でんきゅう</rt></ruby>の裏に、カーテンの<ruby>隙間<rt>すきま</rt></ruby>にくっついたまま。僕は今も毎日のように過去から訪れる君の<ruby>愛情<rt>あいじょう</rt></ruby>を受け取っています。</p>
           <p class="cn" lang="zh-CN">和你结婚以后，我懂得了一些事。洗手台上并排的牙刷，被窝里碰到的脚，不知何时消失的冰箱里的布丁，先下楼，后上楼，恋爱不知何时变成日常，日常又变成喜悦，穿错了女式袜子就出了门，发邮件来让我录节目，替你挠背，做了噩梦就挨着你睡，多了一位父亲，多了一位母亲，多了一个故乡，故乡寄来的、装在橘子箱里的白菜，日常演奏出的音乐，把日常讲给对方听的那些故事……这些东西如今还散落在这里。在房间的角落，在灯泡的背面，在窗帘的缝隙里，就那样贴着、留着。我至今仍每天领受着从过去而来的、你的爱意。</p>
@@ -1339,8 +1398,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p10">
           <a class="num" href="#d10" title="この段落の精読へ">10</a>
-          <button class="play" type="button" data-i="10" aria-label="第十段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="10" data-start="320.3" data-end="362.86" aria-label="第10段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja">川沿いの道を今日も歩きます。一人ずつ二人で生きていたこと、僕の中に住んでいる君、君の中に<ruby>迷い込んだ<rt>まよいこんだ</rt></ruby>僕、不思議と一人になった気がしません。いつかまたそう思うことの<ruby>愚かさ<rt>おろかさ</rt></ruby>を思いながらそれでも思います。<ruby>夜中<rt>よなか</rt></ruby>の散歩をして、じゃんけんして、食べて、笑って、手をつないで、焼き芋頬張りながら、また同じことを話すんです。</p>
           <p class="cn" lang="zh-CN">今天我依旧走在河边的路上。一个人一个人地、却又两个人一起活过的那些日子，住在我心里的你，误入你心里的我——奇怪的是，并不觉得自己是一个人。一边想着总有一天会觉得这样想的自己很愚蠢，一边还是这样想着。夜里散步，猜拳，吃东西，笑，牵着手，满口塞着烤红薯，再说一遍同样的话。</p>
@@ -1348,8 +1408,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p11">
           <a class="num" href="#d11" title="この段落の精読へ">11</a>
-          <button class="play" type="button" data-i="11" aria-label="第十一段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="11" data-start="362.86" data-end="376.6" aria-label="第11段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja">僕たち一緒にいると、楽しいよね？一緒に<ruby>年<rt>とし</rt></ruby>を取りませんか？　結婚してくれませんか？</p>
           <p class="cn" lang="zh-CN">我们在一起，是开心的吧？要不要一起变老？要不要，嫁给我？</p>
@@ -1357,8 +1418,9 @@ details.drill:not([open])::details-content{block-size:0}
 
         <div class="para" id="p12">
           <a class="num" href="#d12" title="この段落の精読へ">12</a>
-          <button class="play" type="button" data-i="12" aria-label="第十二段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="12" data-start="396.0" data-end="410.14" aria-label="第12段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp date-line" lang="ja">2014年2月8日</p>
           <p class="jp" lang="ja">目黒川沿いの古いマンションで2匹の猫と共に春の<ruby>訪れ<rt>おとずれ</rt></ruby>を待っています。</p>
@@ -2229,7 +2291,8 @@ details.drill:not([open])::details-content{block-size:0}
         <p class="jp-line">恋がいつしか日常に変わること、日常が喜びに変わること。</p>
         <p>台词出自『最高の離婚』（2013，フジテレビ）2014 特别篇，脚本：坂元裕二。<br>
         片段影像：<a href="https://www.bilibili.com/video/BV1C44y1A7tH?t=348" target="_blank" rel="noopener noreferrer">Bilibili「写给光生先生和结夏小姐的信」05:48 ↗</a><br>
-        原文与中文译文仅供学习研究使用，版权归原作者及富士电视台所有。</p>
+        音声：取自该影像 06:06–12:56（AAC 96k / 44.1 kHz，6:50），<a href="../assets/audio/saikou-no-rikon-sp-letter.m4a">全篇音频 ↗</a>；段落左侧 ▶ 只播该段。<br>
+        原文、中文译文与音声仅供学习研究使用，版权归原作者及富士电视台所有。</p>
       </div>
       <div>
         <p>页面：逐段精读 · 55 词<br>
@@ -2334,7 +2397,9 @@ details.drill:not([open])::details-content{block-size:0}
     if (t) setTimeout(() => flash(t), 300);
   }
 
-  /* ---------- 6. 朗读 ---------- */
+  /* ---------- 6. 原声朗读（按段落切分；音频不可用时回退浏览器朗读） ---------- */
+  const box = document.getElementById('audible');
+  const audio = box ? box.querySelector('audio') : null;
   const synth = window.speechSynthesis;
   let jaVoice = null;
   const pickVoice = () => {
@@ -2344,15 +2409,14 @@ details.drill:not([open])::details-content{block-size:0}
   };
   if (synth) { pickVoice(); synth.addEventListener('voiceschanged', pickVoice); }
 
-  if (!synth) $$('.play').forEach(b => b.remove());
+  const supported = !!(audio && (audio.canPlayType('audio/mp4; codecs="mp4a.40.2"') || audio.canPlayType('audio/mp4')));
+  if (!supported && box) box.remove();
+  let mode = supported ? 'audio' : 'tts';
+  if (!supported && !synth) $$('.play').forEach(b => b.remove());
 
-  if (!synth) $$('.play').forEach(b => b.remove());
-
-  let current = null;
-  const clearBtn = () => {
-    if (current) current.classList.remove('on');
-    current = null;
-  };
+  /* --- 兜底：浏览器合成语音 --- */
+  let ttsBtn = null;
+  const clearTts = () => { if (ttsBtn) ttsBtn.classList.remove('on'); ttsBtn = null; };
   const readAloud = (para) => {
     const text = Array.from(para.querySelectorAll('.jp')).map(p => {
       const c = p.cloneNode(true);
@@ -2360,31 +2424,123 @@ details.drill:not([open])::details-content{block-size:0}
       return c.textContent.replace(/\s+/g, ' ').trim();
     }).join('。');
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP';
-    u.rate = 0.92;
-    u.pitch = 1;
+    u.lang = 'ja-JP'; u.rate = 0.92; u.pitch = 1;
     if (jaVoice) u.voice = jaVoice;
     return u;
   };
+  const speakPara = (btn) => {
+    if (!synth) return;
+    const para = btn.closest('.para');
+    if (!para) return;
+    if (ttsBtn === btn) { synth.cancel(); clearTts(); return; }
+    synth.cancel(); clearTts();
+    const u = readAloud(para);
+    const stop = () => { if (ttsBtn === btn) clearTts(); };
+    u.onend = stop; u.onerror = stop;
+    ttsBtn = btn; btn.classList.add('on'); synth.speak(u);
+  };
+
+  /* --- 原声播放器：一个音频文件 + 每段的时间区间 --- */
+  let segBtn = null, segEnd = 0, ticket = 0;
+  const clearSeg = () => { if (segBtn) segBtn.classList.remove('on'); segBtn = null; segEnd = 0; };
+  const fmt = (v) => {
+    if (!isFinite(v) || v < 0) return '0:00';
+    const m = Math.floor(v / 60), r = Math.floor(v % 60);
+    return m + ':' + (r < 10 ? '0' : '') + r;
+  };
+
+  if (audio) {
+    const auBtn = box.querySelector('.au-btn');
+    const track = box.querySelector('.au-track');
+    const played = box.querySelector('.au-played');
+    const knob = box.querySelector('.au-knob');
+    const nowEl = box.querySelector('.au-now');
+    const totEl = box.querySelector('.au-total');
+    const paint = () => {
+      const d = audio.duration;
+      const p = d ? Math.min(1, audio.currentTime / d) : 0;
+      played.style.width = (p * 100) + '%';
+      knob.style.left = (p * 100) + '%';
+      nowEl.textContent = fmt(audio.currentTime);
+      box.classList.toggle('has-progress', p > 0.001);
+      track.setAttribute('aria-valuenow', String(Math.round(p * 100)));
+      track.setAttribute('aria-valuetext', fmt(audio.currentTime) + ' / ' + fmt(d));
+    };
+    const setState = (on) => {
+      box.classList.toggle('playing', on);
+      auBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      auBtn.setAttribute('aria-label', on ? '一時停止' : '手紙全体を再生');
+    };
+    audio.addEventListener('loadedmetadata', () => { totEl.textContent = fmt(Math.round(audio.duration)); paint(); });
+    audio.addEventListener('timeupdate', () => {
+      paint();
+      if (segBtn && audio.currentTime >= segEnd && audio.currentTime < segEnd + 2) { audio.pause(); clearSeg(); }
+    });
+    audio.addEventListener('play', () => setState(true));
+    audio.addEventListener('pause', () => setState(false));
+    audio.addEventListener('ended', () => { setState(false); clearSeg(); });
+    audio.addEventListener('error', () => {
+      mode = 'tts'; box.remove(); audio.pause(); clearSeg();
+      if (!synth) $$('.play').forEach(b => b.remove());
+    });
+    auBtn.addEventListener('click', () => {
+      clearSeg();
+      if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+    });
+    const seek = (clientX) => {
+      const r = track.getBoundingClientRect();
+      if (!r.width || !isFinite(audio.duration) || !audio.duration) return;
+      const ratio = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      audio.currentTime = ratio * audio.duration;
+      paint();
+    };
+    let dragging = false;
+    track.addEventListener('pointerdown', (e) => {
+      dragging = true; clearSeg();
+      try { track.setPointerCapture(e.pointerId); } catch (err) {}
+      seek(e.clientX);
+    });
+    track.addEventListener('pointermove', (e) => { if (dragging) seek(e.clientX); });
+    const stopDrag = (e) => {
+      dragging = false;
+      try { track.releasePointerCapture(e.pointerId); } catch (err) {}
+    };
+    track.addEventListener('pointerup', stopDrag);
+    track.addEventListener('pointercancel', stopDrag);
+    track.addEventListener('keydown', (e) => {
+      const d = audio.duration || 0, step = e.shiftKey ? 15 : 5;
+      if (e.key === 'ArrowRight') { clearSeg(); audio.currentTime = Math.min(d, audio.currentTime + step); paint(); e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { clearSeg(); audio.currentTime = Math.max(0, audio.currentTime - step); paint(); e.preventDefault(); }
+      else if (e.key === 'Home') { clearSeg(); audio.currentTime = 0; paint(); e.preventDefault(); }
+      else if (e.key === 'End') { clearSeg(); audio.currentTime = d; paint(); e.preventDefault(); }
+      else if (e.key === ' ' || e.key === 'Enter') {
+        clearSeg();
+        audio.paused ? audio.play().catch(() => {}) : audio.pause();
+        e.preventDefault();
+      }
+    });
+  }
 
   $$('.play').forEach(btn => {
     btn.addEventListener('click', () => {
-      if (!synth) return;
-      const para = btn.closest('.para');
-      if (!para) return;
-      if (current === btn) { synth.cancel(); clearBtn(); return; }
-      synth.cancel();
-      clearBtn();
-      const u = readAloud(para);
-      const stop = () => { if (current === btn) clearBtn(); };
-      u.onend = stop;
-      u.onerror = stop;
-      current = btn;
-      btn.classList.add('on');
-      synth.speak(u);
+      if (mode === 'tts' || !audio) { speakPara(btn); return; }
+      const start = Number(btn.dataset.start), end = Number(btn.dataset.end);
+      if (!isFinite(start) || !isFinite(end)) { speakPara(btn); return; }
+      if (segBtn === btn && !audio.paused) { audio.pause(); clearSeg(); return; }
+      if (synth) synth.cancel();
+      clearTts(); clearSeg();
+      const my = ++ticket;
+      segBtn = btn; segEnd = end; btn.classList.add('on');
+      const go = () => {
+        if (my !== ticket) return;
+        audio.currentTime = start;
+        audio.play().catch(() => clearSeg());
+      };
+      if (audio.readyState >= 1) go();
+      else audio.addEventListener('loadedmetadata', go, { once: true });
     });
   });
-  addEventListener('pagehide', () => { if (synth) synth.cancel(); });
+  addEventListener('pagehide', () => { if (synth) synth.cancel(); if (audio) audio.pause(); });
 
   /* ---------- 7. 词汇筛选 ---------- */
   const input = $('#vsearch');

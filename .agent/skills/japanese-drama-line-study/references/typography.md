@@ -290,7 +290,7 @@ details.drill[open] > summary::before{rotate:0deg}
 ```
 
 - 正文 `font-size:16.5px; line-height:2.08`，纸卡 `padding:26px 20px 32px`。
-- 段号宽度收到 `1.3rem`，朗读按钮在窄屏隐藏。
+- 段号宽度收到 `1.3rem`；**只有 TTS 朗读键**才在窄屏隐藏。接了原声的段落 ▶ 在窄屏要保留（`display:grid; opacity:.72`，圆点稍放大），整篇音频播放条则占满一行。
 
 ## 打印
 

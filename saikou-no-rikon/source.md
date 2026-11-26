@@ -7,6 +7,8 @@
 - 场景：浜崎光生写给星野結夏，2014 特别篇
 - 出处：『最高の離婚』（2013，フジテレビ）2014 特别篇，脚本：坂元裕二
 - 影像：https://www.bilibili.com/video/BV1C44y1A7tH?t=348
+- 音声：`../assets/audio/saikou-no-rikon-sp-letter.m4a`（取自上述影像 06:06–12:56，AAC 96k / 44.1 kHz / stereo / faststart，長さ 6:50）
+- 段落音声：页面每段 ▶ 用该文件的 `data-start` / `data-end` 区间播放；区间由 Whisper large-v3-turbo 的词级时间戳与本篇原文逐字对齐得出，段间切点取朗读停顿的中点。第 1 段含开头「星野 結夏 さま」的朗读；第 11 段与第 12 段之间约 19 秒为配乐间奏，不属正文，未划入任何段落。
 - 剧照：`../assets/stills/saikou-no-rikon-envelope.webp`（特別篇「星野 結夏 さま」宛名の封筒，用户截取自上述影像，已裁去底部字幕）
 - 精读页：[index.html](index.html)
 - 全文：12 段

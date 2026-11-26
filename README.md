@@ -28,7 +28,7 @@
 | 板块 | 内容 | 交互 | 学习重点 |
 |---|---|---|---|
 | 首屏 | 竖排日文标题、朱印、题眼引文（原文 + 译文）、差出人 / 宛名 / 全文段数 | 读原文、学习笔记、影像三个入口 | 先弄清这是谁写给谁的 |
-| 段落 | 按来源分段的全文，段号兼锚点，逐段中文译文 | 段落索引随滚动高亮；逐段朗读（`speechSynthesis`） | 对着原文把语气读出来 |
+| 段落 | 按来源分段的全文，段号兼锚点，逐段中文译文 | 段落索引随滚动高亮；逐段 ▶ 播放原片原声（按段切分），未配音频的作品回退 `speechSynthesis` | 对着原文听真人怎么断句 |
 | 精読 | 每段一张卡，五层折叠：骨格 / 文法 / 語彙 / 役割 / 訳注；每条文法带该段原句片段 | `<details>` 展开；点原句跳回 `#pN`，段号再跳回卡片 | 长句怎么搭起来，这一段在整篇里干什么 |
 | 単語帳 | 45–60 个词，读音 / 词性 / 释义 / 段号 | 搜索（假名或中文）+ 词性筛选，窄屏转卡片 | 按出现顺序把词过一遍 |
 | 页脚 | 出处、影像链接（带时间码）、版权声明、返回作品一覧 | — | 知道这段话从哪里来 |
@@ -38,6 +38,16 @@
 **文法不单列成节**，全部放在所属段落的卡片里。独立「文法メモ」被否过两轮：先是只收 N4/N3 的干净句型、像练习册；改成按信号分组后，读者看卡片时还得往上翻信纸找原句。现在是句型名 + 原句片段（朱红标出被讲的词）+ 用法说明三件套，片段本身就是回跳链接。
 
 振假名与中文译文是两个开关，默认都开着；关掉后存进 `localStorage`，下次还是关着的。
+
+## 原声音频
+
+**有片源就用原声，不要拿浏览器 TTS 读台词。** 成品放 `assets/audio/<slug>-<scene>.m4a`，AAC 96k / 44.1 kHz / faststart；区间同时写进 `source.md` 和页脚。
+
+B 站链接的处理：`yt-dlp -F` 看可用流，普通 `video/BV...` 不登录就能取 DASH 音频流（`30280` / `30232` 等，`30216` 是低码率备用）；番剧 `bangumi/play/...` 未登录通常只有 6 分钟预览，需要 cookies。要截区间就用 DASH 流配合 `--download-sections`，progressive 流切出来是坏文件。直接下音频流再 `ffmpeg -ss/-t` 重新编码最省事。
+
+**按段播放用一个文件，不要切成十几个小文件。** 每段的 `.play` 按钮带 `data-start` / `data-end`，点一下 `audio.currentTime = start`，`timeupdate` 到 `end` 就暂停；信纸上方再放一条全篇播放条（自绘，可拖进度）。音频加载失败时整条回退到 `speechSynthesis`。段落区间靠 ASR 词级时间戳与 `source.md` 原文逐字对齐得出（`mlx-whisper` + `whisper-large-v3-turbo`），段间切点取朗读停顿的中点；切完要抽查首段与最长段的起止是否落在字上。
+
+目前带原声的四篇：`nigehaji`（单段全篇）、`saikou-no-rikon`、`saikou-no-rikon-2`、`hirugao`（后三篇按段切分）。
 
 ## 加一篇
 
@@ -138,6 +148,9 @@ node $SKILL/scripts/shot.mjs "file://$PWD/$SLUG/index.html" .shot/m.png --width 
 ├── favicon.svg                        标签页图标（朱地白文「読」，可缩放）
 ├── favicon.ico                        16/32/48 兜底（Safari、抓取预览）
 ├── apple-touch-icon.png               180 触摸图标（满幅，交给 iOS 切角）
+├── assets/
+│   ├── audio/                         原声片段（AAC 96k / 44.1k / faststart）
+│   └── stills/                        剧照（webp）
 ├── <slug>/
 │   ├── source.md                      本篇逐段原文、中文译文与出处
 │   └── index.html                     单篇精读页（自包含、无构建）
@@ -181,7 +194,7 @@ node .agent/skills/japanese-drama-line-study/scripts/shot.mjs "file://$PWD/saiko
 node .agent/skills/japanese-drama-line-study/scripts/shot.mjs "file://$PWD/saikou-no-rikon/index.html" .shot/m.png --width 390 --height 844 --selector "#p1"
 ```
 
-交互冒烟五项：ふりがな / 中文 两个开关、词表搜索与词性筛选、折叠卡展开、朗读按钮（没有 `speechSynthesis` 时按钮应被移除）、点文法原句后落到 `#pN` 且该段命中 `:target`。人工只需要看三点：`.shot/` 截图里的**注音有没有串行**、**长句有没有在小屏被拆断**、**句型名与原句片段在窄屏折行后是否还读得成一组**。
+交互冒烟五项：ふりがな / 中文 两个开关、词表搜索与词性筛选、折叠卡展开、音频（全篇条能播能拖、段落 ▶ 从段首起播并在段尾自动停、音频 404 时按钮回退 TTS）、点文法原句后落到 `#pN` 且该段命中 `:target`。人工只需要看三点：`.shot/` 截图里的**注音有没有串行**、**长句有没有在小屏被拆断**、**句型名与原句片段在窄屏折行后是否还读得成一组**。
 
 ## 常见问题
 
@@ -199,7 +212,7 @@ node .agent/skills/japanese-drama-line-study/scripts/shot.mjs "file://$PWD/saiko
 ln -s ../../.agent/skills/japanese-drama-line-study .workbuddy/skills/japanese-drama-line-study
 ```
 
-**手机 / 平板上点朗读没声音** 用的是浏览器 `speechSynthesis`，需要系统装有日语语音包（iOS 要在「设置 → 辅助功能 → 朗读内容」里先下载日语）。
+**手机 / 平板上点朗读没声音** 带原声的页面直接播本地 `.m4a`（iOS 静音键开启时无声，先关静音）；没有配音频、或音频加载失败时才回退 `speechSynthesis`，后者需要系统装有日语语音包（iOS 在「设置 → 辅助功能 → 朗读内容」里先下载日语）。
 
 **改过默认显示，老访客却没变化** `localStorage` 里还存着旧值。升 `STORE` 的版本号（`yomu.letter.ui.v2` → `v3`）。
 

@@ -7,6 +7,8 @@
 - 场景：北野裕一郎在离校前借校内广播，向学生告别
 - 出处：『昼顔〜平日午後3時の恋人たち〜』第 11 話，2014 年 9 月 25 日播出，脚本：井上由美子
 - 影像：https://www.bilibili.com/video/BV1yLh16mEy8?p=11&t=2182（第11集 36:22）
+- 音声：`../assets/audio/hirugao-ep11-broadcast.m4a`（取自上述影像 36:28–40:33，AAC 96k / 44.1 kHz / stereo / faststart，長さ 4:05）
+- 段落音声：页面每段 ▶ 用该文件的 `data-start` / `data-end` 区间播放；区间由 Whisper large-v3-turbo 的词级时间戳与本篇原文逐字对齐得出，段间切点取朗读停顿的中点。第 1 段开头含约 3 秒广播前的静场；第 7 段里能听到门外有人喊「北野先生、開けなさい」（原片广播进行中有人敲门），不属正文，按原声保留未剪。
 - 剧照：`../assets/stills/hirugao-broadcast.webp`（第11話 放送室のアンプ、「優先放送中」ランプ点灯，用户截取自上述影像，已裁去右上角字幕组台标）
 - 精读页：[index.html](index.html)
 - 全文：11 段

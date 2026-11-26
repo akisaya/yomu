@@ -115,7 +115,7 @@ def plain(t):
 def check_grammar(src):
     """文法层：不单列成节；每条原句片段必须逐字出自所属段落并可跳回。"""
     errors, hints = [], []
-    stats = {"cards": 0, "fragments": 0}
+    stats = {"cards": 0, "fragments": 0, "lines": 0}
 
     if re.search(r'<section[^>]*id="grammar"', src):
         errors.append("存在独立 #grammar 节：文法应并入精读卡，每条自带原句")
@@ -125,16 +125,29 @@ def check_grammar(src):
         jp = re.findall(r'<p class="jp[^"]*" lang="ja">(.*?)</p>', m.group(2), re.S)
         paras[m.group(1)] = plain("".join(jp))
 
+    # 一続き型（段落を切らない台本ページ）: 行単位で原句を照合する
+    lines = {}
+    for m in re.finditer(r'<span class="ln jp[^"]*" id="L(\d+)">(.*?)</span>', src, re.S):
+        lines["L" + m.group(1)] = plain(m.group(2))
+    line_mode = bool(lines) and not paras
+    stats["lines"] = len(lines)
+
     for cm in re.finditer(r'<details class="drill" id="d(\d+)"(.*?)</details>', src, re.S):
         n, card = cm.group(1), cm.group(2)
         stats["cards"] += 1
-        target = f"p{n}"
-
         jump = re.search(r'class="row-jump" href="#([^"]+)"', card)
-        if not jump:
-            errors.append(f"精读卡 #{n} 缺「原文 ↑」回跳入口")
-        elif jump.group(1) != target:
-            errors.append(f"精读卡 #{n} 的「原文 ↑」指向 #{jump.group(1)}，应为 #{target}")
+        if line_mode:
+            target = jump.group(1) if jump else None
+            if not jump:
+                errors.append(f"精读卡 #{n} 缺「原文 ↑」回跳入口")
+            elif target not in lines:
+                errors.append(f"精读卡 #{n} 的「原文 ↑」指向 #{target}，正文里没有这一行")
+        else:
+            target = f"p{n}"
+            if not jump:
+                errors.append(f"精读卡 #{n} 缺「原文 ↑」回跳入口")
+            elif jump.group(1) != target:
+                errors.append(f"精读卡 #{n} 的「原文 ↑」指向 #{jump.group(1)}，应为 #{target}")
 
         frags = re.findall(r'<a class="g-src" href="#([^"]+)"[^>]*>(.*?)</a>', card, re.S)
         if not frags:
@@ -142,12 +155,23 @@ def check_grammar(src):
         elif len(frags) < 4:
             hints.append(f"精读卡 #{n} 只有 {len(frags)} 条文法，少于 4 条会显得单薄")
 
-        text = paras.get(n)
+        text = lines.get(target) if line_mode else paras.get(n)
         if text is None:
-            errors.append(f"精读卡 #{n} 找不到对应段落 #{target}")
+            where = f"行 #{target}" if line_mode else f"段落 #{target}"
+            errors.append(f"精读卡 #{n} 找不到对应{where}")
 
         for href, frag in frags:
             stats["fragments"] += 1
+            if line_mode:
+                if href not in lines:
+                    errors.append(f"精读卡 #{n} 的原句片段回跳 #{href}，正文里没有这一行")
+                    continue
+                f = plain(frag)
+                if not f:
+                    errors.append(f"精读卡 #{n} 有空的原句片段")
+                elif f not in lines[href]:
+                    errors.append(f"精读卡 #{n} 原句片段不在它指向的第 {href[1:]} 行：{f[:34]}")
+                continue
             if href != target:
                 errors.append(f"精读卡 #{n} 的原句片段回跳 #{href}，应为 #{target}")
             f = plain(frag)
@@ -197,6 +221,19 @@ def main():
         if abs(iw / ih - 1.5) > 0.04:
             p.errors.append(f"剧照比例应为 3:2（第 {line} 行）：{iw}×{ih}")
 
+    # 音声：ローカル参照なら実体があること
+    audios = re.findall(r"<audio[^>]*>", src)
+    for tag in audios:
+        m = re.search(r'\ssrc="([^"]+)"', tag)
+        if not m:
+            p.errors.append("audio 缺 src")
+            continue
+        ref = m.group(1)
+        if ref.startswith(("http://", "https://", "data:", "file:")):
+            continue
+        if not (base / ref).resolve().exists():
+            p.errors.append(f"音频文件不存在：{ref}")
+
     g_errors, hints, g = check_grammar(src)
     p.errors.extend(g_errors)
 
@@ -209,13 +246,16 @@ def main():
     print(f"文件      {path}  ({len(src.encode()) / 1024:.1f} KB, {src.count(chr(10)) + 1} 行)")
     print(f"语言      {p.html_lang}")
     print(f"小节      {' → '.join(p.sections) if p.sections else '（无）'}")
-    print(f"正文段落  {paras}")
+    print(f"正文段落  {paras}" + (f"（一続き {g['lines']} 行）" if g["lines"] else ""))
     print(f"精读卡    {drills}")
     print(f"振假名    {rubies} 处")
     print(f"词表      {vocab} 行")
     if g["cards"]:
-        print(f"文法原句  {g['fragments']} 条（{g['cards']} 卡，逐条比对该段原文）")
+        unit = "所指向的行" if g["lines"] else "该段原文"
+        print(f"文法原句  {g['fragments']} 条（{g['cards']} 卡，逐条比对{unit}）")
     print(f"剧照      {len(p.images)} 张")
+    if audios:
+        print(f"音声      {len(audios)} 段")
     print(f"外链      {p.external_links}")
 
     if drills and paras and drills != paras:
