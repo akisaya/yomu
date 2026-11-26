@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>読む — 日剧台词精读</title>
-<meta name="description" content="阅读是一种感觉，喜欢的台词值得反复品味。原文、译文、句子骨架、语法与词汇，一句一句读下去。">
+<meta name="description" content="喜欢的台词值得反复阅读。原文、译文、句子骨架、语法与词汇，一句一句读下去。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -141,13 +141,22 @@ a{color:inherit;text-decoration:none}
 }
 .lede{
   margin:clamp(22px,3vw,32px) 0 0;
-  font-family:var(--serif-cn);
-  font-size:clamp(16px,1.7vw,19px);
-  line-height:1.9;
-  letter-spacing:.02em;
+  font-family:var(--serif-jp);
+  font-size:clamp(20px,2.2vw,25px);
+  line-height:1.7;
+  letter-spacing:.06em;
   color:var(--ink);
-  max-width:26em;
+  max-width:24em;
 }
+.lede-sub{
+  margin:10px 0 0;
+  font-family:var(--serif-cn);
+  font-size:12.5px;
+  line-height:1.8;
+  letter-spacing:.06em;
+  color:var(--ink-3);
+}
+.lede-br{display:none}
 .vnote{
   writing-mode:vertical-rl;
   text-orientation:upright;
@@ -169,13 +178,6 @@ a{color:inherit;text-decoration:none}
   align-items:baseline;
   gap:clamp(12px,1.8vw,18px);
   margin-bottom:clamp(18px,3vw,32px);
-}
-.sec-num{
-  margin:0;
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.1em;
-  color:var(--shu);
 }
 .sec-head h2{
   margin:0;
@@ -256,44 +258,6 @@ a{color:inherit;text-decoration:none}
   transition:transform .25s, color .22s;
 }
 
-/* ---------- 读法 ---------- */
-.method{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(228px,1fr));
-  gap:1px;
-}
-.m-item{
-  padding:0 clamp(0px,1.6vw,22px) 0 0;
-  border-left:1px solid var(--line-soft);
-  padding-left:clamp(14px,1.8vw,22px);
-}
-.m-item:first-child{border-left:0;padding-left:0}
-.m-item h3{
-  margin:0 0 8px;
-  font-family:var(--serif-jp);
-  font-size:16px;
-  font-weight:600;
-  letter-spacing:.1em;
-}
-.m-item p{
-  margin:0;
-  font-family:var(--serif-cn);
-  font-size:13px;
-  line-height:1.9;
-  color:var(--ink-2);
-  letter-spacing:.01em;
-}
-.tip{
-  margin:clamp(24px,3vw,34px) 0 0;
-  padding-top:18px;
-  border-top:1px solid var(--line-soft);
-  font-family:var(--serif-cn);
-  font-size:13px;
-  line-height:1.9;
-  color:var(--ink-3);
-}
-.tip b{color:var(--ink-2);font-weight:600}
-
 /* ---------- 页脚 ---------- */
 footer{
   border-top:1px solid var(--line);
@@ -314,22 +278,14 @@ footer{
   color:var(--ink-3);
   letter-spacing:.03em;
 }
-.foot .jp{
-  font-family:var(--serif-jp);
-  font-size:13px;
-  letter-spacing:.14em;
-  color:var(--ink-2);
-  margin-bottom:6px;
-}
 
 @media (max-width:760px){
   .mast-grid{grid-template-columns:minmax(0,1fr)}
+  .lede-br{display:inline}
   .vnote{display:none}
   .entry{grid-template-columns:minmax(0,1fr) 20px;gap:10px}
   .entry::before{display:none}
   .e-quote{font-size:12.5px}
-  .method{gap:22px}
-  .m-item{border-left:0;padding-left:0;padding-bottom:0}
   .brand .sub{display:none}
 }
 </style>
@@ -353,7 +309,8 @@ footer{
       <div>
         <p class="kicker">Yomu · Japanese drama lines</p>
         <h1>読む<span class="seal" aria-hidden="true">読</span></h1>
-        <p class="lede">阅读是一种感觉，喜欢的台词值得反复品味。</p>
+        <p class="lede" lang="ja">好きな台詞は、<br class="lede-br">何度でも読み返したくなる。</p>
+        <p class="lede-sub">喜欢的台词值得反复阅读。</p>
       </div>
       <p class="vnote" lang="ja" aria-hidden="true">日劇の台詞を、一行ずつ。</p>
     </div>
@@ -362,7 +319,6 @@ footer{
   <section class="sec" id="works">
     <div class="wrap">
       <div class="sec-head">
-        <p class="sec-num">01</p>
         <h2>収録</h2>
       </div>
 
@@ -425,43 +381,12 @@ footer{
     </div>
   </section>
 
-  <section class="sec" id="method">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="sec-num">02</p>
-        <h2>読み方</h2>
-      </div>
-
-      <div class="method">
-        <div class="m-item">
-          <h3>骨格</h3>
-          <p>长句先切成几块，看清谁做什么、谁在修饰谁。日语的重心压在句尾，不先把修饰关系理出来，读到最后一个字往往会忘掉前面在说什么。</p>
-        </div>
-        <div class="m-item">
-          <h3>文法</h3>
-          <p>只挑这一段里真正挡路的句型。给接续、给语感、给原句——不放词典释义，只放为什么这里非用不可。</p>
-        </div>
-        <div class="m-item">
-          <h3>語彙</h3>
-          <p>按出现顺序排，读音、词性、段落号齐全，可以搜假名也可以搜中文。难读的字在原文里直接标振假名。</p>
-        </div>
-        <div class="m-item">
-          <h3>役割</h3>
-          <p>这一段在整篇里干什么，为什么放在这个位置。台词不是一句一句孤立的，懂结构才记得住。</p>
-        </div>
-      </div>
-
-      <p class="tip">文章页右上角的 <b>ふりがな</b> 和 <b>中文</b> 随时可以关掉：第一遍带着读，第二遍裸读，第三遍只看骨架。</p>
-    </div>
-  </section>
-
 </main>
 
 <footer>
   <div class="wrap">
     <div class="foot">
       <div>
-        <p class="jp" lang="ja">台詞は、読み方で変わる。</p>
         <p>所有原文与译文仅供学习研究使用，版权归原作者及各家电视台所有。</p>
       </div>
       <div>
