@@ -1,11 +1,27 @@
+<div align="center">
+
 # 台詞精読 · yomu
 
 **把一段日剧台词，拆成看得懂的句子。**
 
-日剧台词 / 书信 / 独白的精读页 —— 原文与译文对照、振假名开关、逐段五层拆解（文法并入精读，每条自带原句）、可搜索词表
+日剧台词 / 书信 / 独白的精读页 —— 原文与译文对照、振假名开关、逐段五层拆解、可搜索词表
 
-[在线浏览](https://akisaya.github.io/yomu/) · [收录](https://akisaya.github.io/yomu/#works) · [加一篇](#加一篇) · [内容口径](.agent/skills/japanese-drama-line-study/references/editorial-rules.md) · [常见问题](#常见问题)
+[![在线浏览](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E6%B5%8F%E8%A7%88-akisaya.github.io%2Fyomu-B23A2B?style=flat-square)](https://akisaya.github.io/yomu/)
+![离线可用](https://img.shields.io/badge/%E7%A6%BB%E7%BA%BF%E5%8F%AF%E7%94%A8-%E5%8D%95%E6%96%87%E4%BB%B6%20HTML-828893?style=flat-square)
 
+<sub>[在线浏览](https://akisaya.github.io/yomu/) · [收录](https://akisaya.github.io/yomu/#works) · [加一篇](#加一篇) · [内容口径](./.agent/skills/japanese-drama-line-study/references/editorial-rules.md) · [常见问题](#常见问题)</sub>
+
+</div>
+
+![收录页预览](./docs/preview-catalog.jpg)
+
+## 这是什么
+
+查单词不难，难的是读懂一句话为什么偏要这么说。
+
+这个仓库把一段日剧台词、书信或独白做成一整页可以顺着读的学习材料：从竖排题眼和人物关系进入场景，按原有段落读原文与译文，再在五层精读卡里看句子的骨架、文法、词汇、段落角色与翻译取舍。
+
+每篇都是一个自包含 HTML，CSS、脚本与正文都放在页面里。没有构建步骤，也不依赖服务器；双击就能读，手机上也能看。
 
 ## 一篇里有什么
 
@@ -16,6 +32,8 @@
 | 精読 | 每段一张卡，五层折叠：骨格 / 文法 / 語彙 / 役割 / 訳注；每条文法带该段原句片段 | `<details>` 展开；点原句跳回 `#pN`，段号再跳回卡片 | 长句怎么搭起来，这一段在整篇里干什么 |
 | 単語帳 | 45–60 个词，读音 / 词性 / 释义 / 段号 | 搜索（假名或中文）+ 词性筛选，窄屏转卡片 | 按出现顺序把词过一遍 |
 | 页脚 | 出处、影像链接（带时间码）、版权声明、返回作品一覧 | — | 知道这段话从哪里来 |
+
+![单篇精读页预览](./docs/preview-letter.jpg)
 
 **文法不单列成节**，全部放在所属段落的卡片里。独立「文法メモ」被否过两轮：先是只收 N4/N3 的干净句型、像练习册；改成按信号分组后，读者看卡片时还得往上翻信纸找原句。现在是句型名 + 原句片段（朱红标出被讲的词）+ 用法说明三件套，片段本身就是回跳链接。
 
@@ -113,6 +131,9 @@ node $SKILL/scripts/shot.mjs "file://$PWD/$SLUG/index.html" .shot/m.png --width 
 .
 ├── README.md                          本文件
 ├── index.html                         首页：收录列表 + 读法
+├── docs/
+│   ├── preview-catalog.jpg           收录页预览（README）
+│   └── preview-letter.jpg            单篇精读页预览（README）
 ├── favicon.svg                        标签页图标（朱地白文「読」，可缩放）
 ├── favicon.ico                        16/32/48 兜底（Safari、抓取预览）
 ├── apple-touch-icon.png               180 触摸图标（满幅，交给 iOS 切角）
