@@ -1,0 +1,37 @@
+saikou-no-rikon/index.html
+  s_743a8baf632f2f::t_06bda20ea008e1 410,451,471,485,550,637,652,659,678,680-681,737,747-748,779,781,786,1073-1075,1091-1092,1104,1108-1109,1406,1410,1466,1652,1654,2026,2045
+  s_743a8baf632f2f::t_121c92b89607e6 1530
+saikou-no-rikon-2/index.html
+  s_743a8baf632f2f::t_06bda20ea008e1 410,451,471,485,550,637,652,659,678,680-681,737,747-748,779,781,786,1079-1081,1097-1098,1110,1114-1115,1477,1659,1661,2037,2043
+  s_743a8baf632f2f::t_121c92b89607e6 1976
+.agent/skills/japanese-drama-line-study/SKILL.md
+  s_3bbaacf667e402::t_43b322c3588922 4-5
+saikou-no-rikon-2/source.md
+  s_3bbaacf667e402::t_44d776e098beb6 1-141
+saikou-no-rikon/source.md
+  s_3bbaacf667e402::t_44d776e098beb6 1-151
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.52-trip",
+  "base_commit_sha": "01d81ed81610a94607a00b9d5c0896744c424ab9",
+  "prompts": {},
+  "sessions": {
+    "s_3bbaacf667e402": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a21699-9da0-7e12-838f-ffcf25bdbaee",
+        "model": "deepseek-v4.1-flash[1M]"
+      },
+      "human_author": "bchen5 <bchen5@trip.com>"
+    },
+    "s_743a8baf632f2f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a21678-af56-7832-971a-a7cd2f531219",
+        "model": "glm-5.4[1M]"
+      },
+      "human_author": "bchen5 <bchen5@trip.com>"
+    }
+  }
+}

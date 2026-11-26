@@ -1,0 +1,19 @@
+README.md
+  s_699eaafc4b3063::t_e1acff89b27efa 1-2,7-11,14,16,18-24,36-37,134
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.52-trip",
+  "base_commit_sha": "d7247fceb1cdc434ef903da5666987f21e1aa123",
+  "prompts": {},
+  "sessions": {
+    "s_699eaafc4b3063": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a21698-3b91-7a41-92c3-853044e76d5a",
+        "model": "deepseek-v4.1-flash[1M]"
+      },
+      "human_author": "bchen5 <bchen5@trip.com>"
+    }
+  }
+}
