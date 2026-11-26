@@ -373,6 +373,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .paper > *{position:relative;z-index:1}
 
+/* 写信那一刻：信纸顶端的剧照 */
+.scene{
+  margin:0 0 clamp(18px,2.6vw,28px);
+}
+.scene img{
+  display:block;
+  width:100%;
+  height:auto;
+  filter:saturate(.82) contrast(1.02) brightness(1.03);
+}
+.scene figcaption{
+  margin-top:10px;
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.08em;
+  color:var(--ink-3);
+}
+
 .addressee{
   margin:0 0 clamp(26px,4vw,44px);
   padding-bottom:22px;
@@ -1253,6 +1271,11 @@ details.drill:not([open])::details-content{block-size:0}
           光生さんへ
           <small>結夏より / 出されなかった手紙</small>
         </p>
+
+        <figure class="scene">
+          <img src="../assets/stills/saikou-no-rikon-2-open.webp" alt="手紙の書き出し「光生さんへ」を書くペン先" width="960" height="640" loading="lazy" decoding="async">
+          <figcaption>第8話 · 書き出しの「光生さんへ」</figcaption>
+        </figure>
 
         <div class="para" id="p1">
           <a class="num" href="#d1" title="この段落の精読へ">01</a>

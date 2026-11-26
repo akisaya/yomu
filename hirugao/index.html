@@ -372,6 +372,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .paper > *{position:relative;z-index:1}
 
+/* 放送室の機材：校内放送の場面 */
+.scene{
+  margin:0 0 clamp(18px,2.6vw,28px);
+}
+.scene img{
+  display:block;
+  width:100%;
+  height:auto;
+  filter:brightness(1.14) contrast(1.04) saturate(.92);
+}
+.scene figcaption{
+  margin-top:10px;
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.08em;
+  color:var(--ink-3);
+}
+
 .addressee{
   margin:0 0 clamp(26px,4vw,44px);
   padding-bottom:22px;
@@ -1225,6 +1243,12 @@ details.drill:not([open])::details-content{block-size:0}
           生物の北野です
           <small>校内放送 / 第11話</small>
         </p>
+
+        <figure class="scene">
+          <img src="../assets/stills/hirugao-broadcast.webp" alt="「優先放送中」のランプが点いた放送室の機材" width="960" height="640" loading="lazy" decoding="async">
+          <figcaption>第11話 · 放送室のアンプ</figcaption>
+        </figure>
+
         <div class="para" id="p1">
           <a class="num" href="#d1" title="この段落の精読へ">01</a>
           <button class="play" type="button" data-i="1" aria-label="第一段落を読み上げる">

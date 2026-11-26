@@ -38,6 +38,7 @@ class Checker(HTMLParser):
         self.sections = []
         self.external_links = 0
         self.html_lang = None
+        self.images = []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -65,8 +66,10 @@ class Checker(HTMLParser):
                 if a.get("target") == "_blank" and "noopener" not in rel:
                     self.errors.append(f"外链 target=_blank 缺 rel=noopener（第 {line} 行）：{href[:60]}")
 
-        if tag == "img" and "alt" not in a:
-            self.errors.append(f"img 缺 alt（第 {line} 行）")
+        if tag == "img":
+            if "alt" not in a:
+                self.errors.append(f"img 缺 alt（第 {line} 行）")
+            self.images.append((a.get("src") or "", a.get("width"), a.get("height"), line))
 
         self.counts[tag] += 1
         if tag in VOID:
@@ -177,6 +180,23 @@ def main():
     if not p.html_lang:
         p.errors.append("<html> 缺少 lang 属性")
 
+    # 剧照：文件要在、比例固定 3:2
+    base = path.parent
+    for src_img, w, h, line in p.images:
+        if src_img.startswith(("http://", "https://", "data:", "file:")):
+            continue
+        target = (base / src_img).resolve()
+        if not target.exists():
+            p.errors.append(f"图片不存在（第 {line} 行）：{src_img}")
+            continue
+        try:
+            iw, ih = int(w), int(h)
+        except (TypeError, ValueError):
+            p.errors.append(f"img 缺 width/height（第 {line} 行）：{src_img}")
+            continue
+        if abs(iw / ih - 1.5) > 0.04:
+            p.errors.append(f"剧照比例应为 3:2（第 {line} 行）：{iw}×{ih}")
+
     g_errors, hints, g = check_grammar(src)
     p.errors.extend(g_errors)
 
@@ -195,6 +215,7 @@ def main():
     print(f"词表      {vocab} 行")
     if g["cards"]:
         print(f"文法原句  {g['fragments']} 条（{g['cards']} 卡，逐条比对该段原文）")
+    print(f"剧照      {len(p.images)} 张")
     print(f"外链      {p.external_links}")
 
     if drills and paras and drills != paras:

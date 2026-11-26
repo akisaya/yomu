@@ -15,6 +15,7 @@
 - 场景：差出人写给宛名
 - 出处：剧名、电视台、年份、集数 / SP、播出日期、脚本家
 - 影像：带时间码的链接
+- 剧照：`../assets/stills/<slug>-<what>.webp`（可选；写明截自哪一集、哪段影像、裁掉了什么）
 - 全文：12 段
 
 **题眼原文**
@@ -88,6 +89,25 @@
 ```
 
 引文块用 `<figure>` + `<blockquote>` + `<figcaption>`：译文在语义上是引文的注解，不是正文。
+
+## 剧照（可选）
+
+放在开头块与 `#p1` 之间，只放一张。没有合适的画面就整块省略，不留占位。
+
+```html
+<div class="episode-head">…</div>   <!-- 或 <p class="addressee"> -->
+
+<figure class="scene">
+  <img src="../assets/stills/<slug>-<what>.webp" alt="画面描述" width="960" height="640" loading="lazy" decoding="async">
+  <figcaption>第N話 · 场景</figcaption>
+</figure>
+
+<div class="para" id="p1">…</div>
+```
+
+- 比例固定 3:2，输出 webp 960×640（15–30KB），放 `assets/stills/`，不进 `<slug>/`。
+- 图注写集数与场景，跟页脚出处同一套；`alt` 描述画面内容。
+- 选图、裁切、调色的判断见 `typography.md` 的「剧照位」。一页一张，位置不动；同一作品的不同篇不重复用图。
 
 ## 正文段落
 

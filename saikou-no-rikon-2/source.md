@@ -7,6 +7,7 @@
 - 场景：星野結夏写给浜崎光生，封未寄出的信
 - 出处：『最高の離婚』（2013，フジテレビ）第 8 話，2013 年 2 月 28 日播出，脚本：坂元裕二
 - 影像：https://www.bilibili.com/video/BV11e4y127nS/
+- 剧照：`../assets/stills/saikou-no-rikon-2-open.webp`（第 8 話「光生さんへ」起笔镜头，用户截取自上述影像，已裁去字幕）
 - 精读页：[index.html](index.html)
 - 全文：11 段
 
