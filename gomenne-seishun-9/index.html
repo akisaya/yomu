@@ -1025,6 +1025,39 @@ details.drill:not([open])::details-content{block-size:0}
 }
 
 /* ============ 响应式 ============ */
+
+/* 原声：ドラマの実際の朗読（段落ごとに区切って再生） */
+.audible{display:flex;align-items:center;gap:12px;
+  margin:0 0 clamp(20px,3vw,30px);padding:11px 0;
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.au-label{flex:none;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  color:var(--ink-3);white-space:nowrap}
+.au-btn{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:50%;
+  border:1px solid rgba(107,99,88,.42);color:var(--ink-2);background:transparent;
+  cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.au-btn:hover{color:var(--shu);border-color:rgba(178,58,43,.4);background:rgba(178,58,43,.05)}
+.au-btn:focus-visible{outline:2px solid rgba(178,58,43,.35);outline-offset:2px}
+.au-btn svg{width:12px;height:12px;fill:currentColor}
+.au-btn .i-pause{display:none}
+.audible.playing .au-btn{color:var(--shu);border-color:rgba(178,58,43,.45)}
+.audible.playing .i-play{display:none}
+.audible.playing .i-pause{display:block}
+.au-track{position:relative;flex:1 1 auto;min-width:60px;height:20px;
+  display:flex;align-items:center;cursor:pointer;touch-action:none}
+.au-track::before{content:"";position:absolute;left:0;right:0;height:1px;background:var(--line)}
+.au-track:focus-visible{outline:none}
+.au-track:focus-visible::before{background:var(--shu-soft)}
+.au-played{position:absolute;left:0;height:1px;background:var(--shu);width:0}
+.au-knob{position:absolute;left:0;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;
+  background:var(--shu);opacity:0;transition:opacity .2s}
+.audible:hover .au-knob,.audible.playing .au-knob,.audible.has-progress .au-knob,.au-track:focus-visible .au-knob{opacity:1}
+.au-clock{flex:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.03em;
+  color:var(--ink-3);font-variant-numeric:tabular-nums}
+.au-clock b{font-weight:400;color:var(--ink-2)}
+.play .i-pause{display:none}
+.play.on .i-play{display:none}
+.play.on .i-pause{display:block}
+
 @media (max-width:1000px){
   .letter-layout{grid-template-columns:minmax(0,1fr)}
   .rail{display:none}
@@ -1079,9 +1112,11 @@ details.drill:not([open])::details-content{block-size:0}
   .r{font-size:11px;white-space:normal;letter-spacing:.02em}
 }
 @media (max-width:520px){
-  .para{padding-left:1.7rem}
+  .para{padding-left:1.9rem}
   .num{width:1.5rem;font-size:10px;white-space:nowrap}
-  .play{display:none}
+  .play{display:grid;opacity:.72;left:-4px;top:2.6em;width:26px;height:26px}
+  .audible{gap:9px;flex-wrap:wrap}
+  .au-label,.au-clock{font-size:9px}
   table.vocab th,table.vocab td{padding-inline:12px}
   table.vocab th:nth-child(3),table.vocab td:nth-child(3){display:none}
 }
@@ -1433,6 +1468,21 @@ media print{
           <p class="scene-note">前一晚，平助约理沙到东高的天台见面。整场戏都在这里，没有换景。</p>
         </div>
 
+        <div class="audible" id="audible">
+          <span class="au-label">原声 · 全編</span>
+          <button class="au-btn" type="button" aria-label="音声を再生" aria-pressed="false">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
+          </button>
+          <div class="au-track" role="slider" tabindex="0" aria-label="再生位置"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" title="第9話 36:02–44:56">
+            <span class="au-played"></span>
+            <span class="au-knob"></span>
+          </div>
+          <span class="au-clock"><b class="au-now">0:00</b> / <span class="au-total">8:54</span></span>
+          <audio id="clip" src="../assets/audio/gomenne-seishun-9-rooftop.m4a" preload="metadata"></audio>
+        </div>
+
         <figure class="scene">
           <img src="../assets/stills/gomenne-seishun-9-rooftop.webp" alt="夜の屋上で平助を見つめる蜂矢理沙" width="960" height="640" loading="lazy" decoding="async">
           <figcaption>第9話 · 東高の屋上、自白の前夜</figcaption>
@@ -1440,8 +1490,9 @@ media print{
 
         <div class="para" id="p1">
           <a class="num" href="#d1" title="この段落の精読へ">01</a>
-          <button class="play" type="button" data-i="1" aria-label="第一段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="1" data-start="0.0" data-end="110.1" aria-label="第1段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <ol class="dlg">
           <li class="dline hara">
@@ -1519,8 +1570,9 @@ media print{
 
         <div class="para" id="p2">
           <a class="num" href="#d2" title="この段落の精読へ">02</a>
-          <button class="play" type="button" data-i="2" aria-label="第二段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="2" data-start="110.1" data-end="532.0" aria-label="第2段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <ol class="dlg">
           <li class="dline hara">
@@ -1964,7 +2016,8 @@ media print{
         <p>台词出自『ごめんね青春！』（2014，TBS 日曜劇場）第 9 話，全 10 話，脚本：宮藤官九郎。<br>
         这一段是第 9 話结尾屋上的整场对白，以双语字幕为底本逐句读出，再按原片复核校正；不是公开台本，已知异文见<a href="source.md">源档</a>。<br>
         片段影像：<a href="https://www.bilibili.com/video/BV12Txg6BEp6?p=9&amp;t=2162" target="_blank" rel="noopener noreferrer">Bilibili「ごめんね青春！」第9話 36:02 ↗</a>（第 9 个分 P，36:02–44:53，中日双语硬字幕）<br>
-        原文与中文译文仅供学习研究使用，版权归原作者及 TBS 所有。</p>
+        音声：取自该分 P 36:02–44:56（AAC 96k / 44.1 kHz，8:54），<a href="../assets/audio/gomenne-seishun-9-rooftop.m4a">全篇音频 ↗</a>；段落左侧 ▶ 只播该段。<br>
+        原文、中文译文与音声仅供学习研究使用，版权归原作者及 TBS 所有。</p>
       </div>
       <div>
         <p>页面：逐段精读 · 45 词<br>
@@ -2070,7 +2123,9 @@ media print{
     if (t) setTimeout(() => flash(t), 300);
   }
 
-  /* ---------- 6. 朗读 ---------- */
+  /* ---------- 6. 原声朗读（按段落切分；音频不可用时回退浏览器朗读） ---------- */
+  const box = document.getElementById('audible');
+  const audio = box ? box.querySelector('audio') : null;
   const synth = window.speechSynthesis;
   let jaVoice = null;
   const pickVoice = () => {
@@ -2080,13 +2135,14 @@ media print{
   };
   if (synth) { pickVoice(); synth.addEventListener('voiceschanged', pickVoice); }
 
-  if (!synth) $$('.play').forEach(b => b.remove());
+  const supported = !!(audio && (audio.canPlayType('audio/mp4; codecs="mp4a.40.2"') || audio.canPlayType('audio/mp4')));
+  if (!supported && box) box.remove();
+  let mode = supported ? 'audio' : 'tts';
+  if (!supported && !synth) $$('.play').forEach(b => b.remove());
 
-  let current = null;
-  const clearBtn = () => {
-    if (current) current.classList.remove('on');
-    current = null;
-  };
+  /* --- 兜底：浏览器合成语音 --- */
+  let ttsBtn = null;
+  const clearTts = () => { if (ttsBtn) ttsBtn.classList.remove('on'); ttsBtn = null; };
   const readAloud = (para) => {
     const text = Array.from(para.querySelectorAll('.jp')).map(p => {
       const c = p.cloneNode(true);
@@ -2094,31 +2150,123 @@ media print{
       return c.textContent.replace(/\s+/g, ' ').trim();
     }).join('。');
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP';
-    u.rate = 0.92;
-    u.pitch = 1;
+    u.lang = 'ja-JP'; u.rate = 0.92; u.pitch = 1;
     if (jaVoice) u.voice = jaVoice;
     return u;
   };
+  const speakPara = (btn) => {
+    if (!synth) return;
+    const para = btn.closest('.para');
+    if (!para) return;
+    if (ttsBtn === btn) { synth.cancel(); clearTts(); return; }
+    synth.cancel(); clearTts();
+    const u = readAloud(para);
+    const stop = () => { if (ttsBtn === btn) clearTts(); };
+    u.onend = stop; u.onerror = stop;
+    ttsBtn = btn; btn.classList.add('on'); synth.speak(u);
+  };
+
+  /* --- 原声播放器：一个音频文件 + 每段的时间区间 --- */
+  let segBtn = null, segEnd = 0, ticket = 0;
+  const clearSeg = () => { if (segBtn) segBtn.classList.remove('on'); segBtn = null; segEnd = 0; };
+  const fmt = (v) => {
+    if (!isFinite(v) || v < 0) return '0:00';
+    const m = Math.floor(v / 60), r = Math.floor(v % 60);
+    return m + ':' + (r < 10 ? '0' : '') + r;
+  };
+
+  if (audio) {
+    const auBtn = box.querySelector('.au-btn');
+    const track = box.querySelector('.au-track');
+    const played = box.querySelector('.au-played');
+    const knob = box.querySelector('.au-knob');
+    const nowEl = box.querySelector('.au-now');
+    const totEl = box.querySelector('.au-total');
+    const paint = () => {
+      const d = audio.duration;
+      const p = d ? Math.min(1, audio.currentTime / d) : 0;
+      played.style.width = (p * 100) + '%';
+      knob.style.left = (p * 100) + '%';
+      nowEl.textContent = fmt(audio.currentTime);
+      box.classList.toggle('has-progress', p > 0.001);
+      track.setAttribute('aria-valuenow', String(Math.round(p * 100)));
+      track.setAttribute('aria-valuetext', fmt(audio.currentTime) + ' / ' + fmt(d));
+    };
+    const setState = (on) => {
+      box.classList.toggle('playing', on);
+      auBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      auBtn.setAttribute('aria-label', on ? '一時停止' : '音声を再生');
+    };
+    audio.addEventListener('loadedmetadata', () => { totEl.textContent = fmt(Math.round(audio.duration)); paint(); });
+    audio.addEventListener('timeupdate', () => {
+      paint();
+      if (segBtn && audio.currentTime >= segEnd && audio.currentTime < segEnd + 2) { audio.pause(); clearSeg(); }
+    });
+    audio.addEventListener('play', () => setState(true));
+    audio.addEventListener('pause', () => setState(false));
+    audio.addEventListener('ended', () => { setState(false); clearSeg(); });
+    audio.addEventListener('error', () => {
+      mode = 'tts'; box.remove(); audio.pause(); clearSeg();
+      if (!synth) $$('.play').forEach(b => b.remove());
+    });
+    auBtn.addEventListener('click', () => {
+      clearSeg();
+      if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+    });
+    const seek = (clientX) => {
+      const r = track.getBoundingClientRect();
+      if (!r.width || !isFinite(audio.duration) || !audio.duration) return;
+      const ratio = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      audio.currentTime = ratio * audio.duration;
+      paint();
+    };
+    let dragging = false;
+    track.addEventListener('pointerdown', (e) => {
+      dragging = true; clearSeg();
+      try { track.setPointerCapture(e.pointerId); } catch (err) {}
+      seek(e.clientX);
+    });
+    track.addEventListener('pointermove', (e) => { if (dragging) seek(e.clientX); });
+    const stopDrag = (e) => {
+      dragging = false;
+      try { track.releasePointerCapture(e.pointerId); } catch (err) {}
+    };
+    track.addEventListener('pointerup', stopDrag);
+    track.addEventListener('pointercancel', stopDrag);
+    track.addEventListener('keydown', (e) => {
+      const d = audio.duration || 0, step = e.shiftKey ? 15 : 5;
+      if (e.key === 'ArrowRight') { clearSeg(); audio.currentTime = Math.min(d, audio.currentTime + step); paint(); e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { clearSeg(); audio.currentTime = Math.max(0, audio.currentTime - step); paint(); e.preventDefault(); }
+      else if (e.key === 'Home') { clearSeg(); audio.currentTime = 0; paint(); e.preventDefault(); }
+      else if (e.key === 'End') { clearSeg(); audio.currentTime = d; paint(); e.preventDefault(); }
+      else if (e.key === ' ' || e.key === 'Enter') {
+        clearSeg();
+        audio.paused ? audio.play().catch(() => {}) : audio.pause();
+        e.preventDefault();
+      }
+    });
+  }
 
   $$('.play').forEach(btn => {
     btn.addEventListener('click', () => {
-      if (!synth) return;
-      const para = btn.closest('.para');
-      if (!para) return;
-      if (current === btn) { synth.cancel(); clearBtn(); return; }
-      synth.cancel();
-      clearBtn();
-      const u = readAloud(para);
-      const stop = () => { if (current === btn) clearBtn(); };
-      u.onend = stop;
-      u.onerror = stop;
-      current = btn;
-      btn.classList.add('on');
-      synth.speak(u);
+      if (mode === 'tts' || !audio) { speakPara(btn); return; }
+      const start = Number(btn.dataset.start), end = Number(btn.dataset.end);
+      if (!isFinite(start) || !isFinite(end)) { speakPara(btn); return; }
+      if (segBtn === btn && !audio.paused) { audio.pause(); clearSeg(); return; }
+      if (synth) synth.cancel();
+      clearTts(); clearSeg();
+      const my = ++ticket;
+      segBtn = btn; segEnd = end; btn.classList.add('on');
+      const go = () => {
+        if (my !== ticket) return;
+        audio.currentTime = start;
+        audio.play().catch(() => clearSeg());
+      };
+      if (audio.readyState >= 1) go();
+      else audio.addEventListener('loadedmetadata', go, { once: true });
     });
   });
-  addEventListener('pagehide', () => { if (synth) synth.cancel(); });
+  addEventListener('pagehide', () => { if (synth) synth.cancel(); if (audio) audio.pause(); });
 
   /* ---------- 7. 词汇筛选 ---------- */
   const input = $('#vsearch');

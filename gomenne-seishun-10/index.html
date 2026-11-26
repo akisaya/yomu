@@ -1025,6 +1025,39 @@ details.drill:not([open])::details-content{block-size:0}
 }
 
 /* ============ 响应式 ============ */
+
+/* 原声：ドラマの実際の朗読（段落ごとに区切って再生） */
+.audible{display:flex;align-items:center;gap:12px;
+  margin:0 0 clamp(20px,3vw,30px);padding:11px 0;
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.au-label{flex:none;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  color:var(--ink-3);white-space:nowrap}
+.au-btn{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:50%;
+  border:1px solid rgba(107,99,88,.42);color:var(--ink-2);background:transparent;
+  cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.au-btn:hover{color:var(--shu);border-color:rgba(178,58,43,.4);background:rgba(178,58,43,.05)}
+.au-btn:focus-visible{outline:2px solid rgba(178,58,43,.35);outline-offset:2px}
+.au-btn svg{width:12px;height:12px;fill:currentColor}
+.au-btn .i-pause{display:none}
+.audible.playing .au-btn{color:var(--shu);border-color:rgba(178,58,43,.45)}
+.audible.playing .i-play{display:none}
+.audible.playing .i-pause{display:block}
+.au-track{position:relative;flex:1 1 auto;min-width:60px;height:20px;
+  display:flex;align-items:center;cursor:pointer;touch-action:none}
+.au-track::before{content:"";position:absolute;left:0;right:0;height:1px;background:var(--line)}
+.au-track:focus-visible{outline:none}
+.au-track:focus-visible::before{background:var(--shu-soft)}
+.au-played{position:absolute;left:0;height:1px;background:var(--shu);width:0}
+.au-knob{position:absolute;left:0;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;
+  background:var(--shu);opacity:0;transition:opacity .2s}
+.audible:hover .au-knob,.audible.playing .au-knob,.audible.has-progress .au-knob,.au-track:focus-visible .au-knob{opacity:1}
+.au-clock{flex:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.03em;
+  color:var(--ink-3);font-variant-numeric:tabular-nums}
+.au-clock b{font-weight:400;color:var(--ink-2)}
+.play .i-pause{display:none}
+.play.on .i-play{display:none}
+.play.on .i-pause{display:block}
+
 @media (max-width:1000px){
   .letter-layout{grid-template-columns:minmax(0,1fr)}
   .rail{display:none}
@@ -1079,9 +1112,11 @@ details.drill:not([open])::details-content{block-size:0}
   .r{font-size:11px;white-space:normal;letter-spacing:.02em}
 }
 @media (max-width:520px){
-  .para{padding-left:1.7rem}
+  .para{padding-left:1.9rem}
   .num{width:1.5rem;font-size:10px;white-space:nowrap}
-  .play{display:none}
+  .play{display:grid;opacity:.72;left:-4px;top:2.6em;width:26px;height:26px}
+  .audible{gap:9px;flex-wrap:wrap}
+  .au-label,.au-clock{font-size:9px}
   table.vocab th,table.vocab td{padding-inline:12px}
   table.vocab th:nth-child(3),table.vocab td:nth-child(3){display:none}
 }
@@ -1436,6 +1471,21 @@ media print{
           <p class="scene-note">青春祭最后一晚，礼堂里评「青春先生」。票数最多的是平助。他上台，接过话筒，第一句是请大家安静，第二句是把奖辞掉。这段独白从这里开始：辞奖、自白、校长追问，一直说到十四年后自己为什么还站在这里——中间没有切场。所以从这一场起，八段连着读，不做摘句。</p>
         </div>
 
+        <div class="audible" id="audible">
+          <span class="au-label">原声 · 全編</span>
+          <button class="au-btn" type="button" aria-label="音声を再生" aria-pressed="false">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
+          </button>
+          <div class="au-track" role="slider" tabindex="0" aria-label="再生位置"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" title="最終話 23:18–29:25">
+            <span class="au-played"></span>
+            <span class="au-knob"></span>
+          </div>
+          <span class="au-clock"><b class="au-now">0:00</b> / <span class="au-total">6:07</span></span>
+          <audio id="clip" src="../assets/audio/gomenne-seishun-10-stage.m4a" preload="metadata"></audio>
+        </div>
+
         <figure class="scene">
           <img src="../assets/stills/gomenne-seishun-10-stage.webp" alt="壇上でマイクの前に立つ原平助" width="960" height="640" loading="lazy" decoding="async">
           <figcaption>最終話 · 青春祭最後の夜、礼堂の舞台</figcaption>
@@ -1443,8 +1493,9 @@ media print{
 
         <div class="para" id="p1">
           <a class="num" href="#d1" title="この段落の精読へ">01</a>
-          <button class="play" type="button" data-i="1" aria-label="第一段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="1" data-start="0.0" data-end="35.0" aria-label="第1段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja">皆さん、どうぞお<ruby>静<rt>しず</rt></ruby>かに。こんな<ruby>素敵<rt>すてき</rt></ruby>な<ruby>賞<rt>しょう</rt></ruby>をいただけるなんて、<ruby>思<rt>おも</rt></ruby>ってみなかったです。<ruby>嬉<rt>うれ</rt></ruby>しいです。でもね、せっかくだけど、<ruby>先生<rt>せんせい</rt></ruby>、<ruby>辞退<rt>じたい</rt></ruby>します。<ruby>資格<rt>しかく</rt></ruby>がないからです。</p>
           <p class="cn" lang="zh-CN">各位，请安静一下。能拿到这么好的奖，我从来没想过。很高兴。不过——难得颁给我，老师还是要辞掉它。因为我没有资格。</p>
@@ -1452,8 +1503,9 @@ media print{
 
         <div class="para" id="p2">
           <a class="num" href="#d2" title="この段落の精読へ">02</a>
-          <button class="play" type="button" data-i="2" aria-label="第二段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="2" data-start="60.0" data-end="80.48" aria-label="第2段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><ruby>先生<rt>せんせい</rt></ruby>はミスター<ruby>青春<rt>せいしゅん</rt></ruby>どころか、<ruby>本来<rt>ほんらい</rt></ruby>なら<ruby>教壇<rt>きょうだん</rt></ruby>に<ruby>立<rt>た</rt></ruby>って、<ruby>君<rt>きみ</rt></ruby>たちに<ruby>授業<rt>じゅぎょう</rt></ruby>する<ruby>資格<rt>しかく</rt></ruby>すらない。<ruby>最低<rt>さいてい</rt></ruby>な<ruby>人間<rt>にんげん</rt></ruby>なんです。</p>
           <p class="cn" lang="zh-CN">别说什么「青春先生」了。我本来连站上讲台、给你们上课的资格都没有。我是个最差劲的人。</p>
@@ -1461,8 +1513,9 @@ media print{
 
         <div class="para" id="p3">
           <a class="num" href="#d3" title="この段落の精読へ">03</a>
-          <button class="play" type="button" data-i="3" aria-label="第三段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="3" data-start="80.48" data-end="117.43" aria-label="第3段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><ruby>今<rt>いま</rt></ruby>となっては<ruby>信<rt>しん</rt></ruby>じられないけれど、<ruby>東高<rt>とうこう</rt></ruby>と<ruby>三女<rt>さんじょ</rt></ruby>はつい<ruby>最近<rt>さいきん</rt></ruby>まで<ruby>犬猿<rt>けんえん</rt></ruby>の<ruby>仲<rt>なか</rt></ruby>でした。その<ruby>不仲<rt>ふなか</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>となる<ruby>事件<rt>じけん</rt></ruby>を<ruby>起<rt>お</rt></ruby>こしたのはほかならぬ、<ruby>私<rt>わたし</rt></ruby>です。<ruby>礼拝堂<rt>れいはいどう</rt></ruby>に<ruby>放火<rt>ほうか</rt></ruby>したのは<ruby>私<rt>わたし</rt></ruby>です。どうもすみませんでした。</p>
           <p class="cn" lang="zh-CN">现在说出来大概没人信——东高和三女直到最近都水火不容。而造成这场不和的那件事，不是别人，正是我。在礼拜堂放火的人是我。实在对不起。</p>
@@ -1470,8 +1523,9 @@ media print{
 
         <div class="para" id="p4">
           <a class="num" href="#d4" title="この段落の精読へ">04</a>
-          <button class="play" type="button" data-i="4" aria-label="第四段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="4" data-start="117.43" data-end="161.92" aria-label="第4段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><ruby>動機<rt>どうき</rt></ruby>は<ruby>情<rt>なさ</rt></ruby>けないくらいしょうもないことです。<ruby>悔<rt>くや</rt></ruby>しかった。<ruby>目<rt>め</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>現実<rt>げんじつ</rt></ruby>を<ruby>認<rt>みと</rt></ruby>めたくなかった。先生は<ruby>愚<rt>ぐ</rt></ruby>にもつかない<ruby>行動<rt>こうどう</rt></ruby>に出ました。<ruby>親友<rt>しんゆう</rt></ruby>とその<ruby>彼女<rt>かのじょ</rt></ruby>がいる三女の<ruby>屋上<rt>おくじょう</rt></ruby>を<ruby>目掛<rt>めが</rt></ruby>けて、<ruby>花火<rt>はなび</rt></ruby>を<ruby>打<rt>う</rt></ruby>ち<ruby>込<rt>こ</rt></ruby>んだのです。その花火で礼拝堂が<ruby>燃<rt>も</rt></ruby>えたんです。</p>
           <p class="cn" lang="zh-CN">动机无聊到令人难为情。我不甘心。不想承认眼前的事实。于是老师干了一件蠢到极点的事——朝着好朋友和他女朋友所在的三女楼顶，把烟花打了过去。那支烟花，把礼拜堂点着了。</p>
@@ -1479,8 +1533,9 @@ media print{
 
         <div class="para" id="p5">
           <a class="num" href="#d5" title="この段落の精読へ">05</a>
-          <button class="play" type="button" data-i="5" aria-label="第五段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="5" data-start="161.92" data-end="218.55" aria-label="第5段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><ruby>怖<rt>こわ</rt></ruby>かった。とても<ruby>自分<rt>じぶん</rt></ruby>の<ruby>仕業<rt>しわざ</rt></ruby>とは<ruby>思<rt>おも</rt></ruby>えなかった。たまたま<ruby>居合<rt>いあ</rt></ruby>わせた<ruby>男女<rt>だんじょ</rt></ruby>が<ruby>東高生<rt>とうこうせい</rt></ruby>と<ruby>三女生<rt>さんじょせい</rt></ruby>だったばかりに、<ruby>二人<rt>ふたり</rt></ruby>は<ruby>犯人<rt>はんにん</rt></ruby><ruby>扱<rt>あつか</rt></ruby>いされ、<ruby>別々<rt>べつべつ</rt></ruby>にこの<ruby>三島<rt>みしま</rt></ruby>を<ruby>去<rt>さ</rt></ruby>りました。そして、よくない<ruby>噂<rt>うわさ</rt></ruby>が<ruby>流<rt>なが</rt></ruby>れた。東高生と三女生が<ruby>付<rt>つ</rt></ruby>き<ruby>合<rt>あ</rt></ruby>うと、ろくなことがない。<ruby>交際<rt>こうさい</rt></ruby><ruby>禁止<rt>きんし</rt></ruby>だ。<ruby>合同<rt>ごうどう</rt></ruby><ruby>文化祭<rt>ぶんかさい</rt></ruby>も<ruby>中止<rt>ちゅうし</rt></ruby>だ。<ruby>真犯人<rt>しんはんにん</rt></ruby>は<ruby>僕<rt>ぼく</rt></ruby>なのに。モテない、さえない、しょうもない東高生の<ruby>醜<rt>みにく</rt></ruby>い<ruby>嫉妬<rt>しっと</rt></ruby>が<ruby>招<rt>まね</rt></ruby>いた<ruby>火事<rt>かじ</rt></ruby>なのに。</p>
           <p class="cn" lang="zh-CN">我很怕。怕到没法相信那是自己干的。只因为当时在场的男孩和女孩恰好是东高生和三女生，两个人就被当成了犯人，各自离开了三岛。然后，流言传开了：东高的男生和三女的女生一交往，就不会有好下场。禁止往来。联合文化祭也取消。可真正的犯人明明是我。是一个不受欢迎、不起眼、一无是处的东高男生，那点难看的嫉妒，招来的火——明明是这样。</p>
@@ -1493,8 +1548,9 @@ media print{
 
         <div class="para" id="p6">
           <a class="num" href="#d6" title="この段落の精読へ">06</a>
-          <button class="play" type="button" data-i="6" aria-label="第六段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="6" data-start="218.55" data-end="257.64" aria-label="第6段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><span class="spk-in" lang="ja">三女校長</span>「<ruby>名乗<rt>なの</rt></ruby>り<ruby>出<rt>で</rt></ruby>ようとは<ruby>思<rt>おも</rt></ruby>わなかったのですか」<br><ruby>何度<rt>なんど</rt></ruby>も<ruby>交番<rt>こうばん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>まで<ruby>行<rt>い</rt></ruby>きました。でも、<ruby>足<rt>あし</rt></ruby>がすくんで。<br><span class="spk-in" lang="ja">三女校長</span>「<ruby>罰<rt>ばつ</rt></ruby>を<ruby>受<rt>う</rt></ruby>けるのが<ruby>怖<rt>こわ</rt></ruby>かったんですか」<br>はい。でも、それだけではありません。<br><span class="spk-in" lang="ja">三女校長</span>「<ruby>何<rt>なん</rt></ruby>ですか。<ruby>正直<rt>しょうじき</rt></ruby>に<ruby>言<rt>い</rt></ruby>いなさい」</p>
           <p class="cn" lang="zh-CN"><span class="spk-in">三女校长</span>「你没想过站出来自首吗。」<br>走到派出所门口，好几次。可是腿软了。<br><span class="spk-in">三女校长</span>「是怕受罚吗。」<br>是。但不只是这样。<br><span class="spk-in">三女校长</span>「那是什么。老实说。」</p>
@@ -1502,8 +1558,9 @@ media print{
 
         <div class="para" id="p7">
           <a class="num" href="#d7" title="この段落の精読へ">07</a>
-          <button class="play" type="button" data-i="7" aria-label="第七段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="7" data-start="257.64" data-end="294.28" aria-label="第7段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><ruby>学校<rt>がっこう</rt></ruby>が<ruby>好<rt>す</rt></ruby>きだったんです。<ruby>東高<rt>とうこう</rt></ruby>が<ruby>好<rt>す</rt></ruby>きだったんです。いすっぱこも、あくびしながらみんなで<ruby>唱<rt>とな</rt></ruby>える<ruby>般若心経<rt>はんにゃしんぎょう</rt></ruby>も、<ruby>月<rt>つき</rt></ruby>に<ruby>一回<rt>いっかい</rt></ruby>の<ruby>説法<rt>せっぽう</rt></ruby>も、<ruby>売店<rt>ばいてん</rt></ruby>のパンも、コーヒー<ruby>牛乳<rt>ぎゅうにゅう</rt></ruby>も、<ruby>保健室<rt>ほけんしつ</rt></ruby>も、どんまい<ruby>先生<rt>せんせい</rt></ruby>も、<ruby>大好<rt>だいす</rt></ruby>きだったんです。<ruby>全部<rt>ぜんぶ</rt></ruby>、<ruby>僕<rt>ぼく</rt></ruby>の<ruby>青春<rt>せいしゅん</rt></ruby>なんです。</p>
           <p class="cn" lang="zh-CN">因为我喜欢学校。喜欢东高。那条小电车，大家打着哈欠一起念的般若心经，每月一次的说法，小卖部的面包，咖啡牛奶，保健室，还有「没关系」老师——我全都喜欢。全部，都是我的青春。</p>
@@ -1511,8 +1568,9 @@ media print{
 
         <div class="para" id="p8">
           <a class="num" href="#d8" title="この段落の精読へ">08</a>
-          <button class="play" type="button" data-i="8" aria-label="第八段落を読み上げる">
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          <button class="play" type="button" data-i="8" data-start="294.28" data-end="365.0" aria-label="第8段落を原声で聴く">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h2.6v10.8H4zM9.4 2.6H12v10.8H9.4z"/></svg>
           </button>
           <p class="jp" lang="ja"><ruby>俺<rt>おれ</rt></ruby>のせいで<ruby>中止<rt>ちゅうし</rt></ruby>になった<ruby>合同<rt>ごうどう</rt></ruby><ruby>文化祭<rt>ぶんかさい</rt></ruby>。みんなの<ruby>夢<rt>ゆめ</rt></ruby>だった<ruby>男女<rt>だんじょ</rt></ruby><ruby>共学<rt>きょうがく</rt></ruby>。<ruby>叶<rt>かな</rt></ruby>えるまで、<ruby>学校<rt>がっこう</rt></ruby>にいたかった。いや、いなくちゃいけない。そう<ruby>考<rt>かんが</rt></ruby>えるようになりました。そのためには、<ruby>教師<rt>きょうし</rt></ruby>になるしかないと。それで<ruby>教員<rt>きょういん</rt></ruby><ruby>試験<rt>しけん</rt></ruby>を<ruby>受<rt>う</rt></ruby>けて、教師になりました。<ruby>全<rt>すべ</rt></ruby>て<ruby>成<rt>な</rt></ruby>し<ruby>遂<rt>と</rt></ruby>げたら、<ruby>告白<rt>こくはく</rt></ruby>するつもりでいました。<ruby>結果<rt>けっか</rt></ruby>、14<ruby>年<rt>ねん</rt></ruby>かかりました。この<ruby>年<rt>とし</rt></ruby>まで、ずるずると<ruby>青春<rt>せいしゅん</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>きずってしまいました。</p>
           <p class="cn" lang="zh-CN">因为我而取消的联合文化祭。曾是所有人梦想的男女同校。在实现之前，我想留在学校里。不——是必须留在学校里。我开始这么想。而要留下来，就只能当老师。于是我去考了教师资格，当了老师。本来打算，等一切都做成了，就说出真相。结果，花了十四年。拖到这个年纪，还把青春一路拖在身上。</p>
@@ -2220,7 +2278,8 @@ media print{
         <p>台词出自『ごめんね青春！』（2014，TBS 日曜劇場）最終話，全 10 話，脚本：宮藤官九郎。<br>
         八段是青春祭最后一晚、礼堂舞台上的连续自白，依影视原声逐句转写整理；不是公开台本，已知异文见<a href="source.md">源档</a>。<br>
         片段影像：<a href="https://www.bilibili.com/video/BV12Txg6BEp6?p=10&amp;t=1401" target="_blank" rel="noopener noreferrer">Bilibili「ごめんね青春！」最終話 23:21 ↗</a>（第 10 个分 P，中日双语硬字幕，可对照原声）<br>
-        原文与中文译文仅供学习研究使用，版权归原作者及 TBS 所有。</p>
+        音声：取自该分 P 23:18–29:25（AAC 96k / 44.1 kHz，6:07），<a href="../assets/audio/gomenne-seishun-10-stage.m4a">全篇音频 ↗</a>；段落左侧 ▶ 只播该段。<br>
+        原文、中文译文与音声仅供学习研究使用，版权归原作者及 TBS 所有。</p>
       </div>
       <div>
         <p>页面：逐段精读 · 65 词<br>
@@ -2326,7 +2385,9 @@ media print{
     if (t) setTimeout(() => flash(t), 300);
   }
 
-  /* ---------- 6. 朗读 ---------- */
+  /* ---------- 6. 原声朗读（按段落切分；音频不可用时回退浏览器朗读） ---------- */
+  const box = document.getElementById('audible');
+  const audio = box ? box.querySelector('audio') : null;
   const synth = window.speechSynthesis;
   let jaVoice = null;
   const pickVoice = () => {
@@ -2336,13 +2397,14 @@ media print{
   };
   if (synth) { pickVoice(); synth.addEventListener('voiceschanged', pickVoice); }
 
-  if (!synth) $$('.play').forEach(b => b.remove());
+  const supported = !!(audio && (audio.canPlayType('audio/mp4; codecs="mp4a.40.2"') || audio.canPlayType('audio/mp4')));
+  if (!supported && box) box.remove();
+  let mode = supported ? 'audio' : 'tts';
+  if (!supported && !synth) $$('.play').forEach(b => b.remove());
 
-  let current = null;
-  const clearBtn = () => {
-    if (current) current.classList.remove('on');
-    current = null;
-  };
+  /* --- 兜底：浏览器合成语音 --- */
+  let ttsBtn = null;
+  const clearTts = () => { if (ttsBtn) ttsBtn.classList.remove('on'); ttsBtn = null; };
   const readAloud = (para) => {
     const text = Array.from(para.querySelectorAll('.jp')).map(p => {
       const c = p.cloneNode(true);
@@ -2350,31 +2412,123 @@ media print{
       return c.textContent.replace(/\s+/g, ' ').trim();
     }).join('。');
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP';
-    u.rate = 0.92;
-    u.pitch = 1;
+    u.lang = 'ja-JP'; u.rate = 0.92; u.pitch = 1;
     if (jaVoice) u.voice = jaVoice;
     return u;
   };
+  const speakPara = (btn) => {
+    if (!synth) return;
+    const para = btn.closest('.para');
+    if (!para) return;
+    if (ttsBtn === btn) { synth.cancel(); clearTts(); return; }
+    synth.cancel(); clearTts();
+    const u = readAloud(para);
+    const stop = () => { if (ttsBtn === btn) clearTts(); };
+    u.onend = stop; u.onerror = stop;
+    ttsBtn = btn; btn.classList.add('on'); synth.speak(u);
+  };
+
+  /* --- 原声播放器：一个音频文件 + 每段的时间区间 --- */
+  let segBtn = null, segEnd = 0, ticket = 0;
+  const clearSeg = () => { if (segBtn) segBtn.classList.remove('on'); segBtn = null; segEnd = 0; };
+  const fmt = (v) => {
+    if (!isFinite(v) || v < 0) return '0:00';
+    const m = Math.floor(v / 60), r = Math.floor(v % 60);
+    return m + ':' + (r < 10 ? '0' : '') + r;
+  };
+
+  if (audio) {
+    const auBtn = box.querySelector('.au-btn');
+    const track = box.querySelector('.au-track');
+    const played = box.querySelector('.au-played');
+    const knob = box.querySelector('.au-knob');
+    const nowEl = box.querySelector('.au-now');
+    const totEl = box.querySelector('.au-total');
+    const paint = () => {
+      const d = audio.duration;
+      const p = d ? Math.min(1, audio.currentTime / d) : 0;
+      played.style.width = (p * 100) + '%';
+      knob.style.left = (p * 100) + '%';
+      nowEl.textContent = fmt(audio.currentTime);
+      box.classList.toggle('has-progress', p > 0.001);
+      track.setAttribute('aria-valuenow', String(Math.round(p * 100)));
+      track.setAttribute('aria-valuetext', fmt(audio.currentTime) + ' / ' + fmt(d));
+    };
+    const setState = (on) => {
+      box.classList.toggle('playing', on);
+      auBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      auBtn.setAttribute('aria-label', on ? '一時停止' : '音声を再生');
+    };
+    audio.addEventListener('loadedmetadata', () => { totEl.textContent = fmt(Math.round(audio.duration)); paint(); });
+    audio.addEventListener('timeupdate', () => {
+      paint();
+      if (segBtn && audio.currentTime >= segEnd && audio.currentTime < segEnd + 2) { audio.pause(); clearSeg(); }
+    });
+    audio.addEventListener('play', () => setState(true));
+    audio.addEventListener('pause', () => setState(false));
+    audio.addEventListener('ended', () => { setState(false); clearSeg(); });
+    audio.addEventListener('error', () => {
+      mode = 'tts'; box.remove(); audio.pause(); clearSeg();
+      if (!synth) $$('.play').forEach(b => b.remove());
+    });
+    auBtn.addEventListener('click', () => {
+      clearSeg();
+      if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+    });
+    const seek = (clientX) => {
+      const r = track.getBoundingClientRect();
+      if (!r.width || !isFinite(audio.duration) || !audio.duration) return;
+      const ratio = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      audio.currentTime = ratio * audio.duration;
+      paint();
+    };
+    let dragging = false;
+    track.addEventListener('pointerdown', (e) => {
+      dragging = true; clearSeg();
+      try { track.setPointerCapture(e.pointerId); } catch (err) {}
+      seek(e.clientX);
+    });
+    track.addEventListener('pointermove', (e) => { if (dragging) seek(e.clientX); });
+    const stopDrag = (e) => {
+      dragging = false;
+      try { track.releasePointerCapture(e.pointerId); } catch (err) {}
+    };
+    track.addEventListener('pointerup', stopDrag);
+    track.addEventListener('pointercancel', stopDrag);
+    track.addEventListener('keydown', (e) => {
+      const d = audio.duration || 0, step = e.shiftKey ? 15 : 5;
+      if (e.key === 'ArrowRight') { clearSeg(); audio.currentTime = Math.min(d, audio.currentTime + step); paint(); e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { clearSeg(); audio.currentTime = Math.max(0, audio.currentTime - step); paint(); e.preventDefault(); }
+      else if (e.key === 'Home') { clearSeg(); audio.currentTime = 0; paint(); e.preventDefault(); }
+      else if (e.key === 'End') { clearSeg(); audio.currentTime = d; paint(); e.preventDefault(); }
+      else if (e.key === ' ' || e.key === 'Enter') {
+        clearSeg();
+        audio.paused ? audio.play().catch(() => {}) : audio.pause();
+        e.preventDefault();
+      }
+    });
+  }
 
   $$('.play').forEach(btn => {
     btn.addEventListener('click', () => {
-      if (!synth) return;
-      const para = btn.closest('.para');
-      if (!para) return;
-      if (current === btn) { synth.cancel(); clearBtn(); return; }
-      synth.cancel();
-      clearBtn();
-      const u = readAloud(para);
-      const stop = () => { if (current === btn) clearBtn(); };
-      u.onend = stop;
-      u.onerror = stop;
-      current = btn;
-      btn.classList.add('on');
-      synth.speak(u);
+      if (mode === 'tts' || !audio) { speakPara(btn); return; }
+      const start = Number(btn.dataset.start), end = Number(btn.dataset.end);
+      if (!isFinite(start) || !isFinite(end)) { speakPara(btn); return; }
+      if (segBtn === btn && !audio.paused) { audio.pause(); clearSeg(); return; }
+      if (synth) synth.cancel();
+      clearTts(); clearSeg();
+      const my = ++ticket;
+      segBtn = btn; segEnd = end; btn.classList.add('on');
+      const go = () => {
+        if (my !== ticket) return;
+        audio.currentTime = start;
+        audio.play().catch(() => clearSeg());
+      };
+      if (audio.readyState >= 1) go();
+      else audio.addEventListener('loadedmetadata', go, { once: true });
     });
   });
-  addEventListener('pagehide', () => { if (synth) synth.cancel(); });
+  addEventListener('pagehide', () => { if (synth) synth.cancel(); if (audio) audio.pause(); });
 
   /* ---------- 7. 词汇筛选 ---------- */
   const input = $('#vsearch');

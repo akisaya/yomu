@@ -47,7 +47,9 @@ B 站链接的处理：`yt-dlp -F` 看可用流，普通 `video/BV...` 不登录
 
 **按段播放用一个文件，不要切成十几个小文件。** 每段的 `.play` 按钮带 `data-start` / `data-end`，点一下 `audio.currentTime = start`，`timeupdate` 到 `end` 就暂停；信纸上方再放一条全篇播放条（自绘，可拖进度）。音频加载失败时整条回退到 `speechSynthesis`。段落区间靠 ASR 词级时间戳与 `source.md` 原文逐字对齐得出（`mlx-whisper` + `whisper-large-v3-turbo`），段间切点取朗读停顿的中点；切完要抽查首段与最长段的起止是否落在字上。
 
-目前带原声的四篇：`nigehaji`（单段全篇）、`saikou-no-rikon`、`saikou-no-rikon-2`、`hirugao`（后三篇按段切分）。
+对白页有两点额外注意：源档每行带「平助：」「理沙：」这类说话人标签，**对齐前必须先去掉**，否则音频里没有这些字、整段错位；多人场景里插进来的旁人台词（起哄、维持秩序、敲门喊人）不属于正文，不要划给任何段落，但保留在全篇音频里，并在 `source.md` 注明。多分 P 的整剧片源（`?p=N`）先下该分 P 音频流、按已知时间码裁一个 5–10 分钟探查窗再转写，别对整轨跑 ASR。
+
+目前带原声的六篇：`nigehaji`（单段全篇），其余五篇按段切分——`saikou-no-rikon`、`saikou-no-rikon-2`、`hirugao`、`gomenne-seishun-9`、`gomenne-seishun-10`。
 
 ## 加一篇
 
