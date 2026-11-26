@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-furigana="on" data-cn="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世の中に越えられない壁なんてねえんだ — ドラゴン桜・二つの授業 | 日语精读</title>
+<meta name="description" content="日剧《ドラゴン桜》（龙樱）2005 年剧版中，樱木建二在特进班上的两段课。正文先读最终回的最后一课，随后附录第三集的数学课；含原文、译文、逐段精读与词汇语法拆解。">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#f7f4ec">
+<meta property="og:title" content="世の中に越えられない壁なんてねえんだ — ドラゴン桜・二つの授業">
+<meta property="og:description" content="2005 年剧版《ドラゴン桜》的最后一课与数学课，逐段原文、译文与精读。">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* ============ 基础 ============ */
+:root{
+  --paper:#f7f4ec;
+  --paper-hi:#fdfbf6;
+  --ink:#211e1a;
+  --ink-2:#514a42;
+  --ink-3:#8d8377;
+  --line:#e2dacc;
+  --line-soft:#ece5d8;
+  --shu:#b23a2b;
+  --shu-soft:rgba(178,58,43,.14);
+  --ai:#31465a;
+  --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --serif-cn:"Noto Serif SC","Songti SC","STSong",serif;
+  --sans:"Inter","Helvetica Neue","Hiragino Sans","PingFang SC",system-ui,sans-serif;
+  --mono:"SFMono-Regular","JetBrains Mono",ui-monospace,monospace;
+  --maxw:1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+::selection{background:var(--shu-soft);color:var(--ink)}
+
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+:focus-visible{
+  outline:2px solid var(--shu);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+.wrap{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-inline:clamp(18px,4vw,48px);
+}
+
+/* ============ 顶栏 ============ */
+.bar{
+  position:sticky;
+  top:0;
+  z-index:60;
+  background:rgba(247,244,236,.84);
+  backdrop-filter:blur(14px) saturate(1.1);
+  -webkit-backdrop-filter:blur(14px) saturate(1.1);
+  border-bottom:1px solid var(--line-soft);
+}
+.bar-in{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-inline:clamp(18px,4vw,48px);
+  height:58px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.brand{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  min-width:0;
+}
+.brand .logo{
+  font-family:var(--serif-jp);
+  font-size:19px;
+  letter-spacing:.18em;
+  font-weight:500;
+}
+.brand .sub{
+  font-size:11px;
+  letter-spacing:.16em;
+  color:var(--ink-3);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.tools{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  height:32px;
+  padding:0 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:12px;
+  letter-spacing:.04em;
+  color:var(--ink-2);
+  background:rgba(255,255,255,.5);
+  transition:background .18s, border-color .18s, color .18s;
+}
+.toggle:hover{border-color:#cfc4b2;background:#fff}
+.toggle .dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--ink-3);
+  transition:background .18s, box-shadow .18s;
+}
+.toggle[aria-pressed="true"]{
+  border-color:rgba(178,58,43,.4);
+  color:var(--shu);
+  background:rgba(178,58,43,.06);
+}
+.toggle[aria-pressed="true"] .dot{
+  background:var(--shu);
+  box-shadow:0 0 0 3px rgba(178,58,43,.12);
+}
+.progress{
+  position:absolute;
+  left:0;bottom:-1px;
+  height:1.5px;
+  width:100%;
+  background:var(--shu);
+  transform:scaleX(0);
+  transform-origin:0 50%;
+  opacity:.85;
+}
+
+/* ============ Hero ============ */
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding-top:clamp(44px,7vw,92px);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:repeating-linear-gradient(90deg,var(--line-soft) 0 1px,transparent 1px 58px);
+  opacity:.6;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 62%,transparent 96%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 62%,transparent 96%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-inline:clamp(18px,4vw,48px);
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(28px,6vw,88px);
+  align-items:start;
+}
+
+.hero-title{
+  display:flex;
+  flex-direction:row-reverse;
+  align-items:flex-start;
+  gap:clamp(10px,1.4vw,20px);
+  padding-top:6px;
+}
+.hero-title h1{
+  margin:0;
+  writing-mode:vertical-rl;
+  text-orientation:upright;
+  inline-size:4.55em;
+  font-family:var(--serif-jp);
+  font-weight:500;
+  font-size:clamp(34px,4.6vw,58px);
+  line-height:1.05;
+  letter-spacing:.08em;
+  color:var(--ink);
+  white-space:normal;
+}
+.hero-title h1 .sm{
+  font-size:.64em;
+  letter-spacing:.16em;
+  color:var(--ink-2);
+}
+.seal{
+  writing-mode:vertical-rl;
+  text-orientation:upright;
+  margin-top:2.2em;
+  width:2.1em;
+  height:4.4em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1.5px solid rgba(178,58,43,.55);
+  color:var(--shu);
+  font-family:var(--serif-jp);
+  font-size:clamp(12px,1.2vw,14px);
+  letter-spacing:.3em;
+  padding:.5em 0;
+  border-radius:2px;
+  transform:rotate(-2deg);
+  opacity:.92;
+}
+
+.hero-info{
+  max-width:520px;
+  padding-top:clamp(0px,2vw,26px);
+}
+.kicker{
+  margin:0 0 14px;
+  font-size:11px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+}
+.drama{
+  margin:0 0 18px;
+  font-family:var(--serif-jp);
+  font-size:15px;
+  letter-spacing:.06em;
+  color:var(--ink-2);
+}
+.drama span{
+  display:inline-block;
+  margin-left:10px;
+  padding:2px 8px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.06em;
+  color:var(--ink-3);
+  vertical-align:1px;
+}
+.pull{
+  margin:4px 0 28px;
+  padding:2px 0 2px 16px;
+  border-left:2px solid rgba(178,58,43,.32);
+}
+.pull blockquote{margin:0}
+.pull blockquote p{
+  margin:0;
+  font-family:var(--serif-jp);
+  font-size:clamp(15px,1.5vw,17px);
+  line-height:2.1;
+  letter-spacing:.05em;
+  color:var(--ink);
+}
+.pull figcaption{
+  margin-top:5px;
+  font-family:var(--serif-cn);
+  font-size:12.5px;
+  line-height:1.9;
+  letter-spacing:.02em;
+  color:var(--ink-3);
+}
+.meta{
+  margin:0 0 30px;
+  display:grid;
+  grid-template-columns:repeat(3,auto);
+  gap:0 30px;
+  justify-content:start;
+  border-top:1px solid var(--line);
+  padding-top:16px;
+}
+.meta dt{
+  font-size:10px;
+  letter-spacing:.24em;
+  color:var(--ink-3);
+  margin-bottom:4px;
+}
+.meta dd{
+  margin:0;
+  font-family:var(--serif-jp);
+  font-size:14px;
+  letter-spacing:.06em;
+  color:var(--ink);
+}
+.hero-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:42px;
+  padding:0 20px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-size:13px;
+  letter-spacing:.08em;
+  color:var(--ink-2);
+  background:rgba(255,255,255,.55);
+  transition:transform .2s, background .2s, border-color .2s, color .2s;
+}
+.btn:hover{background:#fff;border-color:#cfc4b2;transform:translateY(-1px)}
+.btn.primary{
+  background:var(--ink);
+  border-color:var(--ink);
+  color:#f8f5ee;
+}
+.btn.primary:hover{background:#000;border-color:#000}
+.btn.ext{background:transparent}
+.btn.ext:hover{background:rgba(255,255,255,.9)}
+
+.river{
+  display:block;
+  width:100%;
+  height:96px;
+  margin-top:clamp(28px,4vw,52px);
+  color:var(--line);
+}
+
+/* ============ 正文：手纸 ============ */
+.letter-section{
+  padding:clamp(32px,5vw,64px) 0 clamp(48px,7vw,96px);
+}
+.letter-layout{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-inline:clamp(18px,4vw,48px);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 186px;
+  gap:clamp(24px,4vw,54px);
+  align-items:start;
+}
+
+.paper{
+  position:relative;
+  background:var(--paper-hi);
+  border:1px solid var(--line);
+  padding:clamp(30px,5vw,74px) clamp(22px,5.4vw,78px) clamp(34px,5vw,64px);
+  box-shadow:
+    0 1px 2px rgba(70,52,32,.04),
+    0 22px 60px -30px rgba(70,52,32,.24);
+}
+.paper::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.05;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.paper > *{position:relative;z-index:1}
+
+.addressee{
+  margin:0 0 clamp(26px,4vw,44px);
+  padding-bottom:22px;
+  border-bottom:1px solid var(--line-soft);
+  font-family:var(--serif-jp);
+  font-size:clamp(17px,2vw,21px);
+  letter-spacing:.12em;
+  color:var(--ink);
+}
+.addressee small{
+  display:block;
+  margin-top:8px;
+  font-family:var(--sans);
+  font-size:10.5px;
+  letter-spacing:.22em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+}
+
+.para{
+  position:relative;
+  padding-left:2.4rem;
+  margin-bottom:clamp(22px,3vw,34px);
+}
+.num{
+  position:absolute;
+  left:0;
+  top:.72em;
+  display:block;
+  width:1.7rem;
+  font-family:var(--mono);
+  font-size:11px;
+  line-height:1;
+  letter-spacing:.02em;
+  color:#6b6358;
+  transition:color .2s;
+  font-variant-numeric:tabular-nums;
+}
+.num:hover{color:var(--shu)}
+.num::after{
+  content:"";
+  display:block;
+  width:10px;
+  height:1px;
+  margin-top:7px;
+  background:currentColor;
+  opacity:.6;
+}
+.para:hover .num{color:var(--shu)}
+
+.jp{
+  margin:0;
+  font-family:var(--serif-jp);
+  font-size:clamp(15.5px,1.5vw,18px);
+  line-height:2.34;
+  letter-spacing:.045em;
+  color:var(--ink);
+  text-indent:1em;
+  font-feature-settings:"palt" 0;
+  line-break:strict;
+}
+.jp.date-line{
+  text-indent:0;
+  text-align:right;
+  font-size:13px;
+  letter-spacing:.1em;
+  color:var(--ink-2);
+  margin-bottom:.9em;
+}
+
+ruby{ruby-position:over}
+rt{
+  font-size:.5em;
+  font-weight:400;
+  letter-spacing:.03em;
+  color:#6b6358;
+  line-height:1;
+}
+html[data-furigana="off"] rt{display:none}
+
+.hl{
+  background-image:linear-gradient(transparent 58%,rgba(178,58,43,.18) 58%);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  padding-bottom:.05em;
+}
+
+.cn{
+  margin:.85em 0 0;
+  padding-left:1.05em;
+  border-left:2px solid rgba(178,58,43,.22);
+  font-family:var(--serif-cn);
+  font-size:14px;
+  line-height:2;
+  letter-spacing:.02em;
+  color:#6b6358;
+  text-align:justify;
+}
+html[data-cn="off"] .cn{display:none}
+
+.play{
+  position:absolute;
+  left:-3px;
+  top:2.55em;
+  width:24px;
+  height:24px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#6b6358;
+  opacity:0;
+  transition:opacity .2s, color .2s, background .2s;
+}
+.para:hover .play,
+.play:focus-visible{opacity:1}
+.play:hover{color:var(--shu);background:rgba(178,58,43,.07)}
+.play svg{width:13px;height:13px;fill:currentColor}
+.play.on{opacity:1;color:var(--shu)}
+
+.sig{
+  margin:clamp(30px,4vw,46px) 0 0;
+  text-align:right;
+  font-family:var(--serif-jp);
+  font-size:14px;
+  letter-spacing:.14em;
+  color:var(--ink-2);
+}
+.sig span{
+  display:block;
+  font-family:var(--sans);
+  font-size:10px;
+  letter-spacing:.24em;
+  color:var(--ink-3);
+  margin-top:6px;
+}
+
+/* 右侧段落导航 */
+.rail{
+  position:sticky;
+  top:88px;
+  padding-top:6px;
+}
+.rail h2{
+  margin:0 0 14px;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.3em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+}
+.rail ol{
+  margin:0;
+  padding:0;
+  list-style:none;
+  border-left:1px solid var(--line);
+}
+.rail li{margin:0}
+.rail a{
+  display:flex;
+  gap:9px;
+  align-items:baseline;
+  padding:6px 0 6px 12px;
+  margin-left:-1px;
+  border-left:1px solid transparent;
+  font-family:var(--serif-jp);
+  font-size:12.5px;
+  line-height:1.5;
+  color:var(--ink-3);
+  transition:color .18s, border-color .18s;
+}
+.rail a b{
+  font-family:var(--mono);
+  font-weight:400;
+  font-size:10px;
+  color:#6b6358;
+}
+.rail a:hover{color:var(--ink);border-left-color:var(--line)}
+.rail a.active{
+  color:var(--shu);
+  border-left-color:var(--shu);
+}
+.rail a.active b{color:var(--shu)}
+
+/* ============ 区块标题 ============ */
+.sec{
+  padding:clamp(52px,7vw,96px) 0;
+  border-top:1px solid var(--line);
+}
+.sec:nth-of-type(even){background:linear-gradient(180deg,rgba(253,251,246,.6),rgba(253,251,246,0))}
+.sec-head{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(14px,2vw,24px);
+  align-items:baseline;
+  margin-bottom:clamp(28px,4vw,46px);
+}
+.sec-num{
+  margin:0;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.1em;
+  color:var(--shu);
+  padding-top:.35em;
+}
+.sec-head h2{
+  margin:0;
+  font-family:var(--serif-jp);
+  font-size:clamp(22px,2.6vw,30px);
+  font-weight:500;
+  letter-spacing:.08em;
+  line-height:1.35;
+}
+.sec-head .sub{
+  margin:.5em 0 0;
+  font-family:var(--serif-cn);
+  font-size:13.5px;
+  letter-spacing:.03em;
+  color:var(--ink-3);
+}
+
+/* ============ 精读 ============ */
+.drills{
+  display:grid;
+  gap:0;
+  border-top:1px solid var(--line-soft);
+}
+details.drill{
+  border-bottom:1px solid var(--line-soft);
+}
+details.drill > summary{
+  list-style:none;
+  display:flex;
+  align-items:baseline;
+  gap:clamp(12px,2vw,22px);
+  padding:19px 8px 19px 2px;
+  cursor:pointer;
+  transition:background .2s;
+  border-radius:2px;
+}
+details.drill > summary::-webkit-details-marker{display:none}
+details.drill > summary:hover{background:rgba(255,255,255,.55)}
+details.drill > summary::before{
+  content:"";
+  order:9;
+  margin-left:auto;
+  inline-size:.62em;
+  block-size:.62em;
+  flex:none;
+  align-self:center;
+  background-color:var(--ink-3);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+  rotate:-90deg;
+}
+details.drill[open] > summary::before{rotate:0deg}
+@media (prefers-reduced-motion: no-preference){
+  details.drill > summary::before{transition:rotate .22s ease}
+}
+.d-num{
+  font-family:var(--mono);
+  font-size:11px;
+  color:#6b6358;
+  flex:none;
+  padding-top:.2em;
+}
+.d-title{
+  font-family:var(--serif-jp);
+  font-size:15.5px;
+  letter-spacing:.06em;
+  color:var(--ink);
+  flex:none;
+  font-weight:500;
+}
+.d-preview{
+  font-family:var(--serif-jp);
+  font-size:13px;
+  color:#6b6358;
+  letter-spacing:.03em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-width:0;
+}
+details.drill[open] .d-preview{color:var(--ink-2)}
+
+.d-body{
+  padding:4px 8px 30px 2px;
+  display:grid;
+  gap:22px;
+}
+@media (min-width:820px){
+  .d-body{padding-left:calc(.62em + 38px)}
+}
+.d-row{
+  display:grid;
+  grid-template-columns:68px minmax(0,1fr);
+  gap:14px;
+  align-items:start;
+}
+.d-row > h4{
+  margin:0;
+  padding-top:.28em;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.18em;
+  color:#6b6358;
+  text-transform:uppercase;
+}
+.d-row > div{min-width:0}
+
+.items{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:12px;
+}
+.items li{
+  padding-left:14px;
+  position:relative;
+  font-size:14px;
+  line-height:1.85;
+  color:var(--ink-2);
+}
+.items li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.78em;
+  width:5px;
+  height:1px;
+  background:var(--shu);
+  opacity:.55;
+}
+.items b{
+  font-family:var(--serif-jp);
+  font-weight:600;
+  color:var(--ink);
+  letter-spacing:.03em;
+  margin-right:.55em;
+}
+.items .ex{
+  font-family:var(--serif-jp);
+  color:var(--ink-3);
+  font-size:13px;
+  letter-spacing:.02em;
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+.chip{
+  display:inline-flex;
+  align-items:baseline;
+  gap:6px;
+  padding:5px 10px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  background:rgba(255,255,255,.6);
+  font-size:13px;
+  line-height:1.5;
+}
+.chip b{
+  font-family:var(--serif-jp);
+  font-weight:600;
+  color:var(--ink);
+  letter-spacing:.03em;
+}
+.chip span{
+  font-size:11.5px;
+  color:#6b6358;
+  letter-spacing:.04em;
+  font-family:var(--mono);
+}
+
+.skel{display:grid;gap:10px}
+.s-jp{
+  margin:0;
+  padding:11px 13px;
+  background:rgba(255,255,255,.62);
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-family:var(--serif-jp);
+  font-size:13.5px;
+  line-height:1.95;
+  letter-spacing:.03em;
+  color:var(--ink);
+}
+.s-jp .sep{color:var(--shu);opacity:.4;margin:0 .42em;font-size:.9em}
+.s-list{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:7px;
+}
+.s-list li{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:10px;
+  align-items:baseline;
+  font-size:13.5px;
+  line-height:1.75;
+  color:#6b6358;
+}
+.s-list b{
+  font-family:var(--serif-jp);
+  font-weight:600;
+  font-size:13.5px;
+  color:var(--ink);
+  letter-spacing:.02em;
+  padding:1px 6px;
+  background:rgba(178,58,43,.05);
+  border-radius:2px;
+}
+.role{
+  margin:0;
+  font-family:var(--serif-cn);
+  font-size:13.5px;
+  line-height:1.95;
+  color:var(--ink-2);
+  letter-spacing:.01em;
+  text-align:justify;
+}
+.note{
+  padding:13px 16px;
+  background:rgba(178,58,43,.045);
+  border-left:2px solid rgba(178,58,43,.3);
+  font-family:var(--serif-cn);
+  font-size:13.5px;
+  line-height:1.9;
+  color:var(--ink-2);
+  letter-spacing:.015em;
+}
+.note b{color:var(--shu);font-weight:600}
+
+/* ============ 词汇表 ============ */
+.table-wrap{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.5);
+}
+.table-head{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+  padding:14px 18px;
+  border-bottom:1px solid var(--line);
+  background:rgba(253,251,246,.7);
+}
+.search{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex:1 1 220px;
+  min-width:0;
+}
+.search svg{width:14px;height:14px;stroke:var(--ink-3);fill:none;stroke-width:1.6;flex:none}
+.search input{
+  width:100%;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:none;
+  padding:5px 2px;
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink);
+  letter-spacing:.02em;
+}
+.search input::placeholder{color:#b6ab9d}
+.search input:focus{outline:none;border-bottom-color:var(--shu)}
+.count{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--ink-3);
+  letter-spacing:.04em;
+}
+.filters{display:flex;gap:5px;flex-wrap:wrap}
+.filters button{
+  padding:3px 9px;
+  border:1px solid transparent;
+  border-radius:999px;
+  font-size:11.5px;
+  color:var(--ink-3);
+  letter-spacing:.04em;
+  transition:color .18s, border-color .18s, background .18s;
+}
+.filters button:hover{color:var(--ink)}
+.filters button[aria-pressed="true"]{
+  color:var(--shu);
+  border-color:rgba(178,58,43,.3);
+  background:rgba(178,58,43,.05);
+}
+
+table.vocab{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13.5px;
+}
+table.vocab caption{
+  caption-side:top;
+  text-align:left;
+  padding:0 0 10px;
+  font-size:11px;
+  letter-spacing:.16em;
+  color:var(--ink-3);
+}
+table.vocab th{
+  text-align:left;
+  font-weight:500;
+  font-size:10px;
+  letter-spacing:.2em;
+  color:var(--ink-3);
+  padding:10px 18px;
+  border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+table.vocab td{
+  padding:9px 18px;
+  border-bottom:1px solid var(--line-soft);
+  vertical-align:baseline;
+  color:var(--ink-2);
+}
+table.vocab tr:last-child td{border-bottom:0}
+table.vocab tbody tr{transition:background .15s}
+table.vocab tbody tr:hover{background:rgba(178,58,43,.03)}
+.w{
+  font-family:var(--serif-jp);
+  font-size:14.5px;
+  color:var(--ink);
+  letter-spacing:.04em;
+  font-weight:500;
+}
+.r{
+  font-family:var(--serif-jp);
+  font-size:12.5px;
+  color:var(--ink-3);
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.p{
+  font-family:var(--mono);
+  font-size:10.5px;
+  color:#a99e90;
+  white-space:nowrap;
+}
+.p a{color:inherit;border-bottom:1px dotted #c8bcab}
+.p a:hover{color:var(--shu);border-color:var(--shu)}
+.empty{
+  padding:36px 18px;
+  text-align:center;
+  font-size:13px;
+  color:var(--ink-3);
+}
+
+/* ============ 页脚 ============ */
+footer{
+  border-top:1px solid var(--line);
+  padding:clamp(36px,5vw,60px) 0 64px;
+  background:rgba(253,251,246,.5);
+}
+.foot{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px 40px;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+.foot p{
+  margin:0;
+  font-size:12px;
+  line-height:1.9;
+  color:var(--ink-3);
+  letter-spacing:.03em;
+}
+.foot .jp-line{
+  font-family:var(--serif-jp);
+  font-size:13.5px;
+  color:var(--ink-2);
+  letter-spacing:.1em;
+  margin-bottom:6px;
+}
+.foot a{border-bottom:1px solid var(--line);color:var(--ink-2)}
+.foot a:hover{border-color:var(--shu);color:var(--shu)}
+.to-top{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  letter-spacing:.16em;
+  color:var(--ink-3);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:9px 14px;
+  background:rgba(255,255,255,.5);
+}
+.to-top:hover{color:var(--shu);border-color:rgba(178,58,43,.3)}
+
+/* ============ 折叠面板 ============ */
+[id]{scroll-margin-top:80px}
+html{interpolate-size:allow-keywords}
+details.drill::details-content{
+  overflow:clip;
+  contain:layout;
+}
+details.drill:not([open])::details-content{block-size:0}
+@media (prefers-reduced-motion: no-preference){
+  details.drill::details-content{
+    transition:block-size .3s ease, content-visibility .3s, display .3s;
+    transition-behavior:allow-discrete;
+  }
+}
+
+/* ============ 动效 ============ */
+.js .reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);
+}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+}
+.flash{animation:flash 1.6s ease-out}
+@keyframes flash{
+  0%{background:rgba(178,58,43,.09)}
+  100%{background:transparent}
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1000px){
+  .letter-layout{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:26px}
+  .hero-title{display:block}
+  .hero-title h1{
+    writing-mode:horizontal-tb;
+    inline-size:auto;
+    font-size:clamp(30px,9vw,46px);
+    line-height:1.25;
+    letter-spacing:.02em;
+  }
+  .seal{display:none}
+  .hero-title{align-items:flex-start}
+  .meta{gap:0 22px}
+  .bar-in{height:52px;gap:10px}
+  .brand .sub{display:none}
+  .toggle{padding:0 10px;font-size:11.5px}
+  .bar .tools{gap:4px}
+  .d-preview{display:none}
+  .d-row{grid-template-columns:1fr;gap:8px}
+  .s-list li{grid-template-columns:1fr;gap:2px}
+  .s-list b{justify-self:start}
+}
+@media (max-width:760px){
+  .jp{font-size:16.5px;line-height:2.08;letter-spacing:.03em}
+  .cn{font-size:13.5px;line-height:1.92}
+  .paper{padding:26px 20px 32px}
+}
+@media (max-width:560px){
+  table.vocab{display:block}
+  table.vocab thead{display:none}
+  table.vocab tbody{display:block}
+  table.vocab tr{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:"w n" "r n" "m n";
+    gap:2px 12px;
+    padding:12px 14px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  table.vocab tr:last-child{border-bottom:0}
+  table.vocab td{display:block;border:0;padding:0}
+  table.vocab td:nth-child(1){grid-area:w}
+  table.vocab td:nth-child(2){grid-area:r}
+  table.vocab td:nth-child(3){display:none}
+  table.vocab td:nth-child(4){grid-area:m;margin-top:3px;color:var(--ink-2)}
+  table.vocab td:nth-child(5){grid-area:n;align-self:start;padding-top:2px}
+  .w{font-size:15px}
+  .r{font-size:11px;white-space:normal;letter-spacing:.02em}
+}
+@media (max-width:520px){
+  .para{padding-left:1.7rem}
+  .num{width:1.3rem;font-size:10px}
+  .play{display:none}
+  table.vocab th,table.vocab td{padding-inline:12px}
+  table.vocab th:nth-child(3),table.vocab td:nth-child(3){display:none}
+}
+
+/* 文法条目：原句片段与跳回 */
+.d-row > h4 .row-jump{
+  display:block;
+  margin-top:7px;
+  font-size:11px;
+  letter-spacing:.08em;
+  color:#6b6358;
+  text-decoration:none;
+  border-bottom:1px dotted transparent;
+  transition:color .18s ease,border-color .18s ease;
+}
+.d-row > h4 .row-jump:hover,
+.d-row > h4 .row-jump:focus-visible{
+  color:var(--shu);
+  border-bottom-color:var(--shu-soft);
+}
+.items{display:grid;gap:13px}
+.items li{
+  padding-left:14px;
+  position:relative;
+  display:grid;
+  gap:3px;
+  font-size:14.5px;
+  line-height:1.75;
+  color:var(--ink-2);
+}
+.items li::before{top:.64em}
+.items .g-h{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.15em .65em;
+}
+.items .g-h b{
+  margin-right:0;
+  font-size:15px;
+}
+.items .g-src{
+  font-family:var(--serif-jp);
+  font-size:14px;
+  line-height:1.6;
+  letter-spacing:.02em;
+  color:#6b6358;
+  text-decoration:none;
+  padding-bottom:1.5px;
+  border-bottom:1px dotted rgba(178,58,43,.22);
+  transition:color .18s ease,border-color .18s ease;
+}
+.items .g-src em{
+  font-style:normal;
+  font-weight:500;
+  color:var(--shu);
+  background:linear-gradient(180deg,transparent 58%,rgba(178,58,43,.13) 58%);
+}
+.items .g-src:hover,
+.items .g-src:focus-visible{
+  color:var(--ink);
+  border-bottom-color:var(--shu);
+}
+.items .g-t{display:block}
+
+.para{scroll-margin-top:92px}
+.para:target .jp{animation:paraflash 2.2s ease-out both}
+.para:target .num{color:var(--shu);border-color:var(--shu)}
+@keyframes paraflash{
+  0%{box-shadow:inset 3px 0 0 rgba(178,58,43,.9);background:rgba(178,58,43,.045)}
+  45%{box-shadow:inset 3px 0 0 rgba(178,58,43,.4);background:rgba(178,58,43,.03)}
+  100%{box-shadow:inset 3px 0 0 rgba(178,58,43,0);background:rgba(178,58,43,0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .para:target .jp{animation:none;background:rgba(178,58,43,.06)}
+}
+@media (max-width:560px){
+  .items .g-h{gap:.1em .5em}
+}
+
+/* ============ 打印 ============ */
+.episode-head{
+  margin:0 0 22px;
+  padding:0 0 12px;
+  border-bottom:1px solid var(--line);
+}
+.episode-head p{
+  margin:0;
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.16em;
+  color:var(--shu);
+}
+.episode-head strong{
+  display:block;
+  margin-top:5px;
+  font-family:var(--serif-jp);
+  font-size:18px;
+  font-weight:500;
+  letter-spacing:.06em;
+  color:var(--ink);
+}
+.episode-break{
+  margin:clamp(38px,5vw,58px) 0;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+}
+.episode-break p{
+  margin:0;
+  font-family:var(--serif-cn);
+  font-size:13px;
+  line-height:1.9;
+  letter-spacing:.03em;
+  color:var(--ink-3);
+}
+.scene-tag{
+  display:inline-flex;
+  margin-right:8px;
+  padding:1px 7px;
+  border:1px solid rgba(178,58,43,.28);
+  border-radius:2px;
+  font-family:var(--serif-jp);
+  color:var(--shu);
+}
+@media print{
+  .bar,.rail,.play,.hero-actions,.filters,.search,.to-top{display:none}
+  body{background:#fff}
+  .paper{box-shadow:none;border:0;padding:0}
+  .sec{border-top:0;page-break-inside:avoid}
+  .cn{display:block !important}
+  details::details-content{content-visibility:visible !important}
+  details.drill{border-bottom:1px solid #ddd}
+  a{text-decoration:none;color:#000}
+}
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}.cn{display:block !important}rt{display:inline !important}</style></noscript>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html">
+      <span class="logo">読む</span>
+      <span class="sub">ドラゴン桜 · 授業</span>
+    </a>
+    <div class="tools">
+      <button class="toggle" type="button" data-toggle="furigana" aria-pressed="true">
+        <span class="dot" aria-hidden="true"></span><span>ふりがな</span>
+      </button>
+      <button class="toggle" type="button" data-toggle="cn" aria-pressed="true">
+        <span class="dot" aria-hidden="true"></span><span>中文</span>
+      </button>
+    </div>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-title">
+        <h1 lang="ja">世の中に<br>越えられない壁<span class="sm">なんてねえんだ</span></h1>
+        <div class="seal" aria-hidden="true">授業</div>
+      </div>
+
+      <div class="hero-info">
+        <p class="kicker">Classes from Ryūzan High School</p>
+        <p class="drama">ドラマ『ドラゴン桜』<span>2005 · EP.03 / EP.11</span></p>
+        <figure class="pull">
+          <blockquote lang="ja">
+            <p>世の中に<ruby>越え<rt>こえ</rt></ruby>られない<ruby>壁<rt>かべ</rt></ruby>なんてねえんだ。だからおメエら、どんなことにもできないという<ruby>先入観<rt>せんにゅうかん</rt></ruby>を<ruby>持つ<rt>もつ</rt></ruby>な。</p>
+          </blockquote>
+          <figcaption lang="zh-CN">世上根本没有翻不过去的墙。所以，你们不许对任何事抱有自己做不到的先入之见。</figcaption>
+        </figure>
+        <dl class="meta">
+          <div><dt>人物</dt><dd>桜木 建二</dd></div>
+          <div><dt>场景</dt><dd>特进班授業</dd></div>
+          <div><dt>全文</dt><dd>11 段落</dd></div>
+        </dl>
+        <div class="hero-actions">
+          <a class="btn primary" href="#letter">授業を読む</a>
+          <a class="btn" href="#close-reading">学習ノート</a>
+          <a class="btn ext" href="https://cu.tbs.co.jp/episode/dragonzakura" target="_blank" rel="noopener noreferrer">TBS FREE</a>
+        </div>
+      </div>
+    </div>
+
+    <svg class="river" viewBox="0 0 1440 96" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0 50 C 220 36, 410 70, 650 50 S 1110 23, 1440 52" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <path d="M0 69 C 260 46, 430 86, 720 65 S 1170 42, 1440 71" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke" opacity=".55"/>
+      <path d="M230 57 v 18 M230 62 q 25 -24 52 0 q 24 23 47 0" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <g fill="var(--shu)" opacity=".34">
+        <ellipse cx="420" cy="28" rx="3" ry="2" transform="rotate(-24 420 28)"/>
+        <ellipse cx="760" cy="38" rx="2.6" ry="1.8" transform="rotate(18 760 38)"/>
+        <ellipse cx="1020" cy="20" rx="3" ry="2" transform="rotate(-38 1020 20)"/>
+        <ellipse cx="1260" cy="42" rx="2.8" ry="1.9" transform="rotate(20 1260 42)"/>
+      </g>
+    </svg>
+  </section>
+
+  <!-- ================= 授業 ================= -->
+  <section class="letter-section" id="letter">
+    <div class="letter-layout">
+      <article class="paper" aria-label="授業の台詞">
+
+        <div class="episode-head">
+          <p>EPISODE 11 ／ 2005.09.16</p>
+          <strong lang="ja">お前らはもうバカじゃない！運命の合格発表！</strong>
+        </div>
+
+        <div class="para" id="p1">
+          <a class="num" href="#d1" title="この段落の精読へ">01</a>
+          <button class="play" type="button" data-i="1" aria-label="第1段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">みんな！<ruby>特進<rt>とくしん</rt></ruby>クラスでの<ruby>授業<rt>じゅぎょう</rt></ruby>は今日で終わりだ。ついてはこの特進クラス<ruby>最後<rt>さいご</rt></ruby>の授業に<ruby>当たり<rt>あたり</rt></ruby>、一つだけみんなに言っておきたい。</p>
+          <p class="cn" lang="zh-CN">大家听好！特进班的课到今天为止。既然是特进班的最后一课，有一件事，我想在大家面前说清楚。</p>
+        </div>
+
+        <div class="para" id="p2">
+          <a class="num" href="#d2" title="この段落の精読へ">02</a>
+          <button class="play" type="button" data-i="2" aria-label="第2段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja"><ruby>前<rt>まえ</rt></ruby>にも言ったと思うが、<ruby>実は<rt>じつは</rt></ruby>オレは東大が好きじゃねえ。東大に行ったってだけで<ruby>人生<rt>じんせい</rt></ruby><ruby>成功<rt>せいこう</rt></ruby>したと思ってるやつら、目の前の<ruby>相手<rt>あいて</rt></ruby>が東大出たと知った<ruby>瞬間<rt>しゅんかん</rt></ruby>に<ruby>卑屈<rt>ひくつ</rt></ruby>になるやつら、こりゃみんなゲス野郎だ。じゃそういうゲス野郎が<ruby>大量<rt>たいりょう</rt></ruby>に出てくるのはなぜか？</p>
+          <p class="cn" lang="zh-CN">我以前应该也说过，其实我并不喜欢东大。仅凭进了东大就认为自己的人生成功了的人，得知眼前的人出身东大就立刻低人一等似的人，这些全是低劣的家伙。那么，为什么这种低劣的家伙会大批出现？</p>
+        </div>
+
+        <div class="para" id="p3">
+          <a class="num" href="#d3" title="この段落の精読へ">03</a>
+          <button class="play" type="button" data-i="3" aria-label="第3段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">それはな、<ruby>日本中<rt>にほんじゅう</rt></ruby>の<ruby>大半<rt>たいはん</rt></ruby>の連中がチャレンジもせずに、東大のことを超えられない<ruby>壁<rt>かべ</rt></ruby>だと決めつけてるからだ。勝手に<ruby>祭り上げ<rt>まつりあげ</rt></ruby>、勝手に<ruby>諦め<rt>あきらめ</rt></ruby>、そして勝手にコンプレックスを<ruby>抱く<rt>だく</rt></ruby>。成功している人間はそれはもともと<ruby>才能<rt>さいのう</rt></ruby>があったからで、自分はもともと<ruby>平凡<rt>へいぼん</rt></ruby>な人間だから<ruby>努力<rt>どりょく</rt></ruby>したって無理だ、そういう<ruby>思い込み<rt>おもいこみ</rt></ruby>が人の人生をどれだけ<ruby>窮屈<rt>きゅうくつ</rt></ruby>に<ruby>縛りつけ<rt>しばりつけ</rt></ruby>てることか。</p>
+          <p class="cn" lang="zh-CN">因为日本绝大多数人不肯挑战，事先就把东大断定为翻不过去的墙。自己把它捧起来，自己放弃，又自己生出自卑。成功的人本来就有才能；自己原本很平凡，就算努力也没用——这种成见把一个人的人生束缚得多么狭窄。</p>
+        </div>
+
+        <div class="para" id="p4">
+          <a class="num" href="#d4" title="この段落の精読へ">04</a>
+          <button class="play" type="button" data-i="4" aria-label="第4段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja"><ruby>世の中<rt>よのなか</rt></ruby>に<ruby>越え<rt>こえ</rt></ruby>られない<ruby>壁<rt>かべ</rt></ruby>なんてねえんだ。だからおメエら、どんなことにもできないという<ruby>先入観<rt>せんにゅうかん</rt></ruby>を<ruby>持つ<rt>もつ</rt></ruby>な。</p>
+          <p class="cn" lang="zh-CN">世上根本没有翻不过去的墙。所以，你们不许对任何事抱有自己做不到的先入之见。</p>
+        </div>
+
+        <div class="para" id="p5">
+          <a class="num" href="#d5" title="この段落の精読へ">05</a>
+          <button class="play" type="button" data-i="5" aria-label="第5段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">お前らが<ruby>一年間<rt>いちねんかん</rt></ruby>ずっと頭に巻き続けたこのバカ<ruby>鉢巻<rt>はちまき</rt></ruby>。<ruby>ホント<rt>ほんと</rt></ruby>は一年間じゃねえはずだ。<ruby>物心<rt>ものごころ</rt></ruby>ついた時からお前らは心の中にずっとこのバカ鉢巻を巻いていた。だがな、もうすぐそのバカ鉢巻から<ruby>自由<rt>じゆう</rt></ruby>になれる。お前らを<ruby>縛りつけ<rt>しばりつけ</rt></ruby>ていたコンプレックスという名のたくさんの<ruby>鎖<rt>くさり</rt></ruby>を<ruby>断ち切れる<rt>たちきれる</rt></ruby>。</p>
+          <p class="cn" lang="zh-CN">你们这一年来一直戴在头上的这顶“笨蛋”头巾。其实不该只有一年。从懂事起，你们心里就一直戴着这顶“笨蛋”头巾。但是，你们很快就能从这顶头巾中解放出来。能把那些名为自卑、捆住你们的诸多锁链切断。</p>
+        </div>
+
+        <div class="para" id="p6">
+          <a class="num" href="#d6" title="この段落の精読へ">06</a>
+          <button class="play" type="button" data-i="6" aria-label="第6段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">バカにされて<ruby>悔しかった<rt>くやしかった</rt></ruby><ruby>日々<rt>ひび</rt></ruby>を思い出せ。そしてその<ruby>悔しさ<rt>くやしさ</rt></ruby>をあしたからの<ruby>試験<rt>しけん</rt></ruby>にぶつけろ。</p>
+          <p class="cn" lang="zh-CN">想想被人叫作笨蛋时有多么不甘。把那股不甘砸向从明天开始的考试。</p>
+        </div>
+
+        <div class="para" id="p7">
+          <a class="num" href="#d7" title="この段落の精読へ">07</a>
+          <button class="play" type="button" data-i="7" aria-label="第7段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">お前ら<ruby>全員<rt>ぜんいん</rt></ruby><ruby>勝て<rt>かて</rt></ruby>よ！そして<ruby>東大<rt>とうだい</rt></ruby>に<ruby>入れ<rt>はいれ</rt></ruby>！</p>
+          <p class="cn" lang="zh-CN">你们全都要赢！然后，考进东大！</p>
+        </div>
+
+        <div class="episode-break">
+          <p><span class="scene-tag">EP. 03</span>最終回の「最後の授業」から、第3話の数学の授業へ。</p>
+        </div>
+
+        <div class="episode-head">
+          <p>EPISODE 03 ／ 2005.07.22</p>
+          <strong lang="ja">遊べ！受験はスポーツだ！</strong>
+        </div>
+
+        <div class="para" id="p8">
+          <a class="num" href="#d8" title="この段落の精読へ">08</a>
+          <button class="play" type="button" data-i="8" aria-label="第8段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">バーカ。オレがバカと言ったのはな、お前らが70点をいい<ruby>点数<rt>てんすう</rt></ruby>だと思ったことにだ。</p>
+          <p class="cn" lang="zh-CN">你们这群笨蛋。我说你们笨，是因为你们居然觉得七十分算好成绩。</p>
+        </div>
+
+        <div class="para" id="p9">
+          <a class="num" href="#d9" title="この段落の精読へ">09</a>
+          <button class="play" type="button" data-i="9" aria-label="第9段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">100点<ruby>満点<rt>まんてん</rt></ruby>のテストなら100点<ruby>以外<rt>いがい</rt></ruby>はくずだ。ミスを<ruby>許す<rt>ゆるす</rt></ruby>な。ミスをしたら<ruby>悔しがれ<rt>くやしがれ</rt></ruby>。</p>
+          <p class="cn" lang="zh-CN">满分一百分的考试，除了一百分以外都是垃圾。不许失误。失误了，就给我不甘心。</p>
+        </div>
+
+        <div class="para" id="p10">
+          <a class="num" href="#d10" title="この段落の精読へ">10</a>
+          <button class="play" type="button" data-i="10" aria-label="第10段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja"><ruby>数学<rt>すうがく</rt></ruby>とはゲーム。<ruby>遊び<rt>あそび</rt></ruby>だ。<ruby>勉強<rt>べんきょう</rt></ruby>と思うから<ruby>嫌<rt>いや</rt></ruby>になる。これは<ruby>解答<rt>かいとう</rt></ruby>という<ruby>結果<rt>けっか</rt></ruby>を出し、<ruby>達成感<rt>たっせいかん</rt></ruby>を<ruby>味わう<rt>あじわう</rt></ruby>ゲームだ。</p>
+          <p class="cn" lang="zh-CN">数学就是游戏，是玩乐。正因为把它当作学习才会厌烦。这是拿出答案这个结果、品尝成就感的游戏。</p>
+        </div>
+
+        <div class="para" id="p11">
+          <a class="num" href="#d11" title="この段落の精読へ">11</a>
+          <button class="play" type="button" data-i="11" aria-label="第11段落を読み上げる">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8L13 8z"/></svg>
+          </button>
+          <p class="jp" lang="ja">『5日しかない』じゃない。『まだ5日もある』だ。<ruby>受験<rt>じゅけん</rt></ruby>も同じだぞ。『<ruby>たった<rt>たった</rt></ruby><ruby>一年<rt>いちねん</rt></ruby>しかない』じゃない。『まだ一年もある』だ。</p>
+          <p class="cn" lang="zh-CN">不是“只剩五天了”，是“还有整整五天”。考试也是一样。不是“只有一年”，是“还有一年”。</p>
+        </div>
+
+        <p class="sig">桜木 建二<span>SAKURAGI KENJI / RYŪZAN HIGH SCHOOL</span></p>
+      </article>
+
+      <nav class="rail" aria-label="段落索引">
+        <h2>授業</h2>
+        <ol>
+          <li><a href="#p1"><b>01</b>最後の授業</a></li>
+          <li><a href="#p2"><b>02</b>東大が好きじゃねえ</a></li>
+          <li><a href="#p3"><b>03</b>勝手に壁を作る</a></li>
+          <li><a href="#p4"><b>04</b>越えられない壁</a></li>
+          <li><a href="#p5"><b>05</b>バカ鉢巻</a></li>
+          <li><a href="#p6"><b>06</b>悔しさをぶつける</a></li>
+          <li><a href="#p7"><b>07</b>全員勝て</a></li>
+          <li><a href="#p8"><b>08</b>70点をいい点数</a></li>
+          <li><a href="#p9"><b>09</b>100点以外はくず</a></li>
+          <li><a href="#p10"><b>10</b>数学はゲーム</a></li>
+          <li><a href="#p11"><b>11</b>まだ5日もある</a></li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ================= 精读 ================= -->
+  <section class="sec" id="close-reading">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="sec-num">02</p>
+        <div>
+          <h2>精読 <span aria-hidden="true">·</span> 二つの授業を拆解</h2>
+          <p class="sub">十一张卡，每张五层；先读第11集的最后一课，再看第3集的数学课怎样把同一套想法落到满分、游戏与剩余时间。</p>
+        </div>
+      </div>
+
+      <div class="drills reveal">
+        <details class="drill" id="d1" open>
+          <summary>
+            <span class="d-num">01</span>
+            <span class="d-title">最後の授業</span>
+            <span class="d-preview">特進クラスでの授業は今日で終わりだ</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">みんな！<span class="sep">／</span>特進クラスでの授業は<span class="sep">／</span>今日で終わりだ。</p>
+                <p class="s-jp" lang="ja">ついては<span class="sep">／</span>この特進クラス最後の授業に当たり、<span class="sep">／</span>一つだけみんなに言っておきたい。</p>
+                <ul class="s-list">
+                    <li><b>みんな！</b><span>呼びかけ。最初の一語で教室の注意を集める。</span></li>
+                    <li><b>特進クラスでの授業は今日で終わりだ</b><span>終わりを告げる主文。「今日で」が期限をはっきりさせ、次の「最後の授業」へつなぐ。</span></li>
+                    <li><b>一つだけみんなに言っておきたい</b><span>言いたいことの数を「一つ」に絞り、聞く姿勢を作る。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p1" title="第 1 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～での</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>特進クラスでの</em>授業</a></span><span class="g-t">名詞＋での＋名詞。場所・組織を後ろの名詞に結びつける。</span></li>
+                    <li><span class="g-h"><b>ついては</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>ついては</em>この特進クラス最後の授業に当たり</a></span><span class="g-t">前の内容を受けて「それに関しては」と切り出す、改まった接続表現。</span></li>
+                    <li><span class="g-h"><b>～に当たり</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">最後の授業<em>に当たり</em></a></span><span class="g-t">名詞＋に当たり。節目の場面であることを宣言する書き言葉で、硬いが式辞らしい。</span></li>
+                    <li><span class="g-h"><b>～ておきたい</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ">一つだけみんなに<em>言っておきたい</em></a></span><span class="g-t">ておく＋たい。「先に言って残しておく」という意図が、別れの場に似合う。</span></li>
+                    <li><span class="g-h"><b>一つだけ</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>一つだけ</em>みんなに言っておきたい</a></span><span class="g-t">数量と限定の副詞。「多くは語らない」と示すことで、この後の一つの論点に重みを置く。</span></li>
+                    <li><span class="g-h"><b>短文の連続</b><a class="g-src" href="#p1" lang="ja" title="第 1 段の原文へ"><em>今日で終わりだ。</em>ついてはこの特進クラス最後の授業</a></span><span class="g-t">短い断定から説明へ切り替える。終わりを曖昧にせず、授業の枠を閉じる。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>特進</b><span>とくしん</span>特进班</span>
+                    <span class="chip"><b>授業</b><span>じゅぎょう</span>课</span>
+                    <span class="chip"><b>最後</b><span>さいご</span>最后</span>
+                    <span class="chip"><b>当たり</b><span>あたり</span>正值；在……之际</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">第一段先关掉“日常上课”的框架：今天不是普通的一课，而是特进班最后一课。后面所有判断都因此带上临别赠言的分量。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「ついては」在此承接“今天是最后一课”，不是单纯的“因此”。译为“既然是最后一课”，才能把前后关系和场合感都留住。</p>
+          </div>
+        </details>
+        <details class="drill" id="d2">
+          <summary>
+            <span class="d-num">02</span>
+            <span class="d-title">東大が好きじゃねえ</span>
+            <span class="d-preview">実はオレは東大が好きじゃねえ</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">前にも言ったと思うが、<span class="sep">／</span>実はオレは東大が好きじゃねえ。</p>
+                <p class="s-jp" lang="ja">東大に行ったってだけで人生成功したと思ってるやつら、<span class="sep">／</span>相手が東大出たと知った瞬間に卑屈になるやつら、<span class="sep">／</span>こりゃみんなゲス野郎だ。</p>
+                <p class="s-jp" lang="ja">じゃ<span class="sep">／</span>そういうゲス野郎が大量に出てくるのは<span class="sep">／</span>なぜか？</p>
+                <ul class="s-list">
+                    <li><b>実はオレは東大が好きじゃねえ</b><span>前置きを引っくり返す。東大を目指す物語の中心人物が、東大そのものではなく壁を作る態度を嫌う。</span></li>
+                    <li><b>…やつら、…やつら</b><span>同じ「やつら」を二度並べ、二種類の依存的態度を並列する。</span></li>
+                    <li><b>こりゃみんなゲス野郎だ</b><span>二つの例を受ける断定。「こりゃ」は「これは」の口語形。</span></li>
+                    <li><b>なぜか</b><span>批判で終わらず、原因を問うて次段へ渡す。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p2" title="第 2 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～と思うが</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">前にも言った<em>と思うが</em></a></span><span class="g-t">前置きに「が」を添え、本題を柔らかく立てる。ただし口調自体は強く、前置きだけが丁寧。</span></li>
+                    <li><span class="g-h"><b>実は</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ"><em>実は</em>オレは東大が好きじゃねえ</a></span><span class="g-t">予想を反転させる副詞。「東大を目指させる人」と「東大好き」が同じではないと示す。</span></li>
+                    <li><span class="g-h"><b>～たと知った瞬間に</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">相手が東大出た<em>と知った瞬間に</em>卑屈になる</a></span><span class="g-t">「と」で知った内容を受け、「瞬間に」で反応の速さを際立たせる。</span></li>
+                    <li><span class="g-h"><b>こりゃ</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ"><em>こりゃ</em>みんなゲス野郎だ</a></span><span class="g-t">「これは」の縮約。二つの例を一つにまとめ、感情のこもった断定にする。</span></li>
+                    <li><span class="g-h"><b>～のはなぜか</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">出てくる<em>のはなぜか</em>？</a></span><span class="g-t">連体修飾＋「のは」で、問う対象を名詞化する。次段の原因説明を強く要求する。</span></li>
+                    <li><span class="g-h"><b>ゲス野郎</b><a class="g-src" href="#p2" lang="ja" title="第 2 段の原文へ">こりゃみんな<em>ゲス野郎</em>だ</a></span><span class="g-t">強い蔑称。単に「嫌い」と言うより、人をランクで評価する態度そのものを断じている。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>前</b><span>まえ</span>此前</span>
+                    <span class="chip"><b>実は</b><span>じつは</span>其实</span>
+                    <span class="chip"><b>人生</b><span>じんせい</span>人生</span>
+                    <span class="chip"><b>成功</b><span>せいこう</span>成功</span>
+                    <span class="chip"><b>相手</b><span>あいて</span>对方</span>
+                    <span class="chip"><b>瞬間</b><span>しゅんかん</span>瞬间</span>
+                    <span class="chip"><b>卑屈</b><span>ひくつ</span>自卑</span>
+                    <span class="chip"><b>大量</b><span>たいりょう</span>大批</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">这一段先否认一个看似理所当然的前提：樱木让全班考东大，并不等于崇拜东大。他批判的是把学校名当成人生价值的两种姿态。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「東大出た」不能译成“东大毕业”，这里只强调别人一听见“出身东大”就改变态度。译文用“出身东大”，保留身份标签带来的压力。</p>
+          </div>
+        </details>
+        <details class="drill" id="d3">
+          <summary>
+            <span class="d-num">03</span>
+            <span class="d-title">勝手に壁を作る</span>
+            <span class="d-preview">東大のことを超えられない壁だと決めつけてるからだ</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">それはな、<span class="sep">／</span>日本中の大半の連中がチャレンジもせずに、<span class="sep">／</span>東大のことを超えられない壁だと決めつけてるからだ。</p>
+                <p class="s-jp" lang="ja">勝手に祭り上げ、<span class="sep">／</span>勝手に諦め、<span class="sep">／</span>そして勝手にコンプレックスを抱く。</p>
+                <p class="s-jp" lang="ja">成功している人間は…才能があったからで、<span class="sep">／</span>自分は…平凡だから努力したって無理だ、<span class="sep">／</span>そういう思い込みが人の人生をどれだけ窮屈に縛りつけてることか。</p>
+                <ul class="s-list">
+                    <li><b>…からだ</b><span>前段の「なぜか？」に直接答える。原因は東大の難しさではなく、挑戦前の断念にある。</span></li>
+                    <li><b>勝手に…、勝手に…、そして勝手に…</b><span>三つの「勝手に」が主語を省略したまま連なる。本人が作った壁を、本人が崇め、本人が降りる。</span></li>
+                    <li><b>…からで、…だから…</b><span>成功者と自分に異なる理由を割り当て、その二つを一つの思い込みとしてまとめる。</span></li>
+                    <li><b>どれだけ～ことか</b><span>程度を強く問う文末。「縛りつけてることか」で、思い込みを外的な壁ではなく内面の拘束として捉える。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p3" title="第 3 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～もせずに</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">チャレンジ<em>もせずに</em></a></span><span class="g-t">動詞ない形＋ずにに、強調の「も」が付く。「挑戦すらせず」の意味。</span></li>
+                    <li><span class="g-h"><b>～だと決めつける</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">超えられない壁<em>だと決めつけてる</em></a></span><span class="g-t">「と」で判断内容を括り、決めつけるが証拠なしの断定であることを示す。</span></li>
+                    <li><span class="g-h"><b>勝手にの反復</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ"><em>勝手に</em>祭り上げ、<em>勝手に</em>諦め</a></span><span class="g-t">同じ副詞を三度置き、他者の評価と自己評価を本人が勝手に作っていると皮肉る。</span></li>
+                    <li><span class="g-h"><b>～からで</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">才能があった<em>からで</em></a></span><span class="g-t">理由を途中で止め、「からだ」で文を終えない。次の「だから」へつなぐ中間点になる。</span></li>
+                    <li><span class="g-h"><b>～したって無理だ</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ">努力<em>したって</em>無理だ</a></span><span class="g-t">動詞た形＋って。口語で「～しても」にあたり、ここでは努力をしても無駄だという思い込みを再現する。</span></li>
+                    <li><span class="g-h"><b>どれだけ～ことか</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ"><em>どれだけ</em>窮屈に縛りつけてる<em>ことか</em></a></span><span class="g-t">感嘆を表す文型。質問ではなく、「計り知れないほど」という評価を込めた詠嘆。</span></li>
+                    <li><span class="g-h"><b>長い連体修飾</b><a class="g-src" href="#p3" lang="ja" title="第 3 段の原文へ"><em>そういう思い込みが人の人生をどれだけ窮屈に縛りつけてることか</em></a></span><span class="g-t">「思い込みが人生を縛る」が骨。前の二つの理由は、この結論を支える入れ子になっている。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>日本中</b><span>にほんじゅう</span>全日本</span>
+                    <span class="chip"><b>大半</b><span>たいはん</span>大多数</span>
+                    <span class="chip"><b>壁</b><span>かべ</span>墙；障碍</span>
+                    <span class="chip"><b>祭り上げ</b><span>まつりあげ</span>捧起；拥戴</span>
+                    <span class="chip"><b>諦め</b><span>あきらめ</span>放弃</span>
+                    <span class="chip"><b>抱く</b><span>だく</span>怀着</span>
+                    <span class="chip"><b>才能</b><span>さいのう</span>才能</span>
+                    <span class="chip"><b>平凡</b><span>へいぼん</span>平凡</span>
+                    <span class="chip"><b>努力</b><span>どりょく</span>努力</span>
+                    <span class="chip"><b>思い込み</b><span>おもいこみ</span>成见</span>
+                    <span class="chip"><b>窮屈</b><span>きゅうくつ</span>狭窄；拘束</span>
+                    <span class="chip"><b>縛りつけ</b><span>しばりつけ</span>束缚</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">这是对上一段“为什么”的回答。把东大变成高墙的，不只是入试制度，还有人在挑战前先立起墙、奉为高墙、再自行退下的心理连锁。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「壁だと決めつける」译为“断定为翻不过去的墙”，“断定”比“认为”更能保留“未经检验就下结论”的批评。</p>
+          </div>
+        </details>
+        <details class="drill" id="d4">
+          <summary>
+            <span class="d-num">04</span>
+            <span class="d-title">越えられない壁</span>
+            <span class="d-preview">世の中に越えられない壁なんてねえんだ</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">世の中に<span class="sep">／</span>越えられない壁なんて<span class="sep">／</span>ねえんだ。</p>
+                <p class="s-jp" lang="ja">だからおメエら、<span class="sep">／</span>どんなことにも<span class="sep">／</span>できないという先入観を<span class="sep">／</span>持つな。</p>
+                <ul class="s-list">
+                    <li><b>越えられない壁なんてねえんだ</b><span>全否定の結論。「なんて」と「ねえんだ」で、講義というより啖呵に近い口調になる。</span></li>
+                    <li><b>だからおメエら</b><span>結論から聞き手へ戻す。「おメエら」は乱暴な呼びかけで、甘やかさない。</span></li>
+                    <li><b>どんなことにも…先入観を持つな</b><span>否定するのは能力ではなく、能力を測る前の決めつけ。命令形で締める。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p4" title="第 4 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～なんてねえ</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">越えられない壁<em>なんてねえ</em>んだ</a></span><span class="g-t">「などない」の口語。否定を粗く強くし、例外を考えさせない。</span></li>
+                    <li><span class="g-h"><b>～られる（可能）</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">越え<em>られない</em>壁</a></span><span class="g-t">可能形＋名詞。「越えられない」は能力不足ではなく、可能かどうかを決める前の印象を指す。</span></li>
+                    <li><span class="g-h"><b>だから＋呼びかけ</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ"><em>だから</em>おメエら</a></span><span class="g-t">原因から命令へ直接飛ぶ。説明と指示の距離を短くし、教室を統率する。</span></li>
+                    <li><span class="g-h"><b>どんな～にも</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ"><em>どんなことにも</em></a></span><span class="g-t">全称＋「にも」。対象を一つも除外しない。</span></li>
+                    <li><span class="g-h"><b>～という先入観</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">できない<em>という先入観</em></a></span><span class="g-t">「という」で、直前に置いた判断を「先入観」という名詞に包み込む。</span></li>
+                    <li><span class="g-h"><b>～を持つな</b><a class="g-src" href="#p4" lang="ja" title="第 4 段の原文へ">先入観を<em>持つな</em></a></span><span class="g-t">動詞辞書形＋なの禁止命令。「持っているな」ではなく、新たに抱くなという指示。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>世の中</b><span>よのなか</span>世上；社会</span>
+                    <span class="chip"><b>越え</b><span>こえ</span>越过</span>
+                    <span class="chip"><b>壁</b><span>かべ</span>墙；障碍</span>
+                    <span class="chip"><b>先入観</b><span>せんにゅうかん</span>先入之见</span>
+                    <span class="chip"><b>持つ</b><span>もつ</span>抱有</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">全篇的论点句。从“为什么会有壁”收束到“不要再制造壁”，同时把听者从旁观者变成必须行动的人。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「持つな」不是单纯的“不要有”，还带禁止命令的力量。中文用“不许”比“别”更接近樱木在课堂上压住全班的气势。</p>
+          </div>
+        </details>
+        <details class="drill" id="d5">
+          <summary>
+            <span class="d-num">05</span>
+            <span class="d-title">バカ鉢巻</span>
+            <span class="d-preview">お前らが一年間ずっと頭に巻き続けたこのバカ鉢巻</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">お前らが一年間ずっと頭に巻き続けた<span class="sep">／</span>このバカ鉢巻。</p>
+                <p class="s-jp" lang="ja">ホントは一年間じゃねえはずだ。</p>
+                <p class="s-jp" lang="ja">物心ついた時から<span class="sep">／</span>心の中にずっとこのバカ鉢巻を巻いていた。</p>
+                <p class="s-jp" lang="ja">だがな、<span class="sep">／</span>もうすぐ自由になれる。<span class="sep">／</span>…鎖を断ち切れる。</p>
+                <ul class="s-list">
+                    <li><b>このバカ鉢巻</b><span>体言止め。実物の鉢巻を置いてから、その意味を次で広げる。</span></li>
+                    <li><b>一年間じゃねえはずだ</b><span>期間を否定し、ここまでの授業より長い時間へ視野を広げる。</span></li>
+                    <li><b>物心ついた時から</b><span>起源を示す。自卑不是这一年的产物，而是成长中一直戴着的。</span></li>
+                    <li><b>自由になれる／断ち切れる</b><span>可能形が続く。今すぐ終わるのではなく、目の前に解放の可能性があると示す。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p5" title="第 5 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～続ける</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">巻き<em>続けた</em></a></span><span class="g-t">動詞ます形＋続ける。途中でやめずに繰り返したという時間の長さを出す。</span></li>
+                    <li><span class="g-h"><b>～はずだ</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">一年間じゃねえ<em>はずだ</em></a></span><span class="g-t">根拠のある推量。事実確認ではなく、「一年だけでは済まない」という再解釈。</span></li>
+                    <li><span class="g-h"><b>物心つく</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ"><em>物心ついた</em>時から</a></span><span class="g-t">物事の道理が分かり始める。過去の時点から今までの長い期間を一語で開く。</span></li>
+                    <li><span class="g-h"><b>～から自由になる</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">バカ鉢巻<em>から自由になれる</em></a></span><span class="g-t">「から」は拘束の起点。「自由になる」と結びつき、物理的な頭巾が比喩になる。</span></li>
+                    <li><span class="g-h"><b>～という名の</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">コンプレックス<em>という名の</em>たくさんの鎖</a></span><span class="g-t">抽象概念を「名」として、共通するものが人の身を縛る「鎖」だと定義する。</span></li>
+                    <li><span class="g-h"><b>断ち切れる</b><a class="g-src" href="#p5" lang="ja" title="第 5 段の原文へ">鎖を<em>断ち切れる</em></a></span><span class="g-t">可能形。この後「お前ら全員勝て」と命令形へ変わり、可能性が課された目標になる。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>一年間</b><span>いちねんかん</span>一年间</span>
+                    <span class="chip"><b>鉢巻</b><span>はちまき</span>头巾</span>
+                    <span class="chip"><b>ホント</b><span>ほんと</span>其实</span>
+                    <span class="chip"><b>物心</b><span>ものごころ</span>懂事</span>
+                    <span class="chip"><b>自由</b><span>じゆう</span>自由</span>
+                    <span class="chip"><b>縛りつけ</b><span>しばりつけ</span>束缚</span>
+                    <span class="chip"><b>鎖</b><span>くさり</span>锁链</span>
+                    <span class="chip"><b>断ち切れる</b><span>たちきれる</span>能斩断</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">把前段的抽象概念落到具体物件：头巾。再到“心里的头巾”，最后变成锁。课堂的实体道具被用来把自卑从这一年的课堂，一直追到童年。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「バカ鉢巻」不是普通头巾，而是别人贴上的“笨蛋”标签。译文保留引号，让实物和心里的标签同时说得通；“笨蛋”也保留日本课堂的这种粗暴称呼。</p>
+          </div>
+        </details>
+        <details class="drill" id="d6">
+          <summary>
+            <span class="d-num">06</span>
+            <span class="d-title">悔しさをぶつける</span>
+            <span class="d-preview">バカにされて悔しかった日々を思い出せ</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">バカにされて<span class="sep">／</span>悔しかった日々を<span class="sep">／</span>思い出せ。</p>
+                <p class="s-jp" lang="ja">そして<span class="sep">／</span>その悔しさを<span class="sep">／</span>あしたからの試験に<span class="sep">／</span>ぶつけろ。</p>
+                <ul class="s-list">
+                    <li><b>バカにされて</b><span>受身。誰が言ったかは省き、言われた側の経験だけを残す。</span></li>
+                    <li><b>悔しかった日々</b><span>過去の感情を名詞に包む。ここで感情を観察から資源へ変える。</span></li>
+                    <li><b>思い出せ</b><span>命令形。過去を振り返るだけではなく、次の行動の燃料として取り出す。</span></li>
+                    <li><b>その悔しさを…ぶつけろ</b><span>「悔しさ」が目的語、「試験」が到達点。感情を相手への暴力ではなく試験へ向ける。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p6" title="第 6 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～にされる</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">バカ<em>にされて</em></a></span><span class="g-t">受身。「バカにする」の行為者をぼかし、言われた側の経験に焦点を置く。</span></li>
+                    <li><span class="g-h"><b>～て＋感情形容詞</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">バカにされ<em>て悔しかった</em></a></span><span class="g-t">原因をて形でつなぎ、結果の感情を述べる。「されて、そして」と切るより一体感がある。</span></li>
+                    <li><span class="g-h"><b>過去形＋名詞</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ"><em>悔しかった日々</em></a></span><span class="g-t">感情形容詞の過去形が名詞を修飾する。過去の感情が今も残る名詞句になる。</span></li>
+                    <li><span class="g-h"><b>二つの命令形</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ"><em>思い出せ</em>。そしてその悔しさをあしたからの試験に<em>ぶつけろ</em>。</a></span><span class="g-t">まず記憶を呼び戻し、次に行動へ向ける二段構え。どちらも相手に判断を委ねない。</span></li>
+                    <li><span class="g-h"><b>～からの</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">あした<em>からの</em>試験</a></span><span class="g-t">名詞＋から＋の＋名詞。「明日を始点として続く試験」を表す。</span></li>
+                    <li><span class="g-h"><b>感情を比喩で移す</b><a class="g-src" href="#p6" lang="ja" title="第 6 段の原文へ">悔しさをあしたからの試験に<em>ぶつけろ</em></a></span><span class="g-t">本来は物をぶつける動詞。悔しさを塊として扱い、試験へ向ける勢いを作る。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>悔しかった</b><span>くやしかった</span>不甘过</span>
+                    <span class="chip"><b>日々</b><span>ひび</span>日子</span>
+                    <span class="chip"><b>悔しさ</b><span>くやしさ</span>不甘</span>
+                    <span class="chip"><b>試験</b><span>しけん</span>考试</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">前一段的“解放”落到眼前动作：记住不甘，把它投向明天的考试。抽象论述到这里变成可执行的考前命令。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「悔しがれ」是“为失误感到不甘”，这里「悔しさをぶつけろ」是把那股不甘拿去用力撞考试。中文用“砸向”保留动作感，不用泛泛的“化为动力”。</p>
+          </div>
+        </details>
+        <details class="drill" id="d7">
+          <summary>
+            <span class="d-num">07</span>
+            <span class="d-title">全員勝て</span>
+            <span class="d-preview">お前ら全員勝てよ！そして東大に入れ！</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">お前ら全員<span class="sep">／</span>勝てよ！</p>
+                <p class="s-jp" lang="ja">そして<span class="sep">／</span>東大に入れ！</p>
+                <ul class="s-list">
+                    <li><b>お前ら全員</b><span>対象を五人に絞らない。誰かが残ることを許さない「全員」）。</span></li>
+                    <li><b>勝てよ</b><span>強い命令。最後に短く切り、余韻ではなく発破で終える。</span></li>
+                    <li><b>そして東大に入れ</b><span>結果を命令する。ここまでの抽象論を大学入試という具体的な行動へ戻す。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p7" title="第 7 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>全員</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">お前ら<em>全員</em>勝てよ</a></span><span class="g-t">「全員」は例外を消す。能力の平均ではなく、全員が対象だと言い切る。</span></li>
+                    <li><span class="g-h"><b>～てよ（命令）</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">勝<em>てよ</em>！</a></span><span class="g-t">口語の強い命令。「勝ってください」より親密で、教師と生徒の距離を縮める。</span></li>
+                    <li><span class="g-h"><b>そして</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ"><em>そして</em>東大に入れ</a></span><span class="g-t">並列だけでなく、前半の「勝つ」を後半の具体的な入試に着地させる。</span></li>
+                    <li><span class="g-h"><b>入れ（可能動詞の命令）</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ">東大に<em>入れ</em>！</a></span><span class="g-t">「入る」の可能形。合格できると信じるよう促す命令で、願望ではない。</span></li>
+                    <li><span class="g-h"><b>短文の並列</b><a class="g-src" href="#p7" lang="ja" title="第 7 段の原文へ"><em>全員勝てよ！</em>そして<em>東大に入れ！</em></a></span><span class="g-t">感嘆符を二つ重ねる。説明を捨て、口頭授業の強さだけを残す終結。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>全員</b><span>ぜんいん</span>全员</span>
+                    <span class="chip"><b>勝て</b><span>かて</span>赢</span>
+                    <span class="chip"><b>東大</b><span>とうだい</span>东大</span>
+                    <span class="chip"><b>入れ</b><span>はいれ</span>考进</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">主论点的最后一击。从“不要有先入之见”变成“每个人都要赢”，把群体口号落成个人必须承担的目标。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「東大に入れ」不是“进东大吧”这样的建议，而是教师发出的命令式加油。中文用“考进东大”，既保留命令，也明确是入学考试。</p>
+          </div>
+        </details>
+        <details class="drill" id="d8">
+          <summary>
+            <span class="d-num">08</span>
+            <span class="d-title">70点をいい点数</span>
+            <span class="d-preview">オレがバカと言ったのはな、お前らが70点をいい点数だと思ったことにだ</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">バーカ。</p>
+                <p class="s-jp" lang="ja">オレがバカと言ったのはな、<span class="sep">／</span>お前らが70点をいい点数だと思ったことにだ。</p>
+                <ul class="s-list">
+                    <li><b>バーカ</b><span>一語だけの罵倒。教室の空気を一瞬で切り替える呼びかけ。</span></li>
+                    <li><b>言ったのはな…ことにだ</b><span>「のは」で理由を名詞化し、文末の「ことにだ」で強調する分裂文。</span></li>
+                    <li><b>70点をいい点数だと思った</b><span>批判するのは点数そのものではなく、七十分を合格点のように受け取った基準。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p8" title="第 8 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～のは…ことだ</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">オレがバカと言った<em>のは</em>な、お前らが70点をいい点数だと思った<em>ことにだ</em></a></span><span class="g-t">分裂文。前半で焦点を立て、後半で本当の理由を置く。</span></li>
+                    <li><span class="g-h"><b>～をいい点数だと思う</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">70点<em>をいい点数だと思った</em></a></span><span class="g-t">「を」で評価の対象を示し、「と」で判断内容を括る。</span></li>
+                    <li><span class="g-h"><b>発話の引用ではない「と言う」</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">オレがバカと<em>言った</em></a></span><span class="g-t">過去の発言を今の授業で取り上げ、相手の誤解を訂正する。</span></li>
+                    <li><span class="g-h"><b>語気の「な」</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ">言ったのは<em>な</em></a></span><span class="g-t">文の途中で注意を引き、次に本当の理由が来ることを示す口語の終助詞。</span></li>
+                    <li><span class="g-h"><b>バーカ</b><a class="g-src" href="#p8" lang="ja" title="第 8 段の原文へ"><em>バーカ</em>。</a></span><span class="g-t">「バカ」を伸ばす乱暴な呼び方。直後の説明と組み合わせ、単なる侮辱ではないと返す。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>点数</b><span>てんすう</span>分数</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">数学课的第一句先把“笨蛋”二字夺回来：不是学生天生笨，而是七十分也能满足的评价标准太低。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「いい点数」译成“好成绩”，而不是“好分数”，因为这里说的是学生对成绩整体是否合格的心理门槛。</p>
+          </div>
+        </details>
+        <details class="drill" id="d9">
+          <summary>
+            <span class="d-num">09</span>
+            <span class="d-title">100点以外はくず</span>
+            <span class="d-preview">100点満点のテストなら100点以外はくずだ</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">100点満点のテストなら<span class="sep">／</span>100点以外は<span class="sep">／</span>くずだ。</p>
+                <p class="s-jp" lang="ja">ミスを許すな。</p>
+                <p class="s-jp" lang="ja">ミスをしたら<span class="sep">／</span>悔しがれ。</p>
+                <ul class="s-list">
+                    <li><b>100点満点のテストなら</b><span>条件。「満点が取れる難しさ」ではなく、「満点を基準に置く」という前提。</span></li>
+                    <li><b>100点以外はくずだ</b><span>極端な断定。点数を人格評価にしているように見えるが、授業では基準の厳しさとして使う。</span></li>
+                    <li><b>ミスを許すな／悔しがれ</b><span>第一の命令で防止し、失敗後の第二の命令で感情を確かめる。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p9" title="第 9 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～なら（条件）</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">100点満点のテスト<em>なら</em></a></span><span class="g-t">仮定・条件。「このテストの基準で言えば」と範囲を限定する。</span></li>
+                    <li><span class="g-h"><b>～以外は</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">100点<em>以外は</em>くずだ</a></span><span class="g-t">名詞＋以外は。“一百分之外都不算”，没有设中间档。</span></li>
+                    <li><span class="g-h"><b>～を許すな</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">ミス<em>を許すな</em></a></span><span class="g-t">辞書形＋なの禁止。自分のミスにも甘い基準を置くなという命令。</span></li>
+                    <li><span class="g-h"><b>～たら（因果）</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">ミスをし<em>たら</em>悔しがれ</a></span><span class="g-t">仮定条件＋命令。失敗しなかった場合ではなく、失敗した後の反応を指定する。</span></li>
+                    <li><span class="g-h"><b>悔しがる</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ">ミスをしたら<em>悔しがれ</em></a></span><span class="g-t">感情を自分で受け止める動詞。悲しむでも投げ出すでもなく、次へつながる感情を選ばせる。</span></li>
+                    <li><span class="g-h"><b>三段の断定・命令</b><a class="g-src" href="#p9" lang="ja" title="第 9 段の原文へ"><em>くずだ。</em>ミスを許すな。ミスをしたら悔しがれ。</a></span><span class="g-t">断定、禁止、命令を一段ずつ短く切る。説明を足さず、教室に基準を植え付ける。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>満点</b><span>まんてん</span>满分</span>
+                    <span class="chip"><b>以外</b><span>いがい</span>以外</span>
+                    <span class="chip"><b>許す</b><span>ゆるす</span>容许</span>
+                    <span class="chip"><b>悔しがれ</b><span>くやしがれ</span>给我不甘心</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">从“七十分算好吗”推进到“满分之外的失误如何对待”。短句构成一套考试标准：先立靶，再禁止，再指定失败后的反应。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「100点以外はくずだ」字面非常粗暴，不能磨成“要追求满分”而失去冲击。中文保留“垃圾”，再用后两句说明这不是放弃，而是要求不甘心。</p>
+          </div>
+        </details>
+        <details class="drill" id="d10">
+          <summary>
+            <span class="d-num">10</span>
+            <span class="d-title">数学はゲーム</span>
+            <span class="d-preview">数学とはゲーム。遊びだ。</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">数学とは<span class="sep">／</span>ゲーム。遊びだ。</p>
+                <p class="s-jp" lang="ja">勉強と思うから<span class="sep">／</span>嫌になる。</p>
+                <p class="s-jp" lang="ja">これは<span class="sep">／</span>解答という結果を出し、<span class="sep">／</span>達成感を味わうゲームだ。</p>
+                <ul class="s-list">
+                    <li><b>数学とはゲーム。遊びだ。</b><span>定義を二つの短い体言止めで置く。説明を先延ばしし、印象を固定する。</span></li>
+                    <li><b>勉強と思うから嫌になる</b><span>原因と結果を一文でつなぐ。数学そのものではなく、ラベルが嫌悪を作る。</span></li>
+                    <li><b>解答という結果を出し、達成感を味わう</b><span>ゲームの目的と報酬を述べる。結果は点数ではなく、自分の解答と達成感。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p10" title="第 10 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～とは</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>数学とは</em>ゲーム</a></span><span class="g-t">定義を述べる「とは」。硬い説明の形を使いながら、結論は「ゲーム」と崩す。</span></li>
+                    <li><span class="g-h"><b>体言止め</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">ゲーム。<em>遊びだ。</em></a></span><span class="g-t">名詞で文を止め、定義を断言する。リズムが速く、教室のテンポを作る。</span></li>
+                    <li><span class="g-h"><b>～と思うから</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>勉強と思うから</em>嫌になる</a></span><span class="g-t">理由の「から」。対象を勉強だと分類するから、嫌悪が生まれると因果を切る。</span></li>
+                    <li><span class="g-h"><b>これは～ゲームだ</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ"><em>これは</em>解答という結果を出し、達成感を味わうゲームだ</a></span><span class="g-t">指示詞「これ」は数学を指す。定義を一度保留し、最後に言い換える。</span></li>
+                    <li><span class="g-h"><b>～という結果</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">解答<em>という結果</em></a></span><span class="g-t">「という」で、解答をゲームの結果として再分類する。</span></li>
+                    <li><span class="g-h"><b>～を味わう</b><a class="g-src" href="#p10" lang="ja" title="第 10 段の原文へ">達成感を<em>味わう</em></a></span><span class="g-t">達成感を食物のように味わう動詞。結果を頭で理解するだけでなく、体で感じる。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>数学</b><span>すうがく</span>数学</span>
+                    <span class="chip"><b>遊び</b><span>あそび</span>玩乐</span>
+                    <span class="chip"><b>勉強</b><span>べんきょう</span>学习</span>
+                    <span class="chip"><b>嫌</b><span>いや</span>讨厌</span>
+                    <span class="chip"><b>解答</b><span>かいとう</span>答案</span>
+                    <span class="chip"><b>結果</b><span>けっか</span>结果</span>
+                    <span class="chip"><b>達成感</b><span>たっせいかん</span>成就感</span>
+                    <span class="chip"><b>味わう</b><span>あじわう</span>品尝</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">数学课从“标准太低”转到“如何重设标准”。把数学改称为游戏，使正确答案变成可以反复挑战的结果，而不是一次失败的审判。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「数学とはゲーム」不是把数学说得很容易，而是把学习者的注意力从“我不擅长”移到“下一局怎么解”。译文保留“游戏”和“玩乐”两层。</p>
+          </div>
+        </details>
+        <details class="drill" id="d11">
+          <summary>
+            <span class="d-num">11</span>
+            <span class="d-title">まだ5日もある</span>
+            <span class="d-preview">『5日しかない』じゃない。『まだ5日もある』だ。</span>
+          </summary>
+          <div class="d-body">
+            <div class="d-row">
+              <h4>骨格</h4>
+              <div class="skel">
+                <p class="s-jp" lang="ja">『5日しかない』じゃない。<span class="sep">／</span>『まだ5日もある』だ。</p>
+                <p class="s-jp" lang="ja">受験も同じだぞ。</p>
+                <p class="s-jp" lang="ja">『たった一年しかない』じゃない。<span class="sep">／</span>『まだ一年もある』だ。</p>
+                <ul class="s-list">
+                    <li><b>5日しかない／まだ5日もある</b><span>同じ日に「しか」と「も」を付け替える。数字は変えず、残り時間の解釈だけを変える。</span></li>
+                    <li><b>受験も同じだぞ</b><span>把具体五天扩展到整个考试的时距：不只剩五天，后面还有一年。</span></li>
+                    <li><b>一年しかない／まだ一年もある</b><span>同じ置換を一年で繰り返し、最初の言葉遣いが試験全体の態度だと示す。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>文法<a class="row-jump" href="#p11" title="第 11 段の原文へ">原文 ↑</a></h4>
+              <div>
+                <ul class="items">
+                    <li><span class="g-h"><b>～しかない</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">5日<em>しかない</em></a></span><span class="g-t">限定＋否定。残りが少ないと捉える言い方で、ここではまず否定する。</span></li>
+                    <li><span class="g-h"><b>まだ～もある</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ"><em>まだ5日もある</em></a></span><span class="g-t">「まだ」＋「も」。同じ事実を、可能性の余白として捉え直す。</span></li>
+                    <li><span class="g-h"><b>～じゃない</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">『5日しかない』<em>じゃない</em></a></span><span class="g-t">引用した言い方を否定する口語。「ではない」より短く、訂正の勢いがある。</span></li>
+                    <li><span class="g-h"><b>～も同じだぞ</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">受験<em>も同じだぞ</em></a></span><span class="g-t">「も」で类比を広げ、「ぞ」で念を押す。五日間だけの話ではないと示す。</span></li>
+                    <li><span class="g-h"><b>たった</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ"><em>たった</em>一年</a></span><span class="g-t">数量を小さく見せる副詞。後半で「まだ一年もある」と置き換えるための標的になる。</span></li>
+                    <li><span class="g-h"><b>反復と置換</b><a class="g-src" href="#p11" lang="ja" title="第 11 段の原文へ">『たった一年しかない』じゃない。<em>『まだ一年もある』だ。</em></a></span><span class="g-t">同じ文型を反復し、時間の量ではなく言い方の選択を教える。</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>語彙</h4>
+              <div class="chips">
+                    <span class="chip"><b>受験</b><span>じゅけん</span>考试；应考</span>
+                    <span class="chip"><b>たった</b><span>たった</span>仅仅</span>
+                    <span class="chip"><b>一年</b><span>いちねん</span>一年</span>
+              </div>
+            </div>
+            <div class="d-row">
+              <h4>役割</h4>
+              <div>
+                <p class="role">数学课的最后一段没有引入新知识，只改掉学生对剩余时间的说法。“五天”和“一年”不增不减，改变的只是能否行动的心理空间。</p>
+              </div>
+            </div>
+            <p class="note"><b>訳注</b>　「まだ一年もある」不是“还有一年而已”，而是“还有整整一年可用”。中文用“还有一年”避免把「も」误译成限制。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 单词 ================= -->
+  <section class="sec" id="vocab">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="sec-num">03</p>
+        <div>
+          <h2>単語帳 <span aria-hidden="true">·</span> 51 词</h2>
+          <p class="sub">按出现顺序排列。数字是段落号，点一下可以跳回去看上下文。</p>
+        </div>
+      </div>
+
+      <div class="table-wrap reveal">
+        <div class="table-head">
+          <search class="search">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="M10.4 10.4L14 14"/></svg>
+            <input type="search" id="vsearch" placeholder="搜词、读音或中文意思…" aria-label="単語を検索">
+            <span class="count" id="vcount">51</span>
+          </search>
+          <div class="filters" role="group" aria-label="品詞で絞り込む">
+            <button type="button" data-pos="all" aria-pressed="true">全部</button>
+            <button type="button" data-pos="名" aria-pressed="false">名詞</button>
+            <button type="button" data-pos="動" aria-pressed="false">動詞</button>
+            <button type="button" data-pos="副" aria-pressed="false">副詞</button>
+            <button type="button" data-pos="形" aria-pressed="false">形容</button>
+            <button type="button" data-pos="慣" aria-pressed="false">慣用</button>
+          </div>
+        </div>
+
+        <table class="vocab" aria-label="単語帳">
+          <thead>
+            <tr><th scope="col">単語</th><th scope="col">読み</th><th scope="col">品詞</th><th scope="col">意味</th><th scope="col">段落</th></tr>
+          </thead>
+          <tbody id="vbody">
+            <tr data-pos="名"><td class="w">特進</td><td class="r">とくしん</td><td class="p">名</td><td>特进班；为升入东大而设的特别班</td><td class="p"><a href="#p1">01</a></td></tr>
+            <tr data-pos="名"><td class="w">授業</td><td class="r">じゅぎょう</td><td class="p">名</td><td>课；授课</td><td class="p"><a href="#p1">01</a></td></tr>
+            <tr data-pos="名"><td class="w">最後</td><td class="r">さいご</td><td class="p">名</td><td>最后</td><td class="p"><a href="#p1">01</a></td></tr>
+            <tr data-pos="動"><td class="w">当たり</td><td class="r">あたり</td><td class="p">動</td><td>正值；在……之际（～に当たり）</td><td class="p"><a href="#p1">01</a></td></tr>
+            <tr data-pos="副"><td class="w">実は</td><td class="r">じつは</td><td class="p">副</td><td>其实；说实话</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="名"><td class="w">人生</td><td class="r">じんせい</td><td class="p">名</td><td>人生</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="名"><td class="w">成功</td><td class="r">せいこう</td><td class="p">名・動</td><td>成功</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="名"><td class="w">相手</td><td class="r">あいて</td><td class="p">名</td><td>对方；眼前的人</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="形"><td class="w">卑屈</td><td class="r">ひくつ</td><td class="p">形</td><td>自卑；低人一等似的</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="名"><td class="w">大量</td><td class="r">たいりょう</td><td class="p">名</td><td>大量；大批</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="慣"><td class="w">ゲス野郎</td><td class="r">げすやろう</td><td class="p">慣</td><td>低劣的家伙；下三滥</td><td class="p"><a href="#p2">02</a></td></tr>
+            <tr data-pos="名"><td class="w">大半</td><td class="r">たいはん</td><td class="p">名</td><td>大多数；大半</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="名"><td class="w">壁</td><td class="r">かべ</td><td class="p">名</td><td>墙；障碍</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="動"><td class="w">決めつける</td><td class="r">きめつける</td><td class="p">動</td><td>断定；一口咬定</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="動"><td class="w">祭り上げる</td><td class="r">まつりあげる</td><td class="p">動</td><td>捧起来；拥戴</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="動"><td class="w">諦める</td><td class="r">あきらめる</td><td class="p">動</td><td>放弃；断念</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="名"><td class="w">コンプレックス</td><td class="r">こんぷれっくす</td><td class="p">名</td><td>自卑感；情结</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="名"><td class="w">才能</td><td class="r">さいのう</td><td class="p">名</td><td>才能</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="形"><td class="w">平凡</td><td class="r">へいぼん</td><td class="p">形</td><td>平凡</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="名"><td class="w">思い込み</td><td class="r">おもいこみ</td><td class="p">名</td><td>成见；固执的认定</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="動"><td class="w">縛りつける</td><td class="r">しばりつける</td><td class="p">動</td><td>束缚住</td><td class="p"><a href="#p3">03</a></td></tr>
+            <tr data-pos="名"><td class="w">世の中</td><td class="r">よのなか</td><td class="p">名</td><td>世间；社会</td><td class="p"><a href="#p4">04</a></td></tr>
+            <tr data-pos="名"><td class="w">先入観</td><td class="r">せんにゅうかん</td><td class="p">名</td><td>先入之见；成见</td><td class="p"><a href="#p4">04</a></td></tr>
+            <tr data-pos="名"><td class="w">鉢巻</td><td class="r">はちまき</td><td class="p">名</td><td>头巾</td><td class="p"><a href="#p5">05</a></td></tr>
+            <tr data-pos="名"><td class="w">物心</td><td class="r">ものごころ</td><td class="p">名</td><td>懂事；开始明白事理</td><td class="p"><a href="#p5">05</a></td></tr>
+            <tr data-pos="名"><td class="w">自由</td><td class="r">じゆう</td><td class="p">名</td><td>自由</td><td class="p"><a href="#p5">05</a></td></tr>
+            <tr data-pos="名"><td class="w">鎖</td><td class="r">くさり</td><td class="p">名</td><td>锁链</td><td class="p"><a href="#p5">05</a></td></tr>
+            <tr data-pos="動"><td class="w">断ち切る</td><td class="r">たちきる</td><td class="p">動</td><td>切断；斩断</td><td class="p"><a href="#p5">05</a></td></tr>
+            <tr data-pos="形"><td class="w">悔しい</td><td class="r">くやしい</td><td class="p">形</td><td>不甘心；懊悔</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="名"><td class="w">日々</td><td class="r">ひび</td><td class="p">名</td><td>日子；日常</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="動"><td class="w">ぶつける</td><td class="r">ぶつける</td><td class="p">動</td><td>撞上去；投掷</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="名"><td class="w">試験</td><td class="r">しけん</td><td class="p">名</td><td>考试</td><td class="p"><a href="#p6">06</a></td></tr>
+            <tr data-pos="名"><td class="w">全員</td><td class="r">ぜんいん</td><td class="p">名</td><td>全员；所有人</td><td class="p"><a href="#p7">07</a></td></tr>
+            <tr data-pos="動"><td class="w">勝つ</td><td class="r">かつ</td><td class="p">動</td><td>获胜</td><td class="p"><a href="#p7">07</a></td></tr>
+            <tr data-pos="名"><td class="w">点数</td><td class="r">てんすう</td><td class="p">名</td><td>分数；点数</td><td class="p"><a href="#p8">08</a></td></tr>
+            <tr data-pos="動"><td class="w">悔しがる</td><td class="r">くやしがる</td><td class="p">動</td><td>感到不甘心；懊悔</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="名"><td class="w">満点</td><td class="r">まんてん</td><td class="p">名</td><td>满分</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="名"><td class="w">以外</td><td class="r">いがい</td><td class="p">名</td><td>以外；之外</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="動"><td class="w">許す</td><td class="r">ゆるす</td><td class="p">動</td><td>容许；原谅</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="名"><td class="w">ミス</td><td class="r">みす</td><td class="p">名</td><td>失误</td><td class="p"><a href="#p9">09</a></td></tr>
+            <tr data-pos="名"><td class="w">数学</td><td class="r">すうがく</td><td class="p">名</td><td>数学</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="名"><td class="w">遊び</td><td class="r">あそび</td><td class="p">名</td><td>玩乐；游戏</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="名"><td class="w">勉強</td><td class="r">べんきょう</td><td class="p">名・動</td><td>学习；用功</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="形"><td class="w">嫌</td><td class="r">いや</td><td class="p">形</td><td>讨厌；不愿意</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="名"><td class="w">解答</td><td class="r">かいとう</td><td class="p">名</td><td>解答；答案</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="名"><td class="w">達成感</td><td class="r">たっせいかん</td><td class="p">名</td><td>成就感</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="動"><td class="w">味わう</td><td class="r">あじわう</td><td class="p">動</td><td>品味；体验</td><td class="p"><a href="#p10">10</a></td></tr>
+            <tr data-pos="名"><td class="w">受験</td><td class="r">じゅけん</td><td class="p">名</td><td>应考；参加考试</td><td class="p"><a href="#p11">11</a></td></tr>
+            <tr data-pos="副"><td class="w">まだ</td><td class="r">まだ</td><td class="p">副</td><td>还；仍然</td><td class="p"><a href="#p11">11</a></td></tr>
+            <tr data-pos="副"><td class="w">たった</td><td class="r">たった</td><td class="p">副</td><td>仅仅；只</td><td class="p"><a href="#p11">11</a></td></tr>
+            <tr data-pos="名"><td class="w">チャンス</td><td class="r">ちゃんす</td><td class="p">名</td><td>机会</td><td class="p"><a href="#p11">11</a></td></tr>
+          </tbody>
+        </table>
+        <p class="empty" id="vempty" hidden>没有匹配的词。换个写法试试，比如「しせい」或「先入之意」。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 语法 ================= -->
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <p class="jp-line">世の中に越えられない壁なんてねえんだ。</p>
+        <p>台词出自『ドラゴン桜』（2005，TBS）第11話「お前らはもうバカじゃない！運命の合格発表！」与第3話「遊べ！受験はスポーツだ！」，脚本：秦建日子。<br>
+        影像入口：<a href="https://cu.tbs.co.jp/episode/dragonzakura" target="_blank" rel="noopener noreferrer">TBS FREE「ドラゴン桜 (2005)」</a><br>
+        逐字原文比对：英文法道場 2005 年逐回台詞抄录；あずスタ 第3・11話剧评与课堂场景记录。原文与中文译文仅供学习研究使用，版权归原作者及 TBS 所有。</p>
+      </div>
+      <div>
+        <p>页面：逐段精读 · 51 词<br>
+        分区：<a href="#close-reading">精読</a> ／ <a href="#vocab">単語</a><br>
+        <a href="../index.html">← 作品一覧へ</a></p>
+        <p style="margin-top:14px"><a class="to-top" href="#top">↑ ページ上部へ</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  const $  = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+  /* ---------- 1. 开关：振假名 / 中文 ---------- */
+  const STORE = 'yomu.dragon-zakura.ui.v1';
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch (e) { saved = {}; }
+
+  const toggles = $$('[data-toggle]');
+  const apply = (name, on) => {
+    root.dataset[name] = on ? 'on' : 'off';
+    toggles.forEach(btn => {
+      if (btn.dataset.toggle === name) btn.setAttribute('aria-pressed', String(on));
+    });
+    saved[name] = on;
+    try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch (e) {}
+  };
+  toggles.forEach(btn => {
+    const name = btn.dataset.toggle;
+    apply(name, saved[name] !== false);
+    btn.addEventListener('click', () => {
+      apply(name, root.dataset[name] !== 'on');
+    });
+  });
+
+  /* ---------- 2. 阅读进度 ---------- */
+  const bar = $('#progress');
+  let raf = 0;
+  const paintProgress = () => {
+    raf = 0;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const p = h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
+    bar.style.transform = `scaleX(${p})`;
+  };
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(paintProgress); }, { passive: true });
+  addEventListener('resize', paintProgress, { passive: true });
+  paintProgress();
+
+  /* ---------- 3. 进场动画 ---------- */
+  const reveal = $$('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    reveal.forEach(el => io.observe(el));
+  } else {
+    reveal.forEach(el => el.classList.add('in'));
+  }
+
+  /* ---------- 4. 右侧段落索引 ---------- */
+  const railLinks = $$('.rail a');
+  const paras = $$('.para');
+  const byId = new Map(railLinks.map(a => [a.getAttribute('href').slice(1), a]));
+  if ('IntersectionObserver' in window && railLinks.length) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        railLinks.forEach(a => a.classList.remove('active'));
+        const link = byId.get(en.target.id);
+        if (link) link.classList.add('active');
+      });
+    }, { rootMargin: '-20% 0px -62% 0px', threshold: 0 });
+    paras.forEach(p => spy.observe(p));
+  }
+
+  /* ---------- 5. 跳转高亮 ---------- */
+  const flash = (el) => {
+    if (!el) return;
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 1700);
+  };
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (target) setTimeout(() => flash(target), 320);
+  });
+  if (location.hash.length > 1) {
+    const t = document.getElementById(location.hash.slice(1));
+    if (t) setTimeout(() => flash(t), 300);
+  }
+
+  /* ---------- 6. 朗读 ---------- */
+  const synth = window.speechSynthesis;
+  let jaVoice = null;
+  const pickVoice = () => {
+    if (!synth) return;
+    const vs = synth.getVoices();
+    jaVoice = vs.find(v => /^ja[-_]JP/i.test(v.lang)) || vs.find(v => /^ja/i.test(v.lang)) || null;
+  };
+  if (synth) { pickVoice(); synth.addEventListener('voiceschanged', pickVoice); }
+
+  if (!synth) $$('.play').forEach(b => b.remove());
+
+  if (!synth) $$('.play').forEach(b => b.remove());
+
+  let current = null;
+  const clearBtn = () => {
+    if (current) current.classList.remove('on');
+    current = null;
+  };
+  const readAloud = (para) => {
+    const text = Array.from(para.querySelectorAll('.jp')).map(p => {
+      const c = p.cloneNode(true);
+      c.querySelectorAll('rt').forEach(rt => rt.remove());
+      return c.textContent.replace(/\s+/g, ' ').trim();
+    }).join('。');
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ja-JP';
+    u.rate = 0.92;
+    u.pitch = 1;
+    if (jaVoice) u.voice = jaVoice;
+    return u;
+  };
+
+  $$('.play').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!synth) return;
+      const para = btn.closest('.para');
+      if (!para) return;
+      if (current === btn) { synth.cancel(); clearBtn(); return; }
+      synth.cancel();
+      clearBtn();
+      const u = readAloud(para);
+      const stop = () => { if (current === btn) clearBtn(); };
+      u.onend = stop;
+      u.onerror = stop;
+      current = btn;
+      btn.classList.add('on');
+      synth.speak(u);
+    });
+  });
+  addEventListener('pagehide', () => { if (synth) synth.cancel(); });
+
+  /* ---------- 7. 词汇筛选 ---------- */
+  const input = $('#vsearch');
+  const rows = $$('#vbody tr');
+  const countEl = $('#vcount');
+  const emptyEl = $('#vempty');
+  let posFilter = 'all';
+  const norm = (s) => (s || '').toLowerCase().replace(/\s+/g, '');
+
+  const filterRows = () => {
+    const q = norm(input ? input.value : '');
+    let shown = 0;
+    rows.forEach(tr => {
+      const text = norm(tr.textContent);
+      const pos = tr.dataset.pos || '';
+      const okQ = !q || text.includes(q);
+      const okP = posFilter === 'all' || pos.startsWith(posFilter);
+      const ok = okQ && okP;
+      tr.hidden = !ok;
+      if (ok) shown++;
+    });
+    if (countEl) countEl.textContent = String(shown);
+    if (emptyEl) emptyEl.hidden = shown !== 0;
+  };
+  if (input) input.addEventListener('input', filterRows);
+  $$('.filters button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      posFilter = btn.dataset.pos;
+      $$('.filters button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      filterRows();
+    });
+  });
+  filterRows();
+
+})();
+</script>
+
+</body>
+</html>
