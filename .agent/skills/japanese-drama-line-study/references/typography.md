@@ -61,6 +61,50 @@
 
 朱印：固定像素尺寸（`clamp(30px,3.6vw,44px)`），不要用 `em` 继承标题字号，否则会被放大成方块。
 
+标题本身是一句话、不需要主副两级时（如「あと、ひと駅」），**整句同字号排成一列**，不要用 `.sm` 缩出一行小字——一大会一小看着不齐。此时 `inline-size` 必须按字数算够，否则浏览器会自己折成两列：
+
+```
+inline-size ≈ 字数 ×（line-height + letter-spacing）
+例：6 字 ×（1.05 + .08）＝ 6.78em → 取 6.9em
+```
+
+标记只写一行：`<h1 lang="ja">あと、ひと駅</h1>`。单列标题在 58px 字号下约 400px 高，首屏由它撑起，右侧信息块自然落在中上段。
+
+## 顶栏
+
+首页（根 `index.html`）与各作品页共用同一规格，改动时两处一起改：
+
+```css
+.bar-in{height:58px;align-items:center;padding-inline:clamp(18px,4vw,48px);gap:20px}
+@media (max-width:760px){.bar-in{height:52px;gap:10px}}
+.brand .logo{font-size:19px;letter-spacing:.18em}
+.brand .sub{font-size:11px;letter-spacing:.16em}
+```
+
+- 高度、字号必须写成固定值，**不要用上下 `padding` 撑**：首页曾用 `padding:14px` + `align-items:baseline`，桌面量出 58.6px、移动端仍是 58.6px，而作品页是 58 / 52，切页时能看出跳动。
+- 作品页的 `.bar` 额外 `position:sticky;top:0` 与毛玻璃底；首页不吸顶，这是唯一有意的差异。
+
+## 垂直节奏
+
+各页同构，间距统一用同一组值，改动时七页一起改，不要只调一页。
+
+```css
+.hero{padding-top:clamp(44px,7vw,92px)}                       /* 首屏内部，不动 */
+.river{margin-top:clamp(14px,2.2vw,28px)}                     /* 首屏收尾曲线 */
+.letter-section{padding:clamp(18px,2.8vw,34px) 0 clamp(48px,7vw,96px)}
+.paper{padding:clamp(24px,3.6vw,52px) clamp(22px,5.4vw,78px) clamp(34px,5vw,64px)}
+.addressee{margin:0 0 clamp(14px,2.2vw,22px)}                 /* 无 padding-bottom、无 border-bottom */
+.audible{margin:0 0 clamp(14px,2.2vw,20px);padding:9px 0}     /* 上下各一条发丝线 */
+.episode-break{margin:clamp(30px,4.4vw,50px) 0 clamp(12px,1.8vw,18px);padding-top:16px}
+.scene{margin:0 0 clamp(14px,2.2vw,22px)}
+.script-head{margin:0 0 clamp(10px,1.6vw,16px)}               /* 一続き型：说明+播放条那行 */
+```
+
+两条要点：
+
+- **首屏到正文只留一层空白。** 曲线 → 34px → 纸边 → 52px → 第一行，桌面约 86px。曾经是 64＋74＝138px，看起来像断开了。
+- **标题块和音频条不要各画一条线。** `.addressee` 去掉底线与 `padding-bottom`，只留 `.audible` 的上线收住标题区；否则两条发丝线夹一条空白，正是「空白行太大」的来源。`.episode-break`（对白页，只有上线）同理。
+
 ## 剧照位（可选）
 
 **默认没有图，留白就是这套版面的常态。** 只有在拿到合适的画面、或用户给了截图时，才按下面的规矩加一张。

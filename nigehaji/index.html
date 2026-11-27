@@ -194,7 +194,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   margin:0;
   writing-mode:vertical-rl;
   text-orientation:upright;
-  inline-size:4.55em;
+  inline-size:6.9em;
   font-family:var(--serif-jp);
   font-weight:500;
   font-size:clamp(34px,4.6vw,58px);
@@ -202,11 +202,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   letter-spacing:.08em;
   color:var(--ink);
   white-space:normal;
-}
-.hero-title h1 .sm{
-  font-size:.64em;
-  letter-spacing:.16em;
-  color:var(--ink-2);
 }
 .seal{
   writing-mode:vertical-rl;
@@ -335,13 +330,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   display:block;
   width:100%;
   height:96px;
-  margin-top:clamp(28px,4vw,52px);
+  margin-top:clamp(14px,2.2vw,28px);
   color:var(--line);
 }
 
 /* ============ 正文：手纸 ============ */
 .letter-section{
-  padding:clamp(32px,5vw,64px) 0 clamp(48px,7vw,96px);
+  padding:clamp(18px,2.8vw,34px) 0 clamp(48px,7vw,96px);
 }
 .letter-layout{
   max-width:var(--maxw);
@@ -357,7 +352,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   position:relative;
   background:var(--paper-hi);
   border:1px solid var(--line);
-  padding:clamp(30px,5vw,74px) clamp(22px,5.4vw,78px) clamp(34px,5vw,64px);
+  padding:clamp(24px,3.6vw,52px) clamp(22px,5.4vw,78px) clamp(34px,5vw,64px);
   box-shadow:
     0 1px 2px rgba(70,52,32,.04),
     0 22px 60px -30px rgba(70,52,32,.24);
@@ -375,7 +370,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* 手紙の宛名：差し出しの場面 */
 .scene{
-  margin:0 0 clamp(18px,2.6vw,28px);
+  margin:0 0 clamp(14px,2.2vw,22px);
 }
 .scene img{
   display:block;
@@ -392,9 +387,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 .addressee{
-  margin:0 0 clamp(26px,4vw,44px);
-  padding-bottom:22px;
-  border-bottom:1px solid var(--line-soft);
+  margin:0 0 clamp(14px,2.2vw,22px);
   font-family:var(--serif-jp);
   font-size:clamp(17px,2vw,21px);
   letter-spacing:.12em;
@@ -1175,7 +1168,7 @@ details.drill:not([open])::details-content{block-size:0}
 /* ---------- 台詞本体（本页新增） ---------- */
 .letter-layout{grid-template-columns:minmax(0,1fr);max-width:1200px}
 .script-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
-  flex-wrap:wrap;margin:0 0 clamp(14px,2.2vw,22px)}
+  flex-wrap:wrap;margin:0 0 clamp(10px,1.6vw,16px)}
 .script-key{margin:0;font-family:var(--mono);font-size:10px;letter-spacing:.06em;
   line-height:1.9;color:var(--ink-3)}
 .script-key b{font-weight:400;color:var(--ink-2)}
@@ -1234,9 +1227,6 @@ html[data-cn="off"] .script > .cn{display:none}
 .d-num{display:flex;flex-direction:column;gap:3px;line-height:1.1;inline-size:44px;flex:none}
 .d-num small{font-size:8.5px;letter-spacing:.04em;color:#8a8278;white-space:nowrap}
 
-@media (max-width:760px){
-  .hero-title h1 br.vbr{display:none}
-}
 @media (max-width:820px){
   .script{grid-template-columns:minmax(0,1fr);column-gap:0}
   .script > .cn{margin:0 0 1.1em;padding-left:10px;
@@ -1285,7 +1275,7 @@ html[data-cn="off"] .script > .cn{display:none}
   <section class="hero">
     <div class="hero-grid">
       <div class="hero-title">
-        <h1 lang="ja">あと、<br class="vbr"><span class="sm">ひと駅</span></h1>
+        <h1 lang="ja">あと、ひと駅</h1>
         <div class="seal" aria-hidden="true">独白</div>
       </div>
 
@@ -1361,25 +1351,25 @@ html[data-cn="off"] .script > .cn{display:none}
 
           <span class="ln cn stg" lang="zh-CN">〔伊豆修善寺温泉的旅行归途，列车上〕</span>
 
-          <span class="ln jp" id="L2"><b class="sp">みくりM：</b>（あのとき……）</span>
+          <span class="ln jp" id="L2"><b class="sp">みくりM：</b>あのとき……</span>
 
-          <span class="ln cn" lang="zh-CN">（那时候……）</span>
+          <span class="ln cn" lang="zh-CN">那时候……</span>
 
-          <span class="ln jp" id="L3"><b class="sp">みくりM：</b>（何か、言ってくれるかと思った）</span>
+          <span class="ln jp" id="L3"><b class="sp">みくりM：</b>何か、言ってくれるかと思った</span>
 
-          <span class="ln cn" lang="zh-CN">（还以为，他会替我说点什么）</span>
+          <span class="ln cn" lang="zh-CN">还以为，他会替我说点什么</span>
 
-          <span class="ln jp" id="L4"><b class="sp">みくりM：</b>（もしも今、「手をつなぎましょう」って言ったら……）</span>
+          <span class="ln jp" id="L4"><b class="sp">みくりM：</b>もしも今、「手をつなぎましょう」って言ったら……</span>
 
-          <span class="ln cn" lang="zh-CN">（如果现在说“我们牵个手吧”……）</span>
+          <span class="ln cn" lang="zh-CN">如果现在说“我们牵个手吧”……</span>
 
           <span class="ln jp stg" id="L5">〔イメージの<ruby>平匡<rt>ひらまさ</rt></ruby>：「今は<ruby>社員旅行<rt>しゃいんりょこう</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>です」〕</span>
 
           <span class="ln cn stg" lang="zh-CN">〔想象中的平匡：“现在是员工旅行期间。”〕</span>
 
-          <span class="ln jp" id="L6"><b class="sp">みくりM：</b>（って<ruby>怒<rt>おこ</rt></ruby>られて……）</span>
+          <span class="ln jp" id="L6"><b class="sp">みくりM：</b>って<ruby>怒<rt>おこ</rt></ruby>られて……</span>
 
-          <span class="ln cn" lang="zh-CN">（大概会这样被驳回……）</span>
+          <span class="ln cn" lang="zh-CN">大概会这样被驳回……</span>
 
           <span class="ln jp stg" id="L7">〔イメージのみくり：「<ruby>新婚旅行<rt>しんこんりょこう</rt></ruby>のフリをするという<ruby>仕事<rt>しごと</rt></ruby>の<ruby>最中<rt>さいちゅう</rt></ruby>でもあります」って<ruby>食<rt>く</rt></ruby>い<ruby>下<rt>さ</rt></ruby>がったら……〕</span>
 
@@ -1389,89 +1379,89 @@ html[data-cn="off"] .script > .cn{display:none}
 
           <span class="ln cn stg" lang="zh-CN">〔想象中的平匡：“那属于灰色地带呢。”〕</span>
 
-          <span class="ln jp" id="L9"><b class="sp">みくりM：</b>（なんて<ruby>困<rt>こま</rt></ruby>った<ruby>顔<rt>かお</rt></ruby>をして……<ruby>仕方<rt>しかた</rt></ruby>なく、手を<ruby>出<rt>だ</rt></ruby>して……）</span>
+          <span class="ln jp" id="L9"><b class="sp">みくりM：</b>なんて<ruby>困<rt>こま</rt></ruby>った<ruby>顔<rt>かお</rt></ruby>をして……<ruby>仕方<rt>しかた</rt></ruby>なく、手を<ruby>出<rt>だ</rt></ruby>して……</span>
 
-          <span class="ln cn" lang="zh-CN">（他会露出那样为难的表情……然后无可奈何地伸出手……）</span>
+          <span class="ln cn" lang="zh-CN">他会露出那样为难的表情……然后无可奈何地伸出手……</span>
 
-          <span class="ln jp" id="L10"><b class="sp">みくりM：</b>（でも<ruby>欲<rt>ほ</rt></ruby>しいのは、仕方なくなんかじゃなくて……）</span>
+          <span class="ln jp" id="L10"><b class="sp">みくりM：</b>でも<ruby>欲<rt>ほ</rt></ruby>しいのは、仕方なくなんかじゃなくて……</span>
 
-          <span class="ln cn" lang="zh-CN">（可我想要的，并不是“无可奈何”这种东西……）</span>
+          <span class="ln cn" lang="zh-CN">可我想要的，并不是“无可奈何”这种东西……</span>
 
-          <span class="ln jp" id="L11"><b class="sp">みくりM：</b>（わたしは……<ruby>平匡<rt>ひらまさ</rt></ruby>さんに、何を<ruby>求<rt>もと</rt></ruby>めているんだろう？）</span>
+          <span class="ln jp" id="L11"><b class="sp">みくりM：</b>わたしは……<ruby>平匡<rt>ひらまさ</rt></ruby>さんに、何を<ruby>求<rt>もと</rt></ruby>めているんだろう？</span>
 
-          <span class="ln cn" lang="zh-CN">（我……到底在向平匡先生要什么呢？）</span>
+          <span class="ln cn" lang="zh-CN">我……到底在向平匡先生要什么呢？</span>
 
-          <span class="ln jp" id="L12"><b class="sp">平匡M：</b>（<ruby>自分<rt>じぶん</rt></ruby>のほうが、みくりさんを<ruby>知<rt>し</rt></ruby>ってると思ったから。<ruby>僕<rt>ぼく</rt></ruby>は<ruby>知<rt>し</rt></ruby>ってる。<ruby>穏<rt>おだ</rt></ruby>やかな<ruby>微笑<rt>ほほえ</rt></ruby>みも、<ruby>温<rt>ぬく</rt></ruby>もりも、<ruby>優<rt>やさ</rt></ruby>しさも。）</span>
+          <span class="ln jp" id="L12"><b class="sp">平匡M：</b><ruby>自分<rt>じぶん</rt></ruby>のほうが、みくりさんを<ruby>知<rt>し</rt></ruby>ってると思ったから。<ruby>僕<rt>ぼく</rt></ruby>は<ruby>知<rt>し</rt></ruby>ってる。<ruby>穏<rt>おだ</rt></ruby>やかな<ruby>微笑<rt>ほほえ</rt></ruby>みも、<ruby>温<rt>ぬく</rt></ruby>もりも、<ruby>優<rt>やさ</rt></ruby>しさも。</span>
 
-          <span class="ln cn" lang="zh-CN">（因为我觉得，是我更了解美栗。我知道。她平静的笑容，她的体温，她的温柔。）</span>
+          <span class="ln cn" lang="zh-CN">因为我觉得，是我更了解美栗。我知道。她平静的笑容，她的体温，她的温柔。</span>
 
-          <span class="ln jp" id="L13"><b class="sp">平匡M：</b>（もしも今、手を<ruby>重<rt>かさ</rt></ruby>ねたら）</span>
+          <span class="ln jp" id="L13"><b class="sp">平匡M：</b>もしも今、手を<ruby>重<rt>かさ</rt></ruby>ねたら</span>
 
-          <span class="ln cn" lang="zh-CN">（如果现在，把手覆上去）</span>
+          <span class="ln cn" lang="zh-CN">如果现在，把手覆上去</span>
 
           <span class="ln jp stg" id="L14">〔<ruby>座席<rt>ざせき</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>の<ruby>二人<rt>ふたり</rt></ruby>の手、すぐ<ruby>近<rt>ちか</rt></ruby>くにある〕</span>
 
           <span class="ln cn stg" lang="zh-CN">〔座位扶手上，两人的手近在咫尺〕</span>
 
-          <span class="ln jp" id="L15"><b class="sp">平匡M：</b>（みくりさんは、どんな<ruby>顔<rt>かお</rt></ruby>をするだろう）</span>
+          <span class="ln jp" id="L15"><b class="sp">平匡M：</b>みくりさんは、どんな<ruby>顔<rt>かお</rt></ruby>をするだろう</span>
 
-          <span class="ln cn" lang="zh-CN">（美栗会露出什么样的表情呢）</span>
+          <span class="ln cn" lang="zh-CN">美栗会露出什么样的表情呢</span>
 
-          <span class="ln jp" id="L16"><b class="sp">みくりM：</b>（今までどおりでいい）</span>
+          <span class="ln jp" id="L16"><b class="sp">みくりM：</b>今までどおりでいい</span>
 
-          <span class="ln cn" lang="zh-CN">（维持原样就好）</span>
+          <span class="ln cn" lang="zh-CN">维持原样就好</span>
 
-          <span class="ln jp" id="L17"><b class="sp">みくりM：</b>（もうやめる。もう<ruby>疲<rt>つか</rt></ruby>れた）</span>
+          <span class="ln jp" id="L17"><b class="sp">みくりM：</b>もうやめる。もう<ruby>疲<rt>つか</rt></ruby>れた</span>
 
-          <span class="ln cn" lang="zh-CN">（不做了。已经累了）</span>
+          <span class="ln cn" lang="zh-CN">不做了。已经累了</span>
 
           <span class="ln jp stg" id="L18">〔みくり、<ruby>涙<rt>なみだ</rt></ruby>がぽろっとこぼれる。<ruby>気<rt>き</rt></ruby>づかれないように<ruby>拭<rt>ぬぐ</rt></ruby>う〕</span>
 
           <span class="ln cn stg" lang="zh-CN">〔美栗的眼泪掉了下来，她悄悄擦掉〕</span>
 
-          <span class="ln jp" id="L19"><b class="sp">みくりM：</b>（何もしない。何も<ruby>求<rt>もと</rt></ruby>めない）</span>
+          <span class="ln jp" id="L19"><b class="sp">みくりM：</b>何もしない。何も<ruby>求<rt>もと</rt></ruby>めない</span>
 
-          <span class="ln cn" lang="zh-CN">（什么都不做。什么都不求）</span>
+          <span class="ln cn" lang="zh-CN">什么都不做。什么都不求</span>
 
-          <span class="ln jp" id="L20"><b class="sp">みくりM：</b>（この<ruby>旅<rt>たび</rt></ruby>が<ruby>終<rt>お</rt></ruby>われば、<ruby>平穏<rt>へいおん</rt></ruby>な<ruby>日常<rt>にちじょう</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>る）</span>
+          <span class="ln jp" id="L20"><b class="sp">みくりM：</b>この<ruby>旅<rt>たび</rt></ruby>が<ruby>終<rt>お</rt></ruby>われば、<ruby>平穏<rt>へいおん</rt></ruby>な<ruby>日常<rt>にちじょう</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>る</span>
 
-          <span class="ln cn" lang="zh-CN">（这趟旅行一结束，就回到平静的日常）</span>
+          <span class="ln cn" lang="zh-CN">这趟旅行一结束，就回到平静的日常</span>
 
           <span class="ln jp stg" id="L21">〔<ruby>流<rt>なが</rt></ruby>れる<ruby>景色<rt>けしき</rt></ruby>〕</span>
 
           <span class="ln cn stg" lang="zh-CN">〔窗外掠过的景色〕</span>
 
-          <span class="ln jp" id="L22"><b class="sp">平匡M：</b>（あと、<ruby>一駅<rt>ひとえき</rt></ruby>…）</span>
+          <span class="ln jp" id="L22"><b class="sp">平匡M：</b>あと、<ruby>一駅<rt>ひとえき</rt></ruby>…</span>
 
-          <span class="ln cn" lang="zh-CN">（还有一站……）</span>
+          <span class="ln cn" lang="zh-CN">还有一站……</span>
 
-          <span class="ln jp" id="L23"><b class="sp">みくりM：</b>（あと、一駅…）</span>
+          <span class="ln jp" id="L23"><b class="sp">みくりM：</b>あと、一駅…</span>
 
-          <span class="ln cn" lang="zh-CN">（还有一站……）</span>
+          <span class="ln cn" lang="zh-CN">还有一站……</span>
 
           <span class="ln jp" id="L24"><b class="sp">みくり＆平匡：</b>……</span>
 
           <span class="ln cn" lang="zh-CN">……</span>
 
-          <span class="ln jp" id="L25"><b class="sp">みくりM：</b>（あと一駅…）</span>
+          <span class="ln jp" id="L25"><b class="sp">みくりM：</b>あと一駅…</span>
 
-          <span class="ln cn" lang="zh-CN">（还有一站……）</span>
+          <span class="ln cn" lang="zh-CN">还有一站……</span>
 
-          <span class="ln jp" id="L26"><b class="sp">平匡M：</b>（あと一駅…）</span>
+          <span class="ln jp" id="L26"><b class="sp">平匡M：</b>あと一駅…</span>
 
-          <span class="ln cn" lang="zh-CN">（还有一站……）</span>
+          <span class="ln cn" lang="zh-CN">还有一站……</span>
 
-          <span class="ln jp" id="L27"><b class="sp">みくりM：</b>（あと、一駅…）</span>
+          <span class="ln jp" id="L27"><b class="sp">みくりM：</b>あと、一駅…</span>
 
-          <span class="ln cn" lang="zh-CN">（还有一站……）</span>
+          <span class="ln cn" lang="zh-CN">还有一站……</span>
 
           <span class="ln jp" id="L28"><b class="sp">みくり＆平匡：</b>……</span>
 
           <span class="ln cn" lang="zh-CN">……</span>
 
-          <span class="ln jp" id="L29"><b class="sp">みくり＆平匡M：</b>（<ruby>永遠<rt>えいえん</rt></ruby>に、<ruby>着<rt>つ</rt></ruby>かなければいいのに…）</span>
+          <span class="ln jp" id="L29"><b class="sp">みくり＆平匡M：</b><ruby>永遠<rt>えいえん</rt></ruby>に、<ruby>着<rt>つ</rt></ruby>かなければいいのに…</span>
 
-          <span class="ln cn" lang="zh-CN">（要是永远都不到站，就好了……）</span>
+          <span class="ln cn" lang="zh-CN">要是永远都不到站，就好了……</span>
 
         </div>
 
@@ -1497,16 +1487,16 @@ html[data-cn="off"] .script > .cn{display:none}
           <summary>
             <span class="d-num">01<small>1–3 行</small></span>
             <span class="d-title">回想のはじまり</span>
-            <span class="d-preview">（あのとき……）（何か、言ってくれるかと思った）</span>
+            <span class="d-preview">あのとき……／何か、言ってくれるかと思った</span>
           </summary>
           <div class="d-body">
             <div class="d-row">
               <h4>骨格</h4>
               <div class="skel">
-                <p class="s-jp" lang="ja">（あのとき……）<span class="sep">／</span>（何か、言ってくれるかと思った）</p>
+                <p class="s-jp" lang="ja">あのとき……<span class="sep">／</span>何か、言ってくれるかと思った</p>
                 <ul class="s-list">
 
-                    <li><b>（あのとき……）</b><span>指示詞だけで場面を呼び出す。回想の入口。</span></li>
+                    <li><b>あのとき……</b><span>指示詞だけで場面を呼び出す。回想の入口。</span></li>
 
                     <li><b>何か、言ってくれる</b><span>「何か」で中身を伏せ、「くれる」で自分への方向を決める。</span></li>
 
@@ -1528,7 +1518,7 @@ html[data-cn="off"] .script > .cn{display:none}
 
                     <li><span class="g-h"><b>～かと思った</b><a class="g-src" href="#L3" lang="ja" title="本文 3 行目へ"><em>かと</em>思った</a></span><span class="g-t">「か」は内容を包む引用。過去形なので、期待はもう外れている。</span></li>
 
-                    <li><span class="g-h"><b>心の声の括弧</b><a class="g-src" href="#L2" lang="ja" title="本文 2 行目へ">（あのとき<em>……</em>）</a></span><span class="g-t">脚本の記号。声に出た台詞ではなく、頭の中の言葉であることを示す。</span></li>
+                    <li><span class="g-h"><b>省略号「……」</b><a class="g-src" href="#L2" lang="ja" title="本文 2 行目へ">あのとき<em>……</em></a></span><span class="g-t">回想の中身を言わずに切る。語らない部分が、そのまま間になる。</span></li>
 
                     <li><span class="g-h"><b>「何か」</b><a class="g-src" href="#L3" lang="ja" title="本文 3 行目へ"><em>何か</em>、言って</a></span><span class="g-t">中身を特定しない代名詞。期待の内容をぼかすほど、外れたときの落差が大きい。</span></li>
 
@@ -1574,7 +1564,7 @@ html[data-cn="off"] .script > .cn{display:none}
             <div class="d-row">
               <h4>骨格</h4>
               <div class="skel">
-                <p class="s-jp" lang="ja">もしも今、<span class="sep">／</span>「手をつなぎましょう」って言ったら……<span class="sep">／</span>（って怒られて……）</p>
+                <p class="s-jp" lang="ja">もしも今、<span class="sep">／</span>「手をつなぎましょう」って言ったら……<span class="sep">／</span>って怒られて……</p>
                 <ul class="s-list">
 
                     <li><b>もしも今</b><span>仮定の入口。現実には言わない、と先に示す。</span></li>
@@ -1994,7 +1984,7 @@ html[data-cn="off"] .script > .cn{display:none}
             <div class="d-row">
               <h4>骨格</h4>
               <div class="skel">
-                <p class="s-jp" lang="ja">（もしも今、手を重ねたら）<span class="sep">／</span>（みくりさんは、どんな顔をするだろう）</p>
+                <p class="s-jp" lang="ja">もしも今、手を重ねたら<span class="sep">／</span>みくりさんは、どんな顔をするだろう</p>
                 <ul class="s-list">
 
                     <li><b>もしも今、手を重ねたら</b><span>P2 と同じ条件句。主語だけが違う。</span></li>
@@ -2065,7 +2055,7 @@ html[data-cn="off"] .script > .cn{display:none}
             <div class="d-row">
               <h4>骨格</h4>
               <div class="skel">
-                <p class="s-jp" lang="ja">（今までどおりでいい）<span class="sep">／</span>（もうやめる。もう疲れた）<span class="sep">／</span>（何もしない。何も求めない）<span class="sep">／</span>（この旅が終われば、平穏な日常に戻る）</p>
+                <p class="s-jp" lang="ja">今までどおりでいい<span class="sep">／</span>もうやめる。もう疲れた<span class="sep">／</span>何もしない。何も求めない<span class="sep">／</span>この旅が終われば、平穏な日常に戻る</p>
                 <ul class="s-list">
 
                     <li><b>今までどおりでいい</b><span>現状維持の許可。</span></li>
@@ -2144,7 +2134,7 @@ html[data-cn="off"] .script > .cn{display:none}
             <div class="d-row">
               <h4>骨格</h4>
               <div class="skel">
-                <p class="s-jp" lang="ja">（あと、ひと駅…）<span class="sep">／</span>（あと、ひと駅…）<span class="sep">／</span>（永遠に、着かなければいいのに…）</p>
+                <p class="s-jp" lang="ja">あと、ひと駅…<span class="sep">／</span>あと、ひと駅…<span class="sep">／</span>永遠に、着かなければいいのに…</p>
                 <ul class="s-list">
 
                     <li><b>あと、ひと駅…</b><span>残り距離。繰り返すたびに短くなる。</span></li>
