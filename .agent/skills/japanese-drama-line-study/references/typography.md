@@ -10,7 +10,7 @@
   --ink:#211e1a; --ink-2:#514a42; --ink-3:#8d8377;
   --line:#e2dacc; --line-soft:#ece5d8;
   --shu:#b23a2b;            /* 朱红，只用于强调：印章、编号、悬停线、高亮 */
-  --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;                        /* 标题层，webfont */
+  --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;                        /* 标题层，自托管子集 */
   --serif-jp-text:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;          /* 正文层，系统字体 */
   --serif-cn:"Songti SC","STSong","SimSun","Noto Serif SC",serif;                               /* 中文，系统字体 */
   --sans:"Inter","Hiragino Sans","PingFang SC",system-ui,sans-serif;
@@ -25,7 +25,7 @@
 
 | 变量 | 字族 | 用在哪 | 为什么 |
 | --- | --- | --- | --- |
-| `--serif-jp` | Shippori Mincho（webfont） | 站名、竖排标题、题眼、小节标题、卡片标题 | 笔画细、留白多，大字有味道 |
+| `--serif-jp` | Shippori Mincho（自托管子集） | 站名、竖排标题、题眼、小节标题、卡片标题 | 笔画细、留白多，大字有味道 |
 | `--serif-jp-text` | Hiragino → Yu Mincho → Noto（系统优先） | `.jp` 正文、`.s-jp` 精读卡原句、`.g-src` 语法原句、`.d-preview`、`.sig`、`.w`/`.r` 词汇、`.rail a` 索引 | 整页正文的面积最大，绝不能等字体 |
 | `--serif-cn` | Songti SC → SimSun → Noto（系统优先） | 译文栏 `.cn`、中文小字、章节副题 | 同上，中文栏比日文栏字数还多 |
 
@@ -34,13 +34,33 @@
 1. **读者要逐字辨认的走正文层，用来定调子的走标题层。** 引文必须跟正文同族——`.g-src` 是可点回正文的原句片段，跳转前后字形不能变。
 2. **正文永远不放 webfont。** CJK 一个字重 4–8MB，Google Fonts 按 `unicode-range` 切片，一篇正文要拉 120 多片、3.8MB，字体必然晚于首帧到达，`display:swap` 一到位就整页换字形——从首页点进详情页时那一下「闪」就是这么来的。标题字数少、切片少、首页已缓存，用 webfont 才划算。
 
-实测（同一台机、冷缓存，改前 → 改后）：详情页字体 **125 片 / 3844KB → 58 片 / 843KB**，FCP **1.2–3.5s → 0.1s**，正文再无替换。
+实测（同一台机、冷缓存，改前 → 改后）：详情页字体 **125 片 / 3844KB → 3 个文件 / 466KB**，FCP **1.2–3.5s → 0.1s**，正文与标题都不再中途替换。
 
 正文 `clamp(15.5px,1.5vw,18px)`。全角字宽恒为 1em，字号直接决定每行字数：18px 下约 31 字，落在 30–40 的舒适区。
 
-Google Fonts 只请求 `family=Shippori+Mincho:wght@400;500;600&display=swap`。`wght` 后面漏 `@` 整条请求会失效，页面静默退回系统字体，肉眼看不出报错（`gomenne-seishun-9/-10` 踩过）。
-
 中文段落 `letter-spacing:.02em; text-align:justify`。
+
+## 标题字体：自托管 + 子集 + preload
+
+只留一个 webfont，就别再走第三方 CDN。Google Fonts 的 CJK 字体按 `unicode-range` 切成上百片，浏览器要等 CSS 解析完、排完版才知道要哪几片，字体必然晚于首帧——`display:swap` 一到，整块竖排标题的视觉重量就变一次，看起来像「缩放了一下」。自托管之后字体和页面同源，可以 preload，首帧即正体。
+
+```html
+<link rel="preload" href="../assets/fonts/shippori-mincho-500.woff2" as="font" type="font/woff2" crossorigin>
+```
+
+```css
+@font-face{font-family:"Shippori Mincho";src:url("../assets/fonts/shippori-mincho-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:block}
+```
+
+三条规矩：
+
+1. **preload 只给 500**（竖排标题与站名的字重），400/600 出在首屏以下，交给浏览器按需取。
+2. **`font-display:block`** 而不是 `swap`：同源 preload 之后字体基本在首帧前就绪，block 的空白窗口看不见；万一慢，宁可晚一点出现，也不要「先回退再换」。
+3. **子集只收标题层的字**。`assets/fonts/glyphs.txt` 是字符清单（当前 701 字），由浏览器按 computed `font-family` 精确收集；`scripts/build_title_fonts.sh` 从 `google/fonts` 拉完整 TTF，用 `pyftsubset --layout-features='*'` 裁成三个 woff2。
+
+`--layout-features='*'` 不能省，竖排标点靠 `vert` / `vrt2`，砍掉之后 `、`「」` 会横着躺。重建后必查：竖排标题里的 `、` 是否还在格的右上角。
+
+**新增作品后**：新标题若含 `glyphs.txt` 里没有的字，那个字会回退成 Hiragino（不报错，只是字形突变），把新字补进 `glyphs.txt` 再跑一次脚本即可。
 
 ## 竖排标题
 
