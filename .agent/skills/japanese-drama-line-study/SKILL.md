@@ -24,6 +24,7 @@ metadata:
 <repo>/
 ├── index.html                 作品首页（≥2 部作品时才有）
 ├── assets/stills/             剧照（可选，一页一张；没有就不建）
+├── assets/og/                 分享卡 800×800 JPG，一页一张，供 og:image 用
 └── <slug>/
     ├── source.md              本篇原文、译文与出处
     └── index.html             单篇精读页，自包含、无构建、双击可开
@@ -120,6 +121,24 @@ node scripts/shot.mjs "file://$PWD/index.html" .shot/m.png --width 390 --height 
 - 内联脚本抽出来 `node --check`。
 - 交互冒烟：两个开关、词表搜索与筛选、折叠卡；有音声时点播放、拖进度、看时间。
 - 目视：振假名不被上边裁切、行末不参差、无横向溢出、段号与正文不错位。
+
+### 7. 分享预览（OG 卡）
+
+微信、Telegram、X 只读 `<head>` 里的 og 标签。没有 `og:image`，或者地址、格式不对，分享出去就只剩一行纯文字。三条硬要求：
+
+- **绝对地址**：`https://akisaya.github.io/yomu/assets/og/<slug>.jpg`。相对路径爬虫拼不出来。
+- **JPG 而非 WebP**：抓取端不一定认 WebP，还会按 300×300 的下限判断有没有图。
+- **正方形 800×800**：朋友圈、群聊的缩略图按 1:1 裁，16:9 的剧照会被切掉两边。
+
+卡片样式由 `assets/og-card.html` 用同一套纸色 token 排好（`?slug=` 选条目，`?slug=home` 是首页卡），截图后转 JPG：
+
+```bash
+node scripts/shot.mjs "file://$PWD/.agent/skills/japanese-drama-line-study/assets/og-card.html?slug=<slug>" \
+  .shot/og.png --width 800 --height 800 --wait 500
+sips -s format jpeg -s formatOptions 84 .shot/og.png --out assets/og/<slug>.jpg
+```
+
+新增作品时在 `og-card.html` 的 `DATA` 里补一条（`series` / `still` / `title` / `sub` / `size`），再往页面 `<head>` 的 `theme-color` 之后写一整块 `canonical` + `og:*` + `twitter:*`。**微信会缓存第一次的抓取结果**，改完用带 `?v=2` 的地址自测，或等缓存过期。
 
 ## 文案：首屏摘要的可复用公式
 

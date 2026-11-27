@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>OG card</title>
+<!--
+  分享卡生成器：800×800 正方形，供 og:image 使用。
+  用法：
+    node .agent/skills/japanese-drama-line-study/scripts/shot.mjs \
+      "file://$PWD/.agent/skills/japanese-drama-line-study/assets/og-card.html?slug=saikou-no-rikon" \
+      .shot/og-saikou.png --width 800 --height 800 --wait 700
+    sips -s format jpeg -s formatOptions 82 .shot/og-saikou.png --out assets/og/saikou-no-rikon.jpg
+  新增作品时在下面 DATA 里加一条即可。
+-->
+<style>
+:root{
+  --paper:#f7f4ec;
+  --paper-hi:#fdfbf6;
+  --ink:#211e1a;
+  --ink-2:#514a42;
+  --ink-3:#8d8377;
+  --line:#e2dacc;
+  --line-soft:#ece5d8;
+  --shu:#b23a2b;
+  --serif-jp:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  --serif-cn:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
+  --mono:"SFMono-Regular","JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:800px;height:800px;overflow:hidden}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif-jp);
+  -webkit-font-smoothing:antialiased;
+}
+.card{
+  position:relative;
+  width:800px;height:800px;
+  padding:54px 56px 46px;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:repeating-linear-gradient(90deg,var(--line-soft) 0 1px,transparent 1px 56px);
+  opacity:.5;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 78%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 78%,transparent 100%);
+  pointer-events:none;
+}
+
+/* ---------- 顶栏 ---------- */
+.top{
+  position:relative;
+  display:flex;align-items:center;gap:16px;
+  flex:none;
+}
+.wordmark{
+  font-family:var(--serif-jp);
+  font-size:25px;
+  letter-spacing:.16em;
+  line-height:1;
+}
+.top .hrule{
+  flex:1;height:1px;background:var(--line);
+}
+.series{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.14em;
+  color:var(--ink-3);
+  white-space:nowrap;
+}
+
+/* ---------- 剧照 ---------- */
+.shot{
+  position:relative;
+  margin-top:34px;
+  flex:1 1 auto;
+  min-height:0;
+  border:1px solid var(--line);
+  background:var(--paper-hi);
+  overflow:hidden;
+}
+.shot img{
+  display:block;width:100%;height:100%;
+  object-fit:cover;
+}
+
+/* ---------- 标题 ---------- */
+.text{
+  position:relative;
+  flex:none;
+  margin-top:32px;
+}
+.ttl{
+  font-family:var(--serif-jp);
+  font-weight:500;
+  font-size:52px;
+  line-height:1.26;
+  letter-spacing:.05em;
+  font-feature-settings:"palt" 1;
+}
+.text .sub{
+  margin-top:12px;
+  font-family:var(--serif-cn);
+  font-size:19px;
+  line-height:1.5;
+  letter-spacing:.04em;
+  color:var(--ink-3);
+}
+
+/* ---------- 底栏 ---------- */
+.bottom{
+  position:relative;
+  flex:none;
+  margin-top:30px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  display:flex;align-items:baseline;justify-content:space-between;
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.14em;
+  color:var(--ink-3);
+}
+.bottom .dot{color:var(--line)}
+
+/* ---------- 首页卡 ---------- */
+.home{padding:64px 60px 56px}
+.home .kicker{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+}
+.home .lockup{
+  display:flex;align-items:center;gap:26px;
+  margin-top:38px;
+}
+.home .lockup h1{
+  font-family:var(--serif-jp);
+  font-weight:600;
+  font-size:196px;
+  line-height:.96;
+  letter-spacing:.1em;
+  font-feature-settings:"palt" 1;
+}
+.home .seal{
+  align-self:flex-start;
+  margin-top:34px;
+  display:grid;place-items:center;
+  width:62px;height:62px;
+  border:2px solid rgba(178,58,43,.55);
+  border-radius:2px;
+  color:var(--shu);
+  font-size:26px;
+  transform:rotate(-3deg);
+  opacity:.9;
+}
+.home .lede{
+  margin-top:26px;
+  font-size:27px;
+  line-height:1.6;
+  letter-spacing:.05em;
+}
+.home .lede-sub{
+  margin-top:14px;
+  font-family:var(--serif-cn);
+  font-size:15px;
+  line-height:1.7;
+  letter-spacing:.06em;
+  color:var(--ink-3);
+}
+.home .strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:44px;
+}
+.home .strip figure{
+  border:1px solid var(--line);
+  background:var(--paper-hi);
+  overflow:hidden;
+}
+.home .strip img{
+  display:block;width:100%;aspect-ratio:3/2;object-fit:cover;
+}
+.home .bottom{margin-top:auto}
+</style>
+</head>
+<body>
+<div class="card" id="card"></div>
+
+<script>
+const DATA = {
+  home: {
+    home: true,
+    kicker: "Yomu · Japanese drama lines",
+    title: "読む",
+    seal: "読",
+    lede: "好きな台詞は、何度でも読み返したくなる。",
+    ledeSub: "喜欢的台词值得反复阅读。原文、译文、振假名与原声，逐段放在同一个页面里。",
+    strip: ["saikou-no-rikon-envelope.webp", "nigehaji-train.webp", "gomenne-seishun-9-rooftop.webp"],
+    foot: ["六篇作品", "akisaya.github.io/yomu"]
+  },
+  "saikou-no-rikon": {
+    series: "最高の離婚 · 2014 SP",
+    still: "saikou-no-rikon-envelope.webp",
+    title: "星野結夏さまへ",
+    sub: "一封来自目黑川的信 · 最高の離婚 2014 特别篇",
+    size: 56
+  },
+  "saikou-no-rikon-2": {
+    series: "最高の離婚 · 第 8 話",
+    still: "saikou-no-rikon-2-open.webp",
+    title: "光生さんへ",
+    sub: "没有寄出的那封信 · 星野結夏・置手紙",
+    size: 60
+  },
+  nigehaji: {
+    series: "逃げ恥 · 第 6 話",
+    still: "nigehaji-train.webp",
+    title: "あと、ひと駅",
+    sub: "归途列车上的双人独白 · 逃げるは恥だが役に立つ",
+    size: 60
+  },
+  hirugao: {
+    series: "昼顔 · 第 11 話",
+    still: "hirugao-broadcast.webp",
+    title: "生物の北野です",
+    sub: "离校前的校内广播 · 昼顔 〜平日午後3時の恋人たち〜",
+    size: 56
+  },
+  "dragon-zakura": {
+    series: "ドラゴン桜 · 最終回",
+    still: "dragon-zakura-class.webp",
+    title: "世の中に<br>越えられない壁なんてねえんだ",
+    sub: "樱木建二在特进班的最后一课 · 2005 年剧版",
+    size: 40
+  },
+  "gomenne-seishun-9": {
+    series: "ごめんね青春！· 第９話",
+    still: "gomenne-seishun-9-rooftop.webp",
+    title: "今は許しませんけど、<br>乗り越えましょう",
+    sub: "屋顶上的自白与告白 · 蜂矢理沙と原平助",
+    size: 39
+  },
+  "gomenne-seishun-10": {
+    series: "ごめんね青春！· 最終話",
+    still: "gomenne-seishun-10-stage.webp",
+    title: "全部、<br>僕の青春なんです",
+    sub: "青春祭最后一晚，礼堂舞台上的一整段自白",
+    size: 46
+  }
+};
+
+const slug = new URLSearchParams(location.search).get("slug") || "home";
+const d = DATA[slug];
+if (!d) throw new Error("unknown slug: " + slug);
+
+const card = document.getElementById("card");
+if (d.home) {
+  card.classList.add("home");
+  const strip = d.strip.map((f) =>
+    `<figure><img src="../../../../assets/stills/${f}" alt=""></figure>`).join("");
+  card.innerHTML = `
+    <p class="kicker">${d.kicker}</p>
+    <div class="lockup">
+      <h1>${d.title}</h1>
+      <div class="seal">${d.seal}</div>
+    </div>
+    <p class="lede">${d.lede}</p>
+    <p class="lede-sub">${d.ledeSub}</p>
+    <div class="strip">${strip}</div>
+    <div class="bottom"><span>${d.foot[0]}</span><span>${d.foot[1]}</span></div>
+  `;
+} else {
+  const src = "../../../../assets/stills/" + d.still;
+  card.innerHTML = `
+    <div class="top">
+      <span class="wordmark">読む</span>
+      <span class="hrule"></span>
+      <span class="series">${d.series}</span>
+    </div>
+    <div class="shot"><img src="${src}" alt=""></div>
+    <div class="text">
+      <div class="ttl" style="font-size:${d.size}px">${d.title}</div>
+      <p class="sub">${d.sub}</p>
+    </div>
+    <div class="bottom"><span>読む <span class="dot">・</span> 日剧台词精读</span><span>akisaya.github.io/yomu</span></div>
+  `;
+}
+</script>
+</body>
+</html>

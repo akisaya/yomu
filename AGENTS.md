@@ -63,7 +63,8 @@
    - 訳注：中文翻译的取舍。
 6. 从现有页面复制结构时，保留单文件 HTML、顶栏、首屏、正文、精读、词汇和页脚。按篇调整锚点、标题、来源、音频区间、剧照和计数。
 7. 在根 `index.html` 的 `.entries` 中加入 `<slug>/index.html` 链接、题眼和元信息；同步更新首页与页脚的收录数量。
-8. 按“交付前验收”检查新页和首页，不要只检查 HTML 能否打开。
+8. 生成分享卡 `assets/og/<slug>.jpg`（800×800、JPG），并在该页 `<head>` 写入 `canonical` 与 `og:*`／`twitter:*`，图片用绝对地址。做法见技能 `SKILL.md` 的「7. 分享预览（OG 卡）」。
+9. 按“交付前验收”检查新页和首页，不要只检查 HTML 能否打开。
 
 新增页面的最小结构参考是 `saikou-no-rikon/index.html` 与 `saikou-no-rikon/source.md`。连续独白可参考 `nigehaji/index.html` 的行锚点变体。
 
@@ -104,6 +105,7 @@ node .agent/skills/japanese-drama-line-study/scripts/shot.mjs "file://$PWD/<slug
 - 每条文法原句逐字出自所属段，并跳回正确锚点。
 - 首页条目、首屏元信息、页脚和小节标题中的段数、词数与收录数一致。
 - 振假名与中文开关、词汇搜索与筛选、精读卡开合、音频播放与区间停止都可用。
+- 每页 `<head>` 的 `og:image` 是绝对地址，指向存在的 `assets/og/<slug>.jpg`（800×800、JPG）；分享卡文案与该页标题、剧集一致。
 - 桌面和 390px 截图中没有振假名串行、长句异常断裂、锚点遮挡或横向溢出。
 - 本地 README 链接没有指向不存在的文件；修改文案时没有把 Agent 操作流程重新写回 README。
 
