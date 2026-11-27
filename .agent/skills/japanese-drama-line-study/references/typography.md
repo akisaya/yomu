@@ -10,15 +10,37 @@
   --ink:#211e1a; --ink-2:#514a42; --ink-3:#8d8377;
   --line:#e2dacc; --line-soft:#ece5d8;
   --shu:#b23a2b;            /* 朱红，只用于强调：印章、编号、悬停线、高亮 */
-  --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
-  --serif-cn:"Noto Serif SC","Songti SC","STSong",serif;
+  --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;                        /* 标题层，webfont */
+  --serif-jp-text:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;          /* 正文层，系统字体 */
+  --serif-cn:"Songti SC","STSong","SimSun","Noto Serif SC",serif;                               /* 中文，系统字体 */
   --sans:"Inter","Hiragino Sans","PingFang SC",system-ui,sans-serif;
   --mono:"SFMono-Regular",ui-monospace,monospace;
   --maxw:1120px;
 }
 ```
 
-字体走 Google Fonts（`Shippori Mincho` + `Noto Serif SC`），必须带系统回退，断网时仍是明朝体/宋体。正文 `font-size:16px; line-height:1.7`，中文段落 `letter-spacing:.02em; text-align:justify`。
+## 字族分层：标题用 webfont，正文用系统字体
+
+两个日文变量，不要合并：
+
+| 变量 | 字族 | 用在哪 | 为什么 |
+| --- | --- | --- | --- |
+| `--serif-jp` | Shippori Mincho（webfont） | 站名、竖排标题、题眼、小节标题、卡片标题 | 笔画细、留白多，大字有味道 |
+| `--serif-jp-text` | Hiragino → Yu Mincho → Noto（系统优先） | `.jp` 正文、`.s-jp` 精读卡原句、`.g-src` 语法原句、`.d-preview`、`.sig`、`.w`/`.r` 词汇、`.rail a` 索引 | 整页正文的面积最大，绝不能等字体 |
+| `--serif-cn` | Songti SC → SimSun → Noto（系统优先） | 译文栏 `.cn`、中文小字、章节副题 | 同上，中文栏比日文栏字数还多 |
+
+判据两条：
+
+1. **读者要逐字辨认的走正文层，用来定调子的走标题层。** 引文必须跟正文同族——`.g-src` 是可点回正文的原句片段，跳转前后字形不能变。
+2. **正文永远不放 webfont。** CJK 一个字重 4–8MB，Google Fonts 按 `unicode-range` 切片，一篇正文要拉 120 多片、3.8MB，字体必然晚于首帧到达，`display:swap` 一到位就整页换字形——从首页点进详情页时那一下「闪」就是这么来的。标题字数少、切片少、首页已缓存，用 webfont 才划算。
+
+实测（同一台机、冷缓存，改前 → 改后）：详情页字体 **125 片 / 3844KB → 58 片 / 843KB**，FCP **1.2–3.5s → 0.1s**，正文再无替换。
+
+正文 `clamp(15.5px,1.5vw,18px)`。全角字宽恒为 1em，字号直接决定每行字数：18px 下约 31 字，落在 30–40 的舒适区。
+
+Google Fonts 只请求 `family=Shippori+Mincho:wght@400;500;600&display=swap`。`wght` 后面漏 `@` 整条请求会失效，页面静默退回系统字体，肉眼看不出报错（`gomenne-seishun-9/-10` 踩过）。
+
+中文段落 `letter-spacing:.02em; text-align:justify`。
 
 ## 竖排标题
 

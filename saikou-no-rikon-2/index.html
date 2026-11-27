@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#f7f4ec">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 /* ============ 基础 ============ */
@@ -27,7 +27,8 @@
   --shu-soft:rgba(178,58,43,.14);
   --ai:#31465a;
   --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
-  --serif-cn:"Noto Serif SC","Songti SC","STSong",serif;
+  --serif-jp-text:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  --serif-cn:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
   --sans:"Inter","Helvetica Neue","Hiragino Sans","PingFang SC",system-ui,sans-serif;
   --mono:"SFMono-Regular","JetBrains Mono",ui-monospace,monospace;
   --maxw:1120px;
@@ -393,7 +394,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .addressee{
   margin:0 0 clamp(14px,2.2vw,22px);
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-size:clamp(17px,2vw,21px);
   letter-spacing:.12em;
   color:var(--ink);
@@ -441,7 +442,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .jp{
   margin:0;
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-size:clamp(15.5px,1.5vw,18px);
   line-height:2.34;
   letter-spacing:.045em;
@@ -511,7 +512,7 @@ html[data-cn="off"] .cn{display:none}
 .sig{
   margin:clamp(30px,4vw,46px) 0 0;
   text-align:right;
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-size:14px;
   letter-spacing:.14em;
   color:var(--ink-2);
@@ -553,7 +554,7 @@ html[data-cn="off"] .cn{display:none}
   padding:6px 0 6px 12px;
   margin-left:-1px;
   border-left:1px solid transparent;
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-size:12.5px;
   line-height:1.5;
   color:var(--ink-3);
@@ -663,7 +664,7 @@ details.drill[open] > summary::before{rotate:0deg}
   font-weight:500;
 }
 .d-preview{
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-size:13px;
   color:#6b6358;
   letter-spacing:.03em;
@@ -731,7 +732,7 @@ details.drill[open] .d-preview{color:var(--ink-2)}
   margin-right:.55em;
 }
 .items .ex{
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   color:var(--ink-3);
   font-size:13px;
   letter-spacing:.02em;
@@ -773,7 +774,7 @@ details.drill[open] .d-preview{color:var(--ink-2)}
   background:rgba(255,255,255,.62);
   border:1px solid var(--line);
   border-radius:2px;
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-size:13.5px;
   line-height:1.95;
   letter-spacing:.03em;
@@ -797,7 +798,7 @@ details.drill[open] .d-preview{color:var(--ink-2)}
   color:#6b6358;
 }
 .s-list b{
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-weight:600;
   font-size:13.5px;
   color:var(--ink);
@@ -918,14 +919,14 @@ table.vocab tr:last-child td{border-bottom:0}
 table.vocab tbody tr{transition:background .15s}
 table.vocab tbody tr:hover{background:rgba(178,58,43,.03)}
 .w{
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-size:14.5px;
   color:var(--ink);
   letter-spacing:.04em;
   font-weight:500;
 }
 .r{
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-size:12.5px;
   color:var(--ink-3);
   letter-spacing:.06em;
@@ -1161,7 +1162,7 @@ details.drill:not([open])::details-content{block-size:0}
   font-size:15px;
 }
 .items .g-src{
-  font-family:var(--serif-jp);
+  font-family:var(--serif-jp-text);
   font-size:14px;
   line-height:1.6;
   letter-spacing:.02em;
