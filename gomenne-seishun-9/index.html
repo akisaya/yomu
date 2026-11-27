@@ -9,12 +9,8 @@
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="theme-color" content="#f7f4ec">
-<link rel="preload" href="../assets/fonts/shippori-mincho-500.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add('js')</script>
 <style>
-@font-face{font-family:"Shippori Mincho";src:url("../assets/fonts/shippori-mincho-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
-@font-face{font-family:"Shippori Mincho";src:url("../assets/fonts/shippori-mincho-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:block}
-@font-face{font-family:"Shippori Mincho";src:url("../assets/fonts/shippori-mincho-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:block}
 /* ============ 基础 ============ */
 :root{
   --paper:#f7f4ec;
@@ -27,8 +23,8 @@
   --shu:#b23a2b;
   --shu-soft:rgba(178,58,43,.14);
   --ai:#31465a;
-  --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
-  --serif-jp-text:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  --serif-jp:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  --serif-jp-text:var(--serif-jp);
   --serif-cn:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
   --sans:"Inter","Helvetica Neue","Hiragino Sans","PingFang SC",system-ui,sans-serif;
   --mono:"SFMono-Regular","JetBrains Mono",ui-monospace,monospace;
