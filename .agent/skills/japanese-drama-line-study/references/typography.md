@@ -100,6 +100,9 @@ inline-size ≈ 字数 ×（line-height + letter-spacing）
 首页（根 `index.html`）与各作品页共用同一规格，改动时两处一起改：
 
 ```css
+.bar{position:sticky;top:0;z-index:60;background:rgba(247,244,236,.84);
+     backdrop-filter:blur(14px) saturate(1.1);-webkit-backdrop-filter:blur(14px) saturate(1.1);
+     border-bottom:1px solid var(--line-soft)}
 .bar-in{height:58px;align-items:center;padding-inline:clamp(18px,4vw,48px);gap:20px}
 @media (max-width:760px){.bar-in{height:52px;gap:10px}}
 .brand .logo{font-size:19px;letter-spacing:.18em}
@@ -107,7 +110,8 @@ inline-size ≈ 字数 ×（line-height + letter-spacing）
 ```
 
 - 高度、字号必须写成固定值，**不要用上下 `padding` 撑**：首页曾用 `padding:14px` + `align-items:baseline`，桌面量出 58.6px、移动端仍是 58.6px，而作品页是 58 / 52，切页时能看出跳动。
-- 作品页的 `.bar` 额外 `position:sticky;top:0` 与毛玻璃底；首页不吸顶，这是唯一有意的差异。
+- 首页与作品页**都吸顶**，毛玻璃参数一致；底色用 `--paper` 的 `.84` 而不是更浅的 `--paper-hi`，否则滚过去的内容会透得太明显。
+- 加了吸顶就要给锚点留位置：`[id]{scroll-margin-top:80px}`，否则从 `#works` 或正文段号跳过来，标题会被压在栏下（实测栏高 59 / 53，余量 21–27px）。
 
 ## 垂直节奏
 
