@@ -55,8 +55,8 @@
     <main>
       <section class="hero">  竖排标题 + 引文 + 按钮
       <section id="letter">   原文 + 译文
-      <section id="close-reading">  精読（文法并在这里，不单列）
-      <section id="vocab">    単語帳
+      <section id="close-reading">  精読（文法并在这里，不单列；整节默认收起）
+      <section id="vocab">    単語帳（整节默认收起）
     </main>
     <footer>                  出处 · 版权 · 返回列表
   </body>
@@ -191,7 +191,36 @@
 </details>
 ```
 
-`summary` 里只放编号、标题、一句预览；不要把正文塞进去。第一张卡默认 `open`，其余关闭。
+`summary` 里只放编号、标题、一句预览；不要把正文塞进去。**卡片不带 `open`**：整节收起时，编号 + 标题 + 预览就是这一节的目录，读者自己挑一张打开。
+
+## 小节折叠（精読 / 単語帳）
+
+两节整节默认收起，点标题行才展开。`section.sec` 照留，标题行做 `summary`，正文包进 `details.fold`：
+
+```html
+<section class="sec" id="close-reading">
+  <div class="wrap">
+    <details class="fold">
+      <summary class="sec-head reveal">
+        <p class="sec-num">02</p>
+        <div>
+          <h2>精読 <span aria-hidden="true">·</span> 逐段拆解</h2>
+          <p class="sub">…</p>
+        </div>
+        <span class="fold-key" aria-hidden="true"></span>
+      </summary>
+
+      <div class="drills">…</div>
+    </details>
+  </div>
+</section>
+```
+
+- 为什么整节收：正文读完不该被迫滚过十几张卡和六十几行词表；要查再点开。
+- `details.fold` 里的内容**不要加 `reveal`**：收起时 IntersectionObserver 观察不到它，展开后会停在半透明状态。
+- `.fold-key` 只有空 `<span>`，「開く／閉じる」和箭头由 CSS 的 `::before` / `::after` 画；`summary` 的可读名仍来自 h2。
+- 首屏「学習ノート」、页脚「精読／単語」、正文段号 `#dN` 都指向折叠内部。脚本里的 `landOn()` 先展开祖先 `details` 再 `scrollIntoView`，删掉就变成跳到一片空白。
+- `beforeprint` 展开全部、`afterprint` 还原；否则打印稿只剩两行标题。
 
 ## 词表
 

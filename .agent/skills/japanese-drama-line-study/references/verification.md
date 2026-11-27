@@ -126,7 +126,8 @@ node --check /tmp/page.js
     filtered,
     rows: document.querySelectorAll('#vbody tr').length,
     overflow: document.documentElement.scrollWidth - innerWidth,
-    openCards: document.querySelectorAll('details[open]').length,
+    foldsClosed: [...document.querySelectorAll('details.fold')].every(d => !d.open),
+    openCards: document.querySelectorAll('details[open]').length,   // 加载后应为 0
   };
 })()
 ```
@@ -135,7 +136,7 @@ node --check /tmp/page.js
 node scripts/shot.mjs "file://$PWD/index.html" .shot/smoke.png --width 390 --height 844 --eval /tmp/smoke.js
 ```
 
-必须覆盖：两个开关（含 localStorage 记忆）、词表搜索与词性筛选、折叠卡开合、音频（全篇条能播能拖、段落 ▶ 从 `data-start` 起播并在 `data-end` 自动停、音频 404 时回退 TTS；纯 TTS 页则检查 `speechSynthesis` 不存在时按钮已移除）、**点一条文法原句后 `location.hash` 落到 `#pN` 且该段命中 `:target`**、横向溢出为 0。
+必须覆盖：两个开关（含 localStorage 记忆）、词表搜索与词性筛选、折叠卡开合、音频（全篇条能播能拖、段落 ▶ 从 `data-start` 起播并在 `data-end` 自动停、音频 404 时回退 TTS；纯 TTS 页则检查 `speechSynthesis` 不存在时按钮已移除）、**点一条文法原句后 `location.hash` 落到 `#pN` 且该段命中 `:target`**、横向溢出为 0。加载后 `details[open]` 必须是 0（精読、単語帳、所有精读卡都收起）；再点首屏「学習ノート」或页脚「精読」，对应 `details.fold` 变 `open`，落点 `top`≈80。
 
 ## 五、目视清单
 

@@ -270,6 +270,31 @@ details.drill[open] > summary::before{rotate:0deg}
 
 旧浏览器（或不支持 `interpolate-size` 的）退化为瞬开，内容不受影响。不要为此引入 JS 高度计算。
 
+## 小节折叠（精読 / 単語帳）
+
+两节整节收起，标题行本身做 `summary`，右侧一个「開く／閉じる」+ 同款箭头：
+
+```css
+details.fold > summary.sec-head{
+  list-style:none; position:relative; padding-right:78px; cursor:pointer;
+}
+details.fold > summary.sec-head::-webkit-details-marker{display:none}
+details.fold:not([open]) > summary.sec-head{margin-bottom:0}
+.fold-key{
+  position:absolute; right:0; top:.4em; display:inline-flex; align-items:center; gap:7px;
+  font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-2);
+}
+.fold-key::before{content:"開く"}
+details.fold[open] .fold-key::before{content:"閉じる"}
+.fold-key::after{ /* mask 用 drill 同一个 chevron */ rotate:-90deg }
+details.fold[open] .fold-key::after{rotate:0deg}
+```
+
+- 收起态只缩**下**内边距：`.sec:has(> .wrap > details.fold:not([open])){padding-bottom:clamp(26px,3.4vw,46px)}`。连上内边距一起缩，点开的一瞬间被点的那行会往下跳五十像素。
+- `.fold-key` 绝对定位，不占 grid 列，标题与 `.sub` 的排版不受影响；窄屏只把 `padding-right` 收到 52px，**不要**把文字藏掉——只剩一个小箭头，没人知道能点。
+- `.sec-head` 上的 `reveal` 与 `:focus-visible` 都保留；`summary` 不要设 `outline:none`。
+- 收起/展开不做过场动画：这一节里面还套着 `details.drill`，两层 `::details-content` 一起过渡会打架。
+
 ## 文法条目与跳回高亮
 
 文法层的每条是两行：第一行「句型名 + 原句片段」，第二行说明。片段用朱红 `<em>` 圈出被讲的词，带一圈极淡的马克笔底；不要给整行加底色块。

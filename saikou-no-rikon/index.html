@@ -1003,6 +1003,51 @@ footer{
 
 /* ============ 折叠面板 ============ */
 [id]{scroll-margin-top:80px}
+
+/* 小节折叠：精読 / 単語帳 默认收起，点标题行展开 */
+details.fold > summary.sec-head{
+  list-style:none;
+  position:relative;
+  padding-right:78px;
+  cursor:pointer;
+}
+details.fold > summary.sec-head::-webkit-details-marker{display:none}
+details.fold:not([open]) > summary.sec-head{margin-bottom:0}
+details.fold > summary.sec-head h2{transition:color .2s}
+details.fold > summary.sec-head:hover h2{color:var(--shu)}
+.fold-key{
+  position:absolute;
+  right:0;
+  top:.4em;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.14em;
+  color:var(--ink-2);
+  transition:color .2s;
+}
+.fold-key::before{content:"開く"}
+details.fold[open] .fold-key::before{content:"閉じる"}
+.fold-key::after{
+  content:"";
+  inline-size:7.5px;
+  block-size:7.5px;
+  flex:none;
+  background-color:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+  rotate:-90deg;
+  transition:rotate .22s ease;
+}
+details.fold[open] .fold-key::after{rotate:0deg}
+details.fold > summary.sec-head:hover .fold-key{color:var(--shu)}
+.sec:has(> .wrap > details.fold:not([open])){padding-bottom:clamp(26px,3.4vw,46px)}
+@media (max-width:560px){
+  details.fold > summary.sec-head{padding-right:52px}
+}
+
 html{interpolate-size:allow-keywords}
 details.drill::details-content{
   overflow:clip;
@@ -1463,16 +1508,18 @@ details.drill:not([open])::details-content{block-size:0}
   <!-- ================= 精读 ================= -->
   <section class="sec" id="close-reading">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="sec-num">02</p>
-        <div>
-          <h2>精読 <span aria-hidden="true">·</span> 逐段拆解</h2>
-          <p class="sub">十二个段落，每段五层：骨架 → 语法 → 词汇 → 这一段的作用 → 翻译取舍。先看骨架，再回头看原文。</p>
-        </div>
-      </div>
+      <details class="fold">
+        <summary class="sec-head reveal">
+          <p class="sec-num">02</p>
+          <div>
+            <h2>精読 <span aria-hidden="true">·</span> 逐段拆解</h2>
+            <p class="sub">十二个段落，每段五层：骨架 → 语法 → 词汇 → 这一段的作用 → 翻译取舍。先看骨架，再回头看原文。</p>
+          </div>
+          <span class="fold-key" aria-hidden="true"></span>
+        </summary>
 
-      <div class="drills reveal">
-        <details class="drill" id="d1" open>
+      <div class="drills">
+        <details class="drill" id="d1">
           <summary>
             <span class="d-num">01</span>
             <span class="d-title">書き出しの挨拶</span>
@@ -2193,21 +2240,24 @@ details.drill:not([open])::details-content{block-size:0}
           </div>
         </details>
       </div>
+      </details>
     </div>
   </section>
 
   <!-- ================= 单词 ================= -->
   <section class="sec" id="vocab">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="sec-num">03</p>
-        <div>
-          <h2>単語帳 <span aria-hidden="true">·</span> 55 词</h2>
-          <p class="sub">按出现顺序排列。数字是段落号，点一下可以跳回去看上下文。</p>
-        </div>
-      </div>
+      <details class="fold">
+        <summary class="sec-head reveal">
+          <p class="sec-num">03</p>
+          <div>
+            <h2>単語帳 <span aria-hidden="true">·</span> 55 词</h2>
+            <p class="sub">按出现顺序排列。数字是段落号，点一下可以跳回去看上下文。</p>
+          </div>
+          <span class="fold-key" aria-hidden="true"></span>
+        </summary>
 
-      <div class="table-wrap reveal">
+      <div class="table-wrap">
         <div class="table-head">
           <search class="search">
             <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="M10.4 10.4L14 14"/></svg>
@@ -2287,6 +2337,7 @@ details.drill:not([open])::details-content{block-size:0}
         </table>
         <p class="empty" id="vempty" hidden>没有匹配的词。换个写法试试，比如「かわ」。</p>
       </div>
+      </details>
     </div>
   </section>
 
@@ -2406,6 +2457,42 @@ details.drill:not([open])::details-content{block-size:0}
     const t = document.getElementById(location.hash.slice(1));
     if (t) setTimeout(() => flash(t), 300);
   }
+
+  /* ---------- 5b. 小节折叠：跳到内部锚点时先展开 ---------- */
+  const landOn = (id) => {
+    const t = document.getElementById(id);
+    if (!t) return;
+    let opened = false;
+    if (t.tagName === 'DETAILS' && !t.open) { t.open = true; opened = true; }
+    const near = t.querySelector('details.fold');
+    if (near && !near.open) { near.open = true; opened = true; }
+    for (let n = t.parentElement; n; n = n.parentElement) {
+      if (n.tagName === 'DETAILS' && !n.open) { n.open = true; opened = true; }
+    }
+    if (!opened) return;
+    requestAnimationFrame(() => requestAnimationFrame(() => t.scrollIntoView({ block: 'start' })));
+  };
+  addEventListener('hashchange', () => {
+    if (location.hash.length > 1) landOn(location.hash.slice(1));
+  });
+  if (location.hash.length > 1) landOn(location.hash.slice(1));
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    if (id) setTimeout(() => landOn(id), 0);
+  });
+
+  /* 打印时展开全部折叠 */
+  let foldBack = null;
+  addEventListener('beforeprint', () => {
+    foldBack = $$('details').map(d => [d, d.open]);
+    foldBack.forEach(([d]) => { d.open = true; });
+  });
+  addEventListener('afterprint', () => {
+    if (foldBack) foldBack.forEach(([d, open]) => { d.open = open; });
+    foldBack = null;
+  });
 
   /* ---------- 6. 原声朗读（按段落切分；音频不可用时回退浏览器朗读） ---------- */
   const box = document.getElementById('audible');

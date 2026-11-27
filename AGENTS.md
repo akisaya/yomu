@@ -83,6 +83,7 @@
 - 设计基调为纸色 `#f7f4ec`、墨色 `#211e1a`、朱红 `#b23a2b`、发丝线 `#e2dacc`，日文用明朝体、中文用宋体、标签用等宽字体。
 - 竖排标题使用 `writing-mode: vertical-rl`，通过 `inline-size` 控制换行；不要用 `block-size` 限制竖排宽度。
 - 折叠卡使用原生 `<details>`。正文目标段设置 `scroll-margin-top`，回跳时避开吸顶栏。
+- 精読与単語帳两节整节收起：`section.sec` 里套 `<details class="fold">`，标题行做 `summary`；精读卡本身也不再带 `open`。首屏按钮、页脚分区和段号 `#dN` 跳到折叠内部时要先展开再定位。
 - 窄屏下必须保留正文、译文、原声按钮和词汇检索；不要隐藏关键内容或造成横向溢出。
 - 图片必须有 `alt`、宽高和正确的剧照比例；外链打开新窗口时使用 `rel="noopener noreferrer"`。
 - 390px 布局必须通过 CDP 模拟查看。Chrome 的 `--window-size=390` 会被钳到至少 500px，不能作为手机验收依据。
