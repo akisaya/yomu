@@ -1,0 +1,23 @@
+README.md
+  s_7e36c8b674ecbf::t_03c3d0780d6488 3,5,7,10,14,16,18,20,22-29,31,33,35,37,39,41,43,45,51,53,57,59,61-65,67,69,71-74,76,78,80,86,88
+  s_7e36c8b674ecbf::t_a972ce48a1729c 47,84
+AGENTS.md
+  s_7e36c8b674ecbf::t_a972ce48a1729c 1-42,44-48,50-110
+  s_7e36c8b674ecbf::t_b9ec833098d999 43,49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.52-trip",
+  "base_commit_sha": "0f7b348aa56d3fdac4dd2a9928f8f3009c0ee736",
+  "prompts": {},
+  "sessions": {
+    "s_7e36c8b674ecbf": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a21baf-fc1e-76c3-8334-5ae533c0dbc2",
+        "model": "deepseek-v4.1-flash[1M]"
+      },
+      "human_author": "akisaya <akikevinsama@gmail.com>"
+    }
+  }
+}
